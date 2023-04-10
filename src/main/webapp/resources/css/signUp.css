@@ -1,0 +1,374 @@
+.container{
+    /* border: 1px solid red; */
+}
+
+html, body {
+    height: 100%;
+  }
+
+/* header design--------------------------------- */
+
+header{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    height: 90px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 30px 0px 30px;
+}
+
+header img{
+    height: 95px;
+}
+
+
+#loinOpenBtn{
+    background-color: #ffb703;
+    height: 60px;
+    width: 120px;
+
+    border: none;
+    border-radius: 5px;
+
+    color: white;
+    font-size: 20px;
+}
+
+
+#loinOpenBtn i {
+    margin-right: 10px;
+}
+
+
+/* 사이드 메뉴 */
+.side-menu{
+    width: 0px;
+    height: 100%;
+    margin-top: 0px;
+    top: 0;
+    right: 0;
+    position: fixed;
+    z-index: 1;
+    overflow-x: hidden;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: 0.4s;
+
+
+}
+
+#loginCloseBtn{
+    position: absolute;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+}
+
+.loginWrap{
+    /* border: 1px solid red; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loginLogoArea{
+    background-color: antiquewhite;
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginLogoArea img{
+    height: 200px;
+    margin-top: 30 0px 30px 0px;
+}
+
+.login-area{
+    /* border: 2px solid red; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0px 20px 0px;
+}
+
+#loginForm{
+    /* border: 2px solid blue; */
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    text-align: start;
+}
+
+#loginForm label {
+    color: #fb8500;
+    display: block;
+    text-align: start;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+#loginForm input{
+    width: 100%;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ea9f4a;
+    color: #ea9f4a;
+}
+
+#loginForm input:focus{
+    outline: none;
+    border-bottom: 2px solid #ea9f4a;
+    
+}
+
+#mail-Msg{
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+#loginBtn{
+    width: 100%;
+    margin-top: 30px;
+    height: 50px;
+    border: none;
+    background-color: #ffb703;
+    color: white;
+    border-radius: 5px;
+}
+
+#kakaoLogin-Btn{
+    width: 85%;
+    margin: auto;
+    margin-top: 10px;
+    height: 50px;
+    border: none;
+    background-color: #F7E600;
+    color: #3A1D1D;
+    border-radius: 5px;
+}
+
+#kakaoLogin-Btn i{
+    margin-right: 10px;
+}
+
+.loginWrap {
+    color: gray;
+}
+
+.loginWrap > span a{
+    text-decoration: none;
+    color: gray;
+    margin: 0px 10px;
+}
+
+.loginWrap > span a:hover{
+    font-weight: bold;
+}
+
+.hr-sect {
+    width: 90%;
+	display: flex;
+	flex-basis: 100%;
+	align-items: center;
+	color: rgba(0, 0, 0, 0.35);
+	font-size: 12px;
+	margin: 20px 0px;
+}
+
+.hr-sect::before,
+.hr-sect::after {
+  content: "  ";
+  flex-grow: 1;
+  background: rgba(0, 0, 0, 0.35);
+  height: 1px;
+  font-size: 12px;
+  line-height: 1px;
+  margin: 0px 16px;
+}
+
+
+
+.sign-area{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px 20px 0px;
+}
+
+.sign-area button:nth-child(1){
+    background-color: #8ecae6;
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    width: 90%;
+    color: white;
+}
+
+.sign-area button:nth-child(2){
+    background-color: #F7E600;
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    width: 90%;
+    margin-top: 10px;
+    color: #3A1D1D;
+}
+
+.sign-area button i{
+    margin-right: 10px;
+}
+/* 사이드 메뉴 end */
+
+
+/* header design--------------------------------- */
+
+
+
+/*--------main---------------*/
+.signUp-Content{
+    display: flex;
+    justify-content: center;
+}
+
+h3{
+    color: #fb8500;
+    text-align: center;
+    margin: 20px 0px;
+}
+
+form[name="signUp-form"]{
+    /* background-color: antiquewhite; */
+    width: 40%;
+    margin: 30px 0px;
+}
+
+@media screen and (max-width:48rem){
+    form[name="signUp-form"]{
+      width: 80%;
+     }
+    }
+
+form[name="signUp-form"] > label{
+    display: block;
+    margin-top: 30px;
+    font-size : 18px;
+    color: #fb8500;
+}
+
+form[name="signUp-form"] > div{
+    border-bottom: 1px solid #ea9f4a;
+    height: 40px;
+}
+
+form[name="signUp-form"] > div:focus-within{
+    border-bottom: 2px solid #ea9f4a;
+}
+
+form[name="signUp-form"] > div input{
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    padding: 0px 10px;
+    color: #ea9f4a;
+}
+
+form[name="signUp-form"] > div input:focus{
+    outline: none;
+    background-color: transparent;
+    color: #ea9f4a;
+}
+
+
+#memberEmail, #cNmuber, #postInput{
+    width: 69%;
+    padding: 0px 10px 0px 10px;
+}
+
+
+
+#sendEmailBtn, #cNumBtn, #postBtn{
+    width: 30%;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffb703;
+    color: white;
+}
+
+@media screen and (max-width:48rem){
+    #memberEmail, #cNmuber, #postInput{
+        width: 68%;
+    }
+    #sendEmailBtn, #cNumBtn, #postBtn{
+        font-size: 15px;
+    }
+    }
+
+#postBtn{
+    width: 30%;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffb703;
+    color: white;
+}
+
+#signBtn{
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffb703;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+
+    margin-top: 20px;
+}
+
+.memberAddrDiv{
+    margin-bottom: 5px;
+}
+
+
+
+
+/*--------main---------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*footer design----------------------------------- */
+footer {
+  background-color: #023047;
+  height: 100px;
+  width: 100%;
+  bottom: 0px;
+  color: white;
+}
