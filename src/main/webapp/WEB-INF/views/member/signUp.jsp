@@ -31,7 +31,7 @@
 
                 <div class="login-area">
 
-                    <form action="" id="loginForm">
+                    <form action="/member/signUp" id="loginForm">
                         <label>Email Address</label>
                         <input type="text">
                         <label>Password</label>
