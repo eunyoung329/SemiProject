@@ -14,7 +14,7 @@ import com.google.gson.Gson;
 import semi.Project.muktopia.member.model.service.MemberService;
 import semi.Project.muktopia.member.model.vo.Member;
 
-@WebServlet("")
+@WebServlet("/member/findEmail")
 public class SelectOneServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

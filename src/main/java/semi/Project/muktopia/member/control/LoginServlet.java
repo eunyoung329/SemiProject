@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import semi.Project.muktopia.member.model.service.MemberService;
 import semi.Project.muktopia.member.model.vo.Member;
 
-@WebServlet("")
+@WebServlet("/member/login")
 public class LoginServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -105,7 +105,7 @@ public class LoginServlet extends HttpServlet{
 				//리다이렉트할 장소를 적어
 //				req.getRequestDispatcher("../index.jsp").forward(req, resp);
 			}else {
-				session.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
+				//session.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
 			}
 			
 			

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import semi.Project.muktopia.member.model.service.MemberService;
 import semi.Project.muktopia.member.model.vo.Member;
 
-@WebServlet("")
+@WebServlet("/member/secession")
 public class SecessionServlet extends HttpServlet{
 @Override
 protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import semi.Project.muktopia.member.model.service.MemberService;
 
-@WebServlet("")
+@WebServlet("/member/emailSend")
 public class SendEmailServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

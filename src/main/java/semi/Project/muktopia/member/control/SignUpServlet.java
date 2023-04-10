@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import semi.Project.muktopia.member.model.service.MemberService;
 
-@WebServlet("")
+@WebServlet("/member/signUp")
 public class SignUpServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import semi.Project.muktopia.member.model.service.MemberService;
 
-@WebServlet("")
+@WebServlet("/member/selectTel")
 public class SelectMemberTelServlet extends HttpServlet{
 	
 	@Override
