@@ -40,7 +40,7 @@ public class SendEmailServlet extends HttpServlet{
 		
 		
 		final String smtpEmail = "kks4116@gmail.com"; // 이메일
-		final String password = "ymljtsnfkleuwfys"; // 발급 받은 비밀번호
+		final String password = "asdfasdfasdfsda"; // 발급 받은 비밀번호
 		// 메일 옵션 설정
 		Properties props = new Properties();
 		
