@@ -1,0 +1,179 @@
+
+/*정보 사이드메뉴*/
+
+.info-side{
+    /* border: 2px solid #fb8500; */
+    margin-top: 50px;
+}
+
+.info-side  ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.info-side ul li{
+    font-size: 20px;
+    margin: 30px 40px;
+}
+
+.info-side ul li a{
+    text-decoration: none;
+    color: #fb8500;
+    font-weight: bold;
+}
+
+.info-side ul li a:hover{
+    color: #ea9f4a;
+}
+
+/*정보 사이드메뉴 끝*/
+
+.info-area{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    /* border: 3px solid pink; */
+}
+
+
+/* 사진변경 */
+.myImg-area{
+    width: 300px;
+    height: 100%;
+    border-radius: 150px;
+    position: relative;
+    /* border: 1px solid red; */
+
+}
+
+.myImg-area img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+#imgSelectBtn{
+    position: absolute;
+    bottom: 40px;
+    right: -10px;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    font-size: 40px;
+    color: white;
+    background-color: #fb8500;
+    border: 4px solid white;
+}
+/* 사진변경 끝*/
+
+
+
+/*정보변경*/
+form[name="info-form"]{
+    /* border: 2px solid red; */
+    width: 30%;
+    margin-left: 100px;
+}
+
+form[name="info-form"] label{
+    color: #fb8500;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0px 5px 0px;
+}
+
+form[name="info-form"] input{
+    width: 100%;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    padding: 0px 10px;
+    margin-bottom: 5px;
+}
+
+form[name="info-form"] input:focus{
+    outline: none;
+    background-color: transparent;
+}
+
+form[name="info-form"] div{
+    border-bottom: 1px solid #fb8500;
+}
+
+form[name="info-form"] div:focus-within{
+    border-bottom: 2px solid #fb8500;
+}
+
+.birth-area{
+    display: flex;
+}
+
+.birth-area input{
+    text-align: end;
+}
+
+#postInput{
+    width: 70%;
+}
+
+#postBtn{
+    width: 28%;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    background-color: #fb8500;
+    color: white;
+}
+
+#saveBtn{
+    width: 100%;
+    margin-top: 50px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    background-color: #fb8500;
+    color: white;
+    font-size: 18px;
+}
+
+@media screen and (max-width:48rem){
+    .info-area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    }
+
+    .myImg-area{
+        width: 200px;
+    }
+
+    form[name="info-form"]{
+        width: 80%;
+        margin-left: 0px;
+    }
+
+    #imgSelectBtn{
+        width: 80px;
+        height: 80px;
+        bottom: 30px;
+    }
+
+    .info-side ul{
+        /* background-color: yellow; */
+        margin-bottom: 0px;
+    }
+
+    .info-side ul li{
+        font-size: 15px;
+        margin-left: 10px;
+        /* border: 1px solid red; */
+    }
+
+}
+
+
+
+

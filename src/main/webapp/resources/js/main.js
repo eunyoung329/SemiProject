@@ -19,6 +19,7 @@ const checkOBJ = {
     loginPwck : false
 }
 
+/*
 function loginInvalidate(){
     if(loginID.value.length ==0){
         alert("로그인 아이디를 입력하시오");
@@ -39,3 +40,5 @@ function loginInvalidate(){
     }
     return false;
 }
+
+*/
