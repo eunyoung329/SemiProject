@@ -100,4 +100,17 @@ public class MemberService {
 		else rollback(conn);
 		return result;
 	}
+	public Member loginKakao(Member mem) throws Exception{
+		Connection conn = getConnection();
+		Member result = null;
+		result = new MemberDAO().loginKakao(conn,mem);
+		return result;
+	}
+	public int signUpKakao(String kakaoEmail, String kakaoNickname) throws Exception{
+		Connection conn = getConnection();
+		int result = new MemberDAO().signUpKakao(conn, kakaoEmail, kakaoNickname);
+		if(result > 0) commit(conn);
+		else rollback(conn);
+		return result;
+	}
 }

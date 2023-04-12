@@ -22,7 +22,7 @@ public class MemberDAO {
 	public MemberDAO() {
 		try {
 			prop = new Properties();
-			String filePath = MemberDAO.class.getResource("/edu/kh/community/sql/member-sql.xml").getPath();
+			String filePath = MemberDAO.class.getResource("/semi/Project/muktopia/sql/member-sql.xml").getPath();
 			prop.loadFromXML(new FileInputStream (filePath));
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -39,7 +39,7 @@ public class MemberDAO {
 			if(rs.next()) {
 				member = new Member();
 				member.setMemberEmail(rs.getString(1));
-				member.setMemberNickname(rs.getString(2));
+				member.setMemberNick(rs.getString(2));
 				member.setMemberTel(rs.getString(3));
 				member.setMemberAddress(rs.getString(4));
 				member.setEnrollDate(rs.getString(5));
@@ -67,7 +67,7 @@ public class MemberDAO {
 				loginMember = new Member();
 				loginMember.setMemberNo(  rs.getInt("MEMBER_NO") );
 				loginMember.setMemberEmail( 	rs.getString("MEMBER_EMAIL") );
-				loginMember.setMemberNickname( 	rs.getString("MEMBER_NICK")	 );
+				loginMember.setMemberNick( 	rs.getString("MEMBER_NICK")	 );
 				loginMember.setMemberTel( 		rs.getString("MEMBER_TEL") 	 );
 				loginMember.setMemberAddress( 	rs.getString("MEMBER_ADDR")  );
 				loginMember.setProfileImage( 	rs.getString("PROFILE_IMG")  );
@@ -236,6 +236,49 @@ public class MemberDAO {
 			rs = pstmt.executeQuery();
 			if(rs.next())
 				result = rs.getInt(1);
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return result;
+	}
+	public Member loginKakao(Connection conn, Member mem) throws Exception{
+		Member loginMember = null;
+		
+		try {
+			String sql = prop.getProperty("loginKakao");
+			// PrepareedStatement
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mem.getMemberEmail());
+			pstmt.setString(2, mem.getMemberNick());
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				loginMember = new Member();
+				loginMember.setMemberNo(  rs.getInt("MEMBER_NO") );
+				loginMember.setMemberEmail( 	rs.getString("MEMBER_EMAIL") );
+				loginMember.setMemberNick( 	rs.getString("MEMBER_NICK")	 );
+				loginMember.setMemberTel( 		rs.getString("MEMBER_TEL") 	 );
+				loginMember.setMemberAddress( 	rs.getString("MEMBER_ADDR")  );
+				loginMember.setProfileImage( 	rs.getString("PROFILE_IMG")  );
+				loginMember.setEnrollDate( 		rs.getString("ENROLL_DATE") 	 );
+			}
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return loginMember;
+	}
+	public int signUpKakao(Connection conn, String kakaoEmail, String kakaoNickname) throws Exception{
+		int result = 0;
+		try {
+			String sql = prop.getProperty("kakaoSignUp");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, kakaoEmail);
+			pstmt.setString(2, kakaoNickname);
+			
+			result = pstmt.executeUpdate();
 		}finally {
 			close(rs);
 			close(pstmt);
