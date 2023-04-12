@@ -1,12 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<<<<<<< HEAD
-
-<!-- <c:choose>
-    <c:when test = "${empty sessionScope.loginMember}"> -->
-=======
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
->>>>>>> feacher/member3
 <header>
 <c:choose>
     <c:when test="${empty sessionScope.loginMember}">
@@ -51,7 +45,7 @@
              
              <div class="sign-area">
                  <button><i class="fa-solid fa-envelope"></i>이메일로 가입하기</button>
-                 <button id><i class="fa-solid fa-comment"></i>카카오톡으로 가입하기</button>
+                 <button id="kakaoLogin-Btn"><i class="fa-solid fa-comment"></i>카카오톡으로 가입하기</button>
              </div>
          </div>
      </div>

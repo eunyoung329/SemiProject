@@ -18,83 +18,102 @@ const checkOBJ = {
     loginIdck : false,
     loginPwck : false
 }
+var kakaoToken;
 
-<<<<<<< HEAD
-/*
-=======
 
+
+
+// kakaoLogin_Btn.addEventListener("click",function(){
+//     loginwithKakao();
+//     if(kakaoToken === null){
+//         console.log("오류");
+//     }else{
+//         const loginID = kakaoToken.id;
+//         const loginNickname = kakaoToken.kakao_account.profile_nickname;
+//         $.ajax({
+//             url: "member/login",
+//             type: "POST",
+//             data: {"kakaoId": loginID,
+//                    "kakaoNick" : loginNickname,//response.properties.nickname,
+//                    "loginType" : "Y"},
+//             success : function(loginMember){
+//                 console.log(loginMember);
+//                 if("${empty !empty sessionScope.loginMember"){
+//                     console.log("되냐.");
+//                 }
+//             },
+//             error:function(response){
+//                 console.log(response)
+//             }
+//             });
+//     }
+// });
 
 const kakaoLogin_Btn = document.getElementById("kakaoLogin-Btn");
-kakaoLogin_Btn.addEventListener("click",function(){
-    loginwithKakao();
-
-});
-
-function loginwithKakao(){
-    Kakao.init('ba5a975a4e3050a2c21c38fbe305e366');//사용자의 키
-    Kakao.Auth.login({
-        success: function(authObj) {
-        //console.log(JSON.stringify(authObj));
-        Kakao.API.request({
-            url: '/v2/user/me',
-            success: function(response) {
-              // response에는 사용자 정보가 담겨 있음
-              console.log(response);
-              $.ajax({
+kakaoLogin_Btn.addEventListener("click", async function(){
+    try {
+        kakaoToken = await loginwithKakao();
+        if(kakaoToken === null){
+            console.log("오류");
+        }else{
+            const loginID = kakaoToken.id;
+            const loginNickname = kakaoToken.kakao_account.profile_nickname;
+            $.ajax({
                 url: "member/login",
                 type: "POST",
-                data: {"kakaoId": response.id,
-                       "kakaoNick" : response.properties.nickname,
+                data: {"kakaoId": loginID,
+                       "kakaoNick" : loginNickname,//response.properties.nickname,
                        "loginType" : "Y"},
                 success : function(loginMember){
                     console.log(loginMember);
-                    if(loginMember === "null"){
-                        console.log("왜 안됨?");
-                        $.ajax({
-                            url: 'member/signUp',
-                            type: "POST",
-                            data: {"kakaoId": response.id,
-                            "kakaoNick" : response.properties.nickname,
-                            "loginType" : true},
-                            success : function(result){
-                                console.log(result);
-                                $.ajax({
-                                    url:member/returnHome,
-
-                                    success:function(result){},
-                                    error:function(result){}
-
-                                });
-                            },
-                            error : function(result){
-                                $.ajax({
-                                    url:member/returnHome
-                                });
-                            }
-                        });
+                    if("${!empty sessionScope.loginMember"){
+                        console.log("되냐.");
                     }else{
-                        console.log(typeof(loginMember));
+                        console.log("회원가입해야함.");
                     }
+                    
                 },
-                error:function(){
-
+                error:function(response){
+                    console.log(response)
                 }
+                });
+        }
+        const loginID = kakaoToken.id;
+        const loginNickname = kakaoToken.kakao_account.profile_nickname;
+        // ...
+    } catch (error) {
+        console.error(error);
+    }
+});
 
-              });
+
+function loginwithKakao(){
+    return new Promise((resolve, reject) => {
+        Kakao.init("ba5a975a4e3050a2c21c38fbe305e366");
+        Kakao.Auth.login({
+            success: function(response) {
+                Kakao.API.request({
+                    url: '/v2/user/me',
+                    success: function(response) {
+                        resolve(response);
+                    },
+                    fail: function(error) {
+                        reject(error);
+                    }
+                });
             },
             fail: function(error) {
-              console.log(error);
+                reject(error);
             }
-            });
-
-        },
-        fail: function(err) {
-        alert(JSON.stringify(err))
-        },
+        });
     });
 }
 
->>>>>>> feacher/member3
+function signUpkakao(){
+    const id = kakaoToken.id;
+    const nickName = kakaoToken.kakao_account.profile_nickname;
+   
+}
 function loginInvalidate(){
     if(loginID.value.length ==0){
         alert("로그인 아이디를 입력하시오");
@@ -116,4 +135,3 @@ function loginInvalidate(){
     return false;
 }
 
-*/
