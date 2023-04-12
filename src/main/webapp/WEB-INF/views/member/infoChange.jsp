@@ -18,7 +18,7 @@
 
     <main>
 
- <!-- 정보 메뉴 -->
+ 	<!-- 정보 메뉴 -->
     <section class="info-side container">
         <ul>
             <li><a href="">정보변경</a></li>
@@ -27,9 +27,9 @@
         </ul>
     </section>
 
-     <!-- 정보 사이드메뉴 -->
+     <!-- 정보 메뉴 끝 -->
      
-        <section class="info-area container">
+        <section class="ChangeInfo-area container">
 
 
             <div class="myImg-area">

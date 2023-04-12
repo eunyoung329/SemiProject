@@ -250,11 +250,12 @@ form[name="loginForm"] input:focus{
 /*footer design----------------------------------- */
 footer{
     background-color: #fff8f1;
-    height: 300px;
+    height: 350px;
     width: 100%;
-    position: fixed;
     bottom: 0px;
     color: black;
+    display: flex;
+    align-items: center;
 }
 
 footer section{
