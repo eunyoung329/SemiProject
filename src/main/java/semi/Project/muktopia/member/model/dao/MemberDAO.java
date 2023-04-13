@@ -270,13 +270,17 @@ public class MemberDAO {
 		
 		return loginMember;
 	}
-	public int signUpKakao(Connection conn, String kakaoEmail, String kakaoNickname) throws Exception{
+	public int signUpKakao(Connection conn, String kakaoEmail, String kakaoNickname, String kakaoImage, String kakaoGender) throws Exception{
 		int result = 0;
+		if(kakaoGender == "male") kakaoGender = "M";
+		else kakaoGender = "F";
 		try {
 			String sql = prop.getProperty("kakaoSignUp");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, kakaoEmail);
 			pstmt.setString(2, kakaoNickname);
+			pstmt.setString(3, kakaoImage);
+			pstmt.setString(4, kakaoGender);
 			
 			result = pstmt.executeUpdate();
 		}finally {

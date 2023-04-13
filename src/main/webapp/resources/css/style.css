@@ -97,7 +97,7 @@ header img{
     margin: 20px 0px 20px 0px;
 }
 
-#loginForm{
+form[name="loginForm"]{
     /* border: 2px solid blue; */
     width: 85%;
     display: flex;
@@ -107,7 +107,7 @@ header img{
     text-align: start;
 }
 
-#loginForm label {
+form[name="loginForm"] label {
     color: #fb8500;
     display: block;
     text-align: start;
@@ -115,7 +115,7 @@ header img{
     margin-top: 10px;
 }
 
-#loginForm input{
+form[name="loginForm"] input{
     width: 100%;
     height: 40px;
     background-color: transparent;
@@ -124,7 +124,7 @@ header img{
     color: #ea9f4a;
 }
 
-#loginForm input:focus{
+form[name="loginForm"] input:focus{
     outline: none;
     border-bottom: 2px solid #ea9f4a;
     
@@ -249,10 +249,97 @@ header img{
 
 /*footer design----------------------------------- */
 footer{
-    background-color: #023047;
-    height: 100px;
+    background-color: #fff8f1;
+    height: 350px;
     width: 100%;
-    position: fixed;
     bottom: 0px;
-    color: white;
+    color: black;
+    display: flex;
+    align-items: center;
 }
+
+footer section{
+    padding: 30px 0px;
+}
+
+.footer-firstLine{
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-area{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px;
+}
+
+.info-area span{
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ea9f4a;
+}
+
+.info-area a{
+    margin-bottom: 10px;
+}
+
+footer a{
+    text-decoration: none;
+    color: black;
+}
+
+footer a:hover{
+    color: #ea9f4a;
+    font-weight: bold;
+}
+
+.sns-area{
+    display: inline;
+    display: flex;
+    justify-content: center;
+}
+
+.sns-style{
+    width: 60px;
+    height: 54px;
+    background-color: #ffb703;
+    border-radius: 50%; 
+    margin-right: 15px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .icon{
+    font-size: 24px;
+  }
+
+@media screen and (max-width:48rem){
+    .sns-area{
+        display: none;
+    }
+
+    .info-area span{
+        font-size: 18px;
+    }
+
+    .info-area a{
+        font-size: 13px;
+    }
+    
+    .footer-secondLine{
+        font-size: 13px;
+    }
+    }
+
+  .footer-secondLine{
+    padding: 0px 20px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .footer-secondLine span{
+    margin: 0px 5pxs;
+  }

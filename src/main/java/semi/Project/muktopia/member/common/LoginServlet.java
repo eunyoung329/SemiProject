@@ -82,8 +82,8 @@ public class LoginServlet extends HttpServlet{
 		String kakaoId = req.getParameter("kakaoId");
 		String kakaoNick = req.getParameter("kakaoNick");
 		
-		System.out.println("kakaoId : " + kakaoId);
-		System.out.println("kakaoNick : " + kakaoNick);
+		//System.out.println("kakaoId : " + kakaoId);
+		//System.out.println("kakaoNick : " + kakaoNick);
 		
 		Member mem = new Member();
 		
@@ -92,20 +92,15 @@ public class LoginServlet extends HttpServlet{
 		
 		try {
 			MemberService service = new MemberService();
-			//이메일, 비밀번호가 일치하는 회원을 조회하는 서비스 호출 후 결과 반환 받기
 			Member loginMember = service.loginKakao(mem);
-			System.out.println(loginMember);
-			//session scope
-			//로그인
-			//id/pw가 일치하는 회원 정보를 Session scope에 세팅하는 것.
-			//session 객체 얻어오기
+			//System.out.println(loginMember);
 			HttpSession session = req.getSession();
 			if(loginMember!=null) {
 				// 회원 정보 Session 세팅
 				session.setAttribute("loginMember", loginMember);
 				//특정 시간 동안 요청이 없으면 세션 만료
 				session.setMaxInactiveInterval(3600);//초단위로 작성하는 것
-				
+				System.out.println(loginMember);
 				Cookie c = new Cookie("saveId",kakaoId);
 				if(req.getParameter("saveId")!=null) {
 					
@@ -118,15 +113,16 @@ public class LoginServlet extends HttpServlet{
 				
 				resp.addCookie(c);
 				
-				new Gson().toJson(loginMember, resp.getWriter());
-				//resp.sendRedirect(req.getContextPath());
+//				req.getContextPath()
+				System.out.println("되냐");
+				
 				//리다이렉트할 장소를 적어
 //				req.getRequestDispatcher("../index.jsp").forward(req, resp);
 			}else {
 				//session.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
 				new Gson().toJson(loginMember, resp.getWriter());
 			}
-			
+			resp.sendRedirect(req.getContextPath()+"/index.jsp");
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
