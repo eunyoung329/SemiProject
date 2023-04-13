@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,27 +8,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>signUp</title>
     <script src="https://kit.fontawesome.com/069a8eb008.js" crossorigin="anonymous"></script> 
-    <link rel="stylesheet" href="/signUp.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/signUp.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
 
     <header>
        <div>
-        <img src="/img/logoSample2.png" alt="">
+        <img src="${contextPath}/resources/img/logoSample2.png" alt="">
        </div>
 
        <div>
         <button type="button" onclick="openNav()" id="loinOpenBtn"><i class="fa-solid fa-user" style="color: #ffffff;"></i>Login</button>
        </div>
 
-       <!-- 로그인/프로필 사이드 메뉴 -->
+       <!-- ë¡ê·¸ì¸/íë¡í ì¬ì´ë ë©ë´ -->
        <div class="side-menu" id="mySidenav">
             <button type="button" id="loginCloseBtn" onclick="closeNav()" >&times;</button>
             
             <div class="loginWrap">
                 <div class="loginLogoArea">
-                    <img src="/img/logoSample2.png" alt="">
+                    <img src="${contextPath}/resources/img/logoSample2.png" alt="">
                 </div>
 
                 <div class="login-area">
@@ -36,24 +38,24 @@
                         <input type="text">
                         <label>Password</label>
                         <input type="password">
-                        <span id="mail-Msg">메일 입력 관련 메세지</span>
-                        <button id="loginBtn">이메일로 로그인하기</button>
+                        <span id="mail-Msg">ë©ì¼ ìë ¥ ê´ë ¨ ë©ì¸ì§</span>
+                        <button id="loginBtn">ì´ë©ì¼ë¡ ë¡ê·¸ì¸íê¸°</button>
                     </form>
-                        <button id="kakaoLogin-Btn"><i class="fa-solid fa-comment"></i>카카오톡으로 로그인하기</button>
+                        <button id="kakaoLogin-Btn"><i class="fa-solid fa-comment"></i>ì¹´ì¹´ì¤í¡ì¼ë¡ ë¡ê·¸ì¸íê¸°</button>
                 </div>
 
                 <span>
-                    <a href="">이메일 찾기</a>
+                    <a href="">ì´ë©ì¼ ì°¾ê¸°</a>
                     |
-                    <a href="">비밀번호 찾기</a>
+                    <a href="">ë¹ë°ë²í¸ ì°¾ê¸°</a>
                 </span>
 
                 <div class="hr-sect">OR</div>
                 
                 
                 <div class="sign-area">
-                    <button><i class="fa-solid fa-envelope"></i>이메일로 가입하기</button>
-                    <button><i class="fa-solid fa-comment"></i>카카오톡으로 가입하기</button>
+                    <button><i class="fa-solid fa-envelope"></i>ì´ë©ì¼ë¡ ê°ìíê¸°</button>
+                    <button><i class="fa-solid fa-comment"></i>ì¹´ì¹´ì¤í¡ì¼ë¡ ê°ìíê¸°</button>
                 </div>
             </div>
         </div>
@@ -62,81 +64,81 @@
 
     <!-- ---------------------------------------------------- -->
 
-<!-- 이메일 이메일 인증 패스워드 패스워드 확인 이름 생일 전화번호 주소 -->
+<!-- ì´ë©ì¼ ì´ë©ì¼ ì¸ì¦ í¨ì¤ìë í¨ì¤ìë íì¸ ì´ë¦ ìì¼ ì íë²í¸ ì£¼ì -->
     <main>
             <section class="signUp-Content">
 
                 <form action="" name="signUp-form">
 
-                    <h3>회원가입</h3>
+                    <h3>íìê°ì</h3>
 
-                    <label for="">이메일</label>
+                    <label for="">ì´ë©ì¼</label>
                     <div>
                         <input type="text" name="memberEmail" id="memberEmail" autocomplete="off">
-                        <button type="button" id="sendEmailBtn">인증번호 전송</button>
+                        <button type="button" id="sendEmailBtn">ì¸ì¦ë²í¸ ì ì¡</button>
                     </div>
                     <span>
-                        이메일 안내
+                        ì´ë©ì¼ ìë´
                     </span>
 
 
-                    <label for="">인증번호</label>
+                    <label for="">ì¸ì¦ë²í¸</label>
                     <div>
                         <input type="text" name="cNmuber" id="cNmuber" autocomplete="off">
-                        <button type="button" id="cNumBtn">인증하기</button>
+                        <button type="button" id="cNumBtn">ì¸ì¦íê¸°</button>
                     </div>
                     <span>
-                       인증번호 안내
+                       ì¸ì¦ë²í¸ ìë´
                     </span>
 
 
-                    <label for="">비밀번호</label>
+                    <label for="">ë¹ë°ë²í¸</label>
                     <div>
                         <input type="password" name="memberPw" id="memberPw" autocomplete="off">
                     </div>
 
-                    <label for="">비밀번호 확인</label>
+                    <label for="">ë¹ë°ë²í¸ íì¸</label>
                     <div>
                         <input type="password" name="memberPwConfirm" id="memberPwConfirm" autocomplete="off">
                     </div>
                     <span>
-                       비밀번호 안내
+                       ë¹ë°ë²í¸ ìë´
                     </span>
 
-                    <label for="">닉네임</label>
+                    <label for="">ëë¤ì</label>
                     <div>
                         <input type="text" name="memberNick" id="memberNick" autocomplete="off">
                     </div>
                     <span>
-                       닉네임 안내 
+                       ëë¤ì ìë´ 
                     </span>
 
-                    <label for="">전화번호</label>
+                    <label for="">ì íë²í¸</label>
                     <div>
                         <input type="text" name="memberTel" id="memberTel" autocomplete="off">
                     </div>
                     <span>
-                       전화번호 안내 
+                       ì íë²í¸ ìë´ 
                     </span>
 
-                    <label for="">생일</label>
+                    <label for="">ìì¼</label>
                     <div>
                         <input type="date" name="memberBirth" id="memberBirth" autocomplete="off">
                     </div>
 
-                    <label for="">주소</label>
+                    <label for="">ì£¼ì</label>
                     <div class="memberAddrDiv">
-                        <input type="text" name="memberAddr" id="postInput" placeholder="우편번호" autocomplete="off">
-                        <button id="postBtn">우편번호</button>
+                        <input type="text" name="memberAddr" id="postInput" placeholder="ì°í¸ë²í¸" autocomplete="off">
+                        <button id="postBtn">ì°í¸ë²í¸</button>
                     </div>
                     <div class="memberAddrDiv">
-                        <input type="text" name="memberAddr" placeholder="도로명주소" autocomplete="off">
+                        <input type="text" name="memberAddr" placeholder="ëë¡ëªì£¼ì" autocomplete="off">
                     </div>
                     <div class="memberAddrDiv">
-                        <input type="text" name="memberAddr"  placeholder="상세주소" autocomplete="off">
+                        <input type="text" name="memberAddr"  placeholder="ìì¸ì£¼ì" autocomplete="off">
                     </div>
 
-                    <button id="signBtn">가 입 하 기</button>
+                    <button id="signBtn">ê° ì í ê¸°</button>
                 </form>
             </section>
 
@@ -150,14 +152,14 @@
 
     <footer>
         <div class="container">
-            이곳은 footer
+            ì´ê³³ì footer
 
         </div>
     </footer>
     
 
 
-    <script src="/main.js"></script>
+    <script src="${contextPath}/resources/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>

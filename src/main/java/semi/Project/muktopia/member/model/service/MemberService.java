@@ -106,9 +106,9 @@ public class MemberService {
 		result = new MemberDAO().loginKakao(conn,mem);
 		return result;
 	}
-	public int signUpKakao(String kakaoEmail, String kakaoNickname) throws Exception{
+	public int signUpKakao(String kakaoEmail, String kakaoNickname, String kakaoImage, String kakaoGender) throws Exception{
 		Connection conn = getConnection();
-		int result = new MemberDAO().signUpKakao(conn, kakaoEmail, kakaoNickname);
+		int result = new MemberDAO().signUpKakao(conn, kakaoEmail,kakaoNickname, kakaoImage, kakaoGender);
 		if(result > 0) commit(conn);
 		else rollback(conn);
 		return result;

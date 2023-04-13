@@ -1,4 +1,10 @@
 // 사이드메뉴 오픈 
+//import {KAKAO_AUTH_URL} from "${contextPath}/resources/js/OAuth.js";
+// const CLIENT_ID = "96429edc93edc85fdb85c0bf03b50702";
+// const REDIRECT_URI =  "http://localhost:8080/SemiProject/callback/kakaoLogin.jsp";
+// const KAKAO_AUTH_URL = "https://kauth.kakao.com/oauth/authorize?client_id=96429edc93edc85fdb85c0bf03b50702&redirect_uri=http://localhost:8080/SemiProject/callback/kakaoLogin.jsp&response_type=code";
+//console.log(KAKAO_AUTH_URL);
+
 const openNav = () => {
 
     console.log("click")
@@ -19,83 +25,65 @@ const checkOBJ = {
     loginPwck : false
 }
 var kakaoToken;
-
-
-
-
-// kakaoLogin_Btn.addEventListener("click",function(){
-//     loginwithKakao();
-//     if(kakaoToken === null){
-//         console.log("오류");
-//     }else{
-//         const loginID = kakaoToken.id;
-//         const loginNickname = kakaoToken.kakao_account.profile_nickname;
-//         $.ajax({
-//             url: "member/login",
-//             type: "POST",
-//             data: {"kakaoId": loginID,
-//                    "kakaoNick" : loginNickname,//response.properties.nickname,
-//                    "loginType" : "Y"},
-//             success : function(loginMember){
-//                 console.log(loginMember);
-//                 if("${empty !empty sessionScope.loginMember"){
-//                     console.log("되냐.");
-//                 }
-//             },
-//             error:function(response){
-//                 console.log(response)
-//             }
-//             });
-//     }
-// });
+var kakao_account;
+var loginMember;
 
 const kakaoLogin_Btn = document.getElementById("kakaoLogin-Btn");
-kakaoLogin_Btn.addEventListener("click", async function(){
-    try {
-        kakaoToken = await loginwithKakao();
-        if(kakaoToken === null){
-            console.log("오류");
-        }else{
-            const loginID = kakaoToken.id;
-            const loginNickname = kakaoToken.kakao_account.profile_nickname;
-            $.ajax({
-                url: "member/login",
-                type: "POST",
-                data: {"kakaoId": loginID,
-                       "kakaoNick" : loginNickname,//response.properties.nickname,
-                       "loginType" : "Y"},
-                success : function(loginMember){
-                    console.log(loginMember);
-                    if("${!empty sessionScope.loginMember"){
-                        console.log("되냐.");
-                    }else{
-                        console.log("회원가입해야함.");
-                    }
-                    
-                },
-                error:function(response){
-                    console.log(response)
-                }
-                });
-        }
-        const loginID = kakaoToken.id;
-        const loginNickname = kakaoToken.kakao_account.profile_nickname;
-        // ...
-    } catch (error) {
-        console.error(error);
-    }
+const options = "width=400, height=500, top=50, left=400";
+const signUp_Btn = document.getElementById("signBtn");
+
+
+
+signUp_Btn.addEventListener("click",function(){
+    console.log("안돼?");
+
 });
 
 
+
+
+kakaoLogin_Btn.addEventListener("click", async function(){
+    try{
+		kakao_account = await loginwithKakao();
+    	console.log(kakao_account);
+    	if(kakao_account !== null){
+        loginMember = await loginkakao();
+        if(loginMember === "null"){
+            const res = await signUpkakao();
+            if(res ===1){
+                loginMember = await loginkakao();
+                console.log(loginMember);
+                if(loginMember != "null"){
+                    console.log("되냐");
+                    location.href ='index';
+                }
+            }   
+
+        }else{
+            location.href = 'index.jsp';
+        }
+    }else{
+        console.log("실패다");
+    }
+    }catch(error){
+        console.log(error);
+    }});
+
 function loginwithKakao(){
-    return new Promise((resolve, reject) => {
+        return new Promise((resolve,reject) =>{
         Kakao.init("ba5a975a4e3050a2c21c38fbe305e366");
         Kakao.Auth.login({
-            success: function(response) {
-                Kakao.API.request({
+            scope : 'profile_nickname, profile_image, account_email, gender',
+            success: function(authObj) {
+                Kakao.API.request({  
                     url: '/v2/user/me',
-                    success: function(response) {
-                        resolve(response);
+                    
+                    success: res =>{
+                        
+                        kakao_account = res.kakao_account;
+                        console.log(kakao_account.email);   
+                        resolve(kakao_account);
+                         
                     },
                     fail: function(error) {
                         reject(error);
@@ -103,17 +91,66 @@ function loginwithKakao(){
                 });
             },
             fail: function(error) {
-                reject(error);
+                console.log(error);
             }
         });
-    });
-}
+})
+};
 
-function signUpkakao(){
-    const id = kakaoToken.id;
-    const nickName = kakaoToken.kakao_account.profile_nickname;
-   
+
+function loginkakao(){
+    return new Promise((resolve,reject) =>{
+    $.ajax({
+        url:"member/login",
+        data:{"kakaoId" : kakao_account.email,
+              "kakaoNick" :kakao_account.profile.nickname,
+              "loginType" : "Y"},
+        type:"POST",
+        success: res=>{
+            resolve(res);
+        },
+        error: res=>{
+            reject(res);
+        }
+    });
+})
+};
+//logoutKakao();
+function logoutKakao(){
+
+    Kakao.init("ba5a975a4e3050a2c21c38fbe305e366");
+    Kakao.isInitialized();
+
+    if(!Kakao.Auth.getAccessToken()){
+        console.log('Not logged in');
+        return;
+    }
+    Kakao.Auth.logout(function(){
+        console.log(Kakao.Auth.getAccessToken());
+    })
 }
+function signUpkakao(){
+    return new Promise((resolve,reject) =>{
+    $.ajax({
+        url:"member/signUp",
+        type:"POST",
+        data:{"kakaoId" : kakao_account.email,
+              "kakaoNick" : kakao_account.profile.nickname,
+              "kakaoImage" : kakao_account.profile.profile_image_url,
+              "kakaoGender" : kakao_account.gender
+            },
+        success:function(res){
+            resolve(res)
+            
+        },
+        error:function(){
+            reject(res);
+        }
+    }); 
+}) 
+};
+
+
 function loginInvalidate(){
     if(loginID.value.length ==0){
         alert("로그인 아이디를 입력하시오");
