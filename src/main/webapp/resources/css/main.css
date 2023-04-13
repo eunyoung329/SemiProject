@@ -5,43 +5,29 @@
 
 
 
-header{
-
-
-  height: 80px;
-  background-color: black;
-}
-
-
 
 
 main{
 
 height:2500px;
-background-color: #f2f6f4;
+background-color: #fff8f1;
 margin: 0 auto;
 font-family: 'Noto Sans KR', sans-serif;
-width:1450px;
+
 
 
 }
 
 
-
-.wrapper_1 {
-  background-color: #f2f6f4;
-  display:flex;
-  width:100%;
-  
-}
-  
 
 
 .container{
-  background-color: #f2f6f4;
-  width:40%;
-  display:border;
-  padding:20px;
+  background-color: #fff8f1;
+  width:100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+ 
   
   
   
@@ -52,10 +38,11 @@ width:1450px;
 }
 
 .box{
-  width:460px;
+  width:500px;
   height: 427px;
-  background-color: #f2f6f4;
+  background-color: #fff8f1;
   margin:60px;
+  display:border;
   
  
 }
@@ -67,9 +54,11 @@ width:1450px;
 .introduce {
   font-size: 34px;
   font-weight: bold;
-  background-color: #f2f6f4;
+  background-color: #fff8f1;
   text-align: center;
   font-style:italic;
+  color:#ffb703;
+  
  
 }
 .searchArea {
@@ -77,6 +66,8 @@ width:1450px;
   background-color: white;
   box-shadow: 2px 2px 2px 2px lightgray;
   padding:25px;
+  width:450px;
+  left: 100px;
 }
 
 .what {
@@ -119,7 +110,7 @@ width:1450px;
 .btn_area {
   width:404px;
   height:62px;
-  background-color: darkgreen;
+  background-color: #ffb703;
   margin-top: 30px;
   border-radius: 5px;
 }
@@ -140,7 +131,7 @@ width:1450px;
 }
 
 .pic{
-  background-color: #f2f6f4;
+  background-color: #fff8f1;
   display:border;
   width:60%;
   
@@ -155,7 +146,7 @@ width:1450px;
 
 
 .famous_Res{
-  background-color: #f2f6f4;
+  background-color: #fff8f1;
   
   padding:20px;
   justify-content:center;
@@ -222,11 +213,19 @@ h4.h4{
 
 
 
- footer {
-  height:386px;
-  background-color: black;
-}
 
 img {
   border-radius: 5px;
+}
+
+#informationBtn {
+
+background-color:  #ffb703;
+border:none;
+border-radius: 3px;
+width:300px;
+height:50px;
+font-weight: bold;
+
+
 }

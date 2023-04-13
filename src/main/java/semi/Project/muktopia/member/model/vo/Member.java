@@ -16,9 +16,12 @@ public class Member {
 	private String memberEmail;
 	private String memberPw;
 	private String memberNick;
+	private String memberBirth;
 	private String memberTel;
 	private String memberAddress;
+	private String kakaoMem;
 	private String profileImage;
 	private String enrollDate;
 	private String secessionFlag;
+	private String memberBlack;
 }
