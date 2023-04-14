@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>signUp</title>
     <script src="https://kit.fontawesome.com/069a8eb008.js" crossorigin="anonymous"></script> 
+    <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/signUp.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
@@ -96,17 +97,10 @@
     </main>
 
 
-     <!-- ---------------------------------------------------- -->
 
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+	
 
-
-
-    <footer>
-        <div class="container">
-            footer
-
-        </div>
-    </footer>
     
 
 

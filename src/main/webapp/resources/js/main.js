@@ -5,6 +5,8 @@
 // const KAKAO_AUTH_URL = "https://kauth.kakao.com/oauth/authorize?client_id=96429edc93edc85fdb85c0bf03b50702&redirect_uri=http://localhost:8080/SemiProject/callback/kakaoLogin.jsp&response_type=code";
 //console.log(KAKAO_AUTH_URL);
 
+
+// 사이드메뉴 열고 닫기---------//
 const openNav = () => {
 
     console.log("click")
@@ -15,8 +17,7 @@ const closeNav = () => {
     document.getElementById("mySidenav").style.width = "0"
 }
 
-console.log("working?")
-
+// 로그인---------//
 let loginID = null;
 let loginPw = null;
 let kakaoLogin_Btn = null;

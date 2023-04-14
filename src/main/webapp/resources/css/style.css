@@ -1,14 +1,8 @@
-.container{
-    /* border: 1px solid red; */
-}
-
-
-/* header design--------------------------------- */
-
+/* header(로그인 전)--------------------------------- */
 header{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     height: 90px;
-    background-color: white;
+    background-color: #edeee9;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -21,7 +15,7 @@ header img{
 
 
 #loinOpenBtn{
-    background-color: #ffb703;
+    background-color: #8aa088;
     height: 60px;
     width: 120px;
 
@@ -51,8 +45,6 @@ header img{
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: 0.4s;
-
-
 }
 
 #loginCloseBtn{
@@ -73,9 +65,9 @@ header img{
 }
 
 .loginLogoArea{
-    background-color: antiquewhite;
+    background-color: #edeee9;
     width: 100%;
-    height: 250px;
+    height: 270px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -108,7 +100,7 @@ form[name="loginForm"]{
 }
 
 form[name="loginForm"] label {
-    color: #fb8500;
+    color: #4c604d;
     display: block;
     text-align: start;
     font-size: 18px;
@@ -120,13 +112,13 @@ form[name="loginForm"] input{
     height: 40px;
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid #ea9f4a;
-    color: #ea9f4a;
+    border-bottom: 1px solid #8aa088;
+    color: #263327;
 }
 
-form[name="loginForm"] input:focus{
+form[name="loginForm"]input:focus{
     outline: none;
-    border-bottom: 2px solid #ea9f4a;
+    border-bottom: 2px solid #8aa088;
     
 }
 
@@ -141,7 +133,7 @@ form[name="loginForm"] input:focus{
     margin-top: 30px;
     height: 50px;
     border: none;
-    background-color: #ffb703;
+    background-color: #8aa088;
     color: white;
     border-radius: 5px;
 }
@@ -197,8 +189,8 @@ form[name="loginForm"] input:focus{
 }
 
 
-
 .sign-area{
+    /* border: 2px solid red; */
     width: 95%;
     display: flex;
     flex-direction: column;
@@ -208,7 +200,7 @@ form[name="loginForm"] input:focus{
 }
 
 .sign-area button:nth-child(1){
-    background-color: #8ecae6;
+    background-color: #bbc7aa;
     border: none;
     border-radius: 5px;
     height: 40px;
@@ -229,34 +221,180 @@ form[name="loginForm"] input:focus{
 .sign-area button i{
     margin-right: 10px;
 }
-/* 사이드 메뉴 end */
-
-
-/* header design--------------------------------- */
 
 
 
+/* ------------------------------------------------ */
+/* header(로그인 후)--------------------------------- */
+#nickName{
+    margin-right: 5px;
+    font-size: 20px;
+}
 
-
-
-
-
-
-
-
-
-
-
-/*footer design----------------------------------- */
-footer{
-    background-color: #fff8f1;
-    height: 350px;
-    width: 100%;
-    bottom: 0px;
-    color: black;
+.headerProfile{
     display: flex;
     align-items: center;
 }
+
+#profileBtn{
+    background-color: transparent;
+    height: 70px;
+    border: none;
+    border-radius: 50px;
+}
+
+#profileBtn img{
+    height: 100%;
+}
+
+.profileArea{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profileArea img{
+    height: 150px;
+    margin-top: 30 0px 30px 0px;
+}
+
+.profileArea span{
+    margin-top: 15px;
+    font-size: 30px;
+}
+
+.profileWrap{
+    /* border: 1px solid red; */
+    height: 100vh;
+    background-color: rgba(227, 224, 224, 0.2);
+}
+
+.infoList{
+    width: 100%;
+    list-style: none;
+    padding-left: 0px;
+}
+
+.infoList li{
+    width: 100%;
+    text-align: start;
+    padding: 30px 20px 30px 20px;
+    height: 80px;
+    font-size: 20px;
+    color: rgb(101, 101, 101);
+    border-bottom: 1px solid rgb(200, 200, 200);
+    display: flex;
+    align-items: center;
+}
+
+.infoList li:hover{
+    background-color: white;
+    transition-duration: 0.3s;
+}
+
+.infoList li i{
+    margin-right: 20px;
+    font-size: 25px;
+    color: #4c604d;
+
+}
+
+.infoList a{
+    text-decoration: none;
+}
+
+
+.profileWrap > a div{
+    background-color: #8ecae6;
+    padding: 30px 20px 30px 20px;
+    width: 100%;
+    height: 80px;
+    font-size: 20px;
+    color: rgb(101, 101, 101);
+    background-color: transparent;
+    border-top: 1px solid rgb(200, 200, 200);
+    position: absolute;
+    bottom: 0px;
+}
+
+.profileWrap > a div:hover {
+    background-color: white;
+    transition-duration: 0.3s;
+}
+
+.profileWrap > a div i{
+    margin-right: 20px;
+    font-size: 25px;
+    color: #4c604d;
+}
+
+
+
+
+
+
+
+
+
+
+/* ------------------------------------------------ */
+/* main--------------------------------- */
+main{
+    background-color: #f7f8f2;
+    height: 1000px;
+
+}
+
+.index-wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.index-wrap h3{
+    margin: 30px 0px;
+}
+
+
+.index_search_area{
+    background-color: wheat;
+    height: 300px;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+}
+
+.index_search_area > div{
+    
+    border: 1px solid #4c604d;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------------------------------------ */
+/*footer design----------------------------------- */
+footer{
+    background-color: #edeee9;
+    height: 300px;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    color: black;
+}
+
 
 footer section{
     padding: 30px 0px;
@@ -277,7 +415,7 @@ footer section{
     font-size: 25px;
     font-weight: bold;
     margin-bottom: 10px;
-    color: #ea9f4a;
+    color: #4c604d;
 }
 
 .info-area a{
@@ -290,7 +428,7 @@ footer a{
 }
 
 footer a:hover{
-    color: #ea9f4a;
+    color: #4c604d;
     font-weight: bold;
 }
 
@@ -303,7 +441,7 @@ footer a:hover{
 .sns-style{
     width: 60px;
     height: 54px;
-    background-color: #ffb703;
+    background-color: #8aa088;
     border-radius: 50%; 
     margin-right: 15px; 
     display: flex;
@@ -332,6 +470,8 @@ footer a:hover{
         font-size: 13px;
     }
     }
+
+
 
   .footer-secondLine{
     padding: 0px 20px;

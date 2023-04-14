@@ -2,10 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <header>
+
+
 <c:choose>
     <c:when test = "${empty sessionScope.loginMember}">
     <div>
-     <img src="${contextPath}/resources/img/logoSample2.png" alt="">
+     <img src="${contextPath}/resources/img/logoSample.png" alt="">
     </div>
 
     <div>
@@ -18,7 +20,7 @@
          
          <div class="loginWrap">
              <div class="loginLogoArea">
-                 <img src="${contextPath}/resources/img/logoSample2.png" alt="">
+                 <img src="${contextPath}/resources/img/logoSample.png" alt="">
              </div>
 
              <div class="login-area">
@@ -47,7 +49,7 @@
              
              <div class="sign-area">
                  <button id = "signBtn" onclick="location.href='${contextPath}/member/signUp';"><i class="fa-solid fa-envelope"></i>이메일로 가입하기</button>
-                 <button type = "button" id = "kakaoLogin-Btn"><i class="fa-solid fa-comment"></i>카카오톡으로 가입하기</button>
+                 <!-- <button type = "button" id = "kakaoLogin-Btn"><i class="fa-solid fa-comment"></i>카카오톡으로 가입하기</button> -->
              </div>
          </div>
      </div>
@@ -56,7 +58,7 @@
 <c:otherwise>
 
     <div>
-     <img src="${contextPath}/resources/img/logoSample2.png" alt="">
+     <img src="${contextPath}/resources/img/logoSample.png" alt="">
     </div>
 
     <div class="headerProfile">
