@@ -17,7 +17,10 @@ import semi.Project.muktopia.member.model.vo.Member;
 
 @WebServlet("/member/login")
 public class LoginServlet extends HttpServlet{
-
+@Override
+protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	req.getRequestDispatcher(req.getContextPath()).forward(req, resp);
+}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String loginType = req.getParameter("loginType");
@@ -113,16 +116,16 @@ public class LoginServlet extends HttpServlet{
 				
 				resp.addCookie(c);
 				
-//				req.getContextPath()
+
 				System.out.println("되냐");
 				
 				//리다이렉트할 장소를 적어
-//				req.getRequestDispatcher("../index.jsp").forward(req, resp);
+				resp.getWriter().print(loginMember);
+				//resp.sendRedirect(req.getContextPath());
 			}else {
 				//session.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
-				new Gson().toJson(loginMember, resp.getWriter());
+				resp.getWriter().print(loginMember);
 			}
-			resp.sendRedirect(req.getContextPath()+"/index.jsp");
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

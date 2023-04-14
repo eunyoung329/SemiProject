@@ -20,7 +20,7 @@ public class SignUpServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String loginType = req.getParameter("loginType");
-		if(loginType == "false") {
+		if(loginType == "N") {
 			
 			String memberEmail = req.getParameter("memberEmail");
 			String memberPw = req.getParameter("memberPw");
@@ -42,20 +42,20 @@ public class SignUpServlet extends HttpServlet{
 		String kakaoEmail = req.getParameter("kakaoId");
 		String kakaoNickname = req.getParameter("kakaoNick");
 		String kakaoImage = req.getParameter("kakaoImage");
-		String kakaoGender = req.getParameter("kakaoGender");
 		int result = 0;
 		System.out.println(kakaoEmail);
 		System.out.println(kakaoNickname);
 		try {
 			//System.out.print(memberEmail+memberPw+memberNickname+memberTel);
-			result = new MemberService().signUpKakao(kakaoEmail, kakaoNickname, kakaoImage ,kakaoGender);
+			result = new MemberService().signUpKakao(kakaoEmail, kakaoNickname, kakaoImage);
 			System.out.println();
 			if(result == 1) {
 				System.out.println("가입에 성공하였습니다.");
+				resp.getWriter().print(result);;
 			}else {
 				System.out.println("가입에 실패하셨습니다.");
-				String path = "/WEB-INF/views/signUp.jsp";
-				resp.sendRedirect(req.getContextPath()+path);
+//				String path = "/WEB-INF/views/signUp.jsp";
+//				resp.sendRedirect(req.getContextPath()+path);
 			}
 				
 		} catch (Exception e) {

@@ -50,59 +50,25 @@ const checkOBJ = {
 
 
 
-if("${empty sessionScope.loginMember}" == true){
-signUp_Btn.addEventListener("click",function(){
-    console.log("안돼?");
-
-});
-}
 
 
-kakaoLogin_Btn.addEventListener("click", async function(){
-    try{
-		kakao_account = await loginwithKakao();
-    	if(kakao_account !== null){
-        loginMember = await loginkakao();
-            if(loginMember === "null"){
-                const res = await signUpkakao();
-                if(res === 1){
-                    loginMember = await loginkakao();
-                    if(loginMember != "null"){
-                        console.log("되냐");
-                        location.href ='index';
-                    }
-                }   
-            
-            }else{
-                location.href = 'index.jsp';
-            }
-        }else{
-        console.log("실패다");
-    }
-    }catch(error){
-        console.log(error);
-    }});
+
+
 
 
 
 function loginwithKakao(){
-        return new Promise((resolve,reject) =>{
         Kakao.init("ba5a975a4e3050a2c21c38fbe305e366");
         Kakao.Auth.login({
             scope : 'profile_nickname, profile_image, account_email, gender',
             success: function(authObj) {
                 Kakao.API.request({  
                     url: '/v2/user/me',
-                    
                     success: res =>{
-                        
                         kakao_account = res.kakao_account;
-                        console.log(kakao_account.email);   
-                        resolve(kakao_account);
-                         
+                        loginkakao();
                     },
                     fail: function(error) {
-                        reject(error);
                     }
                 });
             },
@@ -110,33 +76,35 @@ function loginwithKakao(){
                 console.log(error);
             }
         });
-})
 };
 
 
 function loginkakao(){
-    return new Promise((resolve,reject) =>{
+    
     $.ajax({
         url:"member/login",
         data:{"kakaoId" : kakao_account.email,
               "kakaoNick" :kakao_account.profile.nickname,
               "loginType" : "Y"},
-        type:"POST",
+        type:"Post",
         success: res=>{
-            resolve(res);
+            if(res != "null"){
+                console.log("로그인 되었습니다.")
+                location.href = "index.jsp";
+            }else{
+                console.log("멤버가 없어 로그인이 되지 않았습니다. 회원가입.");
+                signUpkakao();
+            }
         },
         error: res=>{
-            reject(res);
+
         }
     });
-})
 };
 //logoutKakao();
 function logoutKakao(){
-
     Kakao.init("ba5a975a4e3050a2c21c38fbe305e366");
     Kakao.isInitialized();
-
     if(!Kakao.Auth.getAccessToken()){
         console.log('Not logged in');
         return;
@@ -146,24 +114,23 @@ function logoutKakao(){
     })
 }
 function signUpkakao(){
-    return new Promise((resolve,reject) =>{
     $.ajax({
         url:"member/signUp",
         type:"POST",
         data:{"kakaoId" : kakao_account.email,
               "kakaoNick" : kakao_account.profile.nickname,
               "kakaoImage" : kakao_account.profile.profile_image_url,
-              "kakaoGender" : kakao_account.gender
             },
         success:function(res){
-            resolve(res)
-            
+            if(res == "1"){
+                console.log("가입되었습니다.");
+                loginkakao();
+            }
         },
         error:function(){
-            reject(res);
+            
         }
     }); 
-}) 
 };
 
 
