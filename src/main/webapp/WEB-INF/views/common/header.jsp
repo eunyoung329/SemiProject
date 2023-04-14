@@ -3,7 +3,7 @@
 
 <header>
 <c:choose>
-    <c:when test="${empty sessionScope.loginMember}">
+    <c:when test = "${empty sessionScope.loginMember}">
     <div>
      <img src="${contextPath}/resources/img/logoSample2.png" alt="">
     </div>

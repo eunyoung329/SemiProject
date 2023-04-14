@@ -17,57 +17,73 @@ const closeNav = () => {
 
 console.log("working?")
 
-const loginID = document.getElementById("loginID");
-const loginPw = document.getElementById("loginPw");
+let loginID = null;
+let loginPw = null;
+let kakaoLogin_Btn = null;
+let kakaoToken;
+let kakao_account;
+let loginMember;
+let signUp_Btn = null;
+const options = "width=400, height=500, top=50, left=400";
+if("${empty sessionScope.loginMember}" == true)
+{
+    loginID = document.getElementById("loginID");
+    loginPw = document.getElementById("loginPw");
+    kakaoLogin_Btn = document.getElementById("kakaoLogin-Btn");
+    signUp_Btn = document.getElementById("signBtn");
+}else{
+    loginID = null;
+    loginPw = null;
+    kakaoLogin_Btn = null;
+}
+
+
 
 const checkOBJ = {
     loginIdck : false,
     loginPwck : false
 }
-var kakaoToken;
-var kakao_account;
-var loginMember;
-
-const kakaoLogin_Btn = document.getElementById("kakaoLogin-Btn");
-const options = "width=400, height=500, top=50, left=400";
-const signUp_Btn = document.getElementById("signBtn");
 
 
 
+
+
+
+
+if("${empty sessionScope.loginMember}" == true){
 signUp_Btn.addEventListener("click",function(){
     console.log("안돼?");
 
 });
-
-
+}
 
 
 kakaoLogin_Btn.addEventListener("click", async function(){
     try{
 		kakao_account = await loginwithKakao();
-    	console.log(kakao_account);
     	if(kakao_account !== null){
         loginMember = await loginkakao();
-        if(loginMember === "null"){
-            const res = await signUpkakao();
-            if(res ===1){
-                loginMember = await loginkakao();
-                console.log(loginMember);
-                if(loginMember != "null"){
-                    console.log("되냐");
-                    location.href ='index';
-                }
-            }   
-
+            if(loginMember === "null"){
+                const res = await signUpkakao();
+                if(res === 1){
+                    loginMember = await loginkakao();
+                    if(loginMember != "null"){
+                        console.log("되냐");
+                        location.href ='index';
+                    }
+                }   
+            
+            }else{
+                location.href = 'index.jsp';
+            }
         }else{
-            location.href = 'index.jsp';
-        }
-    }else{
         console.log("실패다");
     }
     }catch(error){
         console.log(error);
     }});
+
+
 
 function loginwithKakao(){
         return new Promise((resolve,reject) =>{
