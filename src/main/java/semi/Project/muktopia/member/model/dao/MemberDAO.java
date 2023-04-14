@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
+import org.apache.catalina.authenticator.jaspic.PersistentProviderRegistrations.Property;
+
 import semi.Project.muktopia.member.model.vo.Member;
 
 
@@ -284,5 +286,33 @@ public class MemberDAO {
 			close(pstmt);
 		}
 		return result;
+	}
+	public int myInfo(Connection conn, Member mem) throws Exception{
+		
+		int result=0;
+		try {
+			String sql=prop.getProperty("info");
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setString(1,mem.getMemberNick());
+			pstmt.setString(2, mem.getMemberTel());
+			pstmt.setString(3, mem.getMemberBirth());
+			pstmt.setString(4, mem.getMemberAddress());
+			pstmt.setInt(5,mem.getMemberNo());
+			
+			result=pstmt.executeUpdate();
+			
+			
+			
+			
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+		
+		
 	}
 }

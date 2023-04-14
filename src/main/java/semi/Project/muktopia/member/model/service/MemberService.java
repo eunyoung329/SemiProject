@@ -113,4 +113,12 @@ public class MemberService {
 		else rollback(conn);
 		return result;
 	}
+	public int myInfo(Member mem)throws Exception {
+		Connection conn=getConnection();
+		int result=new MemberDAO().myInfo(conn,mem);
+		if(result>0) commit(conn);
+		else rollback(conn);
+		return result;
+			
+	}
 }
