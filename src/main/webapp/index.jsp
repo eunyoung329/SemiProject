@@ -11,6 +11,7 @@
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script src="https://kit.fontawesome.com/069a8eb008.js" crossorigin="anonymous"></script> 
     <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/main.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
@@ -18,9 +19,7 @@
     <jsp:include page ="/WEB-INF/views/common/header.jsp"/>
 
     <main>
-        <div class="container">
-        	이곳은 메인
-        </div>
+      <jsp:include page="/WEB-INF/views/common/main.jsp"/>
     </main>
 
 
