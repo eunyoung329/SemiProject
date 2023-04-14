@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,7 +68,7 @@
 <div class="famous_Res"><!--인기가게1-->
 <div><!--인기가게1_1-->
 <div><!--사진구역-->
-<img width="236px" height="172px" src="${contextPath}/resources/img/main/witchkitchen.jpg">
+  <a href=""><img width="236px" height="172px" src="${contextPath}//resources/img/main/witchkitchen.jpg"></a>
 </div><!--사진-->
 <div><!--소개전체-->
   <div><h4 class="h4">마녀주방 강남점</h4></div><!--가게이름-->
@@ -80,7 +83,7 @@
 <div class="famous_Res"><!--식당2-->
   <div><!--인기가게2_1-->
     <div><!--사진구역-->
-    <img width="236px" height="172px" src="${contextPath}/resources/img/main/darak.jpeg">
+      <a href=""><img width="236px" height="172px" src="${contextPath}/resources/img/main/darak.jpeg"></a>
     </div><!--사진-->
     <div><!--소개전체-->
       <div><h4 class="h4">을지다락 강남점</h4></div><!--가게이름-->
@@ -94,7 +97,7 @@
 <div class="famous_Res"><!--식당3-->
   <div><!--인기가게3_1-->
     <div><!--사진구역-->
-    <img width="236px" height="172px" src="${contextPath}/resources/img/main/primo.jpg">
+      <a href=""><img width="236px" height="172px" src="${contextPath}/resources/img/main/primo.jpg"></a>
     </div><!--사진-->
     <div><!--소개전체-->
       <div><h4 class="h4">프리모바치오바치 강남점</h4></div><!--가게이름-->
@@ -108,7 +111,7 @@
 <div class="famous_Res"><!--식당4-->
   <div><!--인기가게4_1-->
     <div><!--사진구역-->
-    <img width="236px" height="172px" src="${contextPath}/resources/img/main/Tielo.jpg">
+      <a href=""><img width="236px" height="172px" src="${contextPath}/resources/img/main/Tielo.jpg"></a>
     </div><!--사진-->
     <div><!--소개-->
       <div><h4 class="h4">띠엘로 강남점</h4></div><!--가게이름-->
@@ -123,7 +126,7 @@
 <div class="famous_Res"><!--식당5-->
   <div><!--인기가게5_1-->
     <div><!--사진구역-->
-    <img width="236px" height="172px" src="${contextPath}/resources/img/main/pinksol741.jpg">
+      <a href=""><img width="236px" height="172px" src="${contextPath}/resources/img/main/pinksol741.jpg"></a>
     </div><!--사진-->
     <div><!--소개-->
       <div><h4 class="h4">핑크솔740 </h4></div><!--가게이름-->
@@ -147,7 +150,7 @@
 <div class="famous_Res"><!--인기가게1-->
 <div><!--인기가게1_1-->
 <div><!--사진구역-->
-<img width="236px" height="172px" src="${contextPath}/resources/img/main/augusthill.jpg">
+  <a href=""><img width="236px" height="172px" src="${contextPath}/resources/img/main/augusthill.jpg"></a>
 </div><!--사진-->
 <div><!--소개전체-->
   <div><h4 class="h4">어거스트힐 역삼점</h4></div><!--가게이름-->
@@ -162,7 +165,7 @@
 <div class="famous_Res"><!--식당2-->
   <div><!--인기가게2_1-->
     <div><!--사진구역-->
-    <img width="236px" height="172px" src="${contextPath}/resources/img/main/maguro.jpg">
+      <a href=""><img width="236px" height="172px" src="${contextPath}/resources/img/main/maguro.jpg"></a>
     </div><!--사진-->
     <div><!--소개전체-->
       <div><h4 class="h4">마구로우니도</h4></div><!--가게이름-->
@@ -178,7 +181,7 @@
 <div class="famous_Res"><!--식당3-->
   <div><!--인기가게3_1-->
     <div><!--사진구역-->
-    <img width="236px" height="172px" src="${contextPath}/resources/img/main/ddamddam.jpg">
+      <a href=""><img width="236px" height="172px" src="${contextPath}/resources/img/main/ddamddam.jpg"></a>
     </div><!--사진-->
     <div><!--소개전체-->
       <div><h4 class="h4">땀땀</h4></div><!--가게이름-->
@@ -192,7 +195,7 @@
 <div class="famous_Res"><!--식당4-->
   <div><!--인기가게4_1-->
     <div><!--사진구역-->
-    <img width="236px" height="172px" src="${contextPath}/resources/img/main/gamjatang.jpg">
+      <a href=""><img width="236px" height="172px" src="${contextPath}/resources/img/main/gamjatang.jpg"></a>
     </div><!--사진-->
     <div><!--소개-->
       <div><h4 class="h4">신동궁감자탕</h4></div><!--가게이름-->
@@ -206,7 +209,7 @@
 <div class="famous_Res"><!--식당5-->
   <div><!--인기가게5_1-->
     <div><!--사진구역-->
-    <img width="236px" height="172px" src="${contextPath}/resources/img/main/buja.jpg">
+      <a href=""><img width="236px" height="172px" src="${contextPath}/resources/img/main/buja.jpg"></a>
     </div><!--사진-->
     <div><!--소개-->
       <div><h4 class="h4">알부자 </h4></div><!--가게이름-->
@@ -232,7 +235,7 @@
 <div class="famous_Res"><!--인기가게1-->
 <div><!--인기가게1_1-->
 <div><!--사진구역-->
-<img width="236px" height="172px" src="${contextPath}/resources/img/main/mdkj.jpg">
+  <a href=""><img width="236px" height="172px" src="${contextPath}/resources/img/main/mdkj.jpg"></a>
 </div><!--사진-->
 <div><!--소개전체-->
   <div><h4 class="h4">명동교자</h4></div><!--가게이름-->
@@ -247,7 +250,7 @@
 <div class="famous_Res"><!--식당2-->
   <div><!--인기가게2_1-->
     <div><!--사진구역-->
-    <img width="236px" height="172px" src="${contextPath}/resources/img/main/npmo.jpg">
+      <a href=""><img width="236px" height="172px" src="${contextPath}/resources/img/main/npmo.jpg"></a>
     </div><!--사진-->
     <div><!--소개전체-->
       <div><h4 class="h4">남포면옥</h4></div><!--가게이름-->
@@ -263,7 +266,7 @@
 <div class="famous_Res"><!--식당3-->
   <div><!--인기가게3_1-->
     <div><!--사진구역-->
-    <img width="236px" height="172px" src="${contextPath}/resources/img/main/dintai.jpg">
+    <a href=""><img width="236px" height="172px" src="${contextPath}/resources/img/main/dintai.jpg"></a>
     </div><!--사진-->
     <div><!--소개전체-->
       <div><h4 class="h4">딘타이펑 명동점</h4></div><!--가게이름-->
@@ -277,7 +280,7 @@
 <div class="famous_Res"><!--식당4-->
   <div><!--인기가게4_1-->
     <div><!--사진구역-->
-    <img width="236px" height="172px" src="${contextPath}/resources/img/main/mok.jpg">
+      <a href=""><img width="236px" height="172px" src="${contextPath}/resources/img/main/mok.jpg"></a>
     </div><!--사진-->
     <div><!--소개-->
       <div><h4 class="h4">목멱산방</h4></div><!--가게이름-->
@@ -291,7 +294,7 @@
 <div class="famous_Res"><!--식당5-->
   <div><!--인기가게5_1-->
     <div><!--사진구역-->
-    <img width="236px" height="172px" src="${contextPath}/resources/img/main/sungwon.jpg">
+      <a href=""><img width="236px" height="172px" src="${contextPath}/resources/img/main/sungwon.jpg"></a>
     </div><!--사진-->
     <div><!--소개-->
       <div><h4 class="h4">성원갈비 </h4></div><!--가게이름-->
@@ -317,7 +320,7 @@
 <div class="famous_Res"><!--인기가게1-->
 <div><!--인기가게1_1-->
 <div><!--사진구역-->
-<img width="236px" height="172px" src="${contextPath}/resources/img/main/india.jpg">
+  <a href=""><img width="236px" height="172px" src="${contextPath}/resources/img/main/india.jpg"></a>
 </div><!--사진-->
 <div><!--소개전체-->
   <div><h4 class="h4">델리인디아</h4></div><!--가게이름-->
@@ -332,7 +335,7 @@
 <div class="famous_Res"><!--식당2-->
   <div><!--인기가게2_1-->
     <div><!--사진구역-->
-    <img width="236px" height="172px" src="${contextPath}/resources/img/main/butadong.jpg">
+      <a href=""><img width="236px" height="172px" src="${contextPath}/resources/img/main/butadong.jpg"></a>
     </div><!--사진-->
     <div><!--소개전체-->
       <div><h4 class="h4">스미비부타동</h4></div><!--가게이름-->
@@ -348,7 +351,7 @@
 <div class="famous_Res"><!--식당3-->
   <div><!--인기가게3_1-->
     <div><!--사진구역-->
-    <img width="236px" height="172px" src="${contextPath}/resources/img/main/bbackdon.jpg">
+      <a href=""><img width="236px" height="172px" src="${contextPath}/resources/img/main/bbackdon.jpg"></a>
     </div><!--사진-->
     <div><!--소개전체-->
       <div><h4 class="h4">빽돈</h4></div><!--가게이름-->
@@ -362,7 +365,7 @@
 <div class="famous_Res"><!--식당4-->
   <div><!--인기가게4_1-->
     <div><!--사진구역-->
-    <img width="236px" height="172px" src="${contextPath}/resources/img/main/bistro.jpg">
+      <a href=""><img width="236px" height="172px" src="${contextPath}/resources/img/main/bistro.jpg"></a>
     </div><!--사진-->
     <div><!--소개-->
       <div><h4 class="h4">비스트로사랑방</h4></div><!--가게이름-->
@@ -376,7 +379,7 @@
 <div class="famous_Res"><!--식당5-->
   <div><!--인기가게5_1-->
     <div><!--사진구역-->
-    <img width="236px" height="172px" src="${contextPath}/resources/img/main/tantan.jpg">
+      <a href=""><img width="236px" height="172px" src="${contextPath}/resources/img/main/tantan.jpg"></a>
     </div><!--사진-->
     <div><!--소개-->
       <div><h4 class="h4">탄탄면공방</h4></div><!--가게이름-->
@@ -398,7 +401,7 @@
 
 <div class="ownerAll">
   <div class="owner"><!--사진-->
-  <img src="${contextPath}/resources/img/main/owner.webp" width="400px" height="350px">
+    <a href=""><img src="${contextPath}/resources/img/main/owner.webp" width="400px" height="350px"></a>
   </div><!--사진-->
   <div class="owner"><!--소개페이지-->
   <div><!--사장으로 등록-->
@@ -424,7 +427,8 @@
 
 
 
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 
 
