@@ -7,7 +7,7 @@
 <c:choose>
     <c:when test = "${empty sessionScope.loginMember}">
     <div>
-     <img src="${contextPath}/resources/img/logoSample.png" alt="">
+     <img src="${contextPath}/resources/img/logo.png" alt="">
     </div>
 
     <div>
@@ -20,7 +20,7 @@
          
          <div class="loginWrap">
              <div class="loginLogoArea">
-                 <img src="${contextPath}/resources/img/logoSample.png" alt="">
+                 <img src="${contextPath}/resources/img/logo.png" alt="">
              </div>
 
              <div class="login-area">
@@ -94,7 +94,7 @@
                  </a>
                  <a href="">
                      <li>
-                         <i class="fa-solid fa-shop"></i>상점등록
+                         <i class="fa-solid fa-shop"></i>가게 제보
                      </li>
                  </a>
                  <a href="">

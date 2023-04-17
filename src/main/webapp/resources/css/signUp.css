@@ -5,7 +5,7 @@
 }
 
 h3{
-    color: #fb8500;
+    color: #4c604d;
     text-align: center;
     margin: 20px 0px;
 }
@@ -26,16 +26,16 @@ form[name="signUp-form"] > label{
     display: block;
     margin-top: 30px;
     font-size : 18px;
-    color: #fb8500;
+    color: #4c604d;
 }
 
 form[name="signUp-form"] > div{
-    border-bottom: 1px solid #ea9f4a;
+    border-bottom: 1px solid #8aa088;
     height: 40px;
 }
 
 form[name="signUp-form"] > div:focus-within{
-    border-bottom: 2px solid #ea9f4a;
+    border-bottom: 2px solid #8aa088;
 }
 
 form[name="signUp-form"] > div input{
@@ -44,13 +44,13 @@ form[name="signUp-form"] > div input{
     background-color: transparent;
     border: none;
     padding: 0px 10px;
-    color: #ea9f4a;
+    color: #8aa088;
 }
 
 form[name="signUp-form"] > div input:focus{
     outline: none;
     background-color: transparent;
-    color: #ea9f4a;
+    color: #8aa088;
 }
 
 
@@ -66,7 +66,7 @@ form[name="signUp-form"] > div input:focus{
     height: 35px;
     border: none;
     border-radius: 5px;
-    background-color: #ffb703;
+    background-color: #8aa088;
     color: white;
 }
 
@@ -84,7 +84,7 @@ form[name="signUp-form"] > div input:focus{
     height: 35px;
     border: none;
     border-radius: 5px;
-    background-color: #ffb703;
+    background-color: #8aa088;
     color: white;
 }
 
@@ -93,7 +93,7 @@ form[name="signUp-form"] > div input:focus{
     height: 50px;
     border: none;
     border-radius: 5px;
-    background-color: #ffb703;
+    background-color: #8aa088;
     color: white;
     font-size: 20px;
     font-weight: bold;

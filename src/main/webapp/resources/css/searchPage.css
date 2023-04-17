@@ -1,0 +1,23 @@
+.searchPage_wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.searchPage_map_area{
+    border: 2px solid green;
+    display: flex;
+    width: 80%;
+    height: 800px;
+}
+
+
+.searchPage_list_container{
+    background-color: pink;
+    width: 30%;
+}
+
+.searchPage_map_container{
+    background-color: skyblue;
+    width: 70%;
+}
