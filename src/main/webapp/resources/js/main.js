@@ -86,7 +86,7 @@ function loginkakao(){
         data:{"kakaoId" : kakao_account.email,
               "kakaoNick" :kakao_account.profile.nickname,
               "loginType" : "Y"},
-        type:"Post",
+        type:"POST",
         success: res=>{
             if(res != "null"){
                 console.log("로그인 되었습니다.")
@@ -113,13 +113,16 @@ function logoutKakao(){
         console.log(Kakao.Auth.getAccessToken());
     })
 }
+
 function signUpkakao(){
+    console.log("회원가입시작");
     $.ajax({
-        url:"member/signUp",
+        url:"member/kakaosignUp",
         type:"POST",
         data:{"kakaoId" : kakao_account.email,
               "kakaoNick" : kakao_account.profile.nickname,
               "kakaoImage" : kakao_account.profile.profile_image_url,
+              "loginType" : "Y"
             },
         success:function(res){
             if(res == "1"){

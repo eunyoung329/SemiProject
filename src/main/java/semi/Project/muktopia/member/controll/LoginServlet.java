@@ -1,4 +1,4 @@
-package semi.Project.muktopia.member.common;
+package semi.Project.muktopia.member.controll;
 
 import java.io.IOException;
 
@@ -25,7 +25,7 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String loginType = req.getParameter("loginType");
 		System.out.println(loginType);
-		if(!loginType.equals("Y")) {
+		if(loginType.equals("N")==true) {
 			
 		
 		String loginID = req.getParameter("loginID");
@@ -81,10 +81,10 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-	}else {//KaKaoLogin
+	}else if(loginType.equals("Y")==true){//KaKaoLogin
 		String kakaoId = req.getParameter("kakaoId");
 		String kakaoNick = req.getParameter("kakaoNick");
-		
+		System.out.println("카카오로그인 실행");
 		//System.out.println("kakaoId : " + kakaoId);
 		//System.out.println("kakaoNick : " + kakaoNick);
 		

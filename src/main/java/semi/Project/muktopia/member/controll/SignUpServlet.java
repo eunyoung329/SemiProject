@@ -1,4 +1,4 @@
-package semi.Project.muktopia.member.common;
+package semi.Project.muktopia.member.controll;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -19,17 +19,18 @@ public class SignUpServlet extends HttpServlet{
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String loginType = req.getParameter("loginType");
-		if(loginType == "N") {
-			
+			System.out.println("실행했냐.");
 			String memberEmail = req.getParameter("memberEmail");
 			String memberPw = req.getParameter("memberPw");
 			String memberNickname = req.getParameter("memberNickname");
 			String memberTel = req.getParameter("memberTel");
+			String memberBirth = req.getParameter("memberBirth");
+			String[] memberAddr = req.getParameterValues("memberAddr");
+			System.out.println(memberBirth+" "+memberAddr);
 			int result = 0;
 			try {
 				System.out.print(memberEmail+memberPw+memberNickname+memberTel);
-				result = new MemberService().signUpEnd(memberEmail, memberPw, memberNickname,memberTel);
+				result = new MemberService().signUpEnd(memberEmail, memberPw, memberNickname,memberTel,memberBirth,memberAddr);
 				System.out.println();
 				System.out.println("가입에 성공하였습니다.");
 				resp.sendRedirect(req.getContextPath());
@@ -37,34 +38,8 @@ public class SignUpServlet extends HttpServlet{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-	}else {
-		String kakaoEmail = req.getParameter("kakaoId");
-		String kakaoNickname = req.getParameter("kakaoNick");
-		String kakaoImage = req.getParameter("kakaoImage");
-		int result = 0;
-		System.out.println(kakaoEmail);
-		System.out.println(kakaoNickname);
-		try {
-			//System.out.print(memberEmail+memberPw+memberNickname+memberTel);
-			result = new MemberService().signUpKakao(kakaoEmail, kakaoNickname, kakaoImage);
-			System.out.println();
-			if(result == 1) {
-				System.out.println("가입에 성공하였습니다.");
-				resp.getWriter().print(result);;
-			}else {
-				System.out.println("가입에 실패하셨습니다.");
-//				String path = "/WEB-INF/views/signUp.jsp";
-//				resp.sendRedirect(req.getContextPath()+path);
-			}
-				
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println(req.getContextPath());
 		resp.sendRedirect(req.getContextPath());
 	}
-	}
+	
 	
 }

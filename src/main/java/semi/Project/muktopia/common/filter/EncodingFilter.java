@@ -51,7 +51,7 @@ public class EncodingFilter extends HttpFilter implements Filter{
 		// 2) 최상위 주소 얻어오기
 		String contextPath = ((HttpServletRequest)request).getContextPath();
 		// 3) 세팅
-		System.out.println(contextPath);
+		
 		application.setAttribute("contextPath", contextPath);
 		// 연결된 다음 필터 수행(없으면 Servlet 수행)
 		chain.doFilter(request, response);

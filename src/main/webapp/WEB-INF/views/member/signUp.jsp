@@ -19,7 +19,7 @@
 	<main>
             <section class="signUp-Content">
 
-                <form action="" name="signUp-form">
+                <form action="signUp" method="POST" name="signUp-form" onsubmit="return signUpInvalidate()">
 
                     <h3>회원가입</h3>
 
@@ -28,17 +28,17 @@
                         <input type="text" name="memberEmail" id="memberEmail" autocomplete="off">
                         <button type="button" id="sendEmailBtn">인증번호 전송</button>
                     </div>
-                    <span>
+                    <span id = "emailAlarm">
                         이메일 안내
                     </span>
 
 
                     <label for="">인증번호</label>
                     <div>
-                        <input type="text" name="cNmuber" id="cNmuber" autocomplete="off">
+                        <input type="text" name="cNumber" id="cNumber" autocomplete="off">
                         <button type="button" id="cNumBtn">인증하기</button>
                     </div>
-                    <span>
+                    <span id = "cMessage">
                        인증번호 안내
                     </span>
 
@@ -52,7 +52,7 @@
                     <div>
                         <input type="password" name="memberPwConfirm" id="memberPwConfirm" autocomplete="off">
                     </div>
-                    <span>
+                    <span id = "pwAlarm">
                        비밀번호 안내
                     </span>
 
@@ -60,7 +60,7 @@
                     <div>
                         <input type="text" name="memberNick" id="memberNick" autocomplete="off">
                     </div>
-                    <span>
+                    <span id = "nickAlarm">
                        닉네임 안내 
                     </span>
 
@@ -68,7 +68,7 @@
                     <div>
                         <input type="text" name="memberTel" id="memberTel" autocomplete="off">
                     </div>
-                    <span>
+                    <span id = "telAlarm">
                        전화번호 안내 
                     </span>
 
@@ -107,9 +107,8 @@
 
         </div>
     </footer>
-    
-
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src = "${contextPath}/resources/js/signUp.js"></script>
     <script src="${contextPath}/resources/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>

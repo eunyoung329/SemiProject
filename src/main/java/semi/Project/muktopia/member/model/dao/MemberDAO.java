@@ -196,15 +196,27 @@ public class MemberDAO {
 		return result;
 	}
 	public int signUpEnd(Connection conn, String memberEmail, String memberPw, String memberNickname,
-			String memberTel) throws Exception{
+			String memberTel, String memberBirth, String[] memberAddr) throws Exception{
 		int result = 0;
+		String Addr;
+		if(memberAddr ==null) {
+			Addr = "없음";
+		}else {
+			Addr = String.join(",",memberAddr);
+		}
+		if(memberBirth ==null) {
+			memberBirth ="없음";
+		}
+		
 		try {
-			String sql = prop.getProperty("signUpEnd");
+			String sql = prop.getProperty("signUp");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, memberEmail);
 			pstmt.setString(2, memberPw);
 			pstmt.setString(3, memberNickname);
 			pstmt.setString(4, memberTel);
+			pstmt.setString(5, memberBirth);
+			pstmt.setString(6, Addr);
 			result = pstmt.executeUpdate();
 		}finally{
 			close(pstmt);

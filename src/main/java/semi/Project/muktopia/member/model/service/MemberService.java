@@ -75,9 +75,9 @@ public class MemberService {
 		}
 		return result;
 	}
-	public int signUpEnd(String memberEmail, String memberPw, String memberNickname, String memberTel) throws Exception {
+	public int signUpEnd(String memberEmail, String memberPw, String memberNickname, String memberTel, String memberBirth, String[] memberAddr) throws Exception {
 			Connection conn = getConnection();
-			int result = new MemberDAO().signUpEnd(conn,memberEmail,memberPw,memberNickname,memberTel);
+			int result = new MemberDAO().signUpEnd(conn,memberEmail,memberPw,memberNickname,memberTel, memberBirth, memberAddr);
 			if(result  > 0) commit(conn);
 			else rollback(conn);
 			close(conn);
