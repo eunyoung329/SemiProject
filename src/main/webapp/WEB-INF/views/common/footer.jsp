@@ -44,7 +44,7 @@
                     <span>사업자등륵번호: 881-81-01223</span>
                 </div>
                 <div>
-                    © 2023 company
+                    <a href="">administrator</a>
                 </div>
 
             </div>

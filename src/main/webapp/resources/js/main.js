@@ -5,6 +5,8 @@
 // const KAKAO_AUTH_URL = "https://kauth.kakao.com/oauth/authorize?client_id=96429edc93edc85fdb85c0bf03b50702&redirect_uri=http://localhost:8080/SemiProject/callback/kakaoLogin.jsp&response_type=code";
 //console.log(KAKAO_AUTH_URL);
 
+
+// 사이드메뉴 열고 닫기---------//
 const openNav = () => {
 
     console.log("click")
@@ -15,8 +17,46 @@ const closeNav = () => {
     document.getElementById("mySidenav").style.width = "0"
 }
 
-console.log("working?")
+// index 화살표 스크롤
+const scrollLeftBtn = document.querySelectorAll(".scroll-left-btn");
+const scrollRightBtn = document.querySelectorAll(".scroll-right-btn");
+const indexRes = document.querySelectorAll(".index_res");
 
+
+for(let i = 0; i<indexRes.length; i++){
+
+    scrollLeftBtn[i].addEventListener("click", ()=>{
+        indexRes[i].scrollBy({
+            left: -300,
+            behavior: 'smooth'
+        });
+    
+    });
+    
+    scrollRightBtn[i].addEventListener("click", ()=>{
+        indexRes[i].scrollBy({
+            left: 300,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// 맨 위로 가기
+const topBtn = document.querySelector(".fa-square-caret-up");
+topBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+  
+  
+  
+  
+  
+  
+
+// 로그인---------//
 let loginID = null;
 let loginPw = null;
 let kakaoLogin_Btn = null;
