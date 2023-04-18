@@ -1,4 +1,4 @@
-package semi.Project.muktopia.member.controll;
+package semi.Project.muktopia.member.control;
 
 import java.io.IOException;
 
@@ -10,15 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import semi.Project.muktopia.member.model.service.MemberService;
 
-@WebServlet("/member/checkNumber")
-public class CheckNumberServlet extends HttpServlet{
+@WebServlet("/member/memberTel")
+public class DupTelCheckServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String cNumber = req.getParameter("cNumber");
-		String inputEmail = req.getParameter("inputEmail");
+		String memberTel = req.getParameter("memberTel");
 		int result = 0;
 		try {
-			result = new MemberService().checkNumber(cNumber, inputEmail);
+			result = new MemberService().selectTel(memberTel);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

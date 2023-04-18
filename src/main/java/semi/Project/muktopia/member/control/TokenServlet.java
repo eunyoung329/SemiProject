@@ -1,4 +1,4 @@
-package semi.Project.muktopia.member.controll;
+package semi.Project.muktopia.member.control;
 
 import java.io.BufferedReader;
 import java.io.IOException;
