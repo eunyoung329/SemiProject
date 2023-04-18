@@ -106,11 +106,26 @@ INTO MEMBER(MEMBER_NO,MEMBER_EMAIL,MEMBER_NICK,PROFILE_IMG,SOCIAL_FL)
 VALUES (MEMBER_SEQ.NEXTVAL,?,?,?,'Y')
 </entry>
 
+<<<<<<< HEAD
 <entry key = "signUp">
 INSERT 
 INTO MEMBER(MEMBER_NO,MEMBER_EMAIL,MEMBER_PW,MEMBER_NICK,MEMBER_TEL,MEMBER_BIRTH,MEMBER_ADDR,SOCIAL_FL) 
 VALUES(MEMBER_SEQ.NEXTVAL,?,?,?,?,?,?,'N')
 </entry>
 
+=======
+	
+<!-- 회원정보 수정 -->
+<entry key="Info">
+UPDATE MEMBER SET
+		MEMBER_NICK = ?,
+		MEMBER_TEL = ?,
+		MEMBER_BIRTH= ?,
+		MEMBER_ADDR = ?
+		
+		WHERE MEMBER_NO = ?
+  </entry>
+	
+>>>>>>> origin/feacher/ey2
 </properties>
 
