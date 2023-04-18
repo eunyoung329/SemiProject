@@ -1,4 +1,4 @@
-package semi.Project.muktopia.member.common;
+package semi.Project.muktopia.member.control;
 
 import java.io.IOException;
 
