@@ -35,10 +35,10 @@ let loginMember;
 let signUp_Btn = null;
 const options = "width=400, height=500, top=50, left=400";
 
-    loginID = document.getElementById("loginID");
-    loginPw = document.getElementById("loginPw");
-    kakaoLogin_Btn = document.getElementById("kakaoLogin-Btn");
-    signUp_Btn = document.getElementById("signBtn");
+loginID = document.getElementById("loginID");
+loginPw = document.getElementById("loginPw");
+kakaoLogin_Btn = document.getElementById("kakaoLogin-Btn");
+signUp_Btn = document.getElementById("signBtn");
 
 
 
@@ -62,7 +62,7 @@ const checkOBJ = {
 
 
 function loginwithKakao(){
-        Kakao.init("ba5a975a4e3050a2c21c38fbe305e366");
+        Kakao.init("");
         Kakao.Auth.login({
             scope : 'profile_nickname, profile_image, account_email, gender',
             success: function(authObj) {
@@ -86,7 +86,7 @@ function loginwithKakao(){
 function loginkakao(){
     
     $.ajax({
-        url:"member/kakaologin",
+        url:"member/kakaoLogin",
         data:{"kakaoId" : kakao_account.email,
               "kakaoNick" :kakao_account.profile.nickname,
               "loginType" : "Y"},
@@ -107,7 +107,7 @@ function loginkakao(){
 };
 //logoutKakao();
 function logoutKakao(){
-    Kakao.init("ba5a975a4e3050a2c21c38fbe305e366");
+    Kakao.init("");
     Kakao.isInitialized();
     if(!Kakao.Auth.getAccessToken()){
         console.log('Not logged in');

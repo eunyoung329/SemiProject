@@ -27,7 +27,7 @@
 
                  <form action="member/login" method = "POST" name="loginForm" onsubmit = "loginInvalidate()">
                      <label>Email Address</label>
-                     <input type="text" id ="loginID" name ="loinID">
+                     <input type="text" id ="loginID" name ="loginID">
                      <label>Password</label>
                      <input type="password" id = "loginPw" name = "loginPw">
                      <span id="mail-Msg">메일 입력 관련 메세지</span>
