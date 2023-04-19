@@ -23,9 +23,6 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 }
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String loginType = req.getParameter("loginType");
-		System.out.println(loginType);
-		if(loginType.equals("N")==true) {
 			
 		
 		String loginID = req.getParameter("loginID");
@@ -81,55 +78,6 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-	}else if(loginType.equals("Y")==true){//KaKaoLogin
-		String kakaoId = req.getParameter("kakaoId");
-		String kakaoNick = req.getParameter("kakaoNick");
-		System.out.println("카카오로그인 실행");
-		//System.out.println("kakaoId : " + kakaoId);
-		//System.out.println("kakaoNick : " + kakaoNick);
-		
-		Member mem = new Member();
-		
-		mem.setMemberEmail(kakaoId);
-		mem.setMemberNick(kakaoNick);
-		
-		try {
-			MemberService service = new MemberService();
-			Member loginMember = service.loginKakao(mem);
-			//System.out.println(loginMember);
-			HttpSession session = req.getSession();
-			if(loginMember!=null) {
-				// 회원 정보 Session 세팅
-				session.setAttribute("loginMember", loginMember);
-				//특정 시간 동안 요청이 없으면 세션 만료
-				session.setMaxInactiveInterval(3600);//초단위로 작성하는 것
-				System.out.println(loginMember);
-				Cookie c = new Cookie("saveId",kakaoId);
-				if(req.getParameter("saveId")!=null) {
-					
-					c.setMaxAge(60*60*24*30);//30일
-				}else {
-					
-					c.setMaxAge(0);
-				}
-				c.setPath(req.getContextPath());
-				
-				resp.addCookie(c);
-				
-
-				System.out.println("되냐");
-				
-				//리다이렉트할 장소를 적어
-				resp.getWriter().print(loginMember);
-				//resp.sendRedirect(req.getContextPath());
-			}else {
-				//session.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
-				resp.getWriter().print(loginMember);
-			}
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
 	}
 	
 }
