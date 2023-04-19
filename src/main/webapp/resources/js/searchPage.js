@@ -329,3 +329,75 @@ function filterItems(){
 
 
   //=========================================전현정 현재위치======================
+  
+  
+  
+  
+  //========================재범 작성시작=========================
+ var infowindow = new kakao.maps.InfoWindow({
+    content: "" // 인포윈도우에 표시할 내용
+});
+  
+$.ajax({ 
+    url: "maker", 
+    dataType:"JSON",
+    success: function(maker) {
+        for (var i = 0; i < maker.length; i++) {
+            var lat = maker[i].rest_y; // 경도 정보
+            var lng = maker[i].rest_x; // 위도 정보
+            var latlng = new kakao.maps.LatLng(lat, lng); // 마커의 위치 설정
+
+            // 클로저를 활용하여 마커 보존
+            (function(maker, latlng) { // store와 latlng를 인자로 받음
+                var marker = new kakao.maps.Marker({
+                    map: map,
+                    position: latlng,
+                });
+
+                // 클릭 이벤트 처리
+                kakao.maps.event.addListener(marker, 'click', function() {
+                    $.ajax({
+                        url: "pick",
+                        data: {
+                            "Y": latlng.getLat(), // 클릭한 마커의 위도 정보 가져오기
+                            "X": latlng.getLng() // 클릭한 마커의 경도 정보 가져오기
+                        },
+                        dataType : "JSON",
+                        success: function(pick) {
+                            if (pick != null) {
+                                if(pick.rest_img != null){
+                                    content = "<img src='../"+pick.rest_img +"' style='border-radius: 50%; width: 100px; height: 100px;' /><div>"
+                                         + pick.rest_name +
+                                          "</div><div>" + pick.rest_category +
+                                          "</div><span><a href='" + pick.rest_sns + "'>" +
+                                            pick.restaurantSNS+"</a></span>";
+                                }else{
+                                    content = "<img src='../resources/img/defualtimg.png' style='border-radius: 50%; width: 100px; height: 100px;' /><div>"
+                                         + pick.rest_name +
+                                          "</div><div>" + pick.rest_category +
+                                          "</div><span><a href='" + pick.rest_sns + "'>" +
+                                            pick.rest_sns+"</a></span>";
+                                }
+                                infowindow.setContent(content);
+                                infowindow.open(map, marker); // 인포윈도우 열기
+                            }
+                        },
+                        error: function() {
+                            console.log("통신오류!!!!")
+                        }
+                    });
+                });
+
+                // 마우스 아웃 이벤트 처리
+                kakao.maps.event.addListener(marker, 'click', function() {
+                    infowindow.close(); // 인포윈도우 닫기
+                });
+            })(maker[i], latlng); // maker[i]와 latlng를 인자로 전달
+        }
+    },
+    error: function() {
+        console.log("통신 오류!!");
+    }
+});
+//======================= 작성완료 4/20 ==============================  
+  
