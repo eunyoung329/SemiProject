@@ -18,9 +18,8 @@
                     <a href="">자주 묻는 질문</a>
                 </div>
                 <div class="info-area">
-                    <span>etc..</span>
-                    <a href="">또 뭐있지?</a>
-                    <a href="">하나 더 있는게 이쁜데..</a>
+                    <span>Community</span>
+                    <a href="">자유게시판</a>
                 </div>
                 <div class="sns-area">
                     <div class="sns-style">
