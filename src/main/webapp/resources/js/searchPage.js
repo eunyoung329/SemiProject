@@ -13,6 +13,7 @@ let container = document.getElementById('map');
 	let mapbounds;
 	let bounds;
 	let result;
+
 	// 현재 위치한 자리로 좌표를 읽어오기. 위치한 자리로 다시 검색하게끔 유도할 수도 있음.
 	if (navigator.geolocation) {
 	  navigator.geolocation.getCurrentPosition(function(position) {
@@ -111,7 +112,7 @@ let container = document.getElementById('map');
 
 
 
-
+//============================프론트코드==========================================
 
 
 // 1. 카태고리 버튼 값 가져오기
@@ -177,3 +178,154 @@ resestBtn.addEventListener("click",function(){
     }
     
 })
+//============================프론트코드 끝==========================================
+
+
+
+
+//2023.04.19 : 레스토랑 목록 필터링 기능 구현
+//===============================전현정===========================
+
+//화면이 켜지자 마자 전체 내용을 프론트에 로드하는 ajax
+// 레스토랑 정보가 담길 객체 itemObj, 객체 배열 itemList
+var itemObj;
+var itemList = [];
+
+$(document).ready(function(){
+    
+ console.log("화면로드 함수 실행중")
+  
+  $.ajax({
+    url: "load",
+    type: "POST",
+    dataType: "JSON",
+    success: function (restList) {
+        console.log(restList)
+
+     // 1. 서버에서 받아온 데이터를 객체로 변환
+     for (let i = 0; i < restList.length; i++) {
+        let item = restList[i];
+        let itemObj = {
+          id: item.rest_id,
+          name: item.rest_name,
+          address: item.rest_Addr,
+          lat: item.rest_x,
+          lng: item.rest_y,
+          category : item.rest_category
+        };
+        itemList.push(itemObj);
+      }
+   render(itemList);
+    
+    },
+    error : function(error){
+      console.log("화면 로드 실패")
+    }
+  });
+
+})
+
+//레스토랑 전체 목록을 화면에 그리는 함수
+//레스토랑 목록이 생성될 div
+var listContainer = document.getElementById("item-list");
+function render(itemList, filteredItems){
+    listContainer.innerHTML = "";
+
+    console.log("render() 실행중");
+
+	//console.log("itemList:: ", itemList);
+	console.log("render함수가 인자로 받은 filteredItems:: ", filteredItems);
+ //const itemsToRender =  filteredItems || itemList; 
+ let itemsToRender;
+ if (filteredItems && filteredItems.length > 0) {
+	itemsToRender = filteredItems;
+  } else {
+	itemsToRender = itemList;
+  }
+
+  console.log("itemsToRender:::"+JSON.stringify(itemsToRender))
+
+//   if(filterItems.length == 0 || filterItems == undefined) {
+
+//   }
+
+  // 필터링된 배열이 있으면 해당 배열을, 없으면 전체 배열을 사용
+  for (let item of itemsToRender) {
+	  var itemElement = document.createElement("div");
+	  itemElement.innerHTML='';
+	  itemElement.classList.add("item");
+    itemElement.innerHTML = `
+      <div class="searchPage_res_item_info">
+        <span class="item-name">${item.category}</span>
+        <span class="item-category">${item.name}</span>
+        <span class="item-address">${item.address}</span>
+        <span><i class="fa-regular fa-heart"></i></span>
+      </div>
+    `;
+    listContainer.appendChild(itemElement);
+  }
+}
+
+
+//사용자가 선택한 지역과 카테고리에 따라 식당리스트 출력하는 함수
+
+// 버튼 클릭 이벤트 리스너 등록
+locationBtn.forEach(button => {
+	console.log("지역선택")
+	button.addEventListener('click', filterItems);
+  });
+  
+categoryBtn.forEach(button => {
+	console.log("지역선택")
+	button.addEventListener('click', filterItems);
+  });
+
+//목록을 필터링 하는 함수
+
+function filterItems(){
+	console.log("필터함수 실행중")
+
+	let filteredList = [];
+
+  for (let i = 0; i < itemList.length; i++) {
+    let item = itemList[i];
+
+    // 사용자가 선택한 지역 키워드 검사
+    let isLocationMatched = false;
+    for (let j = 0; j < locationKeywordArr.length; j++) {
+      let keyword = locationKeywordArr[j];
+      if (item.address.includes(keyword)) {
+        isLocationMatched = true;
+        break;
+      }
+    }
+    if (locationKeywordArr.length > 0 && !isLocationMatched) {
+      continue; // 지역 키워드 불일치
+    }
+
+    // 사용자가 선택한 카테고리 키워드 검사
+    let isCategoryMatched = false;
+    for (let j = 0; j < CategoryKeywordArr.length; j++) {
+      let keyword = CategoryKeywordArr[j];
+      if (item.category === keyword) {
+        isCategoryMatched = true;
+        break;
+      }
+    }
+    if (CategoryKeywordArr.length > 0 && !isCategoryMatched) {
+      continue; // 카테고리 키워드 불일치
+    }
+
+    filteredList.push(item);
+  }
+
+  console.log(JSON.stringify(filteredList))
+  console.log("필터링된 객체배열의 길이:: "+filteredList.length);
+  render(itemList, filteredList); // 전체 리스트와 필터된 리스트를 함께 전달
+}
+
+
+
+
+
+  //=========================================전현정 현재위치======================
