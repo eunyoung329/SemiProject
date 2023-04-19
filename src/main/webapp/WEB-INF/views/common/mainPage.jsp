@@ -18,20 +18,20 @@
 <body>
 
   <main>
-          <!-- 검색 -->
-        <div class="index_search_area">
-            <h3>지구를 위한 작은 선택, 오늘 채식 어때요?</h3>
-                <form name="index_search_form">
-                    <span><i class="fa-solid fa-utensils"></i><input type="text" placeholder="한식, 베이커리..."></span>
-                    <span><i class="fa-solid fa-location-dot"></i><input type="text" placeholder="서울, 제주..."></span>
-                    <button type="button" onclick="location.href='${contextPath}/member/searchPage'">S E A R C H</button>
-                    <img src="${contextPath}/resources/img/leaf.png" alt="장식">
-                </form>
-            </div>
+        <!-- 메인 이미지, 검색-->
+        <div class="index_top_area">
+            <img src="${contextPath}/resources/img/IndexFoodImg.jpg" alt="" class="index_main_img">
+            
+            <h2>지구를 위한 작은 선택, 오늘 채식 어때요?</h2>
+            <button id="index_search_btn" onclick="location.href='${contextPath}/member/searchPage'">S E A R C H</button>
+        </div>
+        
 
 
+        
+        <!-- 식당 소개 -->
         <div class="container index-wrap">
-            <!-- 식당 소개 -->
+            
             <div class="index_res_wrap">
                 <!-- 서울 -->
                 <div class="index_res_item_wrap">
@@ -51,43 +51,9 @@
                             <span class="index_res_addr">경기도 성남시 분당구 정자일로 110</span>
                             <a><button type="button"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>
                         </div>
-                        <div class="index_res_item">
-                            <img src="${contextPath}/resources/img/defaultResImg.png" alt="레스토랑 썸네일">
-                            <span class="index_res_category">베이커리</span>
-                            <span class="index_res_name">외계인방앗간 정자점</span>
-                            <span class="index_res_addr">경기도 성남시 분당구 정자일로 110</span>
-                            <a><button type="button"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>
-                        </div>
-                        <div class="index_res_item">
-                            <img src="${contextPath}/resources/img/defaultResImg.png" alt="레스토랑 썸네일">
-                            <span class="index_res_category">베이커리</span>
-                            <span class="index_res_name">외계인방앗간 정자점</span>
-                            <span class="index_res_addr">경기도 성남시 분당구 정자일로 110</span>
-                            <a><button type="button"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>
-                        </div>
-                        <div class="index_res_item">
-                            <img src="${contextPath}/resources/img/defaultResImg.png" alt="레스토랑 썸네일">
-                            <span class="index_res_category">베이커리</span>
-                            <span class="index_res_name">외계인방앗간 정자점</span>
-                            <span class="index_res_addr">경기도 성남시 분당구 정자일로 110</span>
-                            <a><button type="button"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>
-                        </div>
-                        <div class="index_res_item">
-                            <img src="${contextPath}/resources/img/defaultResImg.png" alt="레스토랑 썸네일">
-                            <span class="index_res_category">베이커리</span>
-                            <span class="index_res_name">외계인방앗간 정자점</span>
-                            <span class="index_res_addr">경기도 성남시 분당구 정자일로 110</span>
-                            <a><button type="button"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>
-                        </div>
-                        <div class="index_res_item">
-                            <img src="${contextPath}/resources/img/defaultResImg.png" alt="레스토랑 썸네일">
-                            <span class="index_res_category">베이커리</span>
-                            <span class="index_res_name">외계인방앗간 정자점</span>
-                            <span class="index_res_addr">경기도 성남시 분당구 정자일로 110</span>
-                            <a><button type="button"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>
-                        </div>
-                    </div>
-                </div>
+                        
+                    </div><!-- 아이템 끝 -->
+                </div><!-- 서울 끝 -->
 
 
                 <!-- 경기 -->
@@ -101,50 +67,9 @@
                     </div>
                     
                     <div class="index_res">
-                        <div class="index_res_item">
-                            <img src="${contextPath}/resources/img/defaultResImg.png" alt="레스토랑 썸네일">
-                            <span class="index_res_category">베이커리</span>
-                            <span class="index_res_name">외계인방앗간 정자점</span>
-                            <span class="index_res_addr">경기도 성남시 분당구 정자일로 110</span>
-                            <a><button type="button"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>
-                        </div>
-                        <div class="index_res_item">
-                            <img src="${contextPath}/resources/img/defaultResImg.png" alt="레스토랑 썸네일">
-                            <span class="index_res_category">베이커리</span>
-                            <span class="index_res_name">외계인방앗간 정자점</span>
-                            <span class="index_res_addr">경기도 성남시 분당구 정자일로 110</span>
-                            <a><button type="button"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>
-                        </div>
-                        <div class="index_res_item">
-                            <img src="${contextPath}/resources/img/defaultResImg.png" alt="레스토랑 썸네일">
-                            <span class="index_res_category">베이커리</span>
-                            <span class="index_res_name">외계인방앗간 정자점</span>
-                            <span class="index_res_addr">경기도 성남시 분당구 정자일로 110</span>
-                            <a><button type="button"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>
-                        </div>
-                        <div class="index_res_item">
-                            <img src="${contextPath}/resources/img/defaultResImg.png" alt="레스토랑 썸네일">
-                            <span class="index_res_category">베이커리</span>
-                            <span class="index_res_name">외계인방앗간 정자점</span>
-                            <span class="index_res_addr">경기도 성남시 분당구 정자일로 110</span>
-                            <a><button type="button"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>
-                        </div>
-                        <div class="index_res_item">
-                            <img src="${contextPath}/resources/img/defaultResImg.png" alt="레스토랑 썸네일">
-                            <span class="index_res_category">베이커리</span>
-                            <span class="index_res_name">외계인방앗간 정자점</span>
-                            <span class="index_res_addr">경기도 성남시 분당구 정자일로 110</span>
-                            <a><button type="button"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>
-                        </div>
-                        <div class="index_res_item">
-                            <img src="${contextPath}/resources/img/defaultResImg.png" alt="레스토랑 썸네일">
-                            <span class="index_res_category">베이커리</span>
-                            <span class="index_res_name">외계인방앗간 정자점</span>
-                            <span class="index_res_addr">경기도 성남시 분당구 정자일로 110</span>
-                            <a><button type="button"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>
-                        </div>
-                    </div>
-                </div>
+                       
+                    </div><!-- 아이템 끝 -->
+                </div><!-- 경기 끝 -->
 
 
                 <!-- 부산 -->
@@ -158,50 +83,9 @@
                     </div>
                     
                     <div class="index_res">
-                        <div class="index_res_item">
-                            <img src="${contextPath}/resources/img/defaultResImg.png" alt="레스토랑 썸네일">
-                            <span class="index_res_category">베이커리</span>
-                            <span class="index_res_name">외계인방앗간 정자점</span>
-                            <span class="index_res_addr">경기도 성남시 분당구 정자일로 110</span>
-                            <a><button type="button"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>
-                        </div>
-                        <div class="index_res_item">
-                            <img src="${contextPath}/resources/img/defaultResImg.png" alt="레스토랑 썸네일">
-                            <span class="index_res_category">베이커리</span>
-                            <span class="index_res_name">외계인방앗간 정자점</span>
-                            <span class="index_res_addr">경기도 성남시 분당구 정자일로 110</span>
-                            <a><button type="button"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>
-                        </div>
-                        <div class="index_res_item">
-                            <img src="${contextPath}/resources/img/defaultResImg.png" alt="레스토랑 썸네일">
-                            <span class="index_res_category">베이커리</span>
-                            <span class="index_res_name">외계인방앗간 정자점</span>
-                            <span class="index_res_addr">경기도 성남시 분당구 정자일로 110</span>
-                            <a><button type="button"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>
-                        </div>
-                        <div class="index_res_item">
-                            <img src="${contextPath}/resources/img/defaultResImg.png" alt="레스토랑 썸네일">
-                            <span class="index_res_category">베이커리</span>
-                            <span class="index_res_name">외계인방앗간 정자점</span>
-                            <span class="index_res_addr">경기도 성남시 분당구 정자일로 110</span>
-                            <a><button type="button"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>
-                        </div>
-                        <div class="index_res_item">
-                            <img src="${contextPath}/resources/img/defaultResImg.png" alt="레스토랑 썸네일">
-                            <span class="index_res_category">베이커리</span>
-                            <span class="index_res_name">외계인방앗간 정자점</span>
-                            <span class="index_res_addr">경기도 성남시 분당구 정자일로 110</span>
-                            <a><button type="button"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>
-                        </div>
-                        <div class="index_res_item">
-                            <img src="${contextPath}/resources/img/defaultResImg.png" alt="레스토랑 썸네일">
-                            <span class="index_res_category">베이커리</span>
-                            <span class="index_res_name">외계인방앗간 정자점</span>
-                            <span class="index_res_addr">경기도 성남시 분당구 정자일로 110</span>
-                            <a><button type="button"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>
-                        </div>
-                    </div>
-                </div>
+                        
+                    </div><!-- 아이템 끝 -->
+                </div><!-- 부산 끝 -->
 
 
                 <!-- 제주 -->
@@ -216,49 +100,9 @@
                     
                     <div class="index_res">
                         <div class="index_res_item">
-                            <img src="${contextPath}/resources/img/defaultResImg.png" alt="레스토랑 썸네일">
-                            <span class="index_res_category">베이커리</span>
-                            <span class="index_res_name">외계인방앗간 정자점</span>
-                            <span class="index_res_addr">경기도 성남시 분당구 정자일로 110</span>
-                            <a><button type="button"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>
-                        </div>
-                        <div class="index_res_item">
-                            <img src="${contextPath}/resources/img/defaultResImg.png" alt="레스토랑 썸네일">
-                            <span class="index_res_category">베이커리</span>
-                            <span class="index_res_name">외계인방앗간 정자점</span>
-                            <span class="index_res_addr">경기도 성남시 분당구 정자일로 110</span>
-                            <a><button type="button"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>
-                        </div>
-                        <div class="index_res_item">
-                            <img src="${contextPath}/resources/img/defaultResImg.png" alt="레스토랑 썸네일">
-                            <span class="index_res_category">베이커리</span>
-                            <span class="index_res_name">외계인방앗간 정자점</span>
-                            <span class="index_res_addr">경기도 성남시 분당구 정자일로 110</span>
-                            <a><button type="button"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>
-                        </div>
-                        <div class="index_res_item">
-                            <img src="${contextPath}/resources/img/defaultResImg.png" alt="레스토랑 썸네일">
-                            <span class="index_res_category">베이커리</span>
-                            <span class="index_res_name">외계인방앗간 정자점</span>
-                            <span class="index_res_addr">경기도 성남시 분당구 정자일로 110</span>
-                            <a><button type="button"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>
-                        </div>
-                        <div class="index_res_item">
-                            <img src="${contextPath}/resources/img/defaultResImg.png" alt="레스토랑 썸네일">
-                            <span class="index_res_category">베이커리</span>
-                            <span class="index_res_name">외계인방앗간 정자점</span>
-                            <span class="index_res_addr">경기도 성남시 분당구 정자일로 110</span>
-                            <a><button type="button"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>
-                        </div>
-                        <div class="index_res_item">
-                            <img src="${contextPath}/resources/img/defaultResImg.png" alt="레스토랑 썸네일">
-                            <span class="index_res_category">베이커리</span>
-                            <span class="index_res_name">외계인방앗간 정자점</span>
-                            <span class="index_res_addr">경기도 성남시 분당구 정자일로 110</span>
-                            <a><button type="button"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>
-                        </div>
-                    </div>
-                </div>
+                            
+                        </div><!-- 아이템 끝 -->
+                </div><!--제주 끝 -->
             </div>
 
 
@@ -283,10 +127,9 @@
         </div>
     </main>
 
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="${contextPath}/resources/js/mainPage.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 
 

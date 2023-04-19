@@ -2,7 +2,7 @@
 header{
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     height: 90px;
-    background-color: #edeee9;
+    background-color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -17,7 +17,7 @@ header img{
 
 
 #loinOpenBtn{
-    background-color: #8aa088;
+    background-color: #558b2f;
     height: 60px;
     width: 120px;
 
@@ -67,7 +67,7 @@ header img{
 }
 
 .loginLogoArea{
-    background-color: #edeee9;
+    background-color: #f0f5eb;
     width: 100%;
     height: 270px;
     display: flex;
@@ -135,7 +135,7 @@ form[name="loginForm"]input:focus{
     margin-top: 30px;
     height: 50px;
     border: none;
-    background-color: #8aa088;
+    background-color: #73a14c;
     color: white;
     border-radius: 5px;
 }
@@ -202,7 +202,7 @@ form[name="loginForm"]input:focus{
 }
 
 .sign-area button:nth-child(1){
-    background-color: #bbc7aa;
+    background-color: #90b66e;
     border: none;
     border-radius: 5px;
     height: 40px;
@@ -259,7 +259,7 @@ form[name="loginForm"]input:focus{
 }
 
 .profileArea img{
-    height: 150px;
+    height: 180px;
     margin-top: 30 0px 30px 0px;
 }
 
@@ -271,7 +271,7 @@ form[name="loginForm"]input:focus{
 .profileWrap{
     /* border: 1px solid red; */
     height: 100vh;
-    background-color: rgba(227, 224, 224, 0.2);
+    background-color: white;
 }
 
 .infoList{
@@ -282,18 +282,18 @@ form[name="loginForm"]input:focus{
 
 .infoList li{
     width: 100%;
-    text-align: start;
+    text-align: center;
     padding: 30px 20px 30px 20px;
     height: 80px;
     font-size: 20px;
     color: rgb(101, 101, 101);
-    border-bottom: 1px solid rgb(200, 200, 200);
+    border-bottom: 1px solid rgb(215, 215, 215);
     display: flex;
     align-items: center;
 }
 
 .infoList li:hover{
-    background-color: white;
+    background-color: rgba(219, 219, 219, 0.2);
     transition-duration: 0.3s;
 }
 
@@ -323,7 +323,7 @@ form[name="loginForm"]input:focus{
 }
 
 .profileWrap > a div:hover {
-    background-color: white;
+    background-color:  rgba(219, 219, 219, 0.2);
     transition-duration: 0.3s;
 }
 
@@ -359,7 +359,8 @@ form[name="loginForm"]input:focus{
 /* ------------------------------------------------ */
 /*footer design----------------------------------- */
 footer{
-    background-color: #edeee9;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     height: 300px;
     width: 100%;
     bottom: 0px;
@@ -386,7 +387,7 @@ footer section{
     font-size: 25px;
     font-weight: bold;
     margin-bottom: 10px;
-    color: #4c604d;
+    color: #69840a;
 }
 
 .info-area a{
@@ -395,12 +396,11 @@ footer section{
 
 footer a{
     text-decoration: none;
-    color: black;
+    color: #3b4909;
 }
 
 footer a:hover{
-    color: #4c604d;
-    font-weight: bold;
+    color: #eede02;
 }
 
 .sns-area{
@@ -412,7 +412,7 @@ footer a:hover{
 .sns-style{
     width: 60px;
     height: 54px;
-    background-color: #8aa088;
+    background-color: #eaeee5;
     border-radius: 50%; 
     margin-right: 15px; 
     display: flex;
@@ -420,9 +420,16 @@ footer a:hover{
     align-items: center;
   }
 
+
   .icon{
     font-size: 24px;
+    color: #69840a;
   }
+
+  .icon:hover{
+    color: #eede02;
+  }
+
 
 @media screen and (max-width:48rem){
     .sns-area{
@@ -449,6 +456,7 @@ footer a:hover{
     margin-top: 30px;
     display: flex;
     justify-content: space-between;
+    color: #3b4909;
   }
 
   .footer-secondLine span{
