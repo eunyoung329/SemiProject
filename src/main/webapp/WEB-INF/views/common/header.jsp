@@ -7,7 +7,9 @@
 <c:choose>
     <c:when test = "${empty sessionScope.loginMember}">
     <div>
-     <img src="${contextPath}/resources/img/logo.png" alt="">
+    	<a href="${contextPath}/index.jsp">
+    		 <img src="${contextPath}/resources/img/logo.png" alt="로고">
+    	 </a>
     </div>
 
     <div>
@@ -20,7 +22,7 @@
          
          <div class="loginWrap">
              <div class="loginLogoArea">
-                 <img src="${contextPath}/resources/img/logo.png" alt="">
+                 <img src="${contextPath}/resources/img/logo.png" alt"로고">
              </div>
 
              <div class="login-area">
@@ -58,11 +60,13 @@
 <c:otherwise>
 
     <div>
-     <img src="${contextPath}/resources/img/logo.png" alt="">
+         <a href="${contextPath}/index.jsp">
+    		 <img src="${contextPath}/resources/img/logo.png" alt="로고">
+    	 </a>
     </div>
 
     <div class="headerProfile">
-     <span name="nickName" id="nickName">닉네임</span>
+     <span name="nickName" id="nickName">${loginMember.memberNick}</span>
      <button type="button" onclick="openNav()" id="profileBtn"><img src="${contextPath}/resources/img/defaultUser.png" alt=""></button>
     </div>
 
@@ -73,7 +77,7 @@
          <div class="profileWrap">
              <div class="profileArea">
                  <img src="${contextPath}/resources/img/defaultUser.png" alt="">
-                 <span name="nickName">닉네임</span>
+                 <span name="nickName">${loginMember.memberNick}</span>
              </div>
 
              <ul class="infoList">
