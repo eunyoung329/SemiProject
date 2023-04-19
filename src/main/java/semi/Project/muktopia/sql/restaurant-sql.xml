@@ -6,5 +6,14 @@
 	<entry key="restaurantList">
 	SELECT * FROM RESTAURANT
 	</entry>
+	
+	<entry key="pick">
+		SELECT RESTAURANT_ID, RESTAURANT_NAME, RESTAURANT_CATEGORY,RESTAURANT_SNS, RESTAURANT_IMG
+		FROM RESTAURANT
+		WHERE RESTAURANT_X = ? AND RESTAURANT_Y = ?
+	</entry>
+	<entry key="maker">
+		SELECT * FROM RESTAURANT
+	</entry>
 </properties>
 
