@@ -343,8 +343,8 @@ public class MemberDAO {
 				Restaurant rest = new Restaurant();
 				rest.setRest_name(rs.getString(1));
 				rest.setRest_Addr(rs.getString(2));
-				rest.setRest_x(rs.getString(3));
-				rest.setRest_y(rs.getString(4));
+				rest.setRest_x(rs.getDouble(3));
+				rest.setRest_y(rs.getDouble(4));
 				rest.setRest_category(rs.getString(5));
 				rest.setRest_sns(rs.getString(6));
 				rest.setRest_tel(rs.getString(7));

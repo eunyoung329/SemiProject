@@ -29,22 +29,6 @@ public class RestaurantService {
 		return resList;
 	}
 
-	public Restaurant pickRest(String x, String y) throws Exception {
-		Connection conn = getConnection();
-		
-		Restaurant pick = dao.pickRest(conn,x,y);
-		
-		return pick;
-	}
-
-	public List<Restaurant> maker() throws Exception{
-		Connection conn = getConnection();
-		
-		List<Restaurant> maker = dao.maker(conn);
-		
-		return maker;
-	}
-
 	
 	
 	

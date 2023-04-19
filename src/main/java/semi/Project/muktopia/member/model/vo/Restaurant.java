@@ -15,11 +15,10 @@ public class Restaurant {
 	private String rest_id;
 	private String rest_name;
 	private String rest_Addr;
-	private String rest_x;
-	private String rest_y;
+	private double rest_x;
+	private double rest_y;
 	private String rest_category;
 	private String rest_sns;
 	private String rest_tel;
 	private String rest_time;
-	private String rest_img;
 }	
