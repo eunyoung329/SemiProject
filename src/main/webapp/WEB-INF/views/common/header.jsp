@@ -25,13 +25,13 @@
 
              <div class="login-area">
 
-                 <form action="" type = "post" name="loginForm" onclick = "loginInvalidate()">
+                 <form action="member/login" method = "POST" name="loginForm" onsubmit = "loginInvalidate()">
                      <label>Email Address</label>
                      <input type="text" id ="loginID" name ="loinID">
                      <label>Password</label>
                      <input type="password" id = "loginPw" name = "loginPw">
                      <span id="mail-Msg">메일 입력 관련 메세지</span>
-                     <button id="loginBtn">이메일로 로그인하기</button>
+                     <button id="loginBtn" type="submit">이메일로 로그인하기</button>
                  </form>
                     
                      <button id="kakaoLogin-Btn" onclick="loginwithKakao()"><i class="fa-solid fa-comment"></i>카카오톡으로 로그인하기</button>
@@ -58,7 +58,7 @@
 <c:otherwise>
 
     <div>
-     <img src="${contextPath}/resources/img/logoSample.png" alt="">
+     <img src="${contextPath}/resources/img/logo.png" alt="">
     </div>
 
     <div class="headerProfile">
