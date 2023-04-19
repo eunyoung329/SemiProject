@@ -79,7 +79,7 @@
 
 
 .searchPage_res_item{
-    display: flex;
+    /* display: flex; */
     align-items: center;
     background-color: white;
     border-radius: 10px;
