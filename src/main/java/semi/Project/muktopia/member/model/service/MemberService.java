@@ -4,9 +4,11 @@ package semi.Project.muktopia.member.model.service;
 import static semi.Project.muktopia.common.JDBCTemplate.*;
 
 import java.sql.Connection;
+import java.util.List;
 
 import semi.Project.muktopia.member.model.dao.MemberDAO;
 import semi.Project.muktopia.member.model.vo.Member;
+import semi.Project.muktopia.member.model.vo.Restaurant;
 
 
 public class MemberService {
@@ -120,5 +122,15 @@ public class MemberService {
 		else rollback(conn);
 		return result;
 			
+	}
+	public List<Restaurant> getMark(String name) throws Exception{
+		Connection conn = getConnection();
+		List<Restaurant> rest;
+		try {
+			rest = new MemberDAO().getMark(conn,name);
+		}finally {
+			close(conn);
+		}
+		return rest;
 	}
 }

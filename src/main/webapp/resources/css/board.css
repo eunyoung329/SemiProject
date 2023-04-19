@@ -1,0 +1,23 @@
+*{
+    margin:0;
+    box-sizing: border-box;
+}
+
+main{
+    background-color: linear-gradient(to bottom, #f7f8f2, #dee4d5, #f7f8f2);
+}
+
+#today{
+    background-color: aqua;
+    display:flex;
+    justify-content: center;
+    align-items: end;
+    margin:100px, 50px,0px, 50px;
+
+}
+#today > div:first-child{
+    flex-basis: 80%;
+}
+#today > div:last-child{
+    flex-basis: 20%;
+}

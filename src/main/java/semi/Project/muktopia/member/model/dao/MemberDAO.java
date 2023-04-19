@@ -6,11 +6,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import org.apache.catalina.authenticator.jaspic.PersistentProviderRegistrations.Property;
 
 import semi.Project.muktopia.member.model.vo.Member;
+import semi.Project.muktopia.member.model.vo.Restaurant;
 
 
 import static semi.Project.muktopia.common.JDBCTemplate.*;
@@ -327,5 +330,34 @@ public class MemberDAO {
 		
 		
 		
+	}
+	
+	public List<Restaurant> getMark(Connection conn, String name) throws Exception{
+		List<Restaurant> rest_list = new ArrayList();
+		try {
+			String sql = prop.getProperty("getMark");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				Restaurant rest = new Restaurant();
+				rest.setRest_name(rs.getString(1));
+				rest.setRest_Addr(rs.getString(2));
+				rest.setRest_x(rs.getDouble(3));
+				rest.setRest_y(rs.getDouble(4));
+				rest.setRest_category(rs.getString(5));
+				rest.setRest_sns(rs.getString(6));
+				rest.setRest_tel(rs.getString(7));
+				rest.setRest_time(rs.getString(8));
+				System.out.println(rest);
+				rest_list.add(rest);
+			}
+			System.out.println(rest_list);
+		}finally {
+			close(rs);
+			close(pstmt);
+			
+		}
+		return rest_list;
 	}
 }

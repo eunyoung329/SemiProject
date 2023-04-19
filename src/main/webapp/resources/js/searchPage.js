@@ -7,9 +7,8 @@
 
 // let map = new kakao.maps.Map(container, mapOptions);
 let container = document.getElementById('map');
-	let options = {
-	  level: 3
-	};
+	let mapoptions = {
+	  level: 3	};
 	let map;
 	let mapbounds;
 	let bounds;
@@ -21,8 +20,8 @@ let container = document.getElementById('map');
 	    let lon = position.coords.longitude;
 	    console.log("되냐");
 	    let locPosition = new kakao.maps.LatLng(lat, lon);
-	    options.center = locPosition;
-	    map = new kakao.maps.Map(container, options);
+	    mapoptions.center = locPosition;
+	    map = new kakao.maps.Map(container, mapoptions);
 		mapbounds = map.getBounds();
 	    let mapTypeControl = new kakao.maps.MapTypeControl();
 	    map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
@@ -42,7 +41,7 @@ let container = document.getElementById('map');
 	    bounds = new kakao.maps.LatLngBounds();
 		//$.ajax를 통해 받아온 위도값과 경도값이 조건에 맞을 때, mark를 새겨라.
 	    $.ajax({
-	    	url:"member/getShop",
+	    	url:"getShop",
 	    	type:"POST",
 	    	data: {"storeName": "소듐"},
 			datatype:"JSON",
@@ -64,8 +63,8 @@ let container = document.getElementById('map');
 	  });
 	} else {
 	  let locPosition = new kakao.maps.LatLng(37.4812845080678, 126.952713197762);
-	  options.center = locPosition;
-	  map = new kakao.maps.Map(container, options);
+	  mapoptions.center = locPosition;
+	  map = new kakao.maps.Map(container, mapoptions);
 
 	  let mapTypeControl = new kakao.maps.MapTypeControl();
 	  map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
