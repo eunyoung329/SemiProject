@@ -58,7 +58,7 @@
 <c:otherwise>
 
     <div>
-     <img src="${contextPath}/resources/img/logoSample.png" alt="">
+     <img src="${contextPath}/resources/img/logo.png" alt="">
     </div>
 
     <div class="headerProfile">
