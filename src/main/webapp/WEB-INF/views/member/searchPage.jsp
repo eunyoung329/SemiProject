@@ -33,7 +33,6 @@
                             <button type="button">경기</button>
                             <button type="button">부산</button>
                             <button type="button">제주</button>
-                            <button type="button">전국</button>
                         </div>
                     </div>
 
@@ -45,7 +44,6 @@
                             <button type="button">베이커리</button>
                             <button type="button">카페</button>
                             <button type="button">기타</button>
-                            <button type="button">전체</button>
                         </div>
                     </div>
                     <div>
