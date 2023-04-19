@@ -2,126 +2,87 @@
 /* ------------------------------------------------ */
 /* main--------------------------------- */
 
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
 
-
-main{
-    background: linear-gradient(to bottom, #f7f8f2, #dee4d5, #f7f8f2);
-    /* background-color: #f7f8f2; */
 }
 
-.index_search_area{
-    /* background: linear-gradient(to top, #dee4d5, #f7f8f2);
-    background-color: #dee4d5; */
-    height: 400px;
+main{
+    background: linear-gradient(to bottom, white, #f9fcf5);
+}
+
+/* 사진, 검색 */
+.index_top_area{
     width: 100%;
+    height: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    /* border: 1px solid red; */
 }
 
-.index_search_area h3{
-    color: #4c604d;
-    margin-bottom: 30px;
+.index_main_img{
+    width: 100%;
 }
 
-
-
-
-form[name="index_search_form"]{
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    position: relative;
+.index_top_area h2{
+    color: #558b2f;
+    margin: 100px 0px 50px 0px;
 }
 
-form[name="index_search_form"] span{
-    z-index: 1;
-    border: 1px solid #8aa088;
-    border-radius: 5px;
-    background-color: #edeee9;
-    height: 50px;
-    margin-bottom: 10px;
-    color: #263327;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-}
-
-form[name="index_search_form"] span:focus-within{
-    border: 2px solid #8aa088;
-}
-
-form[name="index_search_form"] span input{
-    border: none;
-    width: 90%;
-    height: 100%;
-    padding: 0px 20px;
-    background-color: transparent;
-    position: relative;
-}
-
-form[name="index_search_form"] span input:focus{
-    outline: none;
-    background-color: transparent;
-}
-
-form[name="index_search_form"] span i{
-    width: 10%;
-    text-align: center;
-    font-size: 20px;
-    color: #4c604d;
-}
-
-
-form[name="index_search_form"] button{
-    height: 50px;
-    border-radius: 5px;
-    border: none;
-    background-color: #8aa088;
+#index_search_btn{
+    background: #e8db21;
     color: white;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-}
+    border:none;
+    position:relative;
+    height:60px;
+    font-size:20px;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+    margin-bottom: 100px;
+  }
+  
+
+  #index_search_btn:hover{
+    background:white;
+    color:#e8db21;
+  }
+  #index_search_btn:before,
+  #index_search_btn:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #e8db21;
+    transition:400ms ease all;
+  }
+
+  #index_search_btn:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  #index_search_btn:hover:before,
+  #index_search_btn:hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }
 
 
-form[name="index_search_form"] img{
-    position: absolute;
-    width: 300px;
-    opacity: 0.3;
-    left: -200px;
-    bottom: -40px;
-    z-index: 0;
-
-    /* 애니메이션 */
-    animation-name: move;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-@keyframes move{
-    from{
-        transform: rotate(0deg);
-    }
-    to{
-        transform: rotate(-10deg);
-    }
-}
-
-@media screen and (max-width:48rem){
-
-    .index_search_area h3{
-        font-size: 20px;
-    }
-
-    form[name="index_search_form"]{
-        width: 90%;
-    }
-    
-    .index_search_area img{
-        display: none;
-    }
-}
+/* 캐러셀 */
 
 
+
+
+/* 레스토랑 */
 .index-wrap{
     display: flex;
     flex-direction: column;
@@ -130,7 +91,6 @@ form[name="index_search_form"] img{
 
 
 .index_res_wrap{
-    /* border: 2px solid red; */
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -142,9 +102,7 @@ form[name="index_search_form"] img{
 }
 
 
-
 .index_res{
-    /* border: 1px solid blue; */
     border-radius: 5px;
     padding: 15px;
     margin-bottom: 30px;
@@ -167,13 +125,13 @@ form[name="index_search_form"] img{
 .index_res_label span{
     font-size: 25px;
     font-weight: bold;
-    color: #8aa088;
+    color: #558b2f;
 }
 
 .index_res_label button{
     border: none;
     border-radius: 5px;
-    background-color: #bbc7aa;
+    background-color: #90b66e;
     color: white;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     padding: 5px 10px;
@@ -197,7 +155,7 @@ form[name="index_search_form"] img{
 
 .index_res_item img{
     width: 100%;
-    border-radius: 5px;
+    border-radius: 10px;
     margin-bottom: 10px;
 }
 
@@ -209,7 +167,7 @@ form[name="index_search_form"] img{
 .index_res_name{
     font-size: 20px;
     font-weight: bold;
-    color: #4c604d;
+    color: #263327;
 }
 
 .index_res_item button{
@@ -218,7 +176,7 @@ form[name="index_search_form"] img{
     border: none;
     border-radius: 5px;
     background-color: transparent;
-    color: #4c604d;
+    color: #263327;
     padding: 10px;
 }
 
@@ -239,7 +197,7 @@ form[name="index_search_form"] img{
 }
 
 .index_report_res_area h3{
-    color: #4c604d;
+    color: #558b2f;
     justify-content: start;
 }
 
@@ -255,27 +213,34 @@ form[name="index_search_form"] img{
 }
 
 .index_report_res_wrap div{
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    color: #4c604d;
 }
 
 .index_report_res_wrap div button{
     width: 120px;
     border: none;
     border-radius: 5px;
-    background-color: #bbc7aa;
+    background-color: #e8db21;
     color: white;
-    padding: 5px;
+    padding: 10px 10px;
     align-self: self-end;
+    margin-top: 10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    transition: 0.3s ease-in-out;
 }
 
+.index_report_res_wrap div button:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+    
 .index_report_res_wrap div button i{
     margin-right: 10px;
 }
-
-
 
 
 @media screen and (max-width:48rem){
@@ -299,6 +264,6 @@ form[name="index_search_form"] img{
 }
 
 .index_top_btn_area i{
-    color: #8aa088;
+    color: #90b66e;
     font-size: 40px;
 }
