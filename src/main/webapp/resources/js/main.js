@@ -35,10 +35,10 @@ let loginMember;
 let signUp_Btn = null;
 const options = "width=400, height=500, top=50, left=400";
 
-    loginID = document.getElementById("loginID");
-    loginPw = document.getElementById("loginPw");
-    kakaoLogin_Btn = document.getElementById("kakaoLogin-Btn");
-    signUp_Btn = document.getElementById("signBtn");
+loginID = document.getElementById("loginID");
+loginPw = document.getElementById("loginPw");
+kakaoLogin_Btn = document.getElementById("kakaoLogin-Btn");
+signUp_Btn = document.getElementById("signBtn");
 
 
 

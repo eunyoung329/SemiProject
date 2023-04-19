@@ -38,7 +38,7 @@ public class SignUpServlet extends HttpServlet{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		resp.sendRedirect(req.getContextPath());
+		
 	}
 	
 	
