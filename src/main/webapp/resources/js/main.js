@@ -34,17 +34,12 @@ let kakao_account;
 let loginMember;
 let signUp_Btn = null;
 const options = "width=400, height=500, top=50, left=400";
-if("${empty sessionScope.loginMember}" == true)
-{
+
     loginID = document.getElementById("loginID");
     loginPw = document.getElementById("loginPw");
     kakaoLogin_Btn = document.getElementById("kakaoLogin-Btn");
     signUp_Btn = document.getElementById("signBtn");
-}else{
-    loginID = null;
-    loginPw = null;
-    kakaoLogin_Btn = null;
-}
+
 
 
 
@@ -91,7 +86,7 @@ function loginwithKakao(){
 function loginkakao(){
     
     $.ajax({
-        url:"member/login",
+        url:"member/kakaologin",
         data:{"kakaoId" : kakao_account.email,
               "kakaoNick" :kakao_account.profile.nickname,
               "loginType" : "Y"},
@@ -108,7 +103,7 @@ function loginkakao(){
         error: res=>{
 
         }
-    });
+    }); 
 };
 //logoutKakao();
 function logoutKakao(){
