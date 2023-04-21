@@ -388,8 +388,8 @@ $.ajax({
                     });
                 });
 
-                // 마우스 아웃 이벤트 처리
-                kakao.maps.event.addListener(marker, 'click', function() {
+                // 지도를 다시 클릭했을때 이벤트 처리
+                kakao.maps.event.addListener(map, 'click', function() {
                     infowindow.close(); // 인포윈도우 닫기
                 });
             })(maker[i], latlng); // maker[i]와 latlng를 인자로 전달
