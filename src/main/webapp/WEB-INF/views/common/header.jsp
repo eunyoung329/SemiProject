@@ -22,7 +22,7 @@
          
          <div class="loginWrap">
              <div class="loginLogoArea">
-                 <img src="${contextPath}/resources/img/logo.png" alt"로고">
+                 <img src="${contextPath}/resources/img/logo.png" alt="로고">
              </div>
 
              <div class="login-area">
@@ -66,7 +66,7 @@
     </div>
 
     <div class="headerProfile">
-     <span name="nickName" id="nickName">${loginMember.memberNick}</span>
+     <span name="header_nickName" id="header_nickName">${loginMember.memberNick}</span>
      <button type="button" onclick="openNav()" id="profileBtn"><img src="${contextPath}/resources/img/defaultUser.png" alt=""></button>
     </div>
 
@@ -77,11 +77,11 @@
          <div class="profileWrap">
              <div class="profileArea">
                  <img src="${contextPath}/resources/img/defaultUser.png" alt="">
-                 <span name="nickName">${loginMember.memberNick}</span>
+                 <span name="header_nickName">${loginMember.memberNick}</span>
              </div>
 
              <ul class="infoList">
-                 <a href="">
+                 <a href="${contextPath}/member/infoChange">
                      <li>
                          <i class="fa-regular fa-user"></i>내 정보
                      </li>

@@ -1,59 +1,45 @@
-/**
- * infoChange.js
- */
- 
- // /* myInfo.js*/
+console.log("자스 연결?")
 
-//닉네임,전화번호,생일,주소 
+// 사진 선택 
+const imgSelectBtn = document.getElementById("imgSelectBtn")
+const imgInput = document.createElement("input")
+imgInput.type = "file"
 
-//회원수정 버튼 클릭시 검사가 완료되었는지 확인하는 함수
-function infoValidate() {
-
-
+imgSelectBtn.addEventListener("click", ()=> {
+    imgInput.click();
+})
 
 
-  const memberNick=document.getElementById("memberNick");
-  const memberBirth=document.getElementById("memberBirth");
-  const memberTel=document.getElementById("memberTel");
-  const address=document.querySelectorAll('input[name="memberAddress"]');
+console.log("자스 연결????")
+
+// 닉네임 중복 체크 
+const nickInput = document.getElementById("nickName")
+const nickMsg = document.getElementById("infoChange_nickMsg")
+
+document.addEventListener("DOMContentLoaded", function(){
+nickInput.addEventListener("input", function(){
+
+    const regExp2 = /^(?=.*[a-z0-9가-힣])[a-z0-9가-힣]{2,16}$/
+    if(regExp2.test(nickInput.value)){
+        $.ajax({
+            url:"memberNickname",
+            type:"POST",
+            data:{"memberNickname" :nickInput.value},
+            success: result =>{
+                if(result == 0){
+                    nickMsg.innerText = "사용가능한 닉네임입니다."
+                }else{
+                     nickMsg.innerText = "이미 사용된 닉네임입니다."
+                }
+            },
+            error: result =>{
+                //오류발생
+            }
+        });
+    }else{
+        nickMsg.innerText = "양식에 맞지 않는 닉네임입니다. 다시 입력해주세요."
+    }
+  })
   
-  const regExp1 = /^[a-zA-Z0-9가-힣]{2,10}$/;        // 닉네임 정규식
-  const regExp2 = /^0(1[01679]|2|[3-6][1-5]|70)\d{3,4}\d{4}$/; // 전화번호 정규식
-  
-  if(memberNick.value.length==0){
-    alert("닉네임을 입력해주세요");
-     memberNickname.focus();
-    return false;
-  }
-  
-  if(!regExp1.test(memberNick.value)){
-  alert("닉네임은 영어/숫자/한글 2~10 글자 사이로 작성해주세요.");
-  memberNick.focus();
-  return false;
-  
-  }
-  
-  if(memberTel.value.length==0){
-    alert("전화번호를 입력해주세요");
-    memberTel.focus();
-   return false;
-  }
-  
-  
-  if(!regExp2.test(memberTel.value)){
-    return printAlert(memberTel,"전화번호 형식이 맞지 않습니다.");
-  }
-  
-  
-  return true;
-  
-  }
-  
-  function printAlert(el,message){
-  
-  
-    alert(message);
-    el.focus();
-    return false;
-  
-  }
+})
+
