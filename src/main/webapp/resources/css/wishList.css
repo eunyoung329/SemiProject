@@ -1,0 +1,13 @@
+body{
+    margin: 0;
+    height: 2000px;
+    background-color: aqua;
+}
+
+
+#title-container{
+    height: 465px;
+    background : url(http://get.imglarger.com:8889/results/2gc0QpCI_4x.jpghttp://get.imglarger.com:8889/results/2gc0QpCI_4x.jpg
+    );
+    background-size: 100%;
+}
