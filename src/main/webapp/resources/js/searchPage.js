@@ -348,7 +348,7 @@ function render(itemList, filteredItems) {
         <span class="item-name">${item.category}</span>
         <span class="item-category">${item.name}</span>
         <span class="item-address">${item.address}</span>
-        <span><i class="fa-regular fa-heart"></i></span>
+        <span ><i class="fa-regular fa-heart"></i></span>
       </div>
     `;
     listContainer.appendChild(itemElement);
