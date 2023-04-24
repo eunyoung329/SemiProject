@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +8,7 @@
 <script src="https://kit.fontawesome.com/069a8eb008.js" crossorigin="anonymous"></script> 
 <!-- <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
 <link rel="stylesheet" href="${contextPath}/resources/css/wishList.css"> -->
-<link rel="stylesheet" href="/NewSemi/src/main/webapp/resources/css/wishListDemo.css">
+<link rel="stylesheet" href="/NewSemi/src/main/webapp/resources/css/wishList.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
@@ -323,7 +325,7 @@
         </section>
       </main>
 <jsp:include page ="/WEB-INF/views/common/footer.jsp"/>
-<script src="/NewSemi/src/main/webapp/resources/js/wishListDemo.js"></script>
+<script src="/NewSemi/src/main/webapp/resources/js/wishList.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 </html>
