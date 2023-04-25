@@ -22,7 +22,7 @@
          
          <div class="loginWrap">
              <div class="loginLogoArea">
-                 <img src="${contextPath}/resources/img/logo.png" alt"로고">
+                 <img src="${contextPath}/resources/img/logo.png" alt="로고">
              </div>
 
              <div class="login-area">
