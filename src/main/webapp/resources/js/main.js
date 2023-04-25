@@ -62,7 +62,7 @@ const checkOBJ = {
 
 
 function loginwithKakao(){
-        Kakao.init("aa7315042ef66d7c6f11f2f8b0260256");
+        Kakao.init("");
         Kakao.Auth.login({
             scope : 'profile_nickname, profile_image, account_email, gender',
             success: function(authObj) {
