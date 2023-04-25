@@ -19,7 +19,7 @@
                 </div>
                 <div class="info-area">
                     <span>Community</span>
-                    <a href="">자유게시판</a>
+                    <a href="${contextPath}/member/board">자유게시판</a>
                 </div>
                 <div class="sns-area">
                     <div class="sns-style">
