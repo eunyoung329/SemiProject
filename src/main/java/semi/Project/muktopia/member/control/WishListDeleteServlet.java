@@ -12,13 +12,9 @@ import javax.servlet.http.HttpSession;
 import semi.Project.muktopia.member.model.service.RestaurantService;
 import semi.Project.muktopia.member.model.vo.Member;
 
-@WebServlet("/member/wishList")
-public class WishListServlet extends HttpServlet{
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {		
-		req.getRequestDispatcher("/WEB-INF/views/member/wishList.jsp").forward(req, resp);
-	}
-	
+@WebServlet("/member/wishlistDelete")
+public class WishListDeleteServlet extends HttpServlet{
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
@@ -31,15 +27,14 @@ public class WishListServlet extends HttpServlet{
 				int itemId = Integer.parseInt(itemIdStr); // String을 int로 변환
 				
 				int memberNo = loginMember.getMemberNo();
-				int result = service.jjim(itemId, memberNo);
+				int result = service.jjimDelete(itemId, memberNo);
 				resp.getWriter().print(result);
-				System.out.println("로그인 됨");
-			}else {
-				System.out.println("로그인 안됨");
-			}
-		}catch(Exception e) {
-			e.printStackTrace();
+				System.out.println("삭제 됨");
+		}else {
+			System.out.println("삭제 안됨");
 		}
-	
+	}catch(Exception e) {
+		e.printStackTrace();
+	}
 	}
 }
