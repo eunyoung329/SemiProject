@@ -1,3 +1,4 @@
+//=========FRONT=======================
 
 //배너부분 슬라이드 에니메이션
 let mainText = document.querySelector(".title-text-container");
@@ -11,6 +12,65 @@ window.addEventListener("scroll", function(){
         mainText.style.animation='slide 1s ease-out';
     }
 })
+
+
+//모달창 크기를 동적으로 조절
+$(document).ready(function() {
+  // 모달창이 열릴 때 이벤트 핸들러 등록
+  $('#myModal').on('show.bs.modal', function (event) {
+    // 모달창의 이미지를 가져옵니다.
+    var modalImg = $(this).find('.modal-body img');
+    // 이미지 로딩 완료 후 실행되는 함수를 등록합니다.
+    modalImg.on('load', function() {
+      // 모달창 내부의 내용 크기에 맞게 모달창 크기를 동적으로 조절합니다.
+      $(this).parents('.modal-body').height($(this).height());
+      $(this).parents('.modal-content').height($(this).height() + $('.modal-header').outerHeight() + $('.modal-footer').outerHeight());
+    });
+  });
+});
+
+
+
+//화면이 켜지자 마자 전체 내용을 프론트에 로드하는 ajax
+// 레스토랑 정보가 담길 객체 itemObj, 객체 배열 itemList
+var itemObj;
+var itemList = [];
+
+$(document).ready(function(){
+    
+ console.log("화면로드 함수 실행중")
+  
+  $.ajax({
+    url: "load",
+    type: "POST",
+    dataType: "JSON",
+    success: function (restList) {
+        console.log(restList)
+
+     // 1. 서버에서 받아온 데이터를 객체로 변환
+     for (let i = 0; i < restList.length; i++) {
+        let item = restList[i];
+        let itemObj = {
+          id: item.rest_id,
+          name: item.rest_name,
+          address: item.rest_Addr,
+          lat: item.rest_x,
+          lng: item.rest_y,
+          category : item.rest_category
+        };
+        itemList.push(itemObj);
+      }
+   render(itemList);
+    
+    },
+    error : function(error){
+      console.log("화면 로드 실패")
+    }
+  });
+
+})
+
+
 
 
 

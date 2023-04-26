@@ -91,7 +91,7 @@
                          <i class="fa-regular fa-comment"></i>내가 작성한 리뷰
                      </li>
                  </a>
-                 <a href="">
+                 <a href="${contextPath}/member/wishList">
                      <li>
                          <i class="fa-regular fa-heart"></i>찜한 목록
                      </li>
