@@ -1,0 +1,127 @@
+*{
+    margin:0;
+    box-sizing: border-box;
+}
+.board_wrapper{
+    
+    width:785px;
+}
+.board{
+    padding-top:100px;
+
+    display:flex;
+    flex-direction:column;
+}
+.board_Container-1{
+    margin:auto;
+    display:flex;
+    justify-content: center;
+    width: 785px;
+    
+    border:none;
+}
+.board_title-box{
+    height:80px;    
+    width: 785px;
+    display:flex;
+    align-items: center;
+    border:none;
+    border-bottom:1px solid #cae00f;
+    box-shadow:5px black;
+    
+}
+.board_title-sentence{
+    padding:20px;
+    border:none;
+    outline: 0;
+}
+.board_titleInput{
+    font-size:50px;
+    width:785px;
+    border: none;
+}
+.board_Container-2{
+    margin:auto;
+    padding-bottom: 3px;
+    display:flex;
+    justify-content: start;
+    align-items: center;
+    padding-top:3px;
+width:785px;
+    height:35px;
+}
+.board_Container-2 >div:first-child{
+    display: flex;
+    flex-basis:50%;
+    align-items: center;
+}
+.board_Container-2 >div:last-child{
+    
+    display: flex;
+    justify-content: end;
+    flex-basis:50%;
+    align-items: center;
+}
+.tagSpan{
+
+    margin-left:3px;
+}
+.inputTag{
+    width:50px;
+    margin:0px 0px 0px 20px;
+}
+.tagBtn{
+    border: 0px solid black;
+    margin-left:3px;
+    background-color: white;
+
+}
+.board_Container-3{
+    margin:auto;
+    
+}
+.board_content{
+    height:400px;
+    width:785px;
+}
+.board_content>textarea{
+    width:100%;
+    height:100%;
+    border: none;
+    resize: none;
+    border:1px solid #b0c30d;
+}
+.profile-btn-area{
+    margin-top:5px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.board_Container-4{
+    margin:auto;
+    margin-top:5px;
+    width:785px;
+}
+.btn-Group{
+    width: 100%;
+    height:30px;
+}
+.btn-Group > div{
+    display:flex;
+    justify-content: right;
+    align-items: center;
+    margin-top:10px;
+}
+.btn-Group > div > button{
+    margin-left:3px;
+    margin-right: 3px;
+}
+.btn-Group > div > button{
+    background-color: #b0c30d;
+    color:white;
+    font-weight: bold;
+    border:none;
+    width:100px;
+    height:35px;
+}
