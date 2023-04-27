@@ -12,8 +12,8 @@ h3{
 
 form[name="signUp-form"]{
     /* background-color: antiquewhite; */
-    width: 40%;
-    margin: 30px 0px;
+    width: 30%;
+    margin: 50px 0px;
 }
 
 @media screen and (max-width:48rem){
@@ -31,7 +31,7 @@ form[name="signUp-form"] > label{
 
 form[name="signUp-form"] > div{
     border-bottom: 1px solid #8aa088;
-    height: 40px;
+    height: 50px;
 }
 
 form[name="signUp-form"] > div:focus-within{
@@ -54,16 +54,15 @@ form[name="signUp-form"] > div input:focus{
 }
 
 
-#memberEmail, #cNmuber, #postInput{
-    width: 69%;
+#memberEmail, #cNumber, #postInput{
+    width: 68%;
     padding: 0px 10px 0px 10px;
 }
 
 
-
 #sendEmailBtn, #cNumBtn, #postBtn{
     width: 30%;
-    height: 35px;
+    height: 40px;
     border: none;
     border-radius: 5px;
     background-color: #8aa088;
@@ -96,8 +95,6 @@ form[name="signUp-form"] > div input:focus{
     background-color: #8aa088;
     color: white;
     font-size: 20px;
-    font-weight: bold;
-
     margin-top: 20px;
 }
 

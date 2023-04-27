@@ -192,7 +192,6 @@ form[name="loginForm"]input:focus{
 
 
 .sign-area{
-    /* border: 2px solid red; */
     width: 95%;
     display: flex;
     flex-direction: column;
@@ -201,7 +200,7 @@ form[name="loginForm"]input:focus{
     margin: 20px 0px 20px 0px;
 }
 
-.sign-area button:nth-child(1){
+#header_signBtn{
     background-color: #90b66e;
     border: none;
     border-radius: 5px;
@@ -210,15 +209,6 @@ form[name="loginForm"]input:focus{
     color: white;
 }
 
-.sign-area button:nth-child(2){
-    background-color: #F7E600;
-    border: none;
-    border-radius: 5px;
-    height: 40px;
-    width: 90%;
-    margin-top: 10px;
-    color: #3A1D1D;
-}
 
 .sign-area button i{
     margin-right: 10px;
