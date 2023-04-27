@@ -46,28 +46,27 @@ public class RestaurantDAO {
 		try {
 			String sql = prop.getProperty("restaurantList");
 			pstmt=conn.prepareStatement(sql);
-			
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				String rest_id = rs.getString("RESTAURANT_ID");
-				String rest_name = rs.getString("RESTAURANT_NAME");
-				String rest_Addr = rs.getString("RESTAURANT_ADDR");
-				String rest_x = rs.getString("RESTAURANT_X");
-				String rest_y = rs.getString("RESTAURANT_Y");
-				String rest_category=rs.getString("RESTAURANT_CATEGORY");
-				String rest_sns=rs.getString("RESTAURANT_SNS");
-				String rest_tel=rs.getString("RESTAURANT_TEL");
-				String rest_time=rs.getString("RESTAURANT_TIME");
-				String rest_img=rs.getString("RESTAURANT_IMG");
+				Restaurant make = new Restaurant();
+				make.setRest_id( rs.getString("RESTAURANT_ID"));
+				make.setRest_name(rs.getString("RESTAURANT_NAME"));
+				make.setRest_Addr(rs.getString("RESTAURANT_ADDR"));
+				make.setRest_category(rs.getString("RESTAURANT_CATEGORY"));
+				make.setRest_sns(rs.getString("RESTAURANT_SNS"));
+				make.setRest_tel(rs.getString("RESTAURANT_TEL"));
+				make.setRest_time(rs.getString("RESTAURANT_TIME"));
+				make.setRest_x(rs.getString("RESTAURANT_X"));
+				make.setRest_y(rs.getString("RESTAURANT_Y"));
+				make.setRest_img(rs.getString("RESTAURANT_IMG"));
 				
-				Restaurant restaurant = new Restaurant(rest_id, rest_name, rest_Addr, rest_x, rest_y, rest_category, rest_sns, rest_tel, rest_time, rest_img);
-			    resList.add(restaurant);
+			    resList.add(make);
 				}
 
 		}finally {
 			close(rs);
-			close(st);
+			close(pstmt);
 		}
 		
 		return resList;
@@ -235,8 +234,6 @@ public class RestaurantDAO {
 		}
 		return restIds;
 	}
-
-	
 
 }
 
