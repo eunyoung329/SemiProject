@@ -1,6 +1,7 @@
 package semi.Project.muktopia.member.control;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,36 +10,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
+
 import semi.Project.muktopia.member.model.service.RestaurantService;
 import semi.Project.muktopia.member.model.vo.Member;
 
-@WebServlet("/member/wishList")
-public class WishListServlet extends HttpServlet{
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {		
-		req.getRequestDispatcher("/WEB-INF/views/member/wishList.jsp").forward(req, resp);
-	}
-	
+@WebServlet("/member/heart")
+public class WishListHeartServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		System.out.println("???");
-		
 		try {
 			RestaurantService service = new RestaurantService();
 			HttpSession session = req.getSession();
 			Member loginMember = (Member)session.getAttribute("loginMember");
-			
 			if(loginMember != null) {
-				String itemIdStr = req.getParameter("itemId"); // itemId 파라미터 값을 String으로 가져옴
-				int itemId = Integer.parseInt(itemIdStr); // String을 int로 변환
-				
 				int memberNo = loginMember.getMemberNo();
-				int result = service.jjim(itemId, memberNo);
-				resp.getWriter().print(result);
-				System.out.println("로그인 됨");
-			}else {
-				System.out.println("로그인 안됨");
+				List<Integer> restIds = service.heart(memberNo);
+				System.out.println(restIds);
+				new Gson().toJson(restIds, resp.getWriter());
 			}
 		}catch(Exception e) {
 			e.printStackTrace();

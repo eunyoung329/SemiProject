@@ -156,5 +156,24 @@ public class RestaurantDAO {
 		}
 		return result;
 	}
+
+
+	public List<Integer> heart(Connection conn, int memberNo) throws Exception{
+		List<Integer> restIds =  new ArrayList<>();
+		try {
+			String sql = prop.getProperty("heart");
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, memberNo);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                int restId = rs.getInt("restaurant_id");
+                restIds.add(restId);
+            }
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return restIds;
+	}
 	
 }
