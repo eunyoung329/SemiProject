@@ -15,5 +15,25 @@
 	<entry key="maker">
 		SELECT * FROM RESTAURANT
 	</entry>
+	
+	<entry key="wishListLoad">
+		SELECT 
+			    w.WISHLIST_IDX,
+			    r.RESTAURANT_ID, 
+			    r.RESTAURANT_NAME, 
+			    r.RESTAURANT_ADDR,
+			    r.RESTAURANT_CATEGORY,
+			    r.RESTAURANT_SNS, 
+			    r.RESTAURANT_TEL, 
+			    r.RESTAURANT_TIME,
+			    r.RESTAURANT_IMG, 
+			    r.RESTAURANT_CONTENTS
+		FROM 
+			    RESTAURANT r
+			    INNER JOIN REST_WISHLIST w ON r.RESTAURANT_ID = w.RESTAURANT_ID
+		WHERE 
+		        w.MEMBER_NO = ?
+
+	</entry>
 </properties>
 

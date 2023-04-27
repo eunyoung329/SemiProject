@@ -25,7 +25,7 @@
       
         <section id="card-area">
       
-        <div class="row" >
+        <!-- <div class="row" >
             <div class="col-lg-3 col-md-6" >
               <div class="card" style="width: 24rem;">
                 
@@ -38,7 +38,7 @@
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">키워드</li>
                   <li class="list-group-item">영업시간</li>
-                  
+                  <li class="list-group-item">전화번호</li>
                 </ul>
                 <div class="card-body sns">
                    <a href="#" class="btn btn-light mk">SNS 바로가기</a>
@@ -48,7 +48,7 @@
               </div>
       
             </div>
-            <!-- 모달창 -->
+             //모달창
             <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" >
                 <div class="modal-content" >
@@ -68,7 +68,7 @@
                 </div>
               </div>
             </div>
-            
+             -->
       
       
       
@@ -76,257 +76,11 @@
       
       
       
-            <div class="col-lg-3 col-md-6" >
-              <div class="card" style="width: 24rem;">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn9wJgSE5_KDwEeHMO3fxckT-QPR69joWPD1wbMx-dgyfRDmDTP6BBTkGzLoq8QIjk6Jo&usqp=CAU"
-                  class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Restaurant Name</h5>
-                  <p class="card-text">110  ,Sejong-daero   Jung-gu  Seoul, Republic of Korea</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">키워드</li>
-                  <li class="list-group-item">영업시간</li>
-                  
-                </ul>
-                <div class="card-body sns">
-                   <a href="#" class="btn btn-light mk">SNS 바로가기</a>
-                 <i class="fa-solid fa-heart"></i>
-                 
-                </div>
-              </div>
-      
-            </div>
-            <div class="col-lg-3 col-md-6" >
-              <div class="card" style="width: 24rem;">
-                <img src="https://cdn.class101.net/images/f8f32ea0-38d9-4262-804a-cb0ca67ecc70"
-                  class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Restaurant Name</h5>
-                  <p class="card-text">110  ,Sejong-daero   Jung-gu  Seoul, Republic of Korea</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">키워드</li>
-                  <li class="list-group-item">영업시간</li>
-                  
-                </ul>
-                <div class="card-body sns">
-                 <a href="#" class="btn btn-light mk">SNS 바로가기</a>
-                 <i class="fa-solid fa-heart"></i>
-                  
-                </div>
-              </div>
-      
-            </div>
-            <div class="col-lg-3 col-md-6" >
-                <div class="card" style="width: 24rem;">
-                    <img src="https://img2.daumcdn.net/thumb/R658x0.q70/?fname=https://t1.daumcdn.net/news/202105/22/realfood/20210522111529579ernv.jpg"
-                      class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Restaurant Name</h5>
-                      <p class="card-text">110  ,Sejong-daero   Jung-gu  Seoul, Republic of Korea
-                        content.</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item">키워드</li>
-                      <li class="list-group-item">영업시간</li>
-                      
-                    </ul>
-                    <div class="card-body sns">
-                       <a href="#" class="btn btn-light mk">SNS 바로가기</a>
-                     <i class="fa-solid fa-heart"></i>
-                      
-                    </div>
-                  </div>
-      
-            </div>
-        </div>
-      </div> 
-      <!-- end of row -->
-      
-      <div class="row">
-        <div class="col-lg-3 col-md-6" >
-          <div class="card" style="width: 24rem;">
-            <img src="https://cdn.vox-cdn.com/thumbor/vgkE3cbQfJtqV0j_Ja1gbNxp9AI=/0x0:2110x786/1200x675/filters:focal(887x225:1223x561)/cdn.vox-cdn.com/uploads/chorus_image/image/70831302/Screen_Shot_2022_05_04_at_10.52.23_AM.0.png"
-              class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Restaurant Name</h5>
-              <p class="card-text">110  ,Sejong-daero   Jung-gu  Seoul, Republic of Korea</p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">키워드</li>
-              <li class="list-group-item">영업시간</li>
-              
-            </ul>
-            <div class="card-body sns">
-               <a href="#" class="btn btn-light mk">SNS 바로가기</a>
-             <i class="fa-solid fa-heart"></i>
-              
-            </div>
-          </div>
-      
-        </div>
-        <div class="col-lg-3 col-md-6" >
-          <div class="card" style="width: 24rem;">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn9wJgSE5_KDwEeHMO3fxckT-QPR69joWPD1wbMx-dgyfRDmDTP6BBTkGzLoq8QIjk6Jo&usqp=CAU"
-              class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Restaurant Name</h5>
-              <p class="card-text">110  ,Sejong-daero   Jung-gu  Seoul, Republic of Korea</p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">키워드</li>
-              <li class="list-group-item">영업시간</li>
-              
-            </ul>
-            <div class="card-body sns">
-               <a href="#" class="btn btn-light mk">SNS 바로가기</a>
-             <i class="fa-solid fa-heart"></i>
-             
-            </div>
-          </div>
-      
-        </div>
-        <div class="col-lg-3 col-md-6" >
-          <div class="card" style="width: 24rem;">
-            <img src="https://cdn.class101.net/images/f8f32ea0-38d9-4262-804a-cb0ca67ecc70"
-              class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Restaurant Name</h5>
-              <p class="card-text">110  ,Sejong-daero   Jung-gu  Seoul, Republic of Korea</p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">키워드</li>
-              <li class="list-group-item">영업시간</li>
-              
-            </ul>
-            <div class="card-body sns">
-             <a href="#" class="btn btn-light mk">SNS 바로가기</a>
-             <i class="fa-solid fa-heart"></i>
-              
-            </div>
-          </div>
-      
-        </div>
-        <div class="col-lg-3 col-md-6" >
-            <div class="card" style="width: 24rem;">
-                <img src="https://img2.daumcdn.net/thumb/R658x0.q70/?fname=https://t1.daumcdn.net/news/202105/22/realfood/20210522111529579ernv.jpg"
-                  class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Restaurant Name</h5>
-                  <p class="card-text">110  ,Sejong-daero   Jung-gu  Seoul, Republic of Korea
-                    content.</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">키워드</li>
-                  <li class="list-group-item">영업시간</li>
-                  
-                </ul>
-                <div class="card-body sns">
-                   <a href="#" class="btn btn-light mk">SNS 바로가기</a>
-                 <i class="fa-solid fa-heart"></i>
-                  
-                </div>
-              </div>
-      
-        </div>
-      </div>
-      </div> 
-      
-      
-      <div class="row">
-        <div class="col-lg-3 col-md-6" >
-          <div class="card" style="width: 24rem;">
-            <img src="https://cdn.vox-cdn.com/thumbor/vgkE3cbQfJtqV0j_Ja1gbNxp9AI=/0x0:2110x786/1200x675/filters:focal(887x225:1223x561)/cdn.vox-cdn.com/uploads/chorus_image/image/70831302/Screen_Shot_2022_05_04_at_10.52.23_AM.0.png"
-              class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Restaurant Name</h5>
-              <p class="card-text">110  ,Sejong-daero   Jung-gu  Seoul, Republic of Korea</p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">키워드</li>
-              <li class="list-group-item">영업시간</li>
-              
-            </ul>
-            <div class="card-body sns">
-               <a href="#" class="btn btn-light mk">SNS 바로가기</a>
-             <i class="fa-solid fa-heart"></i>
-              
-            </div>
-          </div>
-      
-        </div>
-        <div class="col-lg-3 col-md-6" >
-          <div class="card" style="width: 24rem;">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn9wJgSE5_KDwEeHMO3fxckT-QPR69joWPD1wbMx-dgyfRDmDTP6BBTkGzLoq8QIjk6Jo&usqp=CAU"
-              class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Restaurant Name</h5>
-              <p class="card-text">110  ,Sejong-daero   Jung-gu  Seoul, Republic of Korea</p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">키워드</li>
-              <li class="list-group-item">영업시간</li>
-              
-            </ul>
-            <div class="card-body sns">
-               <a href="#" class="btn btn-light mk">SNS 바로가기</a>
-             <i class="fa-solid fa-heart"></i>
-             
-            </div>
-          </div>
-      
-        </div>
-        <div class="col-lg-3 col-md-6" >
-          <div class="card" style="width: 24rem;">
-            <img src="https://cdn.class101.net/images/f8f32ea0-38d9-4262-804a-cb0ca67ecc70"
-              class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Restaurant Name</h5>
-              <p class="card-text">110  ,Sejong-daero   Jung-gu  Seoul, Republic of Korea</p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">키워드</li>
-              <li class="list-group-item">영업시간</li>
-              
-            </ul>
-            <div class="card-body sns">
-             <a href="#" class="btn btn-light mk">SNS 바로가기</a>
-             <i class="fa-solid fa-heart"></i>
-              
-            </div>
-          </div>
-      
-        </div>
-        <div class="col-lg-3 col-md-6" >
-            <div class="card" style="width: 24rem;">
-                <img src="https://img2.daumcdn.net/thumb/R658x0.q70/?fname=https://t1.daumcdn.net/news/202105/22/realfood/20210522111529579ernv.jpg"
-                  class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Restaurant Name</h5>
-                  <p class="card-text">110  ,Sejong-daero   Jung-gu  Seoul, Republic of Korea
-                    content.</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">키워드</li>
-                  <li class="list-group-item">영업시간</li>
-                  
-                </ul>
-                <div class="card-body sns">
-                   <a href="#" class="btn btn-light mk">SNS 바로가기</a>
-                 <i class="fa-solid fa-heart"></i>
-                  
-                </div>
-              </div>
-      
-        </div>
-      </div>
-      </div> 
-      
-      
+           
         </section>
       </main>
 <jsp:include page ="/WEB-INF/views/common/footer.jsp"/>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="${contextPath}/resources/js/wishList.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>

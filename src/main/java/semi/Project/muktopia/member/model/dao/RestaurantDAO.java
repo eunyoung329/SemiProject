@@ -13,6 +13,7 @@ import java.util.Properties;
 import static semi.Project.muktopia.common.JDBCTemplate.*;
 
 import semi.Project.muktopia.member.model.vo.Restaurant;
+import semi.Project.muktopia.member.model.vo.WishList;
 
 public class RestaurantDAO {
 	
@@ -126,5 +127,70 @@ public class RestaurantDAO {
 		}
 		return maker;
 	}
+
+
+	/**위시리스트 레스토랑을 로드하는 DAO
+	 * @param conn
+	 * @return
+	 * @throws SQLException 
+	 */
+	public List<WishList> wishListLoad(Connection conn, int memberNoparam) throws SQLException {
+		
+		System.out.println("DAO memberNoparam::"+memberNoparam);
+		 List<WishList> wishList = new ArrayList<>();
+
+	    try {
+	        String sql = prop.getProperty("wishListLoad");
+	        pstmt=conn.prepareStatement(sql);
+	        pstmt.setInt(1, memberNoparam); // 파라미터 바인딩
+	        rs = pstmt.executeQuery();
+
+	        while(rs.next()) {
+	        	
+	            int wishlistIdx = rs.getInt("WISHLIST_IDX");
+	            String restId = rs.getString("RESTAURANT_ID");
+	            String restName = rs.getString("RESTAURANT_NAME");
+	            String restAddr = rs.getString("RESTAURANT_ADDR");
+	            String restCategory = rs.getString("RESTAURANT_CATEGORY");
+	            String restSns = rs.getString("RESTAURANT_SNS");
+	            String restTel = rs.getString("RESTAURANT_TEL");
+	            String restTime = rs.getString("RESTAURANT_TIME");
+	            String restImg = rs.getString("RESTAURANT_IMG");
+	            String restContents = rs.getString("RESTAURANT_CONTENTS");
+	            
+	         // WishList 객체 생성 및 값을 설정
+	            WishList wish = new WishList();
+	            wish.setWishlist_idx(wishlistIdx);
+	            wish.setRest_id(restId);
+	            wish.setRest_name(restName);
+	            wish.setRest_Addr(restAddr);
+	            wish.setRest_category(restCategory);
+	            wish.setRest_sns(restSns);
+	            wish.setRest_tel(restTel);
+	            wish.setRest_time(restTime);
+	            wish.setRest_img(restImg);
+	            wish.setRest_contents(restContents);
+	            
+	            // 생성한 WishList 객체를 리스트에 추가
+	            wishList.add(wish);
+
+	            
+	        }
+
+	    } finally {
+	        close(rs);
+	        close(pstmt);
+	    }
+
+	    return wishList;
+	}
+
 	
+
 }
+
+
+
+
+
+
