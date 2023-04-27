@@ -132,8 +132,8 @@ $(document).ready(function () {
     type: "POST",
     dataType: "JSON",
     success: function (restList) {
-      // console.log(restList)
-
+      console.log(restList)
+      console.log(restList.id);
       // 1. 서버에서 받아온 데이터를 객체로 변환
       for (let i = 0; i < restList.length; i++) {
         let item = restList[i];

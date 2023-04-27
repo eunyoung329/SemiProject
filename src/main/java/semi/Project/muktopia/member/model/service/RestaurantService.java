@@ -26,7 +26,7 @@ public class RestaurantService {
 
 		Connection conn = getConnection();
 		List<Restaurant> resList = dao.loadResList(conn);
-		
+		System.out.println(resList+"서비스");
 		return resList;
 	}
 

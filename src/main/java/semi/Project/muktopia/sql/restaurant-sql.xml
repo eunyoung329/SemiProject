@@ -34,7 +34,7 @@
 			    INNER JOIN REST_WISHLIST w ON r.RESTAURANT_ID = w.RESTAURANT_ID
 		WHERE 
 		        w.MEMBER_NO = ?
-
+	</entry>
 
 	<entry key="jjim">
 		INSERT INTO REST_WISHLIST ("RESTAURANT_ID", "MEMBER_NO") 
