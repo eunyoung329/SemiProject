@@ -18,6 +18,7 @@ import semi.Project.muktopia.common.wrapper.EncryptWrapper;
 
 @WebFilter(filterName="encryptFilter", urlPatterns={"/member/login",
 													"/member/signUp",
+													"/member/board",
 													"/member/searchPage",													"/member/myPage/changePw",
 													"/member/myPage/secession",
 													"/member/myPage/changePwFirst",
