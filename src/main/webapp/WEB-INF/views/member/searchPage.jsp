@@ -47,7 +47,8 @@
                         </div>
                     </div>
                     <div>
-                        <i class="fa-solid fa-arrow-rotate-left" id="category_reset"></i>
+                        <i class="fa-solid fa-location-crosshairs fa-lg" id="nowlocation"></i>
+                        <i class="fa-solid fa-arrow-rotate-left" id="category_reset"></i> 
                     </div>
                 </div>
 

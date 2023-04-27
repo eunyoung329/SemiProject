@@ -22,7 +22,7 @@
          
          <div class="loginWrap">
              <div class="loginLogoArea">
-                 <img src="${contextPath}/resources/img/logo.png" alt"로고">
+                 <img src="${contextPath}/resources/img/logo.png" alt="로고">
              </div>
 
              <div class="login-area">
@@ -32,7 +32,6 @@
                      <input type="text" id ="loginID" name ="loginID">
                      <label>Password</label>
                      <input type="password" id = "loginPw" name = "loginPw">
-                     <span id="mail-Msg">메일 입력 관련 메세지</span>
                      <button id="loginBtn" type="submit">이메일로 로그인하기</button>
                  </form>
                     
@@ -50,7 +49,7 @@
              
              
              <div class="sign-area">
-                 <button id = "signBtn" onclick="location.href='${contextPath}/member/signUp';"><i class="fa-solid fa-envelope"></i>이메일로 가입하기</button>
+                 <button id = "header_signBtn" onclick="location.href='${contextPath}/member/signUp';"><i class="fa-solid fa-envelope"></i>이메일로 가입하기</button>
                  <!-- <button type = "button" id = "kakaoLogin-Btn"><i class="fa-solid fa-comment"></i>카카오톡으로 가입하기</button> -->
              </div>
          </div>
@@ -66,7 +65,7 @@
     </div>
 
     <div class="headerProfile">
-     <span name="nickName" id="nickName">${loginMember.memberNick}</span>
+     <span name="header_nickName" id="header_nickName">${loginMember.memberNick}</span>
      <button type="button" onclick="openNav()" id="profileBtn"><img src="${contextPath}/resources/img/defaultUser.png" alt=""></button>
     </div>
 
@@ -77,11 +76,11 @@
          <div class="profileWrap">
              <div class="profileArea">
                  <img src="${contextPath}/resources/img/defaultUser.png" alt="">
-                 <span name="nickName">${loginMember.memberNick}</span>
+                 <span name="header_nickName">${loginMember.memberNick}</span>
              </div>
 
              <ul class="infoList">
-                 <a href="">
+                 <a href="${contextPath}/member/infoChange">
                      <li>
                          <i class="fa-regular fa-user"></i>내 정보
                      </li>
@@ -96,7 +95,7 @@
                          <i class="fa-regular fa-heart"></i>찜한 목록
                      </li>
                  </a>
-                 <a href="">
+                 <a href="${contextPath}/member/reportStore">
                      <li>
                          <i class="fa-solid fa-shop"></i>가게 제보
                      </li>
@@ -108,7 +107,7 @@
                  </a>
              </ul>
 
-             <a href="" class="hey">
+             <a href="${contextPath}/member/logout" class="hey">
                  <div>
                      <i class="fa-solid fa-power-off"></i>로그아웃
                  </div>

@@ -7,20 +7,39 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import semi.Project.muktopia.member.model.service.RestaurantService;
+import semi.Project.muktopia.member.model.vo.Member;
 
 @WebServlet("/member/wishList")
 public class WishListServlet extends HttpServlet{
-
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {		
 		req.getRequestDispatcher("/WEB-INF/views/member/wishList.jsp").forward(req, resp);
 	}
-
-
 	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		try {
+			RestaurantService service = new RestaurantService();
+			HttpSession session = req.getSession();
+			Member loginMember = (Member)session.getAttribute("loginMember");
+			
+			if(loginMember != null) {
+				String itemIdStr = req.getParameter("itemId"); // itemId 파라미터 값을 String으로 가져옴
+				int itemId = Integer.parseInt(itemIdStr); // String을 int로 변환
+				
+				int memberNo = loginMember.getMemberNo();
+				int result = service.jjim(itemId, memberNo);
+				resp.getWriter().print(result);
+				System.out.println("로그인 됨");
+			}else {
+				System.out.println("로그인 안됨");
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	
-	
-
+	}
 }

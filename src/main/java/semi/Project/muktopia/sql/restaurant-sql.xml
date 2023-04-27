@@ -15,6 +15,7 @@
 	<entry key="maker">
 		SELECT * FROM RESTAURANT
 	</entry>
+
 	
 	<entry key="wishListLoad">
 		SELECT 
@@ -33,6 +34,16 @@
 			    INNER JOIN REST_WISHLIST w ON r.RESTAURANT_ID = w.RESTAURANT_ID
 		WHERE 
 		        w.MEMBER_NO = ?
+
+
+	<entry key="jjim">
+		INSERT INTO REST_WISHLIST ("RESTAURANT_ID", "MEMBER_NO") 
+		VALUES (?, ?)
+	</entry>
+	<entry key="jjimDelete">
+		DELETE FROM REST_WISHLIST
+		WHERE "RESTAURANT_ID" = ?
+		AND "MEMBER_NO" = ?
 
 	</entry>
 </properties>

@@ -1,0 +1,107 @@
+/*정보 상단 메뉴*/
+
+.info-menu{
+    /* border: 2px solid #fb8500; */
+    margin-top: 50px;
+}
+
+.info-menu  ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0px;
+}
+
+.info-menu ul li{
+    font-size: 20px;
+    margin: 30px 40px;
+}
+
+.info-menu ul li:nth-child(2) a {
+    color: #8aa088;
+    padding-bottom: 5px ;
+    border-bottom: 3px solid #8aa088;
+}
+
+
+.info-menu ul li a{
+    text-decoration: none;
+    color: #628642;
+    font-weight: bold;
+}
+
+.info-menu ul li a:hover{
+    color: #8aa088;
+}
+
+/*정보 사이드메뉴 끝*/
+
+
+
+
+/*비밀번호 변경*/
+.myPage-pwChange{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 600px;
+}
+
+form[name="myPage-pwForm"]{
+    width: 50%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+form[name="myPage-pwForm"] div{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-bottom: 50px;
+}
+
+form[name="myPage-pwForm"] div label{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #73a14c;
+
+}
+
+form[name="myPage-pwForm"] div input{
+    border: none;
+    border-bottom: 1px solid #73a14c;
+    background-color: transparent;
+}
+
+form[name="myPage-pwForm"] div input:focus{
+    outline: none;
+    background-color: transparent;
+    border-bottom: 2px solid #73a14c;
+}
+
+form[name="myPage-pwForm"] button{
+    width: 50%;
+    height: 50px;
+    border: 2px solid #73a14c;
+    border-radius: 5px;
+    background-color: white;
+    color: #73a14c;
+}
+
+form[name="myPage-pwForm"] button:hover{
+    background-color: #73a14c;
+    color: white;
+}
+
+@media screen and (max-width:48rem){
+    form[name="myPage-pwForm"]{
+        width: 100%;
+    }
+}
+

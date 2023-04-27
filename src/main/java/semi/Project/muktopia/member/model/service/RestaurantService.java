@@ -60,6 +60,32 @@ public class RestaurantService {
 	}
 
 
+
+	public int jjim(int itemId, int memberNo) throws Exception{
+		Connection conn = getConnection();
+		
+		int result = dao.jjim(conn, itemId, memberNo);
+		
+		if(result >0)	commit(conn);
+		else			rollback(conn);
+		close(conn);
+		return result;
+	}
+
+	public int jjimDelete(int itemId, int memberNo) throws Exception {
+Connection conn = getConnection();
+		
+		int result = dao.jjimDelete(conn, itemId, memberNo);
+		
+		if(result >0)	commit(conn);
+		else			rollback(conn);
+		close(conn);
+		return result;
+	}
+
+	
+	
+
 	
 	
 	

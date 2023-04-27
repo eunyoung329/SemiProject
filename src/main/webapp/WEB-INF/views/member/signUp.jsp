@@ -14,8 +14,7 @@
 </head>
 <body>
 
-
-	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	
 	<main>
             <section class="signUp-Content">
@@ -75,7 +74,7 @@
 
                     <label for="">생일</label>
                     <div>
-                        <input type="date" name="memberBirth" id="memberBirth" autocomplete="off">
+                        <input type="text" name="memberBirth" id="memberBirth" autocomplete="off" placeholder="-을 제외한 8자리 ex: 19991231">
                     </div>
 
                     <label for="">주소</label>

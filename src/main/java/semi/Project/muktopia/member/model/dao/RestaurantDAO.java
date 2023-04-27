@@ -129,6 +129,7 @@ public class RestaurantDAO {
 	}
 
 
+
 	/**위시리스트 레스토랑을 로드하는 DAO
 	 * @param conn
 	 * @return
@@ -183,6 +184,36 @@ public class RestaurantDAO {
 	    }
 
 	    return wishList;
+	}
+
+
+	public int jjim(Connection conn, int itemId, int memberNo) throws Exception {
+		int result = 0;
+		try {
+			String sql = prop.getProperty("jjim");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, itemId);
+			pstmt.setInt(2, memberNo);
+			result = pstmt.executeUpdate();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+
+	public int jjimDelete(Connection conn, int itemId, int memberNo)throws Exception {
+		int result = 0;
+		try {
+			String sql = prop.getProperty("jjimDelete");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, itemId);
+			pstmt.setInt(2, memberNo);
+			result = pstmt.executeUpdate();
+		}finally {
+			close(pstmt);
+		}
+		return result;
 	}
 
 	

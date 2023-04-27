@@ -45,14 +45,14 @@
                         </div>
                     </div>
                     
-                    <div class="index_res">
-                        <div class="index_res_item">
+                    <div class="index_res" id="index_res_seoul">
+                        <!-- <div class="index_res_item">
                             <img src="${contextPath}/resources/img/defaultResImg.png" alt="레스토랑 썸네일">
                             <span class="index_res_category">베이커리</span>
                             <span class="index_res_name">외계인방앗간 정자점</span>
                             <span class="index_res_addr">경기도 성남시 분당구 정자일로 110</span>
                             <a><button type="button"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>
-                        </div>
+                        </div> -->
                         
                     </div><!-- 아이템 끝 -->
                 </div><!-- 서울 끝 -->
@@ -68,7 +68,7 @@
                         </div>
                     </div>
                     
-                    <div class="index_res">
+                    <div class="index_res" id="index_res_gyeonggi">
                        
                     </div><!-- 아이템 끝 -->
                 </div><!-- 경기 끝 -->
@@ -84,7 +84,7 @@
                         </div>
                     </div>
                     
-                    <div class="index_res">
+                    <div class="index_res" id="index_res_busan">
                         
                     </div><!-- 아이템 끝 -->
                 </div><!-- 부산 끝 -->
@@ -100,12 +100,10 @@
                         </div>
                     </div>
                     
-                    <div class="index_res">
-                        <div class="index_res_item">
-                            
-                        </div><!-- 아이템 끝 -->
-                </div><!--제주 끝 -->
-            </div>
+                    <div class="index_res" id="index_res_jeju">
+                        
+                    </div><!-- 아이템 끝 -->
+                </div><!-- 제주 끝 -->
 
 
 
@@ -118,11 +116,15 @@
                     <div class="mt-3">
                         <h5>꼭 비건 메뉴만 판매하는 식당이 아니여도 좋아요</h5>
                         <h5>채식이 가능한 식당을 발견하신다면 어디든 제보해주세요!</h5>
-                        <button class="mt-2"><i class="fa-solid fa-envelope"></i>제보하기</button>
+                        <a href="${contextPath}/member/reportStore">
+                            <button class="mt-2" type="button" id="main_report_btn">
+                                <i class="fa-solid fa-envelope"></i>제보하기
+                            </button>
+                        </a>
                     </div>
-
                 </div>
-            </div>
+            </div><!-- 제보하기 끝 -->
+            
         </div>
 
         <div class="index_top_btn_area">
