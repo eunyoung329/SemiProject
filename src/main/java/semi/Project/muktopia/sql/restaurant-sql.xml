@@ -46,5 +46,8 @@
 		AND "MEMBER_NO" = ?
 
 	</entry>
+	<entry key="heart">
+		SELECT RESTAURANT_ID FROM REST_WISHLIST WHERE MEMBER_NO = ?
+	</entry>
 </properties>
 

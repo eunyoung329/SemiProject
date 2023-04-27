@@ -9,6 +9,8 @@ let mapbounds;
 let bounds;
 let result;
 
+
+
 // 현재 위치한 자리로 좌표를 읽어오기. 위치한 자리로 다시 검색하게끔 유도할 수도 있음.
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(function (position) {
@@ -139,8 +141,8 @@ $(document).ready(function () {
           id: item.rest_id,
           name: item.rest_name,
           address: item.rest_Addr,
-          lat: item.rest_y,
-          lng: item.rest_x,
+          lat: item.rest_x,
+          lng: item.rest_y,
           category: item.rest_category,
           sns: item.rest_sns,
           img: item.rest_img
@@ -150,7 +152,7 @@ $(document).ready(function () {
 
       makingmarker(itemList)
       render(itemList);
-
+      // heart(itemList);
     },
     error: function (error) {
       console.log("화면 로드 실패")
@@ -204,17 +206,13 @@ var infowindow = new kakao.maps.InfoWindow({ // infowindow 변수를 선언하�
 
 function render(itemList, filteredItems) {
   listContainer.innerHTML = "";
-
-  console.log("render() 실행중");
-  console.log("render함수가 인자로 받은 filteredItems: ", filteredItems);
-
   let itemsToRender;
   if (filteredItems && filteredItems.length > 0) {
     itemsToRender = filteredItems;
   } else {
     itemsToRender = itemList;
   }
-
+  
   for (let item of itemsToRender) {
     var itemElement = document.createElement("div");
     itemElement.innerHTML = '';
@@ -228,6 +226,28 @@ function render(itemList, filteredItems) {
       </div>
     `;
     listContainer.appendChild(itemElement);
+    // $.ajax({
+    //   url: "heart",
+    //   method: "POST",
+    //   dataType : "JSON",
+    //   success: function (restIds) {
+    //     console.log(restIds);
+    //     console.log(item.id+"아이디????")
+    //     for (var i = 0; i < restIds.length; i++) {
+    //       if (restIds[i] == item.id) {
+    //         // 해당되는 요소를 선택하여 innerHTML을 변경
+    //         var heartIconElement = document.querySelector(`[data-id="${item.id}"]`);
+    //         console.log(heartIconElement);
+    //         if (heartIconElement) {
+    //           heartIconElement.innerHTML = '<i class="fa-solid fa-heart"></i>';
+    //         }
+    //       }
+    //     }
+    //   },
+    //   error: function () {
+    //     console.log("하트 초기화 실패데스네");
+    //   }
+    // })
     document.getElementById(item.id).addEventListener('dblclick', function () {
       var latlng = new kakao.maps.LatLng(item.lat, item.lng);
       var marker = new kakao.maps.Marker({
@@ -275,55 +295,55 @@ function render(itemList, filteredItems) {
         infowindow.close(); // 인포윈도우 닫기
       });
     });
-
   }
-  // 클래스 heart-icon을 가진 요소들을 모두 선택
   const heartIcons = document.querySelectorAll(".heart-icon");
-
   // 각 heart-icon 요소에 이벤트 리스너 등록
   heartIcons.forEach(heartIcon => {
     heartIcon.addEventListener("click", function () {
       // data-id 속성에서 아이템의 ID 값을 가져옴
       const itemId = this.getAttribute("data-id");
+      console.log(itemId);
       const iconClassName = this.querySelector("i").className;
+      console.log(iconClassName);
       const currentHeartIcon = this;
       if (iconClassName.includes("fa-regular")) {
         $.ajax({
-          url:"wishList",
+          url: "wishList",
           method: "POST",
-          data:{
-              "itemId":itemId
+          data: {
+            "itemId": itemId
           },
-          success:function(result){
-            if(result > 0){
+          success: function (result) {
+            if (result > 0) {
               console.log(result);
+              console.log("인서트구문 실행주우우우우우웅!!!!!!!!!")
               currentHeartIcon.innerHTML = '<i class="fa-solid fa-heart"></i>';
               alert("위시리스트에 등록되었습니다.")
-            }else{
+            } else {
               alert("로그인이 필요한 기능입니다!");
             }
           },
-          error:function(){
+          error: function () {
             console.log("에이젝스 오류");
           }
         })
       } else {
         $.ajax({
-          url:"wishlistDelete",
+          url: "wishlistDelete",
           method: "POST",
-          data:{
-              "itemId":itemId
+          data: {
+            "itemId": itemId
           },
-          success:function(result){
-            if(result > 0){
+          success: function (result) {
+            if (result > 0) {
               console.log(result);
               currentHeartIcon.innerHTML = '<i class="fa-regular fa-heart"></i>';
               alert("위시리스트에서 삭제되었습니다.")
-            }else{
+            } else {
               alert("위시리스트에서 삭제되지않았습니다.");
             }
           },
-          error:function(){
+          error: function () {
             console.log("에이젝스 오류");
           }
         })
@@ -331,8 +351,38 @@ function render(itemList, filteredItems) {
     });
   });
 }
-
-
+// function heart(itemList, filteredList){
+//   let itemsToRender;
+//   if (filteredList && filteredList.length > 0) {
+//     itemsToRender = filteredList;
+//   } else {
+//     itemsToRender = itemList;
+//   }
+//   for (let item of itemsToRender) {
+    // $.ajax({
+    //   url: "heart",
+    //   method: "POST",
+    //   dataType : "JSON",
+    //   success: function (restIds) {
+    //     console.log(restIds);
+    //     console.log(item.id+"아이디????")
+    //     for (var i = 0; i < restIds.length; i++) {
+    //       if (restIds[i] == item.id) {
+    //         // 해당되는 요소를 선택하여 innerHTML을 변경
+    //         var heartIconElement = document.querySelector(`[data-id="${item.id}"]`);
+    //         console.log(heartIconElement);
+    //         if (heartIconElement) {
+    //           heartIconElement.innerHTML = '<i class="fa-solid fa-heart"></i>';
+    //         }
+    //       }
+    //     }
+    //   },
+    //   error: function () {
+    //     console.log("하트 초기화 실패데스네");
+    //   }
+    // })
+//   }
+// }
 locationBtn.forEach(button => {
   console.log("지역선택")
   button.addEventListener('click', filterItems);
@@ -349,7 +399,7 @@ function filterItems() {
   console.log("필터함수 실행중")
   // render(itemList, filteredItems);
   let filteredList = [];
-
+  
   for (let i = 0; i < itemList.length; i++) {
     let item = itemList[i];
 
@@ -381,10 +431,8 @@ function filterItems() {
 
     filteredList.push(item);
   }
-
-  console.log(JSON.stringify(filteredList))
-  console.log("필터링된 객체배열의 길이:: " + filteredList.length);
   render(itemList, filteredList); // 전체 리스트와 필터된 리스트를 함께 전달
+  // heart(itemList, filteredList);
   makingmarker(itemList);
 }
 // 지금 현재 위치로 돌아가는 코드

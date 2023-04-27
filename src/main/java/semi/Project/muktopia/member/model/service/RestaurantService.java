@@ -73,7 +73,7 @@ public class RestaurantService {
 	}
 
 	public int jjimDelete(int itemId, int memberNo) throws Exception {
-Connection conn = getConnection();
+		Connection conn = getConnection();
 		
 		int result = dao.jjimDelete(conn, itemId, memberNo);
 		
@@ -81,6 +81,13 @@ Connection conn = getConnection();
 		else			rollback(conn);
 		close(conn);
 		return result;
+	}
+
+	public List<Integer> heart(int memberNo) throws Exception {
+		Connection conn = getConnection();
+		List<Integer> restIds = dao.heart(conn, memberNo);
+		
+		return restIds;
 	}
 
 	
