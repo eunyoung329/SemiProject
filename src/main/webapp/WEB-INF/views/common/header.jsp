@@ -32,7 +32,6 @@
                      <input type="text" id ="loginID" name ="loginID">
                      <label>Password</label>
                      <input type="password" id = "loginPw" name = "loginPw">
-                     <span id="mail-Msg">메일 입력 관련 메세지</span>
                      <button id="loginBtn" type="submit">이메일로 로그인하기</button>
                  </form>
                     
@@ -50,7 +49,7 @@
              
              
              <div class="sign-area">
-                 <button id = "signBtn" onclick="location.href='${contextPath}/member/signUp';"><i class="fa-solid fa-envelope"></i>이메일로 가입하기</button>
+                 <button id = "header_signBtn" onclick="location.href='${contextPath}/member/signUp';"><i class="fa-solid fa-envelope"></i>이메일로 가입하기</button>
                  <!-- <button type = "button" id = "kakaoLogin-Btn"><i class="fa-solid fa-comment"></i>카카오톡으로 가입하기</button> -->
              </div>
          </div>
@@ -91,12 +90,12 @@
                          <i class="fa-regular fa-comment"></i>내가 작성한 리뷰
                      </li>
                  </a>
-                 <a href="">
+                 <a href="${contextPath}/member/wishList">
                      <li>
                          <i class="fa-regular fa-heart"></i>찜한 목록
                      </li>
                  </a>
-                 <a href="">
+                 <a href="${contextPath}/member/reportStore">
                      <li>
                          <i class="fa-solid fa-shop"></i>가게 제보
                      </li>
@@ -108,7 +107,7 @@
                  </a>
              </ul>
 
-             <a href="" class="hey">
+             <a href="${contextPath}/member/logout" class="hey">
                  <div>
                      <i class="fa-solid fa-power-off"></i>로그아웃
                  </div>
