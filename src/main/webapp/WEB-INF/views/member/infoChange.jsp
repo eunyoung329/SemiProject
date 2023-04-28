@@ -32,9 +32,52 @@
             <section class="ChangeInfo-area container">
 
                 <div class="myImg-area">
-                    <img src="${contextPath}/resources/img/defaultUser.png" alt="">
-                    <button type="button" id="imgSelectBtn"><i class="fa-solid fa-camera"></i></button>
+                    
+                    <c:if test="${empty loginMember.profileImage}">
+                        <img src="${contextPath}/resources/img/profileImg/defaultUser.png" alt="프로필 이미지">
+                    </c:if> 
+                   
+                    <c:if test="${!empty loginMember.profileImage}">
+                        <img src="${contextPath}/${loginMember.profileImage}" alt="프로필 이미지">
+                    </c:if> 
+                    
+                    <button type="button" id="info_img_select_btn"><i class="fa-solid fa-camera"></i></button>
                 </div>
+
+                <!-- 사진 변경 모달 창 -->
+                <div class="info_img_modal">
+                    <div class="info_img_modal_content">
+                        <button id="info_modal_close">&times;</button>
+                        <h2>프로필 이미지 변경</h2>
+
+                        <form action="profileImg" method="POST" name="profileImg-form" 
+                              enctype="multipart/form-data" onsubmit="return profileValidate()">
+                            <div class="info_modal_img_area">
+                                <c:if test="${empty loginMember.profileImage}">
+                                    <img src="${contextPath}/resources/img/profileImg/defaultUser.png" alt="프로필 이미지" id="info_profile_img">
+                                </c:if> 
+                               
+                                <c:if test="${!empty loginMember.profileImage}">
+                                    <img src="${contextPath}/${loginMember.profileImage}" alt="프로필 이미지" id="info_profile_img">
+                                </c:if> 
+
+                                <div class="info_modal_img_change_area">
+                                    <label for="input-image"><i class="fa-solid fa-camera"></i></label>
+                                    <input type="file" name="profileImage" id="input-image" accept="image/*">
+                                </div>
+                              </div>
+                              
+                              
+                              <div class="info_modal_btn_area">
+                                <button type="submit">저장</button>
+                                <button id="info_img_delete_btn">삭제</button>
+                              </div>
+
+                             <!-- 이미지 삭제 버튼이 눌러짐을 기록 --> <!-- 이미지 삭제 버튼이 눌러짐을 기록 -->
+                             <input type="hidden" name="info_img_delete" id="info_img_delete" value="0">
+                        </form>
+                    </div><!-- modal content 끝 -->
+                </div><!-- modal 끝 -->
 
                 <form action="" name="info-form">
                     <label for="nickName">닉네임</label>
