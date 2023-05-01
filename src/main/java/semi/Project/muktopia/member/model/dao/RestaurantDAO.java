@@ -60,8 +60,9 @@ public class RestaurantDAO {
 				make.setRest_x(rs.getString("RESTAURANT_X"));
 				make.setRest_y(rs.getString("RESTAURANT_Y"));
 				make.setRest_img(rs.getString("RESTAURANT_IMG"));
-				
+
 			    resList.add(make);
+
 				}
 
 		}finally {
@@ -201,6 +202,13 @@ public class RestaurantDAO {
 	}
 
 
+	/**지도, 위시리스트 하트삭제-> 위시리스트 삭제
+	 * @param conn
+	 * @param itemId
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
 	public int jjimDelete(Connection conn, int itemId, int memberNo)throws Exception {
 		int result = 0;
 		try {
