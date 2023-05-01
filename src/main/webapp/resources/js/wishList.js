@@ -14,22 +14,6 @@ window.addEventListener("scroll", function(){
 })
 
 
-//모달창 크기를 동적으로 조절
-$(document).ready(function() {
-  // 모달창이 열릴 때 이벤트 핸들러 등록
-  $('#myModal').on('show.bs.modal', function (event) {
-    // 모달창의 이미지를 가져옵니다.
-    var modalImg = $(this).find('.modal-body img');
-    // 이미지 로딩 완료 후 실행되는 함수를 등록합니다.
-    modalImg.on('load', function() {
-      // 모달창 내부의 내용 크기에 맞게 모달창 크기를 동적으로 조절합니다.
-      $(this).parents('.modal-body').height($(this).height());
-      $(this).parents('.modal-content').height($(this).height() + $('.modal-header').outerHeight() + $('.modal-footer').outerHeight());
-    });
-  });
-});
-
-
 //==================================================================
 
 
@@ -42,7 +26,7 @@ var itemList = [];
 $(document).ready(function(){
     
  console.log("화면로드 함수 실행중")
-  
+
   $.ajax({
     url: "wishListLoad",
     type: "POST",
@@ -85,69 +69,103 @@ $(document).ready(function(){
 
 //카드 렌더링 함수
 //현재 row에 카드가 4개가 다 찼다면 새로운 row를 생성하고 
-//새로 생성된 row에 카드 추가
-const cardArea = document.querySelector('.card-area');
+// //새로 생성된 row에 카드 추가
+//const cardArea = document.querySelector('.card-area');
 const rows = document.querySelectorAll('.row');
-
+let cardId=0;
 function addCard(itemList){
+  let currentRow;
+  let cardsInCurrentRow = 0;
+
+
   for (let i = 0; i < itemList.length; i++) {
     const itemObj = itemList[i];
+    cardId++;
     const cardHtml = `<div class="col-lg-3 col-md-6">
-      <div class="card" style="width: 18rem;">
-        <img src="${itemObj.img}" class="card-img-top" alt="...">
+      <div class="card" style="width: 22rem; height: 735.66px">
+        <img src="../${itemObj.img}" class="card-img-top" alt="..."
+        data-bs-toggle="modal" data-bs-target="#myModal-${cardId}">
         <div class="card-body">
           <h5 class="card-title">${itemObj.name}</h5>
-          <p class="card-text">${itemObj.address}</p>
+          <div class="card-address">
+            <span class="card-text">${itemObj.address}</span>
+          </div>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">${itemObj.category}</li>
-          <li class="list-group-item">${itemObj.time}</li>
-          <li class="list-group-item">${itemObj.tel}</li>
+          <li class="list-group-item"><i class="fa-sharp fa-solid fa-utensils" style="color: #558b2f;"></i> ${itemObj.category}</li>
+          <li class="list-group-item"><i class="fa-sharp fa-regular fa-clock" style="color: #558b2f;"></i>  ${itemObj.time}</li>
+          <li class="list-group-item"><i class="fa-solid fa-phone" style="color: #558b2f;"></i> ${itemObj.tel}</li>
         </ul>
         <div class="card-body sns">
           <a href="${itemObj.sns}" class="btn btn-light mk">SNS 바로가기</a>
-          <i class="fa-solid fa-heart" id="${itemObj.id}"></i>
+          <i class="fa-solid fa-heart" id="${itemObj.rest_id}"></i>
         </div>
 
         <!-- 모달창 -->
-        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
+        <div class="modal fade"  id="myModal-${cardId}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <di class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">${itemObj.name}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <img src="${itemObj.img}" alt="My Image">
+                <img src="../${itemObj.img}" alt="My Image">
               </div>
               <div class="modal-footer">
                 <h6 class="modal-footer-content">${itemObj.contents}</h6>
                 <a href="${itemObj.sns}" class="btn btn-light mk">SNS 바로가기</a>
-                <i class="fa-solid fa-heart" ></i>
+                <i class="fa-solid fa-heart" id="heart-${itemObj.rest_id}"></i>
               </div>
             </div>
-          </div>
+          </di                                                                                                                                       v>
         </div>
       </div>
     </div>`;
 
-    const cardArea = document.getElementById("card-area");
-    //페이지에 있는 전체 ROW중 마지막 ROW 지정(인덱스니까 -1)
-    const lastRow = rows[rows.length - 1];
-    //마지막 row가 있는 경우 해당 row 내의 모든 클래스 선택
-    const lastRowCols = lastRow ? lastRow.querySelectorAll('.col-lg-3.col-md-6') : null;
-    if (!lastRow || lastRowCols.length === 4) { 
-      // row가 falsy거나(없거나) 마지막 row안의 카드가 4개일때
-      const newRow = document.createElement('div');
-      newRow.classList.add('row'); // <div class="row" >클래스 지정
-      newRow.innerHTML = cardHtml;
-      cardArea.appendChild(newRow);
-    } else {
-      lastRow.innerHTML += cardHtml;
+    if (cardsInCurrentRow === 0 || cardsInCurrentRow % 4 === 0) {
+      // create a new row and append it to the card area
+      currentRow = document.createElement('div');
+      currentRow.classList.add('row');
+      document.getElementById('card-area').appendChild(currentRow);
     }
+
+    // append the new card to the current row
+    currentRow.innerHTML += cardHtml;
+    cardsInCurrentRow++;
   }
 }
 
+
+//카드와 모달창의 하트를 눌러서 위시리스트 삭제
+
+document.addEventListener("click", function(event) {
+   const clickedElement = event.target;
+  // const classList = clickedElement.classList;
+
+  const restIdElement = clickedElement.closest('[id^="heart-"]');
+  const rest_id = restIdElement ? restIdElement.id.split("-")[1] : clickedElement.id;
+
+
+    console.log("rest_id::",rest_id);
+  if(rest_id){
+    // itemId를 서버로 보내는 ajax 요청 코드 작성
+    $.ajax({
+
+      url: 'wishlistDelete', 
+      method: 'POST',
+      data: { itemId: rest_id },
+      success: function(response) {
+       //성공시 페이지 새로고침
+       console.log("삭제 에이젝스 ")
+       location.reload();
+      },
+      error: function() {
+        alert('위시리스트 삭제 오류 발생');
+      }
+    });
+  }
+});
 
 
 

@@ -35,7 +35,8 @@
 		WHERE 
 		        w.MEMBER_NO = ?
 
-
+	</entry>
+	
 	<entry key="jjim">
 		INSERT INTO REST_WISHLIST ("RESTAURANT_ID", "MEMBER_NO") 
 		VALUES (?, ?)

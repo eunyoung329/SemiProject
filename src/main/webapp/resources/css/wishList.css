@@ -1,7 +1,6 @@
 
-
 #title-area{
-
+    top: 90px;
     height: 500px;
     /* padding-top: 80px; */
     background : url(/NewSemi/resources/img/wishList_title_narrow.jpg) fixed;
@@ -98,6 +97,7 @@
     font-weight: bold;
     color: #545f48;
   }
+
   .card-body.sns {
     display: flex;
     justify-content: space-between;
@@ -145,5 +145,10 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+#exampleModalLabel{
+  font-weight: bold;
+  color: #545f48;
 }
 

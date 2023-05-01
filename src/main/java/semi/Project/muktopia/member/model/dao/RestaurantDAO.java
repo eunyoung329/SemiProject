@@ -63,6 +63,8 @@ public class RestaurantDAO {
 				
 				Restaurant restaurant = new Restaurant(rest_id, rest_name, rest_Addr, rest_x, rest_y, rest_category, rest_sns, rest_tel, rest_time, rest_img);
 			    resList.add(restaurant);
+			    
+			    System.out.println(restaurant);
 				}
 
 		}finally {
@@ -202,6 +204,13 @@ public class RestaurantDAO {
 	}
 
 
+	/**지도, 위시리스트 하트삭제-> 위시리스트 삭제
+	 * @param conn
+	 * @param itemId
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
 	public int jjimDelete(Connection conn, int itemId, int memberNo)throws Exception {
 		int result = 0;
 		try {
