@@ -235,6 +235,25 @@ public class RestaurantDAO {
 		return restIds;
 	}
 
+
+	public int jjimSelect(Connection conn, int itemId, int memberNo) throws Exception {
+		int result0 = 0;
+		try {
+			String sql = prop.getProperty("jjimSelect");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, itemId);
+			pstmt.setInt(2, memberNo);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				result0 = rs.getInt(1);
+			}
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return result0;
+	}
+
 }
 
 

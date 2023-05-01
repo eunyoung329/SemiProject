@@ -49,5 +49,11 @@
 	<entry key="heart">
 		SELECT RESTAURANT_ID FROM REST_WISHLIST WHERE MEMBER_NO = ?
 	</entry>
+	<entry key="jjimSelect">
+		SELECT COUNT(*)
+		FROM REST_WISHLIST
+		WHERE RESTAURANT_ID = ?
+		AND MEMBER_NO = ?
+	</entry>
 </properties>
 
