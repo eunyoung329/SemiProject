@@ -63,10 +63,10 @@ public class RestaurantService {
 
 	public int jjim(int itemId, int memberNo) throws Exception{
 		Connection conn = getConnection();
-		
+		int result0 = dao.jjimSelect(conn, itemId, memberNo);
 		int result = dao.jjim(conn, itemId, memberNo);
 		
-		if(result >0)	commit(conn);
+		if(result >0 && result0 == 0)	commit(conn);
 		else			rollback(conn);
 		close(conn);
 		return result;
@@ -88,6 +88,13 @@ public class RestaurantService {
 		List<Integer> restIds = dao.heart(conn, memberNo);
 		
 		return restIds;
+	}
+
+	public int jjimSelect(int itemId, int memberNo) throws Exception {
+		Connection conn = getConnection();
+		int result0 = dao.jjimSelect(conn, itemId, memberNo);
+		close(conn);
+		return result0;
 	}
 
 	

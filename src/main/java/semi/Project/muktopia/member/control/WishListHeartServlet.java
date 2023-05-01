@@ -23,10 +23,11 @@ public class WishListHeartServlet extends HttpServlet {
 			RestaurantService service = new RestaurantService();
 			HttpSession session = req.getSession();
 			Member loginMember = (Member)session.getAttribute("loginMember");
+			System.out.println("memeber: " + (loginMember != null));
 			if(loginMember != null) {
 				int memberNo = loginMember.getMemberNo();
 				List<Integer> restIds = service.heart(memberNo);
-				System.out.println(restIds);
+				System.out.println("restid: " + restIds);
 				new Gson().toJson(restIds, resp.getWriter());
 			}
 		}catch(Exception e) {

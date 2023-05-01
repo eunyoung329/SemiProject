@@ -38,7 +38,10 @@ if (navigator.geolocation) {
     });
 
     marker.setMap(map);
-
+    document.getElementById("nowlocation").addEventListener('click', function () {
+      marker.setMap(null);
+      console.log("이거 안들어오냐?")
+    })
     console.log(mapbounds);
     bounds = new kakao.maps.LatLngBounds();
   });
@@ -175,19 +178,15 @@ function makingmarker(itemList) {
     });
 
     kakao.maps.event.addListener(marker, 'click', function () {
-      if (item.img != null) {
-        content = "<img src='../" + item.img + "' style='border-radius: 50%; width: 100px; height: 100px;' /><div>" +
-          item.name +
-          "</div><div>" + item.category +
-          "</div><span><a href='" + item.sns + "'>" +
-          item.sns + "</a></span>";
-      } else {
-        content = "<img src='../resources/img/defualtimg.png' style='border-radius: 50%; width: 100px; height: 100px;' /><div>" +
-          item.name +
-          "</div><div>" + item.category +
-          "</div><span><a href='" + item.sns + "'>" +
-          item.sns + "</a></span>";
-      }
+      content = "<div class='marker-content'>" +
+        "<div class='marker-image'>" +
+        "<img src='../" + (item.img ? item.img : "resources/img/defaultimg.png") + "' /></div>" +
+        "<div class='marker-info'>" +
+        "<div class='marker-name'>" + item.name + "</div>" +
+        "<div class='marker-category'>" + item.category + "</div>" +
+        "<div class='marker-sns'><a href='" + item.sns + "'>홈페이지</a></div>" +
+        "</div>" +
+        "</div>";
       infowindow.setContent(content); // infowindow 객체의 내용(content) 갱신
       infowindow.open(map, marker); // infowindow 객체 열기
       kakao.maps.event.addListener(map, 'click', function () {
@@ -212,7 +211,7 @@ function render(itemList, filteredItems) {
   } else {
     itemsToRender = itemList;
   }
-  
+
   for (let item of itemsToRender) {
     var itemElement = document.createElement("div");
     itemElement.innerHTML = '';
@@ -222,32 +221,11 @@ function render(itemList, filteredItems) {
         <span class="item-category">${item.category}</span>
         <span class="item-name">${item.name}</span>
         <span class="item-address">${item.address}</span>
-        <span class="heart-icon" data-id="${item.id}"><i class="fa-regular fa-heart"></i></span>
+        <span class="heart-icon" data-id="${item.id}"><input type="submit" value="Like"></span>
       </div>
     `;
     listContainer.appendChild(itemElement);
-    // $.ajax({
-    //   url: "heart",
-    //   method: "POST",
-    //   dataType : "JSON",
-    //   success: function (restIds) {
-    //     console.log(restIds);
-    //     console.log(item.id+"아이디????")
-    //     for (var i = 0; i < restIds.length; i++) {
-    //       if (restIds[i] == item.id) {
-    //         // 해당되는 요소를 선택하여 innerHTML을 변경
-    //         var heartIconElement = document.querySelector(`[data-id="${item.id}"]`);
-    //         console.log(heartIconElement);
-    //         if (heartIconElement) {
-    //           heartIconElement.innerHTML = '<i class="fa-solid fa-heart"></i>';
-    //         }
-    //       }
-    //     }
-    //   },
-    //   error: function () {
-    //     console.log("하트 초기화 실패데스네");
-    //   }
-    // })
+    
     document.getElementById(item.id).addEventListener('dblclick', function () {
       var latlng = new kakao.maps.LatLng(item.lat, item.lng);
       var marker = new kakao.maps.Marker({
@@ -257,37 +235,29 @@ function render(itemList, filteredItems) {
       map.setCenter(latlng);
 
       var content = "";
-      if (item.img != null) {
-        content = "<img src='../" + item.img + "' style='border-radius: 50%; width: 100px; height: 100px;' /><div>"
-          + item.name +
-          "</div><div>" + item.category +
-          "</div><span><a href='" + item.sns + "'>" +
-          item.sns + "</a></span>";
-      } else {
-        content = "<img src='../resources/img/defualtimg.png' style='border-radius: 50%; width: 100px; height: 100px;' /><div>"
-          + item.name +
-          "</div><div>" + item.category +
-          "</div><span><a href='" + item.sns + "'>" +
-          item.sns + "</a></span>";
-      }
+      content = "<div class='marker-content'>" +
+        "<div class='marker-image'>" +
+        "<img src='../" + (item.img ? item.img : "resources/img/defaultimg.png") + "' /></div>" +
+        "<div class='marker-info'>" +
+        "<div class='marker-name'>" + item.name + "</div>" +
+        "<div class='marker-category'>" + item.category + "</div>" +
+        "<div class='marker-sns'><a href='" + item.sns + "'>홈페이지</a></div>" +
+        "</div>" +
+        "</div>";
 
       infowindow.setContent(content);
       infowindow.open(map, marker);
 
       kakao.maps.event.addListener(marker, 'click', function () {
-        if (item.img != null) {
-          content = "<img src='../" + item.img + "' style='border-radius: 50%; width: 100px; height: 100px;' /><div>" +
-            item.name +
-            "</div><div>" + item.category +
-            "</div><span><a href='" + item.sns + "'>" +
-            item.sns + "</a></span>";
-        } else {
-          content = "<img src='../resources/img/defualtimg.png' style='border-radius: 50%; width: 100px; height: 100px;' /><div>" +
-            item.name +
-            "</div><div>" + item.category +
-            "</div><span><a href='" + item.sns + "'>" +
-            item.sns + "</a></span>";
-        }
+        content = "<div class='marker-content'>" +
+          "<div class='marker-image'>" +
+          "<img src='../" + (item.img ? item.img : "resources/img/defaultimg.png") + "' /></div>" +
+          "<div class='marker-info'>" +
+          "<div class='marker-name'>" + item.name + "</div>" +
+          "<div class='marker-category'>" + item.category + "</div>" +
+          "<div class='marker-sns'><a href='" + item.sns + "'>홈페이지</a></div>" +
+          "</div>" +
+          "</div>";
         infowindow.setContent(content);
         infowindow.open(map, marker);
       });
@@ -302,87 +272,31 @@ function render(itemList, filteredItems) {
     heartIcon.addEventListener("click", function () {
       // data-id 속성에서 아이템의 ID 값을 가져옴
       const itemId = this.getAttribute("data-id");
-      console.log(itemId);
-      const iconClassName = this.querySelector("i").className;
-      console.log(iconClassName);
-      const currentHeartIcon = this;
-      if (iconClassName.includes("fa-regular")) {
-        $.ajax({
-          url: "wishList",
-          method: "POST",
-          data: {
-            "itemId": itemId
-          },
-          success: function (result) {
-            if (result > 0) {
-              console.log(result);
-              console.log("인서트구문 실행주우우우우우웅!!!!!!!!!")
-              currentHeartIcon.innerHTML = '<i class="fa-solid fa-heart"></i>';
-              alert("위시리스트에 등록되었습니다.")
-            } else {
-              alert("로그인이 필요한 기능입니다!");
-            }
-          },
-          error: function () {
-            console.log("에이젝스 오류");
+      
+      $.ajax({
+        url: "wishList",
+        method: "POST",
+        data: {
+          "itemId": itemId
+        },
+        success: function (result) {
+          console.log(result+"위시리스트 등록 result")
+          if (result> 0) {
+            alert("위시리스트에 등록되었습니다.")
+          } else if(result == 0){
+            alert("중복된 위시리스트입니다.");
+          }else{
+            alert("로그인이 필요한 기능입니다.");
           }
-        })
-      } else {
-        $.ajax({
-          url: "wishlistDelete",
-          method: "POST",
-          data: {
-            "itemId": itemId
-          },
-          success: function (result) {
-            if (result > 0) {
-              console.log(result);
-              currentHeartIcon.innerHTML = '<i class="fa-regular fa-heart"></i>';
-              alert("위시리스트에서 삭제되었습니다.")
-            } else {
-              alert("위시리스트에서 삭제되지않았습니다.");
-            }
-          },
-          error: function () {
-            console.log("에이젝스 오류");
-          }
-        })
-      }
+        },
+        error: function () {
+          console.log("에이젝스 오류");
+        }
+      })
+
     });
   });
 }
-// function heart(itemList, filteredList){
-//   let itemsToRender;
-//   if (filteredList && filteredList.length > 0) {
-//     itemsToRender = filteredList;
-//   } else {
-//     itemsToRender = itemList;
-//   }
-//   for (let item of itemsToRender) {
-    // $.ajax({
-    //   url: "heart",
-    //   method: "POST",
-    //   dataType : "JSON",
-    //   success: function (restIds) {
-    //     console.log(restIds);
-    //     console.log(item.id+"아이디????")
-    //     for (var i = 0; i < restIds.length; i++) {
-    //       if (restIds[i] == item.id) {
-    //         // 해당되는 요소를 선택하여 innerHTML을 변경
-    //         var heartIconElement = document.querySelector(`[data-id="${item.id}"]`);
-    //         console.log(heartIconElement);
-    //         if (heartIconElement) {
-    //           heartIconElement.innerHTML = '<i class="fa-solid fa-heart"></i>';
-    //         }
-    //       }
-    //     }
-    //   },
-    //   error: function () {
-    //     console.log("하트 초기화 실패데스네");
-    //   }
-    // })
-//   }
-// }
 locationBtn.forEach(button => {
   console.log("지역선택")
   button.addEventListener('click', filterItems);
@@ -399,7 +313,7 @@ function filterItems() {
   console.log("필터함수 실행중")
   // render(itemList, filteredItems);
   let filteredList = [];
-  
+
   for (let i = 0; i < itemList.length; i++) {
     let item = itemList[i];
 
@@ -431,6 +345,7 @@ function filterItems() {
 
     filteredList.push(item);
   }
+  debugger;
   render(itemList, filteredList); // 전체 리스트와 필터된 리스트를 함께 전달
   // heart(itemList, filteredList);
   makingmarker(itemList);
@@ -453,7 +368,6 @@ document.getElementById("nowlocation").addEventListener('click', function () {
       position: locPosition,
       image: markerImage
     });
-
     marker.setMap(map);
   })
 });
