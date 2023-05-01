@@ -128,5 +128,15 @@ SELECT RESTAURANT_NAME, RESTAURANT_ADDR, RESTAURANT_X, RESTAURANT_Y,RESTAURANT_C
 FROM RESTAURANT
 WHERE RESTAURANT_NAME = ?
 </entry>
+
+
+<!-- 프로필 이미지 수정 -->
+<entry key="updateProfileImage">
+	UPDATE MEMBER SET
+	PROFILE_IMG = ?
+	WHERE MEMBER_NO = ?
+</entry>
+
+
 </properties>
 

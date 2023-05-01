@@ -26,7 +26,7 @@ public class RestaurantService {
 
 		Connection conn = getConnection();
 		List<Restaurant> resList = dao.loadResList(conn);
-		
+		System.out.println(resList+"서비스");
 		return resList;
 	}
 
@@ -63,17 +63,17 @@ public class RestaurantService {
 
 	public int jjim(int itemId, int memberNo) throws Exception{
 		Connection conn = getConnection();
-		
+		int result0 = dao.jjimSelect(conn, itemId, memberNo);
 		int result = dao.jjim(conn, itemId, memberNo);
 		
-		if(result >0)	commit(conn);
+		if(result >0 && result0 == 0)	commit(conn);
 		else			rollback(conn);
 		close(conn);
 		return result;
 	}
 
 	public int jjimDelete(int itemId, int memberNo) throws Exception {
-Connection conn = getConnection();
+		Connection conn = getConnection();
 		
 		int result = dao.jjimDelete(conn, itemId, memberNo);
 		
@@ -81,6 +81,20 @@ Connection conn = getConnection();
 		else			rollback(conn);
 		close(conn);
 		return result;
+	}
+
+	public List<Integer> heart(int memberNo) throws Exception {
+		Connection conn = getConnection();
+		List<Integer> restIds = dao.heart(conn, memberNo);
+		
+		return restIds;
+	}
+
+	public int jjimSelect(int itemId, int memberNo) throws Exception {
+		Connection conn = getConnection();
+		int result0 = dao.jjimSelect(conn, itemId, memberNo);
+		close(conn);
+		return result0;
 	}
 
 	

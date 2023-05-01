@@ -30,9 +30,7 @@ public class WishListLoadServlet extends HttpServlet {
 	       int memberNoparam = loginMember.getMemberNo();
 	       
 	       System.out.println("memberNoparam::"+memberNoparam);
-	       
 
-			
 			RestaurantService service = new RestaurantService();
 			
 			List<WishList> wishList = service.wishListLoad(memberNoparam);
