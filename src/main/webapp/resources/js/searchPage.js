@@ -221,7 +221,8 @@ function render(itemList, filteredItems) {
         <span class="item-category">${item.category}</span>
         <span class="item-name">${item.name}</span>
         <span class="item-address">${item.address}</span>
-        <span class="heart-icon" data-id="${item.id}"><input type="submit" value="Like"></span>
+        <span class="heart-icon" data-id="${item.id}"><button class="button-35" role="button">Like</button>
+        </span>
       </div>
     `;
     listContainer.appendChild(itemElement);
@@ -279,7 +280,7 @@ function render(itemList, filteredItems) {
         data: {
           "itemId": itemId
         },
-        success: function (result) {
+        success: function ( ) {
           console.log(result+"위시리스트 등록 result")
           if (result> 0) {
             alert("위시리스트에 등록되었습니다.")
