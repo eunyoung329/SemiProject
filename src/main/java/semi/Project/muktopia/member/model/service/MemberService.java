@@ -3,6 +3,7 @@ package semi.Project.muktopia.member.model.service;
 
 import static semi.Project.muktopia.common.JDBCTemplate.*;
 
+
 import java.sql.Connection;
 import java.util.List;
 
@@ -132,5 +133,15 @@ public class MemberService {
 			close(conn);
 		}
 		return rest;
+	}
+	public int insertBoard(int memberNo, String title, String[] tagValue, String boardImage, String inputArea) throws Exception{
+		Connection conn = getConnection();
+		int result = new MemberDAO().insertBoard(conn,memberNo, title, tagValue, boardImage, inputArea);
+		if(result ==1)
+			commit(conn);
+		else
+			rollback(conn);
+		close(conn);
+		return result;
 	}
 }

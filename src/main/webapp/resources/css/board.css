@@ -17,6 +17,7 @@ main{
 .back-ground-image{
     position:relative;
     width:1519px;
+    z-index: 4;
 }
 .search-place{
     display: flex;
@@ -238,6 +239,25 @@ main{
     border: 2px solid #cae00f;
     background-color: #f8f9fa;
     margin:5px;
+}
+.loginFixed{
+    border:#666666 1px solid;
+    border-radius: 10px;
+    background-color: #cae00f;
+    font-weight: bold;
+    border: none;
+    width:80px;
+    height:30px;
+    position:fixed;
+    bottom:20px;
+    right: 40px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.background{
+    z-index: 4;
 }
 #today{
     height:100%;
