@@ -280,7 +280,7 @@ function render(itemList, filteredItems) {
         data: {
           "itemId": itemId
         },
-        success: function ( ) {
+        success: function (result) {
           console.log(result+"위시리스트 등록 result")
           if (result> 0) {
             alert("위시리스트에 등록되었습니다.")
