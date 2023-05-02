@@ -154,7 +154,7 @@ public class MemberService {
 		// 트랜잭션 
 		if(result > 0) commit(conn);
 		else 		   rollback(conn);
-		
-		close(conn);		
-	
+		close(conn);
+		return result;
+	}
 }
