@@ -360,36 +360,7 @@ public class MemberDAO {
 		}
 		return rest_list;
 	}
+
+
 	
-	
-	
-	
-	/** 프로필 이미지 변경
-	 * @param conn
-	 * @param memberNo
-	 * @param profileImage
-	 * @return
-	 */
-	public int updateProfileImage(Connection conn, int memberNo, String profileImage) throws Exception {
-		
-		int result = 0; 
-		
-		try {
-			
-			String sql = prop.getProperty("updateProfileImage");
-			
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, profileImage);
-			pstmt.setInt(2, memberNo);
-			
-			result = pstmt.executeUpdate();
-			System.out.println("dao: " + result);
-			
-		} finally {
-			close(pstmt);
-		}
-		
-		
-		return result;
-	}
 }

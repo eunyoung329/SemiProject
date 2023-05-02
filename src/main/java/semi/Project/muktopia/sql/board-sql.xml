@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key = "selectId">
+	SELECT BOARD_NO
+	FROM (SELECT * FROM BOARD ORDER BY BOARD_NO DESC)
+	WHERE ROWNUM=1
+	</entry>
+	<entry key="insertBoard">
+  INSERT INTO BOARD (BOARD_NO, MEMBER_ID, BOARD_TITLE, BOARD_CATEGORY, BOARD_IMAGE, BOARD_INPUTAREA)
+  VALUES(SEQ_NO_BOARD.NEXTVAL, ?, ?, ?, ?, ?)
+</entry>
+	<entry key = "updateImageBoard">
+	UPDATE BOARD 
+	SET BOARD_IMAGE = ?
+	WHERE BOARD_NO = ?
+	</entry>
+</properties>
