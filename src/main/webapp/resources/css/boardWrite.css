@@ -49,11 +49,16 @@
     padding-top:3px;
 width:785px;
     height:35px;
+    overflow:hidden;
 }
 .board_Container-2 >div:first-child{
     display: flex;
     flex-basis:50%;
     align-items: center;
+}
+#tagPlace{
+    overflow: auto;
+    word-break:break-all;
 }
 .board_Container-2 >div:last-child{
     
@@ -63,8 +68,8 @@ width:785px;
     align-items: center;
 }
 .tagSpan{
-
-    margin-left:3px;
+    overflow: hidden;
+    margin-right:5px;
 }
 .inputTag{
     width:50px;
@@ -102,6 +107,7 @@ width:785px;
     margin:auto;
     margin-top:5px;
     width:785px;
+    margin-bottom: 20px;
 }
 .btn-Group{
     width: 100%;
@@ -124,4 +130,7 @@ width:785px;
     border:none;
     width:100px;
     height:35px;
+}
+.invisible{
+    display:none;
 }

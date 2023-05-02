@@ -1,21 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
     <link rel = "stylesheet" href ="${contextPath}/resources/css/board.css">
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
     <link rel = "stylesheet" href ="${contextPath}/resources/bootstrap/css/bootstrap.rtl.css">
     <script src="https://kit.fontawesome.com/d89904c156.js" crossorigin="anonymous"></script>
     <!-- css아래에 위치해있도록 하기. -->
 </head>
 <body>
   <jsp:include page ="/WEB-INF/views/common/header.jsp"/>
+    <c:choose>
+      <c:when test = "${!empty sessionScope.loginMember}">
+        <div class = "loginFixed">
+          <a href = "${contextPath}/board/boardWrite">글쓰기</a>
+        </div>
+      </c:when>
+    </c:choose>
     <main>
         <!--여기다가 검색창을 만들지 아니면 밑에다가 만들지 결정해야한다.-->
         <!-- 난 여기다가 검색창을 만들..어봅시다.-->

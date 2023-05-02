@@ -360,8 +360,8 @@ public class MemberDAO {
 		}
 		return rest_list;
 	}
-	
-	
+
+
 	
 	
 	/** 프로필 이미지 변경
@@ -392,4 +392,5 @@ public class MemberDAO {
 		
 		return result;
 	}
+
 }

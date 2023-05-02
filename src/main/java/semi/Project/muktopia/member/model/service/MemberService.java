@@ -3,6 +3,7 @@ package semi.Project.muktopia.member.model.service;
 
 import static semi.Project.muktopia.common.JDBCTemplate.*;
 
+
 import java.sql.Connection;
 import java.util.List;
 
@@ -133,6 +134,7 @@ public class MemberService {
 		}
 		return rest;
 	}
+
 	
 	
 	
@@ -153,8 +155,6 @@ public class MemberService {
 		if(result > 0) commit(conn);
 		else 		   rollback(conn);
 		
-		close(conn);
-		
-		return result;
-	}
+		close(conn);		
+	
 }
