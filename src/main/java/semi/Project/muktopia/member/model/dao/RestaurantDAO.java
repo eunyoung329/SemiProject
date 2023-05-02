@@ -13,6 +13,7 @@ import java.util.Properties;
 import static semi.Project.muktopia.common.JDBCTemplate.*;
 
 import semi.Project.muktopia.member.model.vo.Restaurant;
+import semi.Project.muktopia.member.model.vo.WishList;
 
 public class RestaurantDAO {
 	
@@ -45,28 +46,28 @@ public class RestaurantDAO {
 		try {
 			String sql = prop.getProperty("restaurantList");
 			pstmt=conn.prepareStatement(sql);
-			
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				String rest_id = rs.getString("RESTAURANT_ID");
-				String rest_name = rs.getString("RESTAURANT_NAME");
-				String rest_Addr = rs.getString("RESTAURANT_ADDR");
-				String rest_x = rs.getString("RESTAURANT_X");
-				String rest_y = rs.getString("RESTAURANT_Y");
-				String rest_category=rs.getString("RESTAURANT_CATEGORY");
-				String rest_sns=rs.getString("RESTAURANT_SNS");
-				String rest_tel=rs.getString("RESTAURANT_TEL");
-				String rest_time=rs.getString("RESTAURANT_TIME");
-				String rest_img=rs.getString("RESTAURANT_IMG");
-				
-				Restaurant restaurant = new Restaurant(rest_id, rest_name, rest_Addr, rest_x, rest_y, rest_category, rest_sns, rest_tel, rest_time, rest_img);
-			    resList.add(restaurant);
+				Restaurant make = new Restaurant();
+				make.setRest_id( rs.getString("RESTAURANT_ID"));
+				make.setRest_name(rs.getString("RESTAURANT_NAME"));
+				make.setRest_Addr(rs.getString("RESTAURANT_ADDR"));
+				make.setRest_category(rs.getString("RESTAURANT_CATEGORY"));
+				make.setRest_sns(rs.getString("RESTAURANT_SNS"));
+				make.setRest_tel(rs.getString("RESTAURANT_TEL"));
+				make.setRest_time(rs.getString("RESTAURANT_TIME"));
+				make.setRest_x(rs.getString("RESTAURANT_X"));
+				make.setRest_y(rs.getString("RESTAURANT_Y"));
+				make.setRest_img(rs.getString("RESTAURANT_IMG"));
+
+			    resList.add(make);
+
 				}
 
 		}finally {
 			close(rs);
-			close(st);
+			close(pstmt);
 		}
 		
 		return resList;
@@ -128,6 +129,64 @@ public class RestaurantDAO {
 	}
 
 
+
+	/**위시리스트 레스토랑을 로드하는 DAO
+	 * @param conn
+	 * @return
+	 * @throws SQLException 
+	 */
+	public List<WishList> wishListLoad(Connection conn, int memberNoparam) throws SQLException {
+		
+		System.out.println("DAO memberNoparam::"+memberNoparam);
+		 List<WishList> wishList = new ArrayList<>();
+
+	    try {
+	        String sql = prop.getProperty("wishListLoad");
+	        pstmt=conn.prepareStatement(sql);
+	        pstmt.setInt(1, memberNoparam); // 파라미터 바인딩
+	        rs = pstmt.executeQuery();
+
+	        while(rs.next()) {
+	        	
+	            int wishlistIdx = rs.getInt("WISHLIST_IDX");
+	            String restId = rs.getString("RESTAURANT_ID");
+	            String restName = rs.getString("RESTAURANT_NAME");
+	            String restAddr = rs.getString("RESTAURANT_ADDR");
+	            String restCategory = rs.getString("RESTAURANT_CATEGORY");
+	            String restSns = rs.getString("RESTAURANT_SNS");
+	            String restTel = rs.getString("RESTAURANT_TEL");
+	            String restTime = rs.getString("RESTAURANT_TIME");
+	            String restImg = rs.getString("RESTAURANT_IMG");
+	            String restContents = rs.getString("RESTAURANT_CONTENTS");
+	            
+	         // WishList 객체 생성 및 값을 설정
+	            WishList wish = new WishList();
+	            wish.setWishlist_idx(wishlistIdx);
+	            wish.setRest_id(restId);
+	            wish.setRest_name(restName);
+	            wish.setRest_Addr(restAddr);
+	            wish.setRest_category(restCategory);
+	            wish.setRest_sns(restSns);
+	            wish.setRest_tel(restTel);
+	            wish.setRest_time(restTime);
+	            wish.setRest_img(restImg);
+	            wish.setRest_contents(restContents);
+	            
+	            // 생성한 WishList 객체를 리스트에 추가
+	            wishList.add(wish);
+
+	            
+	        }
+
+	    } finally {
+	        close(rs);
+	        close(pstmt);
+	    }
+
+	    return wishList;
+	}
+
+
 	public int jjim(Connection conn, int itemId, int memberNo) throws Exception {
 		int result = 0;
 		try {
@@ -143,6 +202,13 @@ public class RestaurantDAO {
 	}
 
 
+	/**지도, 위시리스트 하트삭제-> 위시리스트 삭제
+	 * @param conn
+	 * @param itemId
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
 	public int jjimDelete(Connection conn, int itemId, int memberNo)throws Exception {
 		int result = 0;
 		try {
@@ -156,5 +222,50 @@ public class RestaurantDAO {
 		}
 		return result;
 	}
-	
+
+
+
+	public List<Integer> heart(Connection conn, int memberNo) throws Exception{
+		List<Integer> restIds =  new ArrayList<>();
+		try {
+			String sql = prop.getProperty("heart");
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, memberNo);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                int restId = rs.getInt("restaurant_id");
+                restIds.add(restId);
+            }
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return restIds;
+	}
+
+
+	public int jjimSelect(Connection conn, int itemId, int memberNo) throws Exception {
+		int result0 = 0;
+		try {
+			String sql = prop.getProperty("jjimSelect");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, itemId);
+			pstmt.setInt(2, memberNo);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				result0 = rs.getInt(1);
+			}
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return result0;
+	}
+
 }
+
+
+
+
+
+

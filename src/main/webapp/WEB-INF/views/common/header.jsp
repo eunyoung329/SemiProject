@@ -75,7 +75,13 @@
          
          <div class="profileWrap">
              <div class="profileArea">
-                 <img src="${contextPath}/resources/img/defaultUser.png" alt="">
+             	<c:if test="${empty loginMember.profileImage}">
+                 	<img src="${contextPath}/resources/img/profileImg/defaultUser.png" alt="프로필 이미지">
+                </c:if> 
+                
+                <c:if test="${!empty loginMember.profileImage}">
+                 	<img src="${contextPath}/${loginMember.profileImage}" alt="프로필 이미지">
+                </c:if> 
                  <span name="header_nickName">${loginMember.memberNick}</span>
              </div>
 

@@ -52,7 +52,7 @@
                     </div>
                 </div>
 
-
+				
 
                 <div class="searchPage_res_item_wrap">
                     <!-- 세트 -->

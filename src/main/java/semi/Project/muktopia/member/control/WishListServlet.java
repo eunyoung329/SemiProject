@@ -20,7 +20,7 @@ public class WishListServlet extends HttpServlet{
 	}
 	
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {		
 		try {
 			RestaurantService service = new RestaurantService();
 			HttpSession session = req.getSession();
@@ -31,15 +31,22 @@ public class WishListServlet extends HttpServlet{
 				int itemId = Integer.parseInt(itemIdStr); // String을 int로 변환
 				
 				int memberNo = loginMember.getMemberNo();
+				int result0 = service.jjimSelect(itemId, memberNo);
 				int result = service.jjim(itemId, memberNo);
-				resp.getWriter().print(result);
-				System.out.println("로그인 됨");
+
+				if(result0 >0) {
+					System.out.println("중복된 위시리스트!!");
+					result = 0;
+					resp.getWriter().print(result);
+				}else {					
+					resp.getWriter().print(result); // 중복 된것이 없을경우 insert 작동!
+				}
 			}else {
-				System.out.println("로그인 안됨");
+				int result = -1;
+				resp.getWriter().print(result); // 로그인 멤버가 없으면 -1을 보냄!
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-	
 	}
 }

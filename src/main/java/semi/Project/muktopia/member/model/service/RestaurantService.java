@@ -3,10 +3,11 @@ import static semi.Project.muktopia.common.JDBCTemplate.*;
 import java.util.List;
 
 import java.sql.Connection;
-
+import java.sql.SQLException;
 
 import semi.Project.muktopia.member.model.dao.RestaurantDAO;
 import semi.Project.muktopia.member.model.vo.Restaurant;
+import semi.Project.muktopia.member.model.vo.WishList;
 
 
 
@@ -25,7 +26,7 @@ public class RestaurantService {
 
 		Connection conn = getConnection();
 		List<Restaurant> resList = dao.loadResList(conn);
-		
+		System.out.println(resList+"서비스");
 		return resList;
 	}
 
@@ -45,19 +46,34 @@ public class RestaurantService {
 		return maker;
 	}
 
+	/**위시리스트 레스토랑을 로드하는 서비스
+	 * @param memberNo 
+	 * @return
+	 * @throws SQLException 
+	 */
+	public List<WishList> wishListLoad(int memberNoparam) throws SQLException {
+		Connection conn = getConnection();
+		List<WishList> wishList = dao.wishListLoad(conn, memberNoparam);
+		
+		return wishList;
+
+	}
+
+
+
 	public int jjim(int itemId, int memberNo) throws Exception{
 		Connection conn = getConnection();
-		
+		int result0 = dao.jjimSelect(conn, itemId, memberNo);
 		int result = dao.jjim(conn, itemId, memberNo);
 		
-		if(result >0)	commit(conn);
+		if(result >0 && result0 == 0)	commit(conn);
 		else			rollback(conn);
 		close(conn);
 		return result;
 	}
 
 	public int jjimDelete(int itemId, int memberNo) throws Exception {
-Connection conn = getConnection();
+		Connection conn = getConnection();
 		
 		int result = dao.jjimDelete(conn, itemId, memberNo);
 		
@@ -67,8 +83,23 @@ Connection conn = getConnection();
 		return result;
 	}
 
+	public List<Integer> heart(int memberNo) throws Exception {
+		Connection conn = getConnection();
+		List<Integer> restIds = dao.heart(conn, memberNo);
+		
+		return restIds;
+	}
+
+	public int jjimSelect(int itemId, int memberNo) throws Exception {
+		Connection conn = getConnection();
+		int result0 = dao.jjimSelect(conn, itemId, memberNo);
+		close(conn);
+		return result0;
+	}
+
 	
 	
+
 	
 	
 	

@@ -19,21 +19,16 @@ public class LoadServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		
 		try {
 			RestaurantService service = new RestaurantService();
 			
 			//레스토랑 정보를 받는 변수
 			List<Restaurant> resList = service.loadResList();
-			
+			System.out.println(resList);
 			new Gson().toJson(resList, resp.getWriter());
-			System.out.println("서블릿");
-			System.out.println("화면 로드" + resList);
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
-
 }
