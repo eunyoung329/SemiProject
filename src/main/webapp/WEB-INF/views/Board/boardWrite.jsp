@@ -53,7 +53,7 @@
                 <!--본문-->
                 <section class ="board_Container-3">
                     <div class="board_content">
-                        <textarea id="inputArea"></textarea>
+                        <textarea id="inputArea" name ="inputArea"></textarea>
                     </div>
                 </section>
                 <!--뒤로가기 및, 작성완료를 알리는 버튼 바닥에 달라붙어 있어야함-->

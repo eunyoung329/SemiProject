@@ -7,9 +7,9 @@ import java.sql.Connection;
 import semi.Project.muktopia.board.model.dao.BoardDAO;
 
 public class BoardService {
-	public int insertBoard(int memberNo, String title, String[] tagValue, String inputArea) throws Exception{
+	public int insertBoard(int memberNo, String title, String tagValues, String inputArea, String boardImage) throws Exception{
 		Connection conn = getConnection();
-		int result = new BoardDAO().insertBoard(conn,memberNo, title, tagValue, inputArea);
+		int result = new BoardDAO().insertBoard(conn,memberNo, title, tagValues, inputArea, boardImage);
 		if(result ==1)
 			commit(conn);
 		else
