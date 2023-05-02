@@ -135,6 +135,6 @@ public class MemberService {
 		return rest;
 	}
 
-		return result;
-	}
+		
+	
 }
