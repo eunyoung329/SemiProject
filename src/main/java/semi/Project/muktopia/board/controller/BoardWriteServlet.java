@@ -42,15 +42,15 @@ public class BoardWriteServlet extends HttpServlet{
 		int memberNo = loginMember.getMemberNo();
 		String inputArea = mpReq.getParameter("inputArea");
 		
-		
-		
+		if(tagValue != null) {
+		String tagValues = String.join(",", tagValue);
+		}
 		//int memberNo = loginMember.getMemberNo();	
 		String boardImage = folderPath + mpReq.getFilesystemName("boardImage");
 		BoardService service = new BoardService();
 		try {
-			int boardId = service.selectId();
-			
-			int result = service.updateboardImage(boardId, boardImage);
+			int result=0;
+
 			if(result > 0) {//성공
 				session.setAttribute("message", "프로필 이미지가 변경되었습니다.");
 				resp.sendRedirect("../index.jsp");
