@@ -99,9 +99,9 @@
                          <i class="fa-regular fa-user"></i>내 정보
                      </li>
                  </a>
-                 <a href="">
+                 <a href="${contextPath}/member/board">
                      <li>
-                         <i class="fa-regular fa-comment"></i>내가 작성한 리뷰
+                         <i class="fa-regular fa-comment"></i>커뮤니티
                      </li>
                  </a>
                  <a href="${contextPath}/member/wishList">
