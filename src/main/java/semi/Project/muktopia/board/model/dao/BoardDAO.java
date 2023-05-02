@@ -27,12 +27,8 @@ public class BoardDAO {
 		}
 	}
 	
-	public int insertBoard(Connection conn, int memberNo, String title, String[] tagValue, String inputArea) throws Exception{
+	public int insertBoard(Connection conn, int memberNo, String title, String tagValues, String inputArea, String boardImage) throws Exception{
 		int result=0;
-		String tagStringValue = " ";
-		if(tagValue!=null) {
-			tagStringValue = String.join(",", tagValue);
-		}
 		
 		
 		try {
@@ -41,8 +37,9 @@ public class BoardDAO {
 			
 			pstmt.setInt(1, memberNo);
 			pstmt.setString(2, title);
-			pstmt.setString(3, tagStringValue);
-			pstmt.setString(4, inputArea);
+			pstmt.setString(3, tagValues);
+			pstmt.setString(4, boardImage);
+			pstmt.setString(5, inputArea);
 			
 			result = pstmt.executeUpdate();
 			

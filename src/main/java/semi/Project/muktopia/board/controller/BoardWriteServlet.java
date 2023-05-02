@@ -41,17 +41,18 @@ public class BoardWriteServlet extends HttpServlet{
 		Member loginMember = (Member)session.getAttribute("loginMember");
 		int memberNo = loginMember.getMemberNo();
 		String inputArea = mpReq.getParameter("inputArea");
-		
+		String tagValues = null;
 		if(tagValue != null) {
-		String tagValues = String.join(",", tagValue);
+		tagValues = String.join(",", tagValue);
 		}
 		//int memberNo = loginMember.getMemberNo();	
 		String boardImage = folderPath + mpReq.getFilesystemName("boardImage");
 		BoardService service = new BoardService();
 		try {
 			int result=0;
-
+			result = service.insertBoard(memberNo, title, tagValues, inputArea, boardImage);
 			if(result > 0) {//성공
+				System.out.println("됐다.");
 				session.setAttribute("message", "프로필 이미지가 변경되었습니다.");
 				resp.sendRedirect("../index.jsp");
 		}else {//실패
