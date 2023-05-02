@@ -19,9 +19,6 @@ public class InfoChangeServlet extends HttpServlet {
 	    
 	    String path = "/WEB-INF/views/member/infoChange.jsp";
 	    req.getRequestDispatcher(path).forward(req, resp);
-	}
-
-
-	
+	}	
 	
 }
