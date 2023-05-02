@@ -70,7 +70,7 @@
                               
                               <div class="info_modal_btn_area">
                                 <button type="submit">저장</button>
-                                <button id="info_img_delete_btn">삭제</button>
+                                <button  type="button" id="info_img_delete_btn">삭제</button>
                               </div>
 
                              <!-- 이미지 삭제 버튼이 눌러짐을 기록 --> <!-- 이미지 삭제 버튼이 눌러짐을 기록 -->
@@ -83,8 +83,8 @@
                     <label for="nickName">닉네임</label>
                     <div>
                         <input type="text" id="nickName" value="${loginMember.memberNick}"><br>
-                        <span id="infoChange_nickMsg">닉네임 안내</span>
                     </div>
+                    <span id="infoChange_nickMsg">닉네임 안내</span><br>
 
 
                     <label for="tel">전화번호</label>
