@@ -66,7 +66,15 @@
 
     <div class="headerProfile">
      <span name="header_nickName" id="header_nickName">${loginMember.memberNick}</span>
-     <button type="button" onclick="openNav()" id="profileBtn"><img src="${contextPath}/resources/img/defaultUser.png" alt=""></button>
+     <button type="button" onclick="openNav()" id="profileBtn">
+        <c:if test="${empty loginMember.profileImage}">
+            <img src="${contextPath}/resources/img/profileImg/defaultUser.png" alt="헤더 프로필 이미지">
+        </c:if> 
+                
+        <c:if test="${!empty loginMember.profileImage}">
+            <img src="${contextPath}/${loginMember.profileImage}" alt="헤더 프로필 이미지">
+        </c:if> 
+    </button>
     </div>
 
     <!-- 로그인/프로필 사이드 메뉴 -->

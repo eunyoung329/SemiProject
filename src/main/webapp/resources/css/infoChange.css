@@ -119,6 +119,18 @@ form[name="info-form"] div:focus-within{
     border-bottom: 2px solid #73a14c;
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#infoChange_nickMsg{
+    font-size: 15px;
+    padding: 5px 0px 0px 10px;
+}
+
+
 #birth{
     text-align: end;
 }
@@ -191,9 +203,16 @@ form[name="info-form"] div:focus-within{
         margin-left: 10px;
         /* border: 1px solid red; */
     }
-
 }
 
+/* 닉네임 span 태그 색상 변경 */
+.error{
+    color: red;
+}
+
+.confirm{
+    color: blue;
+}
 
 /* 모달창 */
 
@@ -278,6 +297,10 @@ form[name="info-form"] div:focus-within{
     cursor: pointer;
 }
 
+#input-image{
+    cursor: pointer;
+}
+
 
 .info_modal_btn_area button{
     background-color: white;
@@ -299,6 +322,8 @@ form[name="info-form"] div:focus-within{
 #input-image{
     display: none;
 }
+
+
 
 
 

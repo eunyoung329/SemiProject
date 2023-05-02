@@ -147,7 +147,7 @@ public class MemberService {
 		Connection conn = getConnection();
 		
 		int result = dao.updateProfileImage(conn, memberNo, profileImage);
-		System.out.println("service: " + result);
+	
 		
 		// 트랜잭션 
 		if(result > 0) commit(conn);

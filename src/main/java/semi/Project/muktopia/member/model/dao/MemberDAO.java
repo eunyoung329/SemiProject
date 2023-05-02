@@ -383,7 +383,7 @@ public class MemberDAO {
 			pstmt.setInt(2, memberNo);
 			
 			result = pstmt.executeUpdate();
-			System.out.println("dao: " + result);
+
 			
 		} finally {
 			close(pstmt);

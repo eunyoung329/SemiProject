@@ -71,8 +71,6 @@ public class ProfileImgServlet extends HttpServlet{
 			
 			int result = service.updateProfileImage(memberNo, profileImage);
 			
-			System.out.println("result: " +result);
-			
 			if(result > 0) {
 				session.setAttribute("message", "프로필 이미지가 변경되었습니다.");
 				loginMember.setProfileImage(profileImage);
