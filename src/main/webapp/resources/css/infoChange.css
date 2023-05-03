@@ -131,11 +131,9 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 
-#birth{
-    text-align: end;
-}
 
-#postInput{
+
+#info_postCode{
     width: 70%;
 }
 
@@ -297,10 +295,13 @@ input[type="number"]::-webkit-inner-spin-button {
     cursor: pointer;
 }
 
-#input-image{
+.info_modal_img_change_area label{
     cursor: pointer;
 }
 
+#input-image{
+    cursor: pointer;
+}
 
 .info_modal_btn_area button{
     background-color: white;

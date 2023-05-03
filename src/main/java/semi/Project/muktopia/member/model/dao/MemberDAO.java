@@ -303,34 +303,6 @@ public class MemberDAO {
 		}
 		return result;
 	}
-	public int myInfo(Connection conn, Member mem) throws Exception{
-		
-		int result=0;
-		try {
-			String sql=prop.getProperty("info");
-			pstmt=conn.prepareStatement(sql);
-			
-			pstmt.setString(1,mem.getMemberNick());
-			pstmt.setString(2, mem.getMemberTel());
-			pstmt.setString(3, mem.getMemberBirth());
-			pstmt.setString(4, mem.getMemberAddress());
-			pstmt.setInt(5,mem.getMemberNo());
-			
-			result=pstmt.executeUpdate();
-			
-			
-			
-			
-			
-		}finally {
-			close(pstmt);
-		}
-		
-		return result;
-		
-		
-		
-	}
 	
 	public List<Restaurant> getMark(Connection conn, String name) throws Exception{
 		List<Restaurant> rest_list = new ArrayList();
@@ -389,6 +361,47 @@ public class MemberDAO {
 			close(pstmt);
 		}
 		
+		
+		return result;
+	}
+	
+	
+	
+	/** 프로필 정보 변경 
+	 * @param conn
+	 * @param memberNo
+	 * @param inputNickname
+	 * @param inputTel
+	 * @param inputBirth
+	 * @param inputAddr
+	 * @return
+	 * @throws SQLException 
+	 */
+	public int updateInfo(Connection conn, int memberNo, String inputNickname, String inputTel, String inputBirth,
+			String[] inputAddr) throws SQLException {
+		
+		int result = 0; 
+		
+		try {
+			String sql = prop.getProperty("updateInfo");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, inputNickname);
+			pstmt.setString(2, inputTel);
+			pstmt.setString(3, inputBirth);
+			
+			String address = String.join(",,", inputAddr);
+
+			pstmt.setString(4, address);
+			
+			pstmt.setInt(5,memberNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			close(pstmt);
+		}
 		
 		return result;
 	}

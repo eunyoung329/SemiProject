@@ -113,15 +113,14 @@ VALUES(MEMBER_SEQ.NEXTVAL,?,?,?,?,?,?,'N')
 </entry>
 	
 <!-- 회원정보 수정 -->
-<entry key="Info">
+<entry key="updateInfo">
 UPDATE MEMBER SET
 		MEMBER_NICK = ?,
 		MEMBER_TEL = ?,
 		MEMBER_BIRTH= ?,
 		MEMBER_ADDR = ?
-		
 		WHERE MEMBER_NO = ?
-  </entry>
+</entry>
   
 <entry key="getMark">
 SELECT RESTAURANT_NAME, RESTAURANT_ADDR, RESTAURANT_X, RESTAURANT_Y,RESTAURANT_CATEGORY,RESTAURANT_SNS,RESTAURANT_TEL,RESTAURANT_TIME
