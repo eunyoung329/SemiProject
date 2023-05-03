@@ -132,50 +132,72 @@ public class MemberService {
 	
 	
 	
-	/** 프로필 이미지 변경 
+	
+	/** 프로필 이미지 변경
+	 * @param conn
 	 * @param memberNo
 	 * @param profileImage
 	 * @return
-	 * @throws Exception 
 	 */
-	public int updateProfileImage(int memberNo, String profileImage) throws Exception {
+	public int updateProfileImage(Connection conn, int memberNo, String profileImage) throws Exception {
 		
-		Connection conn = getConnection();
+		int result = 0; 
 		
-		int result = dao.updateProfileImage(conn, memberNo, profileImage);
-	
-		
-		// 트랜잭션 
-		if(result > 0) commit(conn);
-		else 		   rollback(conn);
-		
-		close(conn);
-		
-		return result;		
-	
+		try {
+			
+			String sql = prop.getProperty("updateProfileImage");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, profileImage);
+			pstmt.setInt(2, memberNo);
+			
+			result = pstmt.executeUpdate();
+      
+		} finally {
+			close(pstmt);
+		}
+		return result;
 	}
 	
 	
+	
 	/** 프로필 정보 변경 
+	 * @param conn
 	 * @param memberNo
 	 * @param inputNickname
 	 * @param inputTel
-	 * @param birth
+	 * @param inputBirth
 	 * @param inputAddr
 	 * @return
 	 * @throws SQLException 
 	 */
-	public int updateInfo(int memberNo, String inputNickname, String inputTel, String inputBirth, String[] inputAddr) throws SQLException {
-		Connection conn = getConnection();
+	public int updateInfo(Connection conn, int memberNo, String inputNickname, String inputTel, String inputBirth,
+			String[] inputAddr) throws SQLException {
 		
-		int result = dao.updateInfo(conn, memberNo, inputNickname, inputTel, inputBirth, inputAddr);
+		int result = 0; 
 		
-		if(result > 0) commit(conn); 
-		else 		   rollback(conn);
-		
-		close(conn);
+		try {
+			String sql = prop.getProperty("updateInfo");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, inputNickname);
+			pstmt.setString(2, inputTel);
+			pstmt.setString(3, inputBirth);
+			
+			String address = String.join(",,", inputAddr);
+
+			pstmt.setString(4, address);
+			
+			pstmt.setInt(5,memberNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			close(pstmt);
+		}
 		
 		return result;
 	}
-	
+
 }
