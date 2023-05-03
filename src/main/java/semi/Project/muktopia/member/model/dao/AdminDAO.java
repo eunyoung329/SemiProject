@@ -96,7 +96,20 @@ public class AdminDAO {
 		}
 		return showList;
 	}
-		
+
+
+	public int boardDelete(Connection conn, int id) throws Exception{
+		int result = 0;
+		try {
+			String sql = prop.getProperty("boardDelete");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, id);
+			result = pstmt.executeUpdate();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
 }
 
 
