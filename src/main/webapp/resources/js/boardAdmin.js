@@ -6,3 +6,8 @@ function selectAllBoard(){
         }
     });
 }
+
+$(document).ready(function () {
+    selectAllBoard();
+});
+  
