@@ -5,6 +5,7 @@ import static semi.Project.muktopia.common.JDBCTemplate.*;
 
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 import semi.Project.muktopia.member.model.dao.MemberDAO;
@@ -116,14 +117,7 @@ public class MemberService {
 		else rollback(conn);
 		return result;
 	}
-	public int myInfo(Member mem)throws Exception {
-		Connection conn=getConnection();
-		int result=new MemberDAO().myInfo(conn,mem);
-		if(result>0) commit(conn);
-		else rollback(conn);
-		return result;
-			
-	}
+	
 	public List<Restaurant> getMark(String name) throws Exception{
 		Connection conn = getConnection();
 		List<Restaurant> rest;
@@ -155,6 +149,33 @@ public class MemberService {
 		if(result > 0) commit(conn);
 		else 		   rollback(conn);
 		
-		close(conn);		
+		close(conn);
+		
+		return result;		
+	
+	}
+	
+	
+	/** 프로필 정보 변경 
+	 * @param memberNo
+	 * @param inputNickname
+	 * @param inputTel
+	 * @param birth
+	 * @param inputAddr
+	 * @return
+	 * @throws SQLException 
+	 */
+	public int updateInfo(int memberNo, String inputNickname, String inputTel, String inputBirth, String[] inputAddr) throws SQLException {
+		Connection conn = getConnection();
+		
+		int result = dao.updateInfo(conn, memberNo, inputNickname, inputTel, inputBirth, inputAddr);
+		
+		if(result > 0) commit(conn); 
+		else 		   rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
 	
 }

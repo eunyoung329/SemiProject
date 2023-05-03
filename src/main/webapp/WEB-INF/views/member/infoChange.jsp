@@ -79,39 +79,39 @@
                     </div><!-- modal content 끝 -->
                 </div><!-- modal 끝 -->
 
-                <form action="" name="info-form">
+                <form action="infoChange" method="POST" name="info-form" id="info-form">
                     <label for="nickName">닉네임</label>
                     <div>
-                        <input type="text" id="nickName" value="${loginMember.memberNick}"><br>
+                        <input type="text" name= "memberNickname" id="nickName" value="${loginMember.memberNick}"><br>
                     </div>
                     <span id="infoChange_nickMsg">닉네임 안내</span><br>
 
 
                     <label for="tel">전화번호</label>
                     <div>
-                        <input type="number" id="tel" value="${loginMember.memberTel}">
+                        <input type="number" name="memberTel" id="tel" value="${loginMember.memberTel}" placeholder="'-'를 제외한 11자리 번호를 입력하세요.">
                     </div>
 
                 
                     <label for="birth">생일</label>
                     <div>  
-                        <input type="number" id="birth" value="${loginMember.memberBirth}">
+                        <input type="number" name="memberBirth" id="birth" value="${loginMember.memberBirth}" maxlength="8" placeholder="'-'를 제외한 8자리 숫자를 입력하세요.">
                     </div>
 
                     <c:set var="addr" value="${fn:split(loginMember.memberAddress, ',,')}"/>
                     <label for="addr">주소</label>
                     <div class="addr-area">
-                        <input type="text" id="postInput" value="${addr[0]}">
-                        <button id="postBtn">우편번호</button>
+                        <input type="text" name="memberAddress" id="info_postCode" value="${addr[0]}">
+                        <button id="postBtn" type="button" onclick="return execDaumPostcode() ">우편번호</button>
                     </div>
                     <div class="addr-area">
-                        <input type="text"  value="${addr[1]}">
+                        <input type="text" name="memberAddress" value="${addr[1]}" id="info_address">
                     </div>
                     <div class="addr-area">
-                        <input type="text"  value="${addr[2]}">
+                        <input type="text" name="memberAddress" value="${addr[2]}" id="info_detailAddress">
                     </div>
 
-                    <button id="saveBtn">변경하기</button>
+                    <button id="saveBtn" type="button" onclick="return infoValidate()">변경하기</button>
                 </form>
             </section>
     </main>
