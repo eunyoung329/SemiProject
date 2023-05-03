@@ -3,7 +3,8 @@
 
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
-  <head><script src="../assets/js/color-modes.js"></script>
+  <head>
+    <!-- <script src="../assets/js/color-modes.js"></script> -->
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,17 +13,16 @@
     <meta name="generator" content="Hugo 0.111.3">
     <title>관리자 페이지</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sidebars/">
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="${contectPath}/resources/css/mainAdmin.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/mainAdmin.css">
     <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
-    <style>
-      
-    </style>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sidebars/"> 
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  
 
     
     <!-- 사이드바 아이콘 -->
-    <link href="sidebars.css" rel="stylesheet">
+    <link href="${contextPath}/resources/css/mainAdmin.css" rel="stylesheet">
   </head>
   <body>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -67,13 +67,13 @@
     <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
 </svg>
 
-<nav class="d-flex flex-nowrap">
+<main class="d-flex flex-nowrap" id="adimn_main">
 
 
  <!-- 하얀색 -->
  <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;">
   <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-    <img src="/sidebar/img/logo_trans.png" alt="" width="50" height="50" class="rounded-circle me-2">
+    <img src="${contextPath}/resources/img/logo.png" alt="" width="50" height="50" class="rounded-circle me-2">
     <span class="logo-text">&nbsp;LET'S VEGAN</span>
   </a>
   <hr>
@@ -112,8 +112,8 @@
   <hr>
   <div class="dropdown">
     <div class="d-flex align-items-center link-body-emphasis text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
-      <img src="/sidebar/img/logo_trans.png" alt="" width="32" height="32" class="rounded-circle me-2">
-      <strong style="color: rgb(0, 82, 0);">admin  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+      <img src="${contextPath}/resources/img/logo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+      <strong style="color: rgb(0, 82, 0); font-size: 16px;">admin  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
       <a href="#"">
         <button class="button-59" role="button">logout</button>
       </a>
@@ -133,18 +133,39 @@
  <!--메인화면-->
   <div id="admin-container" style="border: 2px solid red">
     <div id="admin-title" >
-      <svg class="bi pe-none me-2" width="22" height="22"><use xlink:href="#speedometer2"/></svg>
+      <svg class="bi pe-none me-2" width="25" height="25"><use xlink:href="#speedometer2"/></svg>
       <span class="text-title">레스토랑 관리</span>
       <hr style="margin: top 7px;">
     </div>
+    <!-- 이 안에 페이지 만들기! -->
+
+
+
+
+
+
+
+
+
+
 
   </div>
-</nav>
+</main>
 
+
+
+
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>    
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <!-- <script src="../assets/dist/js/bootstrap.bundle.min.js"></script> -->
-    <script src="/sidebar/sidebars.js"></script>
 
-      <script src="${contextPath}/resources/js/main.js"></script>
+    <script src="${contextPath}/resources/js/mainAdmin.js"></script>
   </body>
 </html>
