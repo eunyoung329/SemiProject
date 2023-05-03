@@ -15,7 +15,7 @@
                 <div class="info-area">
                     <span>Help</span>
                     <a href="">1:1문의</a>
-                    <a href="">자주 묻는 질문</a>
+                    <a href="${contextPath}/admin/restAdmin">자주 묻는 질문</a>
                 </div>
                 <div class="info-area">
                     <span>Community</span>
