@@ -43,7 +43,7 @@
                     <span>사업자등륵번호: 881-81-01223</span>
                 </div>
                 <div>
-                    <a href="">administrator</a>
+                    <a href="${contextPath}/admin/adminLogin">administrator</a>
                 </div>
 
             </div>
