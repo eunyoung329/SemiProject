@@ -2,15 +2,15 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
     <comment>admin-sql.xml</comment>
-    
-
-	   <entry key="adminlogin">
-	      SELECT MEMBER_NO,MEMBER_EMAIL
-	      FROM MEMBER
-	      WHERE MEMBER_EMAIL = ?
-	      AND MEMBER_PW = ?
-
-  		 </entry>
+	<entry key="adminlogin">
+	    SELECT MEMBER_NO,MEMBER_EMAIL
+	    FROM MEMBER
+	    WHERE MEMBER_EMAIL = ?
+	    AND MEMBER_PW = ?
+	</entry>
+	<entry key="showList">
+		SELECT * FROM BOARD
+	</entry>
 </properties>
     
 
