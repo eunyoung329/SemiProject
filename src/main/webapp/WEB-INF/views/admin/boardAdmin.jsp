@@ -116,7 +116,7 @@
     <div class="d-flex align-items-center link-body-emphasis text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
       <img src="${contextPath}/resources/img/logo.png" alt="" width="32" height="32" class="rounded-circle me-2">
       <strong style="color: rgb(0, 82, 0); font-size: 16px;">admin  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
-      <a href="#"">
+      <a href="#">
         <button class="button-59" role="button">logout</button>
       </a>
 
@@ -133,27 +133,27 @@
  <!-- 사이드바 끝 -->
 
  <!--메인화면-->
-  <div id="admin-container" style="border: 2px solid red">
+  <div id="admin-container" style="border: 2px solid red; text-align: center;">
     <div id="admin-title" >
       <svg class="bi pe-none me-2" width="25" height="25"><use xlink:href="#speedometer2"/></svg>
       <span class="text-title">게시판 관리</span>
       <hr style="margin: top 7px;">
     </div>
     <!-- 이 안에 페이지 만들기! -->
-    <table border="1" style="width: 80%">
+    <table border="0" style="width: 80%; margin: 0 auto;">
       <thead>
-          <tr>
-              <th>boardNo</th>
+          <tr style="background-color: #d4f386b6; font-size: 18px;">
+              <th>번호</th>
               <th>이미지</th>
               <th>제목</th>
               <th>카테고리</th>
               <th>내용</th>
               <th>작성일</th>
-              <th>작성자No</th>
+              <th>회원번호</th>
               <th>삭제</th>
           </tr>
       </thead>
-      <tbody id="tableBody_board">
+      <tbody id="tableBody_board" style="background-color: #d8eea257; font-size: 13px;">
       
       </tbody>
   </table>
