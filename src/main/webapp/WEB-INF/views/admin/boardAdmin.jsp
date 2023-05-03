@@ -134,19 +134,27 @@
   <div id="admin-container" style="border: 2px solid red">
     <div id="admin-title" >
       <svg class="bi pe-none me-2" width="25" height="25"><use xlink:href="#speedometer2"/></svg>
-      <span class="text-title">레스토랑 관리</span>
+      <span class="text-title">게시판 관리</span>
       <hr style="margin: top 7px;">
     </div>
     <!-- 이 안에 페이지 만들기! -->
-
-
-
-
-
-
-
-
-
+    <table border="1" style="width: 80%">
+      <thead>
+          <tr>
+              <th>boardNo</th>
+              <th>이미지</th>
+              <th>제목</th>
+              <th>카테고리</th>
+              <th>내용</th>
+              <th>작성일</th>
+              <th>작성자No</th>
+              <th>삭제</th>
+          </tr>
+      </thead>
+      <tbody id="tableBody_board">
+      
+      </tbody>
+  </table>
 
 
   </div>
@@ -165,7 +173,7 @@
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-
+    <script src="${contextPath}/resources/js/boardAdmin.js"></script>
     <script src="${contextPath}/resources/js/mainAdmin.js"></script>
   </body>
 </html>
