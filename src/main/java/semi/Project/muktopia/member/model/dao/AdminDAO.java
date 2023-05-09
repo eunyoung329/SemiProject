@@ -110,6 +110,64 @@ public class AdminDAO {
 		}
 		return result;
 	}
+	/** 멤버전체를 가져오는 DAO
+	 * @param conn
+	 * @return
+	 */
+	public List<Member> memberLoad(Connection conn) throws Exception {
+		List<Member> memberList = new ArrayList<>();
+		
+		try {
+			String sql = prop.getProperty("memberLoad");
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Member mem = new Member();
+				mem.setMemberNo(rs.getInt("MEMBER_NO"));
+				mem.setMemberEmail(rs.getString("MEMBER_EMAIL"));
+				mem.setMemberNick(rs.getString("MEMBER_NICK"));
+				mem.setMemberTel(rs.getString("MEMBER_TEL"));
+				mem.setMemberBirth(rs.getString("MEMBER_BIRTH"));
+				mem.setEnrollDate(rs.getString("ENROLL_DATE"));
+				mem.setMemberAddress(rs.getString("MEMBER_ADDR"));
+				mem.setSecessionFlag(rs.getString("SECESSION_FL"));
+				mem.setIsAdmin(rs.getString("IS_ADMIN"));
+				
+				memberList.add(mem);
+				
+			}
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return memberList;
+	}
+
+	/** 관리자가 멤버를 탈퇴키는 DAO
+	 * @return
+	 * @throws SQLException 
+	 */
+	public int DeleteMember(Connection conn, int memberNo ) throws Exception {
+		int result = 0;
+		
+		try{
+			String sql = prop.getProperty("deleteMember");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			result = pstmt.executeUpdate();
+			
+			
+		}finally {
+		
+			close(pstmt);
+		}
+		return result;
+	}
+	
 }
 
 

@@ -15,6 +15,21 @@
 		DELETE FROM BOARD
 		WHERE "BOARD_NO" = ?
 	</entry>
+	<entry key="memberLoad">
+		SELECT MEMBER_NO, MEMBER_EMAIL, 
+			   MEMBER_NICK, MEMBER_TEL, MEMBER_BIRTH,
+			   ENROLL_DATE, MEMBER_ADDR, SECESSION_FL,
+			   IS_ADMIN
+		FROM MEMBER
+		
+	</entry>
+	
+	<entry key="deleteMember">
+		UPDATE MEMBER
+		SET SECESSION_FL = 'Y'
+		WHERE MEMBER_NO = ?
+		
+	</entry>
 </properties>
     
 
