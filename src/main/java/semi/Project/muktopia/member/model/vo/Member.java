@@ -24,4 +24,5 @@ public class Member {
 	private String enrollDate;
 	private String secessionFlag;
 	private String memberBlack;
+	private String isAdmin;
 }

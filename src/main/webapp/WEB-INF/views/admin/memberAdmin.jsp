@@ -12,10 +12,10 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.111.3">
     <title>관리자 페이지</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://kit.fontawesome.com/069a8eb008.js" crossorigin="anonymous"></script> 
     <link rel="stylesheet" href="${contextPath}/resources/css/mainAdmin.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/memberAdmin.css">
     <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sidebars/"> 
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -116,7 +116,7 @@
     <div class="d-flex align-items-center link-body-emphasis text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
       <img src="${contextPath}/resources/img/logo.png" alt="" width="32" height="32" class="rounded-circle me-2">
       <strong style="color: rgb(0, 82, 0); font-size: 16px;">admin  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
-      <a href="#">
+      <a href="#"">
         <button class="button-59" role="button">logout</button>
       </a>
 
@@ -133,30 +133,91 @@
  <!-- 사이드바 끝 -->
 
  <!--메인화면-->
-  <div id="admin-container" style="border: 2px solid red; text-align: center;">
+  <div id="admin-container">
     <div id="admin-title" >
       <svg class="bi pe-none me-2" width="25" height="25"><use xlink:href="#speedometer2"/></svg>
-      <span class="text-title">게시판 관리</span>
+      <span class="text-title">회원 관리</span>
       <hr style="margin: top 7px;">
     </div>
     <!-- 이 안에 페이지 만들기! -->
-    <table border="0" style="width: 80%; margin: 0 auto;">
-      <thead>
-          <tr style="background-color: #d4f386b6; font-size: 18px;">
-              <th>번호</th>
-              <th>이미지</th>
-              <th>제목</th>
-              <th>카테고리</th>
-              <th>내용</th>
-              <th>작성일</th>
-              <th>회원번호</th>
-              <th>삭제</th>
+
+    <div class="admin-search-section" >
+     
+        <table id="memberForm">
+          <tr>
+            <td class="member-label">ㆍ 회원 탈퇴 여부</td>
+            <td>
+              <input type="radio" name="status" id="all-member" checked>&nbsp;전체회원&nbsp;&nbsp;
+              <input type="radio" name="status" id="active-member">&nbsp;활동 회원&nbsp;&nbsp;
+              <input type="radio" name="status" id="inactive-member">&nbsp;탈퇴한 회원
+            </td>
+            <td></td>
           </tr>
-      </thead>
-      <tbody id="tableBody_board" style="background-color: #d8eea257; font-size: 13px;">
-      
-      </tbody>
-  </table>
+          <tr>
+            <td class="member-label">ㆍ 회원 가입일 범위</td>
+            <td>
+              <input type="date" id="start_date">
+              ~
+              <input type="date" id="end_date">
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="member-label">ㆍ이메일로 회원조회</td>
+            <td>
+              <input type="text" name="inputMemberEmail">           
+              <button class="button-6"  id="searchBtn">검색하기</button>
+            </td>
+            <td>
+             
+            </td>
+          </tr>
+        </table>
+        
+  
+    </div>
+    <!-- 회원 출력 페이지 -->
+      <div class="member-view-section" >
+        <div class="icon-wrapper">
+          &nbsp;&nbsp;&nbsp;<i class="fa-solid fa-arrows-rotate fa-lg" style="color: #005200;">새로고침</i><br>
+          <br>
+        </div>
+    
+        <table id="member-view-table">
+          <tr class="member-view-table-tr">
+            <td>회원번호</td>
+            <td>닉네임</td>
+            <td>이메일</td>
+            <td>생년월일</td>
+            <td>주소</td>
+            <td>전화번호</td>
+            <td>가입일</td>
+            <td>회원탈퇴여부</td>
+            <td>운영자</td>
+            <td>탈퇴</td>
+            
+          </tr>
+          <!-- <tr class="member-view-table-body">
+            <td>${item.memberNo}</td>
+            <td>${item.memberNick}</td>
+            <td>${item.memberEmail}</td>
+            <td>${item.memberBirth}</td>
+            <td>${item.memberAddress}</td>
+            <td>${item.memberTel}</td>
+            <td>${item.enrollDate}</td>
+            <td>${item.secessionFlag}</td>
+            <td>${item.isAdmin}</td>
+             <td><i class="fa-solid fa-right-from-bracket" id="${item.memberNo}" style="color: #005200;"></i></td>
+          </tr> -->
+        </table>
+
+      </div>
+
+
+
+
+
+
 
 
   </div>
@@ -175,7 +236,8 @@
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <script src="${contextPath}/resources/js/boardAdmin.js"></script>
+
     <script src="${contextPath}/resources/js/mainAdmin.js"></script>
+    <script src="${contextPath}/resources/js/memberAdmin.js"></script>
   </body>
 </html>
