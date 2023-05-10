@@ -9,7 +9,7 @@ let mapbounds;
 let bounds;
 let result;
 
-
+ //제발 돼~!
 
 // 현재 위치한 자리로 좌표를 읽어오기. 위치한 자리로 다시 검색하게끔 유도할 수도 있음.
 if (navigator.geolocation) {
@@ -280,7 +280,7 @@ function render(itemList, filteredItems) {
         data: {
           "itemId": itemId
         },
-        success: function ( ) {
+        success: function (result) {
           console.log(result+"위시리스트 등록 result")
           if (result> 0) {
             alert("위시리스트에 등록되었습니다.")

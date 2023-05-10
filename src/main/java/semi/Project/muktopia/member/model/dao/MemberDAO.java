@@ -303,34 +303,6 @@ public class MemberDAO {
 		}
 		return result;
 	}
-	public int myInfo(Connection conn, Member mem) throws Exception{
-		
-		int result=0;
-		try {
-			String sql=prop.getProperty("info");
-			pstmt=conn.prepareStatement(sql);
-			
-			pstmt.setString(1,mem.getMemberNick());
-			pstmt.setString(2, mem.getMemberTel());
-			pstmt.setString(3, mem.getMemberBirth());
-			pstmt.setString(4, mem.getMemberAddress());
-			pstmt.setInt(5,mem.getMemberNo());
-			
-			result=pstmt.executeUpdate();
-			
-			
-			
-			
-			
-		}finally {
-			close(pstmt);
-		}
-		
-		return result;
-		
-		
-		
-	}
 	
 	public List<Restaurant> getMark(Connection conn, String name) throws Exception{
 		List<Restaurant> rest_list = new ArrayList();
@@ -392,19 +364,7 @@ public class MemberDAO {
 		
 		return result;
 	}
-	public int selectPage(Connection conn) throws Exception{
-		int result=0;
-		String sql = prop.getProperty("selectPage");
-		try {
-		pstmt = conn.prepareStatement(sql);
-		rs = pstmt.executeQuery();
-		if(rs.next()) {
-			result = rs.getInt(0);
-		}
-		}finally {
-			close(rs);
-			close(pstmt);
-		}
+
 		return result;
 	}
 

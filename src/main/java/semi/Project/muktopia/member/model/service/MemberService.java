@@ -5,6 +5,7 @@ import static semi.Project.muktopia.common.JDBCTemplate.*;
 
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 import semi.Project.muktopia.member.model.dao.MemberDAO;
@@ -116,14 +117,7 @@ public class MemberService {
 		else rollback(conn);
 		return result;
 	}
-	public int myInfo(Member mem)throws Exception {
-		Connection conn=getConnection();
-		int result=new MemberDAO().myInfo(conn,mem);
-		if(result>0) commit(conn);
-		else rollback(conn);
-		return result;
-			
-	}
+	
 	public List<Restaurant> getMark(String name) throws Exception{
 		Connection conn = getConnection();
 		List<Restaurant> rest;
@@ -138,24 +132,71 @@ public class MemberService {
 	
 	
 	
-	/** 프로필 이미지 변경 
+	
+	/** 프로필 이미지 변경
+	 * @param conn
 	 * @param memberNo
 	 * @param profileImage
 	 * @return
-	 * @throws Exception 
 	 */
-	public int updateProfileImage(int memberNo, String profileImage) throws Exception {
+	public int updateProfileImage(Connection conn, int memberNo, String profileImage) throws Exception {
 		
-		Connection conn = getConnection();
+		int result = 0; 
 		
-		int result = dao.updateProfileImage(conn, memberNo, profileImage);
-	
-		
-		// 트랜잭션 
-		if(result > 0) commit(conn);
-		else 		   rollback(conn);
-		close(conn);
+		try {
+			
+			String sql = prop.getProperty("updateProfileImage");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, profileImage);
+			pstmt.setInt(2, memberNo);
+			
+			result = pstmt.executeUpdate();
+      
+		} finally {
+			close(pstmt);
+		}
 		return result;
 	}
 	
+	
+	
+	/** 프로필 정보 변경 
+	 * @param conn
+	 * @param memberNo
+	 * @param inputNickname
+	 * @param inputTel
+	 * @param inputBirth
+	 * @param inputAddr
+	 * @return
+	 * @throws SQLException 
+	 */
+	public int updateInfo(Connection conn, int memberNo, String inputNickname, String inputTel, String inputBirth,
+			String[] inputAddr) throws SQLException {
+		
+		int result = 0; 
+		
+		try {
+			String sql = prop.getProperty("updateInfo");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, inputNickname);
+			pstmt.setString(2, inputTel);
+			pstmt.setString(3, inputBirth);
+			
+			String address = String.join(",,", inputAddr);
+
+			pstmt.setString(4, address);
+			
+			pstmt.setInt(5,memberNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 }
