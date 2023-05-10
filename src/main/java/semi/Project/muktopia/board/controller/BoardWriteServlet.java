@@ -33,11 +33,12 @@ public class BoardWriteServlet extends HttpServlet{
 		String folderPath = "resources/img/boardImg/";
 		String filePath = root + folderPath;
 		String encoding = "UTF-8";
-		
+
 		MultipartRequest mpReq = new MultipartRequest(req, filePath, maxSize ,encoding,new MyRenamePolicy());//,new MyRenamePolicy()
 		
 		String title = mpReq.getParameter("boardtitle");
 		String[] tagValue = mpReq.getParameterValues("tagValue");
+		System.out.println(tagValue[0]);
 		Member loginMember = (Member)session.getAttribute("loginMember");
 		int memberNo = loginMember.getMemberNo();
 		String inputArea = mpReq.getParameter("inputArea");
@@ -46,11 +47,20 @@ public class BoardWriteServlet extends HttpServlet{
 		tagValues = String.join(",", tagValue);
 		}
 		//int memberNo = loginMember.getMemberNo();	
-		String boardImage = folderPath + mpReq.getFilesystemName("boardImage");
+		String boardImage = folderPath;
+		String temp = mpReq.getFilesystemName("boardImage");
+		
 		BoardService service = new BoardService();
 		try {
 			int result=0;
-			result = service.insertBoard(memberNo, title, tagValues, inputArea, boardImage);
+			if(temp != null) {
+				boardImage += temp;
+				result = service.insertBoard(memberNo, title, tagValues, inputArea, boardImage);
+			}else {
+				boardImage = null;
+				result = service.insertBoardNotImg(memberNo, title, tagValues, inputArea);
+			}
+			
 			if(result > 0) {//성공
 				System.out.println("됐다.");
 				session.setAttribute("message", "프로필 이미지가 변경되었습니다.");
