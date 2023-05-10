@@ -12,6 +12,7 @@ import semi.Project.muktopia.board.model.vo.Board;
 import semi.Project.muktopia.member.model.dao.AdminDAO;
 
 import semi.Project.muktopia.member.model.vo.Member;
+import semi.Project.muktopia.member.model.vo.Restaurant;
 
 
 public class AdminService {
@@ -74,6 +75,13 @@ public class AdminService {
 		close(conn);
 		
 		return result;
+	}
+
+	public List<Restaurant> restLoad() throws Exception{
+		Connection conn = getConnection();
+		List <Restaurant> restList = dao.restLoad(conn);
+		
+		return restList;
 	}
 	
 	

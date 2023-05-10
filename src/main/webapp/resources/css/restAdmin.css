@@ -1,0 +1,188 @@
+.root{
+    font-size: 16px;
+}
+
+.admin-search-section{
+    width: 90%;
+    height: 17%;
+    box-sizing: border-box;
+    margin: 20px;
+    background-color: white;
+    border: 1px solid white;
+    font-size: 16px;
+
+    display: flex;
+}
+
+.admin-search-section table{
+    flex-basis: 50%;
+}
+
+
+.member-label{
+    color: rgb(0, 82, 0);
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+#memberForm {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  #memberForm td {
+    padding: 10px;
+    border: 1px solid white;
+    display: flex;
+  }
+  
+  #memberForm tr:first-child td {
+    width:30%;
+
+  }
+  
+  #memberForm tr:nth-child(2) td {
+    width: 30%;
+
+  }
+  
+  #memberForm tr:last-child td {
+    width: 40%;
+ 
+  }
+
+  #memberForm input {
+    border: none;
+    border-bottom: 1px solid  rgba(0, 82, 0, 0.432);
+  }
+
+  #memberForm select{
+    border: none;
+    /* border-bottom: 1px solid  rgba(0, 82, 0, 0.432); */
+  }
+
+  /* ===============출력화면================ */
+  .member-view-section{
+    width: 95%;
+    height: 70%;
+    box-sizing: border-box;
+    margin: 20px;
+    background-color: white;
+    /* border: 1px solid lightgoldenrodyellow; */
+  }
+
+  /* 테이블 */
+  table {
+    border-collapse: collapse;
+    padding: 10px;
+  }
+  
+
+  #member-view-table{
+    font-size: 16px;
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+
+    text-align: center;
+    background-color:white;
+  }
+
+
+.member-view-table-tr{
+    color: rgb(0, 82, 0);
+    background-color: rgba(0, 82, 0, 0.041) ;
+    font-size: 18px;
+    font-weight: bold;
+    border-top: 1px solid  rgba(0, 82, 0, 0.521);
+    border-bottom: 1px solid   rgba(0, 82, 0, 0.521);
+    /* padding: 5px;
+    margin-top: 10px; */
+}
+
+
+
+.member-view-table-body{
+    
+    color: rgb(36, 34, 34);
+    font-size: 15px;
+    padding: 20px;
+    
+    
+}
+
+
+.member-view-table-body td{
+    width: 100px;
+
+    
+}
+
+
+
+
+
+
+
+  /* 버튼디자인 */
+.button-6 {
+    align-items: center;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: .25rem;
+    box-shadow: rgba(0, 82, 0, 0.4) 0 1px 3px 0;
+    box-sizing: border-box;
+    color:  rgb(0, 82, 0);
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    margin: 0;
+    min-height: 2rem;
+    padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+  }
+  
+  .button-6:hover,
+  .button-6:focus {
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    color: rgba(0, 0, 0, 0.65);
+  }
+  
+  .button-6:hover {
+    transform: translateY(-1px);
+  }
+  
+  .button-6:active {
+    background-color: #F0F0F1;
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+    color: rgba(0, 0, 0, 0.65);
+    transform: translateY(0);
+  }
+
+  #member-sorting-btn {
+    margin-left: 20px;
+    margin-bottom: 3px;
+  }
+
+  .marker-image {
+    height: 100px;
+    text-align: center;
+    }
+
+
+  .marker-image img{
+    height: 100%;
+}
