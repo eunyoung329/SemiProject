@@ -31,7 +31,11 @@
                 <section class ="board_Container-2">
                     <div id = "tagPlace" style="width:392.5px;">  
                         <input class ="inputTag" type="text">
+                        <input class = "invisibleTag" type = "text" name = "tagValue">
                         <div class = "tagBtn"><i class="fa fa-solid fa-plus tagButton"></i></div>
+                        
+                            
+                        
                     </div>
 
                     <div>
