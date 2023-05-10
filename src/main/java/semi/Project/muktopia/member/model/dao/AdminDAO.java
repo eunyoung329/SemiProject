@@ -13,6 +13,7 @@ import java.util.Properties;
 
 import semi.Project.muktopia.board.model.vo.Board;
 import semi.Project.muktopia.member.model.vo.Member;
+import semi.Project.muktopia.member.model.vo.Restaurant;
 
 
 public class AdminDAO {
@@ -166,6 +167,38 @@ public class AdminDAO {
 			close(pstmt);
 		}
 		return result;
+	}
+	/**
+	 * 레스토랑 다 가져오는 DAO
+	 * @param conn
+	 * @return
+	 */
+	public List<Restaurant> restLoad(Connection conn) throws Exception{
+		List<Restaurant> restList =  new ArrayList<>();
+		try {
+			String sql = prop.getProperty("restLoad");
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				Restaurant rest = new Restaurant();
+				rest.setRest_id(rs.getString("RESTAURANT_ID"));
+				rest.setRest_name(rs.getString("RESTAURANT_NAME"));
+				rest.setRest_Addr(rs.getString("RESTAURANT_ADDR"));
+				rest.setRest_x(rs.getString("RESTAURANT_X"));
+				rest.setRest_y(rs.getString("RESTAURANT_Y"));
+				rest.setRest_category(rs.getString("RESTAURANT_CATEGORY"));
+				rest.setRest_sns(rs.getString("RESTAURANT_SNS"));
+				rest.setRest_tel(rs.getString("RESTAURANT_TEL"));
+				rest.setRest_time(rs.getString("RESTAURANT_TIME"));
+				rest.setRest_img(rs.getString("RESTAURANT_IMG"));
+				rest.setRest_contents(rs.getString("RESTAURANT_CONTENTS"));
+				restList.add(rest);
+			}
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return restList;
 	}
 	
 }

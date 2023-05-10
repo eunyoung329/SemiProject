@@ -30,6 +30,10 @@
 		WHERE MEMBER_NO = ?
 		
 	</entry>
+	
+	<entry key="restLoad">
+		SELECT * FROM RESTAURANT
+	</entry>
 </properties>
     
 
