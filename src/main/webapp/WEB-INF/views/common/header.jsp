@@ -27,7 +27,7 @@
 
              <div class="login-area">
 
-                 <form action="${contextPath}/member/login" method = "POST" name="loginForm" onsubmit = "loginInvalidate()">
+                 <form action="${contextPath}/member/login" method = "POST" name="loginForm" onsubmit = "return loginInvalidate()">
                      <label>Email Address</label>
                      <input type="text" id ="loginID" name ="loginID">
                      <label>Password</label>
