@@ -63,8 +63,8 @@ public class BoardWriteServlet extends HttpServlet{
 			
 			if(result > 0) {//성공
 				System.out.println("됐다.");
-				session.setAttribute("message", "프로필 이미지가 변경되었습니다.");
-				resp.sendRedirect("../index.jsp");
+				session.setAttribute("message", "게시물이 등록되었습니다.");
+				resp.sendRedirect(req.getContextPath()+"/member/board");
 		}else {//실패
 			session.setAttribute("message", "프로필 이미지 변경 실패하였습니다.");
 
