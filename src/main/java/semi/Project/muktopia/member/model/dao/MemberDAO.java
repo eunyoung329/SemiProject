@@ -77,6 +77,7 @@ public class MemberDAO {
 				loginMember.setMemberAddress( 	rs.getString("MEMBER_ADDR")  );
 				loginMember.setProfileImage( 	rs.getString("PROFILE_IMG")  );
 				loginMember.setEnrollDate( 		rs.getString("ENROLL_DT") 	 );
+				loginMember.setMemberBirth( rs.getString("MEMBER_BIRTH") );
 			}
 		}finally {
 			close(rs);
