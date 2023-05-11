@@ -365,7 +365,6 @@ public class MemberDAO {
 		return result;
 	}
 
-		return result;
-	}
+
 
 }

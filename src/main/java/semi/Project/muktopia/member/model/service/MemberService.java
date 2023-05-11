@@ -140,7 +140,7 @@ public class MemberService {
 	 * @return
 	 */
 	public int updateProfileImage(Connection conn, int memberNo, String profileImage) throws Exception {
-		
+		`
 		int result = 0; 
 		
 		try {

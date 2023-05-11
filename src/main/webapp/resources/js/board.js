@@ -128,12 +128,12 @@ function createDeleteButton() {
 
 function deleteBoard(event){
 	const boardNo = event.target.id;
-	console.log("안되냐");
  $.ajax({
     url:"board/delete",
     data:{"boardNo":boardNo},
     type:"post",
     success:function(result){
+      console.log("될텐데.");
       
     },
     error:function(failed){
