@@ -128,76 +128,104 @@ public class MemberService {
 		}
 		return rest;
 	}
+	
+	public int updateInfo(int memberNo, String inputNickname, String inputTel, String inputBirth, String[] inputAddr) throws Exception {
+		Connection conn = getConnection();
+		
+		int result = dao.updateInfo(conn, memberNo, inputNickname, inputTel, inputBirth, inputAddr);
+		
+		if(result > 0) commit(conn); 
+		else 		   rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+	
+	public int updateProfileImage(int memberNo, String profileImage) throws Exception {
+		Connection conn = getConnection();
+		
+		int result = dao.updateProfileImage(conn, memberNo, profileImage);
+	
+		
+		// 트랜잭션 
+		if(result > 0) commit(conn);
+		else 		   rollback(conn);
+		
+		close(conn);
+		
+		return result;		
+	}
 
 	
 	
 	
 	
-	/** 프로필 이미지 변경
-	 * @param conn
-	 * @param memberNo
-	 * @param profileImage
-	 * @return
-	 */
-	public int updateProfileImage(Connection conn, int memberNo, String profileImage) throws Exception {
-		
-		int result = 0; 
-		
-		try {
-			
-			String sql = prop.getProperty("updateProfileImage");
-			
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, profileImage);
-			pstmt.setInt(2, memberNo);
-			
-			result = pstmt.executeUpdate();
-      
-		} finally {
-			close(pstmt);
-		}
-		return result;
-	}
-	
-	
-	
-	/** 프로필 정보 변경 
-	 * @param conn
-	 * @param memberNo
-	 * @param inputNickname
-	 * @param inputTel
-	 * @param inputBirth
-	 * @param inputAddr
-	 * @return
-	 * @throws SQLException 
-	 */
-	public int updateInfo(Connection conn, int memberNo, String inputNickname, String inputTel, String inputBirth,
-			String[] inputAddr) throws SQLException {
-		
-		int result = 0; 
-		
-		try {
-			String sql = prop.getProperty("updateInfo");
-			
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(1, inputNickname);
-			pstmt.setString(2, inputTel);
-			pstmt.setString(3, inputBirth);
-			
-			String address = String.join(",,", inputAddr);
-
-			pstmt.setString(4, address);
-			
-			pstmt.setInt(5,memberNo);
-			
-			result = pstmt.executeUpdate();
-			
-		} finally {
-			close(pstmt);
-		}
-		
-		return result;
-	}
+//	/** 프로필 이미지 변경
+//	 * @param conn
+//	 * @param memberNo
+//	 * @param profileImage
+//	 * @return
+//	 */
+//	public int updateProfileImage(Connection conn, int memberNo, String profileImage) throws Exception {
+//		
+//		int result = 0; 
+//		
+//		try {
+//			
+//			String sql = prop.getProperty("updateProfileImage");
+//			
+//			pstmt = conn.prepareStatement(sql);
+//			pstmt.setString(1, profileImage);
+//			pstmt.setInt(2, memberNo);
+//			
+//			result = pstmt.executeUpdate();
+//      
+//		} finally {
+//			close(pstmt);
+//		}
+//		return result;
+//	}
+//	
+//	
+//	
+//	/** 프로필 정보 변경 
+//	 * @param conn
+//	 * @param memberNo
+//	 * @param inputNickname
+//	 * @param inputTel
+//	 * @param inputBirth
+//	 * @param inputAddr
+//	 * @return
+//	 * @throws SQLException 
+//	 */
+//	public int updateInfo(Connection conn, int memberNo, String inputNickname, String inputTel, String inputBirth,
+//			String[] inputAddr) throws SQLException {
+//		
+//		int result = 0; 
+//		
+//		try {
+//			String sql = prop.getProperty("updateInfo");
+//			
+//			pstmt = conn.prepareStatement(sql);
+//			
+//			pstmt.setString(1, inputNickname);
+//			pstmt.setString(2, inputTel);
+//			pstmt.setString(3, inputBirth);
+//			
+//			String address = String.join(",,", inputAddr);
+//
+//			pstmt.setString(4, address);
+//			
+//			pstmt.setInt(5,memberNo);
+//			
+//			result = pstmt.executeUpdate();
+//			
+//		} finally {
+//			close(pstmt);
+//		}
+//		
+//		return result;
+//	}
 
 }

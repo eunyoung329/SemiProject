@@ -200,6 +200,20 @@ public class AdminDAO {
 		}
 		return restList;
 	}
+
+
+	public int deleteRest(Connection conn, String restId) throws Exception {
+		int result = 0;
+		try {
+			String sql = prop.getProperty("deleteRest");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, restId);
+			result = pstmt.executeUpdate();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
 	
 }
 
