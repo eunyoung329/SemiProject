@@ -250,3 +250,35 @@ searchBtn.addEventListener("click", function(){
   renderList(filteredItemList);
 
 })
+
+
+$(document).on("click", ".fa-right-from-bracket", function () {
+  var restid = $(this).attr("id");
+  console.log("restId::", restid)
+  deleteRest(restid);
+});
+
+function deleteRest(restid) {
+  if (confirm("정말 삭제시키겠습니까?")) {
+    // ajax 요청
+    $.ajax({
+      url: "/deleteRest",
+      type: "POST",
+      data: { restid: restid },
+      success: function (result) {
+        if (result > 0) {
+          // 탈퇴 성공 시 처리
+          alert("회원 탈퇴가 완료되었습니다.");
+          location.reload(); // 페이지 새로고침
+        } else {
+          // 탈퇴 실패 시 처리
+          alert("회원 탈퇴에 실패하였습니다.");
+        }
+      },
+      error: function () {
+        // 에러 발생 시 처리
+        alert("회원 탈퇴에 실패하였습니다.");
+      },
+    });
+  }
+}

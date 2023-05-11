@@ -28,11 +28,14 @@
 		UPDATE MEMBER
 		SET SECESSION_FL = 'Y'
 		WHERE MEMBER_NO = ?
-		
 	</entry>
-	
 	<entry key="restLoad">
 		SELECT * FROM RESTAURANT
+	</entry>
+	
+	<entry key="deleteRest">
+		DELETE FROM RESTAURANT
+		WHERE RESTAURANT_ID = ?
 	</entry>
 </properties>
     

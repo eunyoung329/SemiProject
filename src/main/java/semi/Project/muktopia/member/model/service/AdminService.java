@@ -83,6 +83,17 @@ public class AdminService {
 		
 		return restList;
 	}
+
+	public int deleteRest(String restId) throws Exception {
+		Connection conn = getConnection();
+		int result = dao.deleteRest(conn, restId);
+		
+		if(result  > 0) commit(conn);
+		else rollback(conn);
+		close(conn);
+		
+		return result;
+	}
 	
 	
 }

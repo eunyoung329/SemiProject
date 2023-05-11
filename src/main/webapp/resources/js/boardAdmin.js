@@ -41,7 +41,7 @@ function selectAllBoard(showItems) {
         td1.innerText = item.bNo;
         const td2 = document.createElement("td");
         const img = document.createElement("img");
-        img.src = item.boardImage;
+        img.src = "../"+item.boardImage;
         td2.appendChild(img);
         const td3 = document.createElement("td");
         td3.innerText = item.title;

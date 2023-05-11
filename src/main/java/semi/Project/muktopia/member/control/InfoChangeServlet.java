@@ -14,7 +14,7 @@ import semi.Project.muktopia.member.model.service.MemberService;
 import semi.Project.muktopia.member.model.vo.Member;
 
 @WebServlet("/member/infoChange")
-public class infoChangeServlet extends HttpServlet {
+public class InfoChangeServlet extends HttpServlet {
 	
 	
 	@Override
@@ -58,7 +58,7 @@ public class infoChangeServlet extends HttpServlet {
 			
 			resp.sendRedirect("infoChange");
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
