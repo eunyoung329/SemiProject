@@ -186,3 +186,8 @@
   .marker-image img{
     height: 100%;
 }
+
+#tableWrapper {
+  max-height: 400px; 
+  overflow-y: auto;
+}
