@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
+
 import semi.Project.muktopia.board.model.service.BoardService;
 
 @WebServlet("/member/board/delete")
@@ -25,15 +27,16 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp){
 		
 		
 		if(result > 0) {//성공
-			System.out.println("됐다.");
+			System.out.println("됐다durl.");
 			session.setAttribute("message", "게시물이 삭제되었습니다.");
-			resp.sendRedirect("../index.jsp");
+			//resp.sendRedirect(req.getContextPath()+"/member/board");
+			resp.getWriter().print(result);
+			//new Gson().toJson(result, resp.getWriter());
 	}else {//실패
 		session.setAttribute("message", "게시물 삭제에 실패하였습니다.");
 
 	}
-		resp.getWriter().print(result);	
-		//resp.sendRedirect(req.getContextPath()+"/member/board");
+		
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();

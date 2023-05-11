@@ -65,14 +65,14 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 				resp.addCookie(c);
 				
 				
-				resp.sendRedirect(req.getContextPath());
+				
 				//리다이렉트할 장소를 적어
 //				req.getRequestDispatcher("../index.jsp").forward(req, resp);
 			}else {
 				
-				//session.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
+				session.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
 			}
-			
+			resp.sendRedirect(req.getContextPath());
 			
 			
 		}catch(Exception e) {

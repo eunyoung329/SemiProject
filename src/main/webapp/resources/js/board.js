@@ -132,9 +132,11 @@ function deleteBoard(event){
     url:"board/delete",
     data:{"boardNo":boardNo},
     type:"post",
+    datatype:"JSON",
     success:function(result){
+      console.log(result);
       console.log("될텐데.");
-      
+      location.reload();
     },
     error:function(failed){
 
