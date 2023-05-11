@@ -18,4 +18,5 @@ public class Board {
 	private String tagValue;
 	private String inputArea;
 	private String boardImage;
+	private String boardTime;
 }

@@ -57,6 +57,7 @@ tagBtn[0].addEventListener("click",function(){
 
     const tagPlace = document.getElementById("tagPlace");
     const addTag = document.createElement("div");
+    const invisibleTag = document.createElement("input");
 
     //태그 원하는 갯수. 여기서 나중에 발전하면 밑에 div를 추가해서
     //그곳에 더 넣을 수도 있을 것 같음.
@@ -66,7 +67,10 @@ tagBtn[0].addEventListener("click",function(){
     addTag.innerText = "#"+inputTag[0].value;
     addTag.classList.add("tagSpan");
     addTag.classList.add("destroy");
-    addTag.setAttribute("name","tagValue");
+    invisibleTag.value = inputTag[0].value;
+    invisibleTag.classList.add("invisibleTag");
+    invisibleTag.setAttribute("name","tagValue");
+
     addTag.addEventListener("click",function(){
         // alert("동적요소 이벤트 추가");
         if(tagNum==5){
@@ -78,6 +82,7 @@ tagBtn[0].addEventListener("click",function(){
     });
     console.log(tagNum);
     tagPlace.prepend(addTag);
+    tagPlace.prepend(invisibleTag);
     tagNum++;
     }else{
         tagBtn[0].classList.add("invisible");
@@ -100,6 +105,9 @@ function boardinvalidate(){
     
     
     if(Object.values(valueList).reduce((acc, val) => acc + val, 0) === 2){
+        
+        
+        
         return true;
 
     

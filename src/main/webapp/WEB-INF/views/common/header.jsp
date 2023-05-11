@@ -84,6 +84,13 @@
          <div class="profileWrap">
              <div class="profileArea">
              	<c:if test="${empty loginMember.profileImage}">
+                 	<script>
+  // JavaScript 변수에 sessionScope.loginMember 값을 할당
+  let loginMember = "${sessionScope.loginMember}";
+  
+  // sessionStorage에 loginMember 값을 저장
+  sessionStorage.setItem("loginMember", loginMember);
+</script>
                  	<img src="${contextPath}/resources/img/profileImg/defaultUser.png" alt="프로필 이미지">
                 </c:if> 
                 

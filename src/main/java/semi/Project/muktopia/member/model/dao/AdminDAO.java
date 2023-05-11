@@ -88,8 +88,9 @@ public class AdminDAO {
 				String tagValue = rs.getString("BOARD_CATEGORY");
 				String inputArea = rs.getString("BOARD_INPUTAREA");
 				String boardImage = rs.getString("BOARD_IMAGE");
+				String boardTime = rs.getString("BOARD_TIME");
 				showList.add(
-						new Board(boardNo, memberNo, title, tagValue, inputArea, boardImage));
+						new Board(boardNo, memberNo, title, tagValue, inputArea, boardImage, boardTime));
 			}
 		}finally {
 			close(rs);
