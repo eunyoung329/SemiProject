@@ -172,6 +172,8 @@
         
   
     </div>
+    <div id="tableWrapper">
+    
     <!-- 회원 출력 페이지 -->
       <div class="member-view-section" >
         <!-- <div class="icon-wrapper">
@@ -200,6 +202,7 @@
         </table>
       </div>
   </div>
+</div>
 </main>
 
 
