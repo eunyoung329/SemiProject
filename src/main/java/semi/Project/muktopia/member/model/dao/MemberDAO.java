@@ -404,5 +404,82 @@ public class MemberDAO {
 		
 		return result;
 	}
+	 public int checkPwFirst(Connection conn, String currentPw, String memberEmail) throws Exception{
+	      int result=0;
+	      try {
+	       String sql=prop.getProperty("checkPwFirst");
+	    
+	      pstmt = conn.prepareStatement(sql);
+	     
+	      pstmt.setString(1, currentPw);
+	      pstmt.setString(2, memberEmail);
+	      
+	      rs = pstmt.executeQuery();
+	      
+	      if(rs.next()) {
+	         result=rs.getInt(1);
+	         
+	      }
+	   }finally {
+	      close(rs);
+	      close(pstmt);
+	   }
+	      return result;
+	   }
+	   
+	   
+	   
+	   
+	   
+	   public int Pwchange(Connection conn,String newPw, String memberEmail) throws Exception{
+	      int result=0;
+	        try {
+	            String sql=prop.getProperty("pwChange");
+	            pstmt=conn.prepareStatement(sql);
+	            pstmt.setString(1, newPw);
+	            pstmt.setString(2, memberEmail);
+	            result = pstmt.executeUpdate();
+	        }finally {
+	            close(pstmt);
+	        }
+	        return result;
+	    }
+	   
 
+	   public int secessionPw(Connection conn, String memberPw, String memberEmail)throws Exception {
+	      int result=0;
+	      try {
+	       String sql=prop.getProperty("secessionPw");
+	    
+	      pstmt = conn.prepareStatement(sql);
+	     
+	      pstmt.setString(1, memberPw);
+	      pstmt.setString(2, memberEmail);
+	      
+	      rs = pstmt.executeQuery();
+	      
+	      if(rs.next()) {
+	         result=rs.getInt(1);
+	         
+	      }
+	   }finally {
+	      close(rs);
+	      close(pstmt);
+	   }
+	      return result;
+	      
+	      
+	      
+	      
+	      
+	      
+	      
+	   }
+
+
+
+
+
+
+	
 }

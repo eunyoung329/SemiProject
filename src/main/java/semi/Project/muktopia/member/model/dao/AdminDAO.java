@@ -2,6 +2,7 @@ package semi.Project.muktopia.member.model.dao;
 
 import static semi.Project.muktopia.common.JDBCTemplate.close;
 
+
 import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Properties;
 
 import semi.Project.muktopia.board.model.vo.Board;
+import semi.Project.muktopia.member.model.vo.Admin;
 import semi.Project.muktopia.member.model.vo.Member;
 import semi.Project.muktopia.member.model.vo.Restaurant;
 
@@ -215,6 +217,133 @@ public class AdminDAO {
 		}
 		return result;
 	}
+	
+	public Admin selectOne(Connection conn, String memberEmail) throws Exception{
+	      
+        Admin admin = null;
+    
+    try {
+       String sql = prop.getProperty("selectOne");
+       
+       pstmt = conn.prepareStatement(sql);
+       
+       pstmt.setString(1, memberEmail);
+       
+       rs = pstmt.executeQuery();
+       
+       if(rs.next()) {
+          admin = new Admin();
+          admin.setMemberNo(rs.getInt("MEMBER_NO"));
+          admin.setMemberEmail(rs.getString("MEMBER_EMAIL"));
+          admin.setRest_category(rs.getString("REPORT_CATEGORY"));
+          admin.setRest_name(rs.getString("RESTAURANT_NAME"));
+          admin.setRest_img(rs.getString("RESTAURANT_IMG"));
+          admin.setRest_Addr(rs.getString("RESTAURANT_ADDR"));
+          admin.setReport_Content(rs.getString("REPORT_CONTENT"));
+          admin.setReport_date(rs.getString("REPORT_DATE"));
+          
+          
+              
+       }
+       
+    }finally {
+       close(rs);
+       close(pstmt);
+    }
+    
+    return admin;
+ }
+    
+    
+
+
+
+ public List<Admin> AdminReportAll(Connection conn)throws Exception {
+      List<Admin>stdList=new ArrayList<>();
+       
+      try {
+          
+          String sql=prop.getProperty("adminReportAll");
+          stmt=conn.createStatement();
+          rs=stmt.executeQuery(sql);
+          
+            while (rs.next()) {
+               Admin admin = new Admin();
+               
+          
+             
+                  admin.setMemberNo(rs.getInt("MEMBER_NO"));
+                  admin.setMemberEmail(rs.getString("MEMBER_EMAIL"));
+                  admin.setRest_category(rs.getString("REPORT_CATEGORY"));
+                  admin.setRest_name(rs.getString("RESTAURANT_NAME"));
+                  admin.setRest_Addr(rs.getString("RESTAURANT_ADDR"));
+                  admin.setRest_img(rs.getString("RESTAURANT_IMG"));
+                  admin.setReport_Content(rs.getString("REPORT_CONTENT"));
+                  admin.setReport_date(rs.getString("REPORT_DATE"));
+                 
+                        
+                   stdList.add(admin);
+               
+                   
+                   System.out.println(stdList);
+                   
+                   
+               }
+          
+          
+       }finally {
+          close(rs);
+          close(stmt);
+       }
+       return stdList;
+    }
+
+
+ public int adminRegisterRest(Connection conn, String rest_category, String rest_name, String rest_img,
+       String rest_x, String rest_y, String rest_tel,String rest_time, String rest_sns, String rest_Addr, String rest_contents) throws Exception{
+    int result=0;
+      try {
+          String sql=prop.getProperty("adminRegisterRest");
+          pstmt=conn.prepareStatement(sql);
+          
+          pstmt.setString(1, rest_category);
+          pstmt.setString(2, rest_name);
+          pstmt.setString(3, rest_img);
+          pstmt.setString(4, rest_x);
+          pstmt.setString(5, rest_y);
+          pstmt.setString(6, rest_tel);
+          pstmt.setString(7, rest_time);
+          pstmt.setString(8, rest_sns);
+          pstmt.setString(9, rest_Addr);
+          pstmt.setString(10, rest_contents);
+          
+         
+          result = pstmt.executeUpdate();
+      }finally {
+          close(pstmt);
+      }
+      return result;
+ }
+
+
+ public int deleteReport(Connection conn, String memberNo)throws Exception {
+    int result=0;
+    try {
+       String sql=prop.getProperty("deleteReport");
+       pstmt=conn.prepareStatement(sql);
+       
+       pstmt.setString(1, memberNo);
+       
+       result = pstmt.executeUpdate();
+       
+       
+       
+    }finally {
+       close(rs);
+       close(pstmt);
+    }
+    return result;
+ }
 	
 }
 

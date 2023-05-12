@@ -31,10 +31,10 @@
 
         <!-- 회원 탈퇴 -->
         <section class="myPage-secession container">
-            <form action="secession" method="POST" name="myPage-secession">
+            <form action="secession" method="POST" name="myPage-secession" onsubmit="return secessionFLValidate()">
                 <div class="currentPw mb-5">
                     <label>비밀번호</label>
-                    <input type="password" name="currentPw" id="currentPw" maxlength="30">
+                    <input type="password" name="memberPw" id="memberPw" maxlength="30">
                 </div>
         
                 <label>탈퇴하시기 전, 내용을 꼭 확인해주세요.</label>
@@ -47,11 +47,11 @@
                 </div>
                 
                 <div >
-                    <input type="checkbox" name="secession-agree-btn">
-                    <label for="secession-agree-btn">내용을 모두 확인하였습니다.</label>
+                    <input type="checkbox" name="secession_agree" id="secession_agree">
+                    <label for="secession_agree">내용을 모두 확인하였습니다.</label>
                 </div>
                 
-                <button id="seccsion-btn">탈퇴하기</button>
+                <button id="secession-btn">탈퇴하기</button>
 
             </form>
             
@@ -62,7 +62,7 @@
 
     <jsp:include page ="/WEB-INF/views/common/footer.jsp"/>
     
-
+ <script src="${contextPath}/resources/js/secession.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="${contextPath}/resources/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>

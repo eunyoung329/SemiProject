@@ -3,28 +3,41 @@
 
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
-  <head>
-    <!-- <script src="../assets/js/color-modes.js"></script> -->
+  <head><script src="../assets/js/color-modes.js"></script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.111.3">
-    <title>관리자 페이지</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sidebars/">
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="${contextPath}/resources/css/reportAdmin.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/mainAdmin.css">
     <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sidebars/"> 
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+    
+    
+    
+    
+    
+    
+    
+    <style>
+      
+    </style>
 
     
     <!-- 사이드바 아이콘 -->
-    <link href="${contextPath}/resources/css/mainAdmin.css" rel="stylesheet">
+    <link href="sidebars.css" rel="stylesheet">
   </head>
   <body>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -69,13 +82,13 @@
     <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
 </svg>
 
-<main class="d-flex flex-nowrap" id="adimn_main">
+<nav class="d-flex flex-nowrap">
 
 
  <!-- 하얀색 -->
  <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;">
   <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-    <img src="${contextPath}/resources/img/logo.png" alt="" width="50" height="50" class="rounded-circle me-2">
+    <img src="/sidebar/img/logo_trans.png" alt="" width="50" height="50" class="rounded-circle me-2">
     <span class="logo-text">&nbsp;LET'S VEGAN</span>
   </a>
   <hr>
@@ -87,13 +100,13 @@
       </a>
     </li>
     <li class="nav-item">
-      <a href="${contextPath}/admin/restAdmin" class="nav-link link-body-emphasis">
+      <a href="#" class="nav-link link-body-emphasis">
         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
         레스토랑 관리
       </a>
     </li>
     <li class="nav-item">
-      <a href="${contextPath}/admin/boardAdmin" class="nav-link link-body-emphasis">
+      <a href="#" class="nav-link link-body-emphasis">
         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
         게시판 관리
       </a>
@@ -105,7 +118,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a href="${contextPath}/admin/memberAdmin" class="nav-link link-body-emphasis">
+      <a href="#" class="nav-link link-body-emphasis">
         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
         회원 관리
       </a>
@@ -114,9 +127,9 @@
   <hr>
   <div class="dropdown">
     <div class="d-flex align-items-center link-body-emphasis text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
-      <img src="${contextPath}/resources/img/logo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-      <strong style="color: rgb(0, 82, 0); font-size: 16px;">admin  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
-      <a href="#">
+      <img src="/sidebar/img/logo_trans.png" alt="" width="32" height="32" class="rounded-circle me-2">
+      <strong style="color: rgb(0, 82, 0);">admin  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+      <a href="${contextPath}/admin/adminLogOut">
         <button class="button-59" role="button">logout</button>
       </a>
 
@@ -131,51 +144,116 @@
 <div class="b-example-divider b-example-vr"></div>
 
  <!-- 사이드바 끝 -->
-
  <!--메인화면-->
-  <div id="admin-container" style="border: 2px solid red; text-align: center;">
-    <div id="admin-title" >
-      <svg class="bi pe-none me-2" width="25" height="25"><use xlink:href="#speedometer2"/></svg>
-      <span class="text-title">게시판 관리</span>
-      <hr style="margin: top 7px;">
-    </div>
-    <!-- 이 안에 페이지 만들기! -->
-    <table border="0" style="width: 80%; margin: 0 auto;">
-      <thead>
-          <tr style="background-color: #d4f386b6; font-size: 18px;">
-              <th>번호</th>
-              <th>이미지</th>
-              <th>제목</th>
-              <th>카테고리</th>
-              <th>내용</th>
-              <th>작성일</th>
-              <th>회원번호</th>
-              <th>삭제</th>
-          </tr>
-      </thead>
-      <tbody id="tableBody_board" style="background-color: #d8eea257; font-size: 13px;">
-      
-      </tbody>
-  </table>
-
-
+ <div id="admin-container" style="border: 2px solid red">
+  <div id="admin-title" >
+    <svg class="bi pe-none me-2" width="22" height="22"><use xlink:href="#speedometer2"/></svg>
+    <span class="text-title">제보 관리</span>
+     <span><button class="scroll-right-btn" onclick="location.href='${contextPath}/admin/adminRegisterRest'"><i class="fa-solid fa-arrow-right"></i></button></span>
+    <hr style="margin: top 7px;">
   </div>
-</main>
+
+  <section class="main">
+    <div class="main1">
+     
+    </div>
+    <div class="main2">
+      <div class="search_area">
+      <input type="text" id="memberEmail" name="memberEmail" placeholder="멤버이메일을 입력해주세요">
+      <button id="searchBtn">search</button>
+      </div>
+    </div>
+    
+    <div class="main3">
+  
+  
+      <!-- selectAll구역-->
+      <div id="boardDiv">
+        <table id="member-view-table" style="width:100%;">
+          <tr class="member-view-table-tr" style="border-top:2px solid #8aa088;border-bottom:2px solid #8aa088;">
+            <th style="border:1px solid lightgrey">멤버번호</th>
+            <th style="border:1px solid lightgrey">이메일</th>
+            <th style="border:1px solid lightgrey">카테고리</th>
+            <th style="border:1px solid lightgrey">레스토랑이름</th>
+            <th style="border:1px solid lightgrey">이미지</th>
+            <th style="border:1px solid lightgrey">주소</th>
+            <th style="border:1px solid lightgrey">제보내용</th>
+            <th style="border:1px solid lightgrey">가입일</th>
+            <th style="border:1px solid lightgrey">제보삭제</th>
+          </tr>
+          
+        </table>
+      </div>
+  
+      </div><!--main3끝내기-->
+  
+</nav>
+ 
+
+  
 
 
 
 
-<!-- 합쳐지고 최소화된 최신 CSS -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>    
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
-<!-- 부가적인 테마 -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <script src="${contextPath}/resources/js/boardAdmin.js"></script>
-    <script src="${contextPath}/resources/js/mainAdmin.js"></script>
-  </body>
-</html>
+
+ 
+<script src="${contextPath}/resources/js/reportAdmin.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <!-- <script src="../assets/dist/js/bootstrap.bundle.min.js"></script> -->
+  
+    <script src="/sidebar/sidebars.js"></script>
+    <script
+		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script>
+		function sample4_execDaumPostcode() {
+			new daum.Postcode(
+					{
+						oncomplete : function(data) {
+							// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+							// 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+							// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+							var roadAddr = data.roadAddress; // 도로명 주소 변수
+							var extraRoadAddr = ''; // 참고 항목 변수
+
+							// 법정동명이 있을 경우 추가한다. (법정리는 제외)
+							// 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+							if (data.bname !== ''
+									&& /[동|로|가]$/g.test(data.bname)) {
+								extraRoadAddr += data.bname;
+							}
+							// 건물명이 있고, 공동주택일 경우 추가한다.
+							if (data.buildingName !== ''
+									&& data.apartment === 'Y') {
+								extraRoadAddr += (extraRoadAddr !== '' ? ', '
+										+ data.buildingName : data.buildingName);
+							}
+					
+							// 우편번호와 주소 정보를 해당 필드에 넣는다.
+							document.getElementById('sample4_postcode').value = data.zonecode;
+							document.getElementById("sample4_roadAddress").value = roadAddr;
+				
+
+							var guideTextBox = document.getElementById("guide");
+							// 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
+							if (data.autoRoadAddress) {
+								var expRoadAddr = data.autoRoadAddress
+										+ extraRoadAddr;
+								guideTextBox.innerHTML = '(예상 도로명 주소 : '
+										+ expRoadAddr + ')';
+								guideTextBox.style.display = 'block';
+
+							} else {
+								guideTextBox.innerHTML = '';
+								guideTextBox.style.display = 'none';
+							}
+						}
+					}).open();
+		}
+	</script>
+   
+   </body>
+   </html>

@@ -156,5 +156,38 @@ public class MemberService {
 		
 		return result;		
 	}
+	public int checkPwFirst(String currentPw, String memberEmail)throws Exception {
+	      
+		   
+        Connection conn = getConnection();
+        int result = new MemberDAO().checkPwFirst(conn,currentPw,memberEmail);
+        close(conn);
+         return result;
+  }
+  
+  
+  
+  
+  public int Pwchange(String newPw, String memberEmail)throws Exception {
+     
+     Connection conn=getConnection();
+     int result=dao.Pwchange(conn,newPw,memberEmail);
+     if(result>0) commit(conn);
+     else         rollback(conn);
+     close(conn);
+     return result;
+  }
+  
+  public int sessionPw(String memberPw, String memberEmail) throws Exception {
+     Connection conn = getConnection();
+     int result = new MemberDAO().checkPwFirst(conn,memberPw,memberEmail);
+       close(conn);
+      return result;
+  }
+  
+  
+  
+ 
+
 
 }

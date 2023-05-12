@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
@@ -11,13 +11,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>관리자로그인</title>
 <link rel="stylesheet"
-	href="${contextPath}/resources/css/adminLogin.css">
-	
+   href="${contextPath}/resources/css/adminLogin.css">
+   
 </head>
 <body>
 
   <section class="login-form">
-    <form action="${contextPath}/admin/restAdmin" method="get" name="adminLogin" onsubmit="return adminLoginValidate()">
+    <form action="${contextPath}/admin/adminLogin" method="post" name="adminLogin" onsubmit="return adminLoginValidate()">
           <input type="text" class="text-field" id="adminEmail" name="adminEmail">
           <input type="password" class="text-field" id="adminPw" name="adminPw">
           <input type="submit" value="로그인" class="submit-btn">
@@ -34,4 +34,3 @@
 
   </body>
   </html>
-

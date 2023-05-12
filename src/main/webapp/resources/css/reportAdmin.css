@@ -1,0 +1,99 @@
+body {
+  min-height:100vh;
+}
+
+h1.first span{
+  position: relative;
+  font-weight: 400;
+}
+
+h1.first span:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: calc(50% + 2px); left: -10px;
+  width: calc(100% + 20px); 
+  height: 25%;
+  transform: translateY(-50%);
+  
+  z-index: -1;
+  background-color: #cdf1ca;
+}
+
+.main {
+ 
+  width:100%;
+}
+
+.main >div:nth-child(1){
+  margin-top:30px;
+  height:10%;
+  
+
+}
+
+h1 {
+  text-align: center;
+}
+.main >div:nth-child(2){
+  
+  height:10%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+}
+#memberEmail {
+  width:400px;
+  height:30px;
+  border-radius: 3px;
+  border:none;
+
+}
+.search_area{
+  border-bottom: 1px solid #8aa088;
+  margin-bottom: 30px;
+  
+}
+#searchBtn{
+  background-color:#8aa088;
+  color:white;
+  border-radius: 3px;
+  border:none;
+  width:100px;
+  height:30px;
+
+}
+.main >div:nth-child(3){
+  
+
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+  
+}
+
+
+
+#memberInfo {
+ border-top: 1px solid green;
+ 
+ margin: 0 auto; 
+ width: 90%;
+ 
+  
+}
+
+#member-view-table {
+  margin: 0 auto; /* 수평 가운데 정렬 */
+  width: 100%; /* 테이블 너비 지정 */
+}
+
+
+
+.enroll-Content{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}

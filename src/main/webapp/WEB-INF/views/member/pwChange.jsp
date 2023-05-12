@@ -17,7 +17,7 @@
     
     <jsp:include page ="/WEB-INF/views/common/header.jsp"/>
 
-	    <main>
+       <main>
         <!-- 정보 메뉴 -->
         <section class="info-menu container">
             <ul>
@@ -30,7 +30,7 @@
 
         <!-- 비밀번호 변경 -->
         <section class="myPage-pwChange">
-            <form action="chagePw" method="post" name="myPage-pwForm">
+            <form action="pwChange" method="post" name="myPage-pwForm" onsubmit="return pwChangeValidate()">
                 <div>
                     <label>현재 비밀번호</label>
                     <input type="password" name="currentPw" id="currentPw" maxlength="30">
@@ -46,7 +46,7 @@
                     <input type="password" name="newPwConfirm" id="newPwConfirm" maxlength="30">
                 </div>
     
-                <button id="pw-chagne-btn">변경하기</button>
+                <button  id="pw-change-btn">변경하기</button>
             </form>
         </section>
         
@@ -55,10 +55,10 @@
 
 
     <jsp:include page ="/WEB-INF/views/common/footer.jsp"/>
-    
+    <script src="${contextPath}/resources/js/pwChange.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  
     <script src="${contextPath}/resources/js/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+ 
 </body>
 </html>
