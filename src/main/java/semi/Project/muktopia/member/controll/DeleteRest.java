@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import semi.Project.muktopia.member.model.service.AdminService;
 
-@WebServlet("/deleteRest")
+@WebServlet("/admin/deleteRest")
 public class DeleteRest extends HttpServlet{
 
 	@Override
@@ -20,6 +20,7 @@ public class DeleteRest extends HttpServlet{
 			AdminService service = new AdminService();
 			
 			int result = service.deleteRest(restId);
+			
 			resp.getWriter().print(result);
 			
 		}catch(Exception e){

@@ -262,22 +262,22 @@ function deleteRest(restid) {
   if (confirm("정말 삭제시키겠습니까?")) {
     // ajax 요청
     $.ajax({
-      url: "/deleteReport",
+      url: "deleteRest",
       type: "POST",
       data: { restid: restid },
       success: function (result) {
+        console.log(restid);
+        console.log(result);
         if (result > 0) {
-          // 탈퇴 성공 시 처리
-          alert("회원 탈퇴가 완료되었습니다.");
+          alert("레스토랑 삭제가 완료되었습니다.");
           location.reload(); // 페이지 새로고침
         } else {
-          // 탈퇴 실패 시 처리
-          alert("회원 탈퇴에 실패하였습니다.");
+          alert("레스토랑 삭제에 실패하였습니다.");
         }
       },
       error: function () {
         // 에러 발생 시 처리
-        alert("회원 탈퇴에 실패하였습니다.");
+        alert("ajax 오류 발생");
       },
     });
   }
