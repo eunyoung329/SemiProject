@@ -106,6 +106,32 @@
                 </div><!-- 제주 끝 -->
 
 
+            <!-- 자세히보기 모달창 -->
+            <div class="main_res_modal" >
+                <!-- <div class="main_res_modal_content">
+                    <button id="main_modal_close">&times;</button>
+
+                    <h2 class="mb-5">${list[i].name}</h2>
+
+                        <div class="main_modal_img_area">
+                            <img src="${list[i].img}" alt="이미지샘플">
+                        </div>
+
+                        <div class="main_modal_info_area">
+                            <span>${list[i].category}</span>
+                            <span><i class="fa-solid fa-location-dot"></i>${list[i].address}</span>
+                            <span><i class="fa-regular fa-clock"></i>${list[i].time}</span>
+                            <span>
+                                <i class="fa-solid fa-quote-left"></i>
+                                ${list[i].contents}
+                                <i class="fa-solid fa-quote-right"></i>
+                            </span>
+                            <span><a href="${list[i].sns}">SNS 바로가기</a></span>
+                        </div>`
+                </div> -->
+            </div><!-- modal 끝 -->
+
+
 
             <!-- 제보하기 -->
             <div class="index_report_res_area mt-3 mb-5">
@@ -116,7 +142,7 @@
                     <div class="mt-3">
                         <h5>꼭 비건 메뉴만 판매하는 식당이 아니여도 좋아요</h5>
                         <h5>채식이 가능한 식당을 발견하신다면 어디든 제보해주세요!</h5>
-                        <a href="${contextPath}/member/reportStore">
+                        <a href="https://www.naver.com">
                             <button class="mt-2" type="button" id="main_report_btn">
                                 <i class="fa-solid fa-envelope"></i>제보하기
                             </button>
@@ -124,6 +150,21 @@
                     </div>
                 </div>
             </div><!-- 제보하기 끝 -->
+
+
+            <!-- 로그인한 경우에만 제보하기 가능 -->
+            <script>
+                <% Object mainLoginMember = session.getAttribute("loginMember"); %>
+                let mainLoginMember = '<%= mainLoginMember %>';
+                const reportBtn = document.getElementById("main_report_btn");
+
+                reportBtn.addEventListener("click", function(event){
+                if(mainLoginMember === "null"){
+                    alert("로그인 후 제보해주세요.");
+                    event.preventDefault();
+                }
+            });
+            </script>
             
         </div>
 

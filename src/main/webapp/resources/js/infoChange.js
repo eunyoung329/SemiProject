@@ -2,22 +2,23 @@
 $(function () {
   $("#info_img_select_btn").click(function () {
     $(".info_img_modal").fadeIn();
+    $("body").css("overflow", "hidden"); 
   });
 
   $("#info_modal_close").click(function () {
     $(".info_img_modal").fadeOut();
+    $("body").css("overflow", "visible");
   });
 });
 
 // 사진 변경하기 -------------------------------------------------------------------------------
 const inputImg = document.getElementById("input-image");
 
-// 사진 변경 버튼(div) 눌렀을 때도 input이 눌린 효과 주기
-document
-  .querySelector(".info_modal_img_change_area")
-  .addEventListener("click", function () {
-    inputImg.click();
+// 사진 변경 버튼(div) 눌렀을 때 input이 눌린 효과 주기
+document.querySelector(".info_modal_img_change_area").addEventListener("click", function () {
+  inputImg.click();
   });
+
 
 // inputImg가 존재
 if (inputImg != null) {
@@ -82,10 +83,11 @@ function profileValidate() {
   return true;
 }
 
+
+
+
+
 // 정보 변경하기 -------------------------------------------------------------------------------
-
-
-
 // 닉네임 중복 체크
 const nickInput = document.getElementById("nickName");
 const nickMsg = document.getElementById("infoChange_nickMsg");
@@ -107,6 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
             nickMsg.classList.remove("error");
 
             nickChk = true;
+            console.log("nickChk 가능:" , nickChk);
             
             
 
@@ -114,6 +117,9 @@ document.addEventListener("DOMContentLoaded", function () {
             nickMsg.innerText = "이미 사용된 닉네임입니다.";
             nickMsg.classList.add("error");
             nickMsg.classList.remove("confirm");
+
+            console.log("nickChk 사용:" , nickChk);
+
           }
         },
 
@@ -189,6 +195,8 @@ function infoValidate(event){
 
   if(nickChk == false){
     alert("부적합한 닉네임입니다. 다시 확인해주세요.")
+    console.log("nickChk valdi:" , nickChk);
+
   } else{
     infoCheck.nick = true;
   }
@@ -219,10 +227,5 @@ function infoValidate(event){
       infoFormsubmit.preventdefault();
     }
 
-    
   }
-
-
-} 
-
-
+}

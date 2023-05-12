@@ -62,7 +62,7 @@
                                 </c:if> 
 
                                 <div class="info_modal_img_change_area">
-                                    <label for="input-image"><i class="fa-solid fa-camera"></i></label>
+                                    <label><i class="fa-solid fa-camera"></i></label>
                                     <input type="file" name="profileImage" id="input-image" accept="image/*">
                                 </div>
                               </div>
