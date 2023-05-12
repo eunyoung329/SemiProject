@@ -213,7 +213,6 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 /* 모달창 */
-
 .info_img_modal{ 
     position:absolute; 
     width:100%; 
@@ -222,6 +221,7 @@ input[type="number"]::-webkit-inner-spin-button {
     top:0; 
     left:0; 
     display:none;
+    z-index: 10;
   }
   
   .info_img_modal_content{
@@ -239,7 +239,7 @@ input[type="number"]::-webkit-inner-spin-button {
     z-index: 100;
     left: 50%;
     right: 50%;
-    margin-top: 200px;
+    margin-top: 170px;
     margin-left: -250px;
     display: flex;
     flex-direction: column;
@@ -250,6 +250,11 @@ input[type="number"]::-webkit-inner-spin-button {
     .info_img_modal_content{
         width: 400px;
         margin-left: -200px;
+    }
+
+    .info_modal_img_change_area{
+        width: 100px;
+        height: 100px;
     }
 }
 
@@ -295,13 +300,14 @@ input[type="number"]::-webkit-inner-spin-button {
     cursor: pointer;
 }
 
-.info_modal_img_change_area label{
+.info_modal_img_change_area i{
     cursor: pointer;
 }
 
 #input-image{
     cursor: pointer;
 }
+
 
 .info_modal_btn_area button{
     background-color: white;
@@ -321,13 +327,5 @@ input[type="number"]::-webkit-inner-spin-button {
 
 
 #input-image{
-    display: none;
+    display: n
 }
-
-
-
-
-
-
-
-

@@ -32,8 +32,6 @@ topBtn.addEventListener('click', () => {
   });
 
 
-
-
 // 데이터 가져오기 
 let itemObj;
 let itemList = [];
@@ -161,6 +159,10 @@ $(document).ready(function(){
           address: restList[i].rest_Addr,
           category: restList[i].rest_category,
           img: restList[i].rest_img,
+          contents: restList[i].rest_contents,
+          time: restList[i].rest_time,
+          sns: restList[i].rest_sns
+
         };
       
         if (itemObj.address.startsWith("서울")) regionList.seoul.push(itemObj);
@@ -169,9 +171,13 @@ $(document).ready(function(){
         else if (itemObj.address.startsWith("제주")) regionList.jeju.push(itemObj);
       }
       
+
+
       // 지역 리스트를 출력하는 함수
       function printRegionList(regionName, list) {
+        
         const row = document.getElementById(`index_res_${regionName}`);
+
         for (let i = 0; i < list.length; i++) {
           let newItem = document.createElement("div");
           newItem.className = "index_res_item";
@@ -179,23 +185,96 @@ $(document).ready(function(){
           newItem.innerHTML = `<img src="${list[i].img}" alt="레스토랑 썸네일">` +
             `<span class="index_res_category">${list[i].category}</span>` +
             `<span class="index_res_name">${list[i].name}</span>` +
-            `<span class="index_res_addr"${list[i].address}</span>` +
-            `<a><button type="button"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>`;
-      
+            `<span class="index_res_addr">${list[i].address}</span>` +
+            `<a><button type="button" class="main_modal_btn" data-target="${list[i].id}_main_modal"><i class="fa-solid fa-seedling"></i>자세히 보기</button></a>`;
+            
+
+            $(function () {
+              $(`[data-target="${list[i].id}_main_modal"]`).click(function () {
+                $(".main_res_modal").fadeIn();
+                
+                console.log("target: " , $(this).data("target"));
+
+                let targetId = $(this).data("target");
+                let targetItem = list.find((item) => item.id === targetId.split("_")[0]);
+
+                console.log(targetItem);
+
+                // $(".main_modal_close").click(function () {
+                //   $(".main_res_modal").fadeOut();
+                // });
+
+                // function mainModalClose(){
+                //   $(".main_res_modal").fadeOut();
+                // }
+
+                $(".main_res_modal").html(
+                  `<div class="main_res_modal_content">
+                      <button class="main_modal_close">&times;</button>
+
+                      <h2 class="mb-4">${targetItem.name}</h2>
+
+                          <div class="main_modal_img_area">
+                              <img src="${targetItem.img}" alt="이미지샘플">
+                          </div>
+
+                          <div class="main_modal_info_area">
+                              <span>${targetItem.category}</span>
+                              <span><i class="fa-solid fa-location-dot"></i>${targetItem.address}</span>
+                              <span><i class="fa-regular fa-clock"></i>${targetItem.time}</span>
+                              <span>
+                                  <i class="fa-solid fa-quote-left"></i>
+                                  ${targetItem.contents}
+                                  <i class="fa-solid fa-quote-right"></i>
+                              </span>
+                              <span><a href="${targetItem.sns}">SNS 바로가기</a></span>
+                          </div>
+                  </div>`
+                        );
+
+                $(".main_modal_close").click(function() {
+                    $(".main_res_modal").fadeOut();
+                });
+
+              });
+            
+              
+            });
+
+            
+
+
+
+
           row.appendChild(newItem);
-        }
-      }
+        }; // for문 끝
+      };
+
+      
+
+
+ 
+
       
       // 각 지역 리스트 출력
       printRegionList("seoul", regionList.seoul);
       printRegionList("gyeonggi", regionList.gyeonggi);
       printRegionList("busan", regionList.busan);
       printRegionList("jeju", regionList.jeju);
+
+
+      console.log("regionList.seoul: ", regionList.seoul);
+      console.log("regionList.gyeonggi: ", regionList.gyeonggi);
+      console.log("regionList.busan: ", regionList.busan);
+      console.log("regionList.jeju: ", regionList.jeju);
+
+
     },
     error : function(error){
       console.log("화면 로드 실패")
     }
   });
 });
+
 
 

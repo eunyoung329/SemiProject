@@ -60,7 +60,8 @@ public class RestaurantDAO {
 				make.setRest_x(rs.getString("RESTAURANT_X"));
 				make.setRest_y(rs.getString("RESTAURANT_Y"));
 				make.setRest_img(rs.getString("RESTAURANT_IMG"));
-
+				make.setRest_contents(rs.getString("RESTAURANT_CONTENTS"));
+				
 			    resList.add(make);
 
 				}

@@ -65,7 +65,7 @@
     </div>
 
     <div class="headerProfile">
-     <span name="header_nickName" id="header_nickName">${loginMember.memberNick}</span>
+     <!-- <span name="header_nickName" id="header_nickName">${loginMember.memberNick}</span> -->
      <button type="button" onclick="openNav()" id="profileBtn">
         <c:if test="${empty loginMember.profileImage}">
             <img src="${contextPath}/resources/img/profileImg/defaultUser.png" alt="헤더 프로필 이미지">
@@ -82,21 +82,16 @@
          <button type="button" id="loginCloseBtn" onclick="closeNav()" >&times;</button>
          
          <div class="profileWrap">
-             <div class="profileArea">
-             	<c:if test="${empty loginMember.profileImage}">
-                 	<script>
-  // JavaScript 변수에 sessionScope.loginMember 값을 할당
-  let loginMember = "${sessionScope.loginMember}";
-  
-  // sessionStorage에 loginMember 값을 저장
-  sessionStorage.setItem("loginMember", loginMember);
-</script>
-                 	<img src="${contextPath}/resources/img/profileImg/defaultUser.png" alt="프로필 이미지">
-                </c:if> 
-                
-                <c:if test="${!empty loginMember.profileImage}">
-                 	<img src="${contextPath}/${loginMember.profileImage}" alt="프로필 이미지">
-                </c:if> 
+            <div class="profileArea">
+                <div class="info_profile_img_wrap">
+                    <c:if test="${empty loginMember.profileImage}">
+                        <img src="${contextPath}/resources/img/profileImg/defaultUser.png" alt="프로필 이미지">
+                   </c:if> 
+                   
+                   <c:if test="${!empty loginMember.profileImage}">
+                        <img src="${contextPath}/${loginMember.profileImage}" alt="프로필 이미지">
+                   </c:if> 
+                </div>
                  <span name="header_nickName">${loginMember.memberNick}</span>
              </div>
 

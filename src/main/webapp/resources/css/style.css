@@ -238,7 +238,7 @@ form[name="loginForm"]input:focus{
     background-color: transparent;
     width: 70px;
     height: 70px;
-    border: 2px solid red;
+    border: none;
     border-radius: 50px;
 }
 
@@ -256,12 +256,22 @@ form[name="loginForm"]input:focus{
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    margin-top: 20px;
 }
 
-.profileArea img{
-    height: 180px;
+.info_profile_img_wrap{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+
+.info_profile_img_wrap img{
+    width: 100%;
+    height: 100%;
     margin-top: 30 0px 30px 0px;
-    border-radius: 50px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .profileArea span{
@@ -356,7 +366,6 @@ form[name="loginForm"]input:focus{
 
 
 
-
 /* ------------------------------------------------ */
 /*footer design----------------------------------- */
 footer{
@@ -366,6 +375,7 @@ footer{
     width: 100%;
     bottom: 0px;
     color: black;
+    z-index: 11;
 }
 
 
@@ -461,5 +471,5 @@ footer a:hover{
   }
 
   .footer-secondLine span{
-    margin: 0px 5pxs;
+    margin:0px 5px;
   }
