@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <comment>inquiry-sql.xml</comment>
+    
+<!-- 1대1문의 -->
+<entry key="inquiry">
+INSERT INTO INQUIRY(INQUIRY_CATEGORY,MEMBER_EMAIL,INQUIRY_TITLE,INQUIRY_CONTENT,INQUIRY_DATE)
+VALUES (?, ?, ?, ?,SYSDATE)
+
+</entry>
+    
+</properties>
+    

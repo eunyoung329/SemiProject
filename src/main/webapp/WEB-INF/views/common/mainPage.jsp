@@ -142,7 +142,7 @@
                     <div class="mt-3">
                         <h5>꼭 비건 메뉴만 판매하는 식당이 아니여도 좋아요</h5>
                         <h5>채식이 가능한 식당을 발견하신다면 어디든 제보해주세요!</h5>
-                        <a href="https://www.naver.com">
+                        <a href="${contextPath}/report/reportStore">
                             <button class="mt-2" type="button" id="main_report_btn">
                                 <i class="fa-solid fa-envelope"></i>제보하기
                             </button>

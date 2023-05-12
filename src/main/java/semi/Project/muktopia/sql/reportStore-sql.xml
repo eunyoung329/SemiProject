@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>reportStore-sql.xml</comment>
+	<entry key="reportStore">
+	INSERT INTO
+    REPORT(MEMBER_NO, REPORT_CATEGORY, RESTAURANT_IMG, RESTAURANT_NAME, RESTAURANT_ADDR, REPORT_CONTENT, REPORT_DATE)
+    VALUES (?, ?, ?, ?, ?, ?, SYSDATE)
+
+
+	</entry>
+	
+
+	
+	
+
+</properties>

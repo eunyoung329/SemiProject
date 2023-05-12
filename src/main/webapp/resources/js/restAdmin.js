@@ -262,7 +262,7 @@ function deleteRest(restid) {
   if (confirm("정말 삭제시키겠습니까?")) {
     // ajax 요청
     $.ajax({
-      url: "/deleteRest",
+      url: "/deleteReport",
       type: "POST",
       data: { restid: restid },
       success: function (result) {
