@@ -27,7 +27,7 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp){
 		
 		
 		if(result > 0) {//성공
-			System.out.println("됐다durl.");
+			
 			session.setAttribute("message", "게시물이 삭제되었습니다.");
 			//resp.sendRedirect(req.getContextPath()+"/member/board");
 			resp.getWriter().print(result);
