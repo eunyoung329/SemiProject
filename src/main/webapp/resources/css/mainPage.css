@@ -373,7 +373,7 @@ main{
     z-index: 100;
     left: 50%;
     right: 50%;
-    margin-top: 90px;
+    margin-top: 30px;
     margin-left: -380px;
     display: flex;
     flex-direction: column;

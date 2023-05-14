@@ -32,7 +32,7 @@
                      <input type="text" id ="loginID" name ="loginID">
                      <label>Password</label>
                      <input type="password" id = "loginPw" name = "loginPw">
-                     <button id="loginBtn" type="submit">이메일로 로그인하기</button>
+                     <button id="loginBtn" type="submit"><i class="fa-solid fa-envelope"></i>이메일로 로그인하기</button>
                  </form>
                     
                      <button id="kakaoLogin-Btn" onclick="loginwithKakao()"><i class="fa-solid fa-comment"></i>카카오톡으로 로그인하기</button>

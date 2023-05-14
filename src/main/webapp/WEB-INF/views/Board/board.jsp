@@ -16,41 +16,46 @@
 </head>
 <body>
   <jsp:include page ="/WEB-INF/views/common/header.jsp"/>
-    <c:choose>
-      <c:when test = "${!empty sessionScope.loginMember}">
-        <div class = "loginFixed">
-          <a href = "${contextPath}/board/boardWrite">글쓰기</a>
-        </div>
-        <script>
-          sessionStorage.setItem("loginMember",'${loginMember}');
-        </script>
-      </c:when>
-    </c:choose>
+
+
+
+
+
     <main>
-        <!--여기다가 검색창을 만들지 아니면 밑에다가 만들지 결정해야한다.-->
-        <!-- 난 여기다가 검색창을 만들..어봅시다.-->
+
       <c:choose>
         <c:when test="${empty requestScope.result}">
       
-        <section>
+        <!-- <section>
           <div class="back-ground-image">
-            <!--출처 <a href="https://kr.freepik.com/free-vector/realistic-wood-texture-background_14881526.htm#query=%EB%82%98%EB%AC%B4%20%ED%85%8C%EC%9D%B4%EB%B8%94&position=17&from_view=keyword&track=ais">작가 vikayatskina</a> 출처 Freepik<a href="https://kr.freepik.com/free-vector/realistic-wood-texture-background_14881526.htm#query=%EB%82%98%EB%AC%B4%20%ED%85%8C%EC%9D%B4%EB%B8%94&position=17&from_view=keyword&track=ais">작가 vikayatskina</a> 출처 Freepik-->
+            출처 <a href="https://kr.freepik.com/free-vector/realistic-wood-texture-background_14881526.htm#query=%EB%82%98%EB%AC%B4%20%ED%85%8C%EC%9D%B4%EB%B8%94&position=17&from_view=keyword&track=ais">작가 vikayatskina</a> 출처 Freepik<a href="https://kr.freepik.com/free-vector/realistic-wood-texture-background_14881526.htm#query=%EB%82%98%EB%AC%B4%20%ED%85%8C%EC%9D%B4%EB%B8%94&position=17&from_view=keyword&track=ais">작가 vikayatskina</a> 출처 Freepik
             <img style = "width:100%; height:100vh;" src = "${contextPath}/resources/img/table.png">
             <div class = "test_obj">
               <span class = "font-gwang font-title">Community</span>
             </div>
           </div>
-        </section>
+        </section> -->
         
 
-        <!-- 커뮤니티를 알리면서 이미지를 표현 -->
-        <section class = "container-first">
+        <!-- 커뮤니티 배너-->
+        <!-- <section class = "container-first">
           <div class = "main-banner">
             <div>
               <span class = "font-gwang">먹토피아 커뮤니티</span>
             </div>
           </div>
         </section>
+         -->
+        <section id="title-area">
+          <div class="title-text-container">
+            <p class="title-text">SHARE <br> YOUR <br> THOUGHTS</p>
+            <p class="title-text-sub">당신의 이야기를 들려주세요</p>
+          </div>
+        </section>
+
+
+
+
         <!-- <section class = "container-1">
             <div style = "width:800px;"><span class = "font-gwang">오늘의 화제</span></div>
             <div id="carouselExampleIndicators" class="carousel slide gradient" data-bs-ride="true">
@@ -245,6 +250,25 @@
             </div>
         </section> -->
         <section class = "container-2">
+
+          <!-- 글쓰기 버튼 -->
+          <c:choose>
+            <c:when test = "${!empty sessionScope.loginMember}">
+              <div class = "writeBtnArea">
+                <a href = "${contextPath}/board/boardWrite">
+                <button class="writeBtn">
+                  <i class="fa-regular fa-pen-to-square"></i> 글쓰기
+                </button>
+                </a>
+              </div>
+              <script>
+                sessionStorage.setItem("loginMember",'${loginMember}');
+              </script>
+            </c:when>
+          </c:choose>
+
+
+
           <div class="content-container">
 
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mainContent">
@@ -369,7 +393,14 @@
               </div> -->
             </div>
           </div>
+
+
+
+
         </section>
+
+        
+
         <!--
         <section class= "container-3">
           <div class = "con-attribute">  
@@ -384,7 +415,7 @@
         </section>-->
         </c:when>
       </c:choose>
-        <section class = "search-place">
+        <!-- <section class = "search-place">
             <div>
                 <form action = "#" method="post">
                     <fieldset class = "searchField">
@@ -393,9 +424,16 @@
                     </fieldset>
                 </form> 
             </div>
-        </section>
-    </main>
+        </section> -->
+    
+        <!-- 위로 가기  -->
+        <div class="board_top_btn_area container">
+          <i class="fa-solid fa-square-caret-up"></i>
+        </div>
+    
+      </main>
     <jsp:include page ="/WEB-INF/views/common/footer.jsp"/>
+
     <!--  부트스트랩 js 사용 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="${contextPath}/resources/bootstrap/js/bootstrap.js"></script>

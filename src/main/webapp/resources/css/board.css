@@ -2,6 +2,7 @@
     font-family: "Gwangyang-Touching"; /* 사용하고 싶은 font-family명을 지정 */
     src: url("../font/Gwangyang-Touching.ttf") format("opentype"); /* 폰트파일 불러오기 */
 }
+
 *{
     margin:0;
     box-sizing: border-box;
@@ -14,9 +15,72 @@ main{
     position: relative;
     
 }
+
+
+#title-area{
+    top: 90px;
+    height: 500px;
+    /* padding-top: 80px; */
+    background : url(/SemiProject/resources/img/boardImg/boardBanner.jpg) fixed;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.title-text-container{
+    width: 40%;
+    max-height: 50%;
+    color: rgb(252, 240, 240);
+    position: absolute;
+    top: 0px;
+    left: 100px;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: slide 2s ease-out;
+    
+    /* border: 2px solid blue; */
+}
+
+.title-text{
+    margin-left: 5%;
+    margin-top: 3%;
+    width: 90%; /* 40% 대신 90%로 변경 */
+    font-size: 5vw; /* 반응형으로 글꼴 크기 조정 */
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     line-height: 1.1;
+
+     border-bottom: 2px solid white;
+}
+
+.title-text-sub{
+    margin-bottom: 5%;
+    margin-left: 5%;
+    font-family: sans-serif;
+    font-size: 1vw;
+}
+
+@keyframes slide{
+    from{
+        left: -100px;
+        opacity: 0;
+    }to{
+        left: 100px;
+        opacity: 1;
+    }
+}
+
+@keyframes backslide{
+    from{
+        left: 100px;
+        opacity: 1;
+        
+    }to{
+        left: -100px;
+        opacity: 0;
+    }
+}
+
 .back-ground-image{
     position:relative;
-    width:1519px;
+    width: 100%;
     z-index: 4;
 }
 .search-place{
@@ -128,7 +192,6 @@ main{
     padding-bottom: 3rem!important;
     width:1060px;
     margin:auto;
-    background-color: #f8f9fa!important;;
 }
 .content-container{
     width: 100%;
@@ -243,48 +306,58 @@ main{
 .btn-group-style{
     width:30px;
     height:30px;
-    border: 2px solid #cae00f;
+    border: 2px solid #90b66e;
     background-color: #f8f9fa;
     margin:5px;
 }
-.loginFixed{
-    border:#666666 1px solid;
-    border-radius: 10px;
-    background-color: #cae00f;
-    font-weight: bold;
-    border: none;
-    width:80px;
-    height:30px;
-    position:fixed;
-    bottom:20px;
-    right: 40px;
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.background{
-    z-index: 4;
-}
-#today{
-    height:100%;
-}
-.direction{
-    display:flex;
-}
-@keyframes backslide{
-    from{
-        left: 100px;
-        opacity: 1;
-        
-    }to{
-        left: -100px;
-        opacity: 0;
-    }
-}
-    /* 모달창 */
-    
 
+.writeBtnArea{
+    display: flex;
+    justify-content: end;
+    padding: 15px;
+}
+
+.writeBtn{
+    width:100px;
+    height:30px;
+    border: 2px solid #73a14c;
+    border-radius: 5px;
+    background-color: white;
+    color: #73a14c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.writeBtnArea a{
+    text-decoration: none;
+    color: #73a14c;
+}
+
+
+.writeBtn i{
+    margin-right: 3px;
+}
+
+
+/* 위로 가기 */
+.board_top_btn_area{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    position: sticky;
+    bottom: 20px;
+    cursor: pointer;
+}
+
+.board_top_btn_area i{
+    color: #90b66e;
+    font-size: 40px;
+}
+
+
+/* 모달창 */
  .modal{
   --bs-modal-width: 1000px !important;
   }
@@ -324,3 +397,8 @@ main{
         width:5%;
     }
     }
+
+
+.board_modal_content{
+    margin: 10px 0px;
+}
