@@ -221,7 +221,7 @@ function render(itemList, filteredItems) {
         <span class="item-category">${item.category}</span>
         <span class="item-name">${item.name}</span>
         <span class="item-address">${item.address}</span>
-        <span class="heart-icon" data-id="${item.id}"><button class="button-35" role="button">Like</button>
+        <span class="heart-icon" data-id="${item.id}"><button class="seachPageWishBtn" role="button"><i class="fa-solid fa-heart"></i></button>
         </span>
       </div>
     `;
@@ -240,9 +240,9 @@ function render(itemList, filteredItems) {
         "<div class='marker-image'>" +
         "<img src='../" + (item.img ? item.img : "resources/img/defaultimg.png") + "' /></div>" +
         "<div class='marker-info'>" +
-        "<div class='marker-name'>" + item.name + "</div>" +
         "<div class='marker-category'>" + item.category + "</div>" +
-        "<div class='marker-sns'><a href='" + item.sns + "'>홈페이지</a></div>" +
+        "<div class='marker-name'>" + item.name + "</div>" +
+        "<div class='marker-sns'><a href='" + item.sns + "'>SNS</a></div>" +
         "</div>" +
         "</div>";
 

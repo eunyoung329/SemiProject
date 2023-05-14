@@ -26,7 +26,7 @@
     display:flex;
     align-items: center;
     border:none;
-    border-bottom:1px solid #cae00f;
+    border-bottom:1px solid #73a14c;
     box-shadow:5px black;
     
 }
@@ -47,7 +47,7 @@
     justify-content: start;
     align-items: center;
     padding-top:3px;
-width:785px;
+    width:785px;
     height:35px;
     overflow:hidden;
 }
@@ -94,7 +94,7 @@ width:785px;
     height:100%;
     border: none;
     resize: none;
-    border:1px solid #b0c30d;
+    border:1px solid #73a14c;
 }
 .profile-btn-area{
     margin-top:5px;
@@ -124,10 +124,11 @@ width:785px;
     margin-right: 3px;
 }
 .btn-Group > div > button{
-    background-color: #b0c30d;
+    background-color: #73a14c;
     color:white;
     font-weight: bold;
     border:none;
+    border-radius: 10px;
     width:100px;
     height:35px;
 }

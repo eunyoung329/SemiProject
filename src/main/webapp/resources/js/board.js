@@ -32,13 +32,12 @@ let col =`<div class="col">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">inputTitle</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
                 <img src="../thumbNail" alt="../resources/img/boardImg/default_board.jpg">
+                <h6 class="board_modal_content">mainContext</h6>
               </div>
               <div class="modal-footer">
-                <h6 class="modal-footer-content">mainContext</h6>
                 <div class="delete-button-container"></div>
                 <!--<i class="fa-solid fa-heart" id="heart-cardId"></i>-->
               </div>
@@ -157,3 +156,13 @@ function addDelete(cardId,boardNo) {
     
   }
 }
+
+
+// 맨 위로 가기
+const topBtn = document.querySelector(".fa-square-caret-up");
+topBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
