@@ -135,6 +135,8 @@ function selectAll() {
           for (let i = 0; i < itemList.length; i++) {
             console.log("report_index:"+itemList[i].report_index);
           }
+          eventAdd();
+          deleteEvent();
 
      
     },
@@ -195,52 +197,46 @@ function renderList(itemList) {
     `;
     table.insertAdjacentHTML("beforeend", tr);
 
-
-
-//탈퇴기능
-// 탈퇴 버튼 클릭 이벤트 바인딩
-$(document).ready(function() {
-   
-   
-// 등록 버튼 클릭 이벤트 바인딩
-$('.register-button').click(function() {
-  // report 객체의 값을 setAttribute
-  const report_index = $(this).attr('id');
-  console.log(report_index);
-  //jsp로이동
-  //location.href = 'adminRegisterRest';
-  $.ajax({
-    url:"adminRegisterRest",
-    type:"post",
-    dataType:"JSON",
-    data:{"report_index":report_index},
-
-    success:function(result){
-      console.log(result.rest_name);
-      const reportStore = result;
-      if (reportStore != null) { // 성공
-            // requestScope에 할당
-            
-            
-            // location 이동
-            location.href = "adminRegisterRest";
-        } else { // 실패
-            location.href = "/admin/reportAdmin";
-        }
-    },
-    error:function(error){
-      console.log("실패")
-    }
-  });
-
 });
+}
 
-   
-
-   
-   
-  // 아이콘이 클릭되었을 때 실행될 함수
-  $('.fa-right-from-bracket').click(function() {
+// 등록 버튼 클릭 이벤트 바인딩
+function eventAdd(){
+const elements= document.getElementsByClassName('register-button');
+  // report 객체의 값을 setAttribute
+for(let i = 0; i<elements.length; i++){
+  elements[i].addEventListener("click",function(event){
+    const report_index = event.target.id;
+    console.log(report_index+"안되지");
+    $.ajax({
+      url:"adminRegisterRest",
+      type:"post",
+      dataType:"JSON",
+      data:{"report_index":report_index},
+  
+      success:function(result){
+        console.log(result.rest_name);
+        const reportStore = result;
+        if (reportStore != null) { // 성공
+              // requestScope에 할당
+              
+              
+              // location 이동
+              location.href = "adminRegisterRest";
+          } else { // 실패
+              location.href = "/admin/reportAdmin";
+          }
+      },
+      error:function(error){
+        console.log("실패")
+      }
+    });
+  });
+}
+}
+function deleteEvent(){
+// 아이콘이 클릭되었을 때 실행될 함수
+$('.fa-right-from-bracket').click(function() {
     
     var report_index = $(this).attr('id');
     alert(report_index);
@@ -261,22 +257,5 @@ $('.register-button').click(function() {
         alert('삭제에 실패했습니다.');
       }
     });
-  });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-})
 }

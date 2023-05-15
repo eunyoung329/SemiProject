@@ -106,7 +106,7 @@ public class ReportStoreServlet extends HttpServlet {
 		if( result > 0) { // 성공
 			
 			session.setAttribute("message", "제보가 제출되었습니다.");
-			resp.sendRedirect("reportStore");
+			resp.sendRedirect(req.getContextPath());
 		
 			
 			

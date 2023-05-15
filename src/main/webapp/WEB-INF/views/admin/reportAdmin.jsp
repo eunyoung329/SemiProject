@@ -229,6 +229,8 @@
        }).open();
    }
    </script>
+
+   
    <%-- session에 message 속성이 존재하는 경우 alert창으로 해당 내용을 출력 --%>
    <c:if test="${ !empty sessionScope.message }">
        <script>
