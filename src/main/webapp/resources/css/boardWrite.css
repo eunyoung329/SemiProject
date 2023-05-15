@@ -138,3 +138,7 @@
 .invisibleTag{
     display:none;
 }
+.writeCount{
+    display: flex;
+    justify-content: end;
+}

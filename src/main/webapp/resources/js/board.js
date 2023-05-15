@@ -57,7 +57,7 @@ function makeContent(boardList){
 		
 		const content = col.replaceAll("inputTitle", boardList[item].title).replaceAll("timeThrow", boardList[item].boardTime).replaceAll("thumbNail",boardList[item].boardImage).replaceAll("mainContext",boardList[item].inputArea).replaceAll("boardNo",boardList[item].boardNo).replaceAll("cardId",cardId);
 		mainContent[repeat].innerHTML += content;
-		addDelete(cardId,boardList[item].boardNo);
+		addDelete(cardId,boardList[item].boardNo,boardList[item].memberNo);
 		cardId++;
 			
 		}
@@ -146,13 +146,27 @@ function deleteBoard(event){
 
 
 
-function addDelete(cardId,boardNo) {
+function addDelete(cardId,boardNo,memberNo) {
   const deleteButtonContainer = document.getElementsByClassName('delete-button-container')[cardId];
+  
   if (sessionStorage.getItem('loginMember')) {
+    let loginMember = sessionStorage.getItem('loginMember');
+    var memberObj = {};
+    loginMember.replace(/(\w+)=(\w+|null)/g, function(match, key, value) {
+    memberObj[key] = value !== 'null' ? value : null;
+    });
+
+// JSON.stringify() 함수를 사용하여 JSON 형식의 문자열로 변환
+  let memberJson = JSON.stringify(memberObj);
+  let Jmember = JSON.parse(memberJson);
+
+  console.log(loginMember.memberNo);
+  console.log(Jmember.memberNo);
+    if(Jmember.memberNo == memberNo){
     const deleteButton = createDeleteButton();
     deleteButton.setAttribute('id',boardNo);
     deleteButtonContainer.appendChild(deleteButton);
-    
+    }
     
   }
 }

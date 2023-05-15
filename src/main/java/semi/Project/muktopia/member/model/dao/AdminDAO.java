@@ -13,8 +13,8 @@ import java.util.List;
 import java.util.Properties;
 
 import semi.Project.muktopia.board.model.vo.Board;
-import semi.Project.muktopia.member.model.vo.Admin;
 import semi.Project.muktopia.member.model.vo.Member;
+import semi.Project.muktopia.member.model.vo.ReportStore;
 import semi.Project.muktopia.member.model.vo.Restaurant;
 
 
@@ -36,44 +36,45 @@ public class AdminDAO {
 	}
 
 
-	public Member adminlogin(Connection conn, Member mem) throws Exception{
+	 public Member adminlogin(Connection conn, Member mem) throws Exception{
 
-		// 결과 저장용 변수 선언
-		Member loginMember = null;
-		
-		try {
-			// SQL 얻어오기
-			String sql = prop.getProperty("adminlogin");
-			
-			// PreparedStatement 생성 및 SQL 적재
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(1, mem.getMemberEmail());
-			pstmt.setString(2, mem.getMemberPw());
-			
-			// SQL 수행
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
-				
-				loginMember = new Member();
-				
-				loginMember.setMemberNo(  rs.getInt("MEMBER_NO") );
-				loginMember.setMemberEmail( 	rs.getString("MEMBER_EMAIL") );
-				
-				
-				
-				
-			}
-			
-			
-		} finally {
-			close(rs);
-			close(pstmt);
-		}
-		
-		return loginMember; // null 또는 Member 객체 주소
-	}
+	      // 결과 저장용 변수 선언
+	      Member loginMember = null;
+	      
+	      try {
+	         // SQL 얻어오기
+	         String sql = prop.getProperty("adminlogin");
+	         
+	         // PreparedStatement 생성 및 SQL 적재
+	         pstmt = conn.prepareStatement(sql);
+	         
+	         pstmt.setString(1, mem.getMemberEmail());
+	         pstmt.setString(2, mem.getMemberPw());
+	         
+	         // SQL 수행
+	         rs = pstmt.executeQuery();
+	         
+	         if(rs.next()) {
+	            
+	            loginMember = new Member();
+	            
+	            loginMember.setMemberNo(  rs.getInt("MEMBER_NO") );
+	            loginMember.setMemberEmail(    rs.getString("MEMBER_EMAIL") );
+	            
+	            
+	            
+	            
+	         }
+	         
+	         
+	      } finally {
+	         close(rs);
+	         close(pstmt);
+	      }
+	      
+	      return loginMember; // null 또는 Member 객체 주소
+	   }
+
 
 
 	public List<Board> showList(Connection conn) throws Exception{
@@ -218,9 +219,9 @@ public class AdminDAO {
 		return result;
 	}
 	
-	public Admin selectOne(Connection conn, String memberEmail) throws Exception{
+	public ReportStore selectOne(Connection conn, String memberEmail) throws Exception{
 	      
-        Admin admin = null;
+        ReportStore report = null;
     
     try {
        String sql = prop.getProperty("selectOne");
@@ -232,15 +233,15 @@ public class AdminDAO {
        rs = pstmt.executeQuery();
        
        if(rs.next()) {
-          admin = new Admin();
-          admin.setMemberNo(rs.getInt("MEMBER_NO"));
-          admin.setMemberEmail(rs.getString("MEMBER_EMAIL"));
-          admin.setRest_category(rs.getString("REPORT_CATEGORY"));
-          admin.setRest_name(rs.getString("RESTAURANT_NAME"));
-          admin.setRest_img(rs.getString("RESTAURANT_IMG"));
-          admin.setRest_Addr(rs.getString("RESTAURANT_ADDR"));
-          admin.setReport_Content(rs.getString("REPORT_CONTENT"));
-          admin.setReport_date(rs.getString("REPORT_DATE"));
+          report = new ReportStore();
+          report.setMemberNo(rs.getInt("MEMBER_NO"));
+          report.setMemberEmail(rs.getString("MEMBER_EMAIL"));
+          report.setRest_category(rs.getString("REPORT_CATEGORY"));
+          report.setRest_name(rs.getString("RESTAURANT_NAME"));
+          report.setRest_img(rs.getString("RESTAURANT_IMG"));
+          report.setRest_Addr(rs.getString("RESTAURANT_ADDR"));
+          report.setReport_Content(rs.getString("REPORT_CONTENT"));
+          report.setReport_date(rs.getString("REPORT_DATE"));
           
           
               
@@ -251,100 +252,107 @@ public class AdminDAO {
        close(pstmt);
     }
     
-    return admin;
+    return report;
  }
+
     
     
 
 
 
- public List<Admin> AdminReportAll(Connection conn)throws Exception {
-      List<Admin>stdList=new ArrayList<>();
-       
-      try {
-          
-          String sql=prop.getProperty("adminReportAll");
-          stmt=conn.createStatement();
-          rs=stmt.executeQuery(sql);
-          
-            while (rs.next()) {
-               Admin admin = new Admin();
-               
-          
-             
-                  admin.setMemberNo(rs.getInt("MEMBER_NO"));
-                  admin.setMemberEmail(rs.getString("MEMBER_EMAIL"));
-                  admin.setRest_category(rs.getString("REPORT_CATEGORY"));
-                  admin.setRest_name(rs.getString("RESTAURANT_NAME"));
-                  admin.setRest_Addr(rs.getString("RESTAURANT_ADDR"));
-                  admin.setRest_img(rs.getString("RESTAURANT_IMG"));
-                  admin.setReport_Content(rs.getString("REPORT_CONTENT"));
-                  admin.setReport_date(rs.getString("REPORT_DATE"));
-                 
-                        
-                   stdList.add(admin);
-               
-                   
-                   System.out.println(stdList);
-                   
-                   
-               }
-          
-          
-       }finally {
-          close(rs);
-          close(stmt);
-       }
-       return stdList;
-    }
-
-
- public int adminRegisterRest(Connection conn, String rest_category, String rest_name, String rest_img,
-       String rest_x, String rest_y, String rest_tel,String rest_time, String rest_sns, String rest_Addr, String rest_contents) throws Exception{
-    int result=0;
-      try {
-          String sql=prop.getProperty("adminRegisterRest");
-          pstmt=conn.prepareStatement(sql);
-          
-          pstmt.setString(1, rest_category);
-          pstmt.setString(2, rest_name);
-          pstmt.setString(3, rest_img);
-          pstmt.setString(4, rest_x);
-          pstmt.setString(5, rest_y);
-          pstmt.setString(6, rest_tel);
-          pstmt.setString(7, rest_time);
-          pstmt.setString(8, rest_sns);
-          pstmt.setString(9, rest_Addr);
-          pstmt.setString(10, rest_contents);
-          
+	public List<ReportStore> AdminReportAll(Connection conn)throws Exception {
+        List<ReportStore>stdList=new ArrayList<>();
          
-          result = pstmt.executeUpdate();
-      }finally {
-          close(pstmt);
+        try {
+            
+            String sql=prop.getProperty("adminReportAll");
+            stmt=conn.createStatement();
+            rs=stmt.executeQuery(sql);
+            
+              while (rs.next()) {
+                 ReportStore report=new ReportStore();
+                 
+            
+               
+                 report.setMemberNo(rs.getInt("MEMBER_NO"));
+                 report.setMemberEmail(rs.getString("MEMBER_EMAIL"));
+                 report.setRest_category(rs.getString("REPORT_CATEGORY"));
+                 report.setRest_name(rs.getString("RESTAURANT_NAME"));
+                 report.setRest_Addr(rs.getString("RESTAURANT_ADDR"));
+                 report.setRest_img(rs.getString("RESTAURANT_IMG"));
+                 report.setReport_Content(rs.getString("REPORT_CONTENT"));
+                 report.setReport_date(rs.getString("REPORT_DATE"));
+                 report.setReport_index(rs.getInt("REPORT_INDEX"));
+                   
+                   
+                          
+                     stdList.add(report);
+                 
+                     
+                     System.out.println(stdList);
+                     System.out.println(report.getReport_index());
+                     
+                     
+                 }
+            
+            
+         }finally {
+            close(rs);
+            close(stmt);
+         }
+         return stdList;
       }
-      return result;
- }
 
 
- public int deleteReport(Connection conn, String memberNo)throws Exception {
-    int result=0;
-    try {
-       String sql=prop.getProperty("deleteReport");
-       pstmt=conn.prepareStatement(sql);
-       
-       pstmt.setString(1, memberNo);
-       
-       result = pstmt.executeUpdate();
-       
-       
-       
-    }finally {
-       close(rs);
-       close(pstmt);
-    }
-    return result;
- }
-	
+
+	 public int adminRegisterRest(Connection conn, String rest_category, String rest_name, String rest_img,
+	         String rest_x, String rest_y, String rest_tel,String rest_time, String rest_sns, String rest_Addr, String rest_contents) throws Exception{
+	      int result=0;
+	        try {
+	            String sql=prop.getProperty("adminRegisterRest");
+	            pstmt=conn.prepareStatement(sql);
+	            
+	            pstmt.setString(1, rest_category);
+	            pstmt.setString(2, rest_name);
+	            pstmt.setString(3, rest_img);
+	            pstmt.setString(4, rest_x);
+	            pstmt.setString(5, rest_y);
+	            pstmt.setString(6, rest_tel);
+	            pstmt.setString(7, rest_time);
+	            pstmt.setString(8, rest_sns);
+	            pstmt.setString(9, rest_Addr);
+	            pstmt.setString(10, rest_contents);
+	            
+	            
+	           
+	            result = pstmt.executeUpdate();
+	        }finally {
+	            close(pstmt);
+	        }
+	        return result;
+	   }
+
+
+
+	 public int deleteReport(Connection conn, int report_index)throws Exception {
+	      int result=0;
+	      try {
+	         String sql=prop.getProperty("deleteReport");
+	         pstmt=conn.prepareStatement(sql);
+	         
+	         pstmt.setInt(1, report_index);
+	         
+	         result = pstmt.executeUpdate();
+	         
+	         
+	         
+	      }finally {
+	         close(rs);
+	         close(pstmt);
+	      }
+	      return result;
+	   }
 }
+
 
 

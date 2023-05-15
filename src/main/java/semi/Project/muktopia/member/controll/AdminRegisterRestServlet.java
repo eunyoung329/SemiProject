@@ -103,6 +103,7 @@ public class AdminRegisterRestServlet extends HttpServlet{
 		
 		int result=service.adminRegisterRest(rest_category,rest_name,rest_img,rest_x,rest_y,rest_tel,rest_time,rest_sns,rest_Addr,rest_contents);
 		
+		
 		if(result>0) {//성공
 			session.setAttribute("message", "레스토랑이 등록되었습니다");
 			resp.sendRedirect("reportAdmin");

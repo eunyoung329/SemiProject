@@ -3,12 +3,14 @@
 <properties>
 	<comment>reportStore-sql.xml</comment>
 	<entry key="reportStore">
-	INSERT INTO
-    REPORT(MEMBER_NO, REPORT_CATEGORY, RESTAURANT_IMG, RESTAURANT_NAME, RESTAURANT_ADDR, REPORT_CONTENT, REPORT_DATE)
-    VALUES (?, ?, ?, ?, ?, ?, SYSDATE)
+      INSERT INTO REPORT(MEMBER_NO, REPORT_CATEGORY, RESTAURANT_IMG,
+      RESTAURANT_NAME, RESTAURANT_ADDR, REPORT_CONTENT, REPORT_DATE,
+      REPORT_INDEX)
+      VALUES (?, ?, ?, ?, ?, ?, SYSDATE, report_seq.NEXTVAL)
 
 
-	</entry>
+
+   </entry>
 	
 
 	

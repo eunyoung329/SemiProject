@@ -87,26 +87,26 @@
 
  <!-- 하얀색 -->
  <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;">
-  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+  <a href="${contextPath}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
     <img src="/sidebar/img/logo_trans.png" alt="" width="50" height="50" class="rounded-circle me-2">
     <span class="logo-text">&nbsp;LET'S VEGAN</span>
   </a>
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item">
-      <a href="#" class="nav-link link-body-emphasis " aria-current="page">
+      <a href="${contextPath}" class="nav-link link-body-emphasis " aria-current="page">
         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
         메인홈으로
       </a>
     </li>
     <li class="nav-item">
-      <a href="#" class="nav-link link-body-emphasis">
+      <a href="${contextPath}/admin/restAdmin" class="nav-link link-body-emphasis">
         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
         레스토랑 관리
       </a>
     </li>
     <li class="nav-item">
-      <a href="#" class="nav-link link-body-emphasis">
+      <a href="${contextPath}/admin/boardAdmin" class="nav-link link-body-emphasis">
         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
         게시판 관리
       </a>
@@ -118,7 +118,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a href="#" class="nav-link link-body-emphasis">
+      <a href="${contextPath}/admin/memberAdmin" class="nav-link link-body-emphasis">
         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
         회원 관리
       </a>
@@ -149,7 +149,7 @@
   <div id="admin-title" >
     <svg class="bi pe-none me-2" width="22" height="22"><use xlink:href="#speedometer2"/></svg>
     <span class="text-title">제보 관리</span>
-     <span><button class="scroll-right-btn" onclick="location.href='${contextPath}/admin/adminRegisterRest'"><i class="fa-solid fa-arrow-right"></i></button></span>
+     
     <hr style="margin: top 7px;">
   </div>
 
@@ -170,17 +170,17 @@
       <!-- selectAll구역-->
       <div id="boardDiv">
         <table id="member-view-table" style="width:100%;">
-          <tr class="member-view-table-tr" style="border-top:2px solid #8aa088;border-bottom:2px solid #8aa088;">
-            <th style="border:1px solid lightgrey">멤버번호</th>
-            <th style="border:1px solid lightgrey">이메일</th>
-            <th style="border:1px solid lightgrey">카테고리</th>
-            <th style="border:1px solid lightgrey">레스토랑이름</th>
-            <th style="border:1px solid lightgrey">이미지</th>
-            <th style="border:1px solid lightgrey">주소</th>
-            <th style="border:1px solid lightgrey">제보내용</th>
-            <th style="border:1px solid lightgrey">가입일</th>
-            <th style="border:1px solid lightgrey">제보삭제</th>
-          </tr>
+          <!-- <tr class="member-view-table-tr" style="border-top:2px solid #8aa088;border-bottom:2px solid #8aa088;">
+            <th>멤버번호</th>
+            <th>이메일</th>
+            <th>카테고리</th>
+            <th>레스토랑이름</th>
+            <th>이미지</th>
+            <th>주소</th>
+            <th>제보내용</th>
+            <th>가입일</th>
+            <th>제보삭제</th>
+          </tr> -->
           
         </table>
       </div>
@@ -206,54 +206,40 @@
   
     <script src="/sidebar/sidebars.js"></script>
     <script
-		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<script>
-		function sample4_execDaumPostcode() {
-			new daum.Postcode(
-					{
-						oncomplete : function(data) {
-							// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+      src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
 
-							// 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
-							// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-							var roadAddr = data.roadAddress; // 도로명 주소 변수
-							var extraRoadAddr = ''; // 참고 항목 변수
+   function sample4_execDaumPostcode() {
+       new daum.Postcode({
+           oncomplete: function(data) {
+               // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
-							// 법정동명이 있을 경우 추가한다. (법정리는 제외)
-							// 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-							if (data.bname !== ''
-									&& /[동|로|가]$/g.test(data.bname)) {
-								extraRoadAddr += data.bname;
-							}
-							// 건물명이 있고, 공동주택일 경우 추가한다.
-							if (data.buildingName !== ''
-									&& data.apartment === 'Y') {
-								extraRoadAddr += (extraRoadAddr !== '' ? ', '
-										+ data.buildingName : data.buildingName);
-							}
-					
-							// 우편번호와 주소 정보를 해당 필드에 넣는다.
-							document.getElementById('sample4_postcode').value = data.zonecode;
-							document.getElementById("sample4_roadAddress").value = roadAddr;
-				
+               // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+               // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+               var roadAddr = data.roadAddress; // 도로명 주소 변수
 
-							var guideTextBox = document.getElementById("guide");
-							// 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
-							if (data.autoRoadAddress) {
-								var expRoadAddr = data.autoRoadAddress
-										+ extraRoadAddr;
-								guideTextBox.innerHTML = '(예상 도로명 주소 : '
-										+ expRoadAddr + ')';
-								guideTextBox.style.display = 'block';
-
-							} else {
-								guideTextBox.innerHTML = '';
-								guideTextBox.style.display = 'none';
-							}
-						}
-					}).open();
-		}
-	</script>
-   
+               // 우편번호와 주소 정보를 해당 필드에 넣는다.
+               document.getElementById('sample4_postcode').value = data.zonecode;
+               document.getElementById("sample4_roadAddress").value = roadAddr;
+               
+               if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                }
+           }
+       }).open();
+   }
+   </script>
+   <%-- session에 message 속성이 존재하는 경우 alert창으로 해당 내용을 출력 --%>
+   <c:if test="${ !empty sessionScope.message }">
+       <script>
+           alert("${message}");
+           // EL 작성 시 scope를 지정하지 않으면
+           // page -> request -> session -> application 순서로 검색하여
+           // 일치하는 속성이 있으면 출력
+       </script>
+       
+       <%-- message 1회 출력 후 session에서 제거 --%>
+       <c:remove var="message" scope="session"/>
+   </c:if>
    </body>
    </html>

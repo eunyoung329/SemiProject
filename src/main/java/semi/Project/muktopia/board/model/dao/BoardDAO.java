@@ -152,6 +152,7 @@ public class BoardDAO {
 				board.setBoardImage(rs.getString(3));
 				board.setInputArea(rs.getString(4));
 				board.setBoardTime(rs.getString(5));
+				board.setMemberNo(rs.getInt(6));
 				boardList.add(board);
 				
 			}
@@ -169,13 +170,14 @@ public class BoardDAO {
 		return map;
 	}
 
-	public int deleteBoard(Connection conn, int boardNo) throws Exception{
+	public int deleteBoard(Connection conn, int boardNo, int memberNo) throws Exception{
 		// TODO Auto-generated method stub
 		int result = 0;
 		try {
 			String sql = prop.getProperty("deleteBoard");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, boardNo);
+			pstmt.setInt(2, memberNo);
 			result = pstmt.executeUpdate();
 			
 		}finally {

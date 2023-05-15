@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/mainAdmin.css">
     <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+    <link rel="stylesheet" href="/SemiProject/src/main/webapp/resources/css/adminRegisterRest.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -145,7 +145,7 @@
 
  <!-- 사이드바 끝 -->
  <!--메인화면-->
- <div id="admin-container" style="border: 2px solid red">
+ <div id="admin-container" >
   <div id="admin-title" >
     <svg class="bi pe-none me-2" width="22" height="22"><use xlink:href="#speedometer2"/></svg>
     <span class="text-title">제보 관리</span>
@@ -158,19 +158,20 @@
       <div class="main4">
   
         <section class="enroll-Content">
-          <form action="adminRegisterRest" name="reportAdmin-form" method="post"
+          <form action="adminRegisterRest" name="RegisterAdmin-form" method="post"
           enctype="multipart/form-data" onsubmit="return AdminValidateForm()">
-  > 
-            <table>
+
+            <table style="width:800px">
               <tr>
                 <th></th>
-                <td><h1></h1></td></tr>
+                
                 <td></td>
                 <tr>
                   <th>카테고리선택</th>
-                  <td><select class="form-select" aria-label="Default select example"
-                    name="rest_category" id="rest_category">
-                    <option selected>카테고리선택</option>
+                  <td>
+                    <select class="form-select" aria-label="Default select example"
+                    name="rest_category" id="rest_category" value="${rest_category}" style="width:400px">
+                    <option value="" selected>카테고리선택</option>
                     <option value="한식">한식</option>
                     <option value="양식">양식</option>
                     <option value="베이커리">베이커리</option>
@@ -180,41 +181,42 @@
                 </td>
                       </tr>
                       <tr>
+                        
                         <th>레스토랑이름</th>
                         <td><input type="text" name="rest_name" id="rest_name"
-                          autocomplete="off"></td>
+                          autocomplete="off" value="${requestScope.rest_name}" style="width:400px"></td>
                       </tr>
                       <tr>
                         <th>이미지</th>
                         <td><div>
-                          <input type="file" name="rest_img" id="rest_img">
+                          <input type="file" name="rest_img" id="rest_img" value="${rest_img}" style="width:400px">
                         </div></td>
                       </tr>
                       <tr>
                       <th>좌표X</th>
                       <td><input type="text" name="rest_x" id="rest_x"
-                        autocomplete="off"></td>
+                        autocomplete="off" style="width:400px"></td>
                       </tr>
                       <tr>
                         <th>좌표Y</th>
                         <td><input type="text" name="rest_y" id="rest_y"
-                          autocomplete="off"></td>
+                          autocomplete="off" style="width:400px"></td>
                         </tr>
                     <tr>
                       <th>tel</th>
                       <td><input type="text" name="rest_tel" id="rest_tel"
-                        autocomplete="off"></td>
+                        autocomplete="off" style="width:400px"></td>
                     </tr>
                    
                     <tr>
                       <th>영업시간</th>
                       <td><input type="text" name="rest_time" id="rest_time"
-                        autocomplete="off"></td>
+                        autocomplete="off" style="width:400px"></td>
                     </tr>
                     <tr>
                       <th>sns</th>
                       <td><input type="text" name="rest_sns" id="rest_sns"
-                        autocomplete="off"></td>
+                        autocomplete="off" style="width:400px"></td>
                     </tr>
                     <tr>
                       <th>주소</th>
@@ -222,26 +224,26 @@
                         <input type="text" name="rest_Addr" id="sample4_postcode"
                           placeholder="우편번호를 입력해주세요" autocomplete="off"> <input
                           type="button" id="postBtn" onclick="sample4_execDaumPostcode()"
-                          value="우편번호">
+                          value="우편번호" value="${rest_Addr[0]}" style="width:210px">
                       </div>
                       <div class="storeAddrDiv">
                         <input type="text" name="rest_Addr" id="sample4_roadAddress"
-                          placeholder="도로명주소를 입력해주세요" autocomplete="off">
+                          placeholder="도로명주소를 입력해주세요" autocomplete="off" value="${rest_Addr[1]}" style="width:400px">
                       </div>
                       <div class="storeAddrDiv">
                         <input type="text" name="rest_Addr" id="sample4_detailAddress"
-                          placeholder="상세주소를 입력해주세요" autocomplete="off">
+                          placeholder="상세주소를 입력해주세요" autocomplete="off" value="${rest_Addr[2]}" style="width:400px">
                       </div></td>
                     </tr>
                     <tr>
                       <th>레스토랑정보</th>
                       <td> <textarea  id="rest_contents"
-                        name="rest_contents" style="height: 100px"></textarea></td>
+                        name="rest_contents" style="height: 100px;width:400px;"></textarea></td>
                     </tr>
           
                     <tr>
                       <th></th>
-                    <td><button type="submit" name="enrollBtn" id="submitBtn">등록</button></td>
+                    <td><button type="submit" name="enrollBtn" id="submitBtn" style="width:400px;margin-top:30px">등록</button></td>
                   </tr>
             </table>
           </form>
@@ -252,62 +254,37 @@
 </nav>
  
 
- 
-<script src="${contextPath}/resources/js/reportAdmin.js"></script>
+<script src="${contextPath}/resources/js/adminRejisterRest.js"></script>
+<!--<script src="${contextPath}/resources/js/reportAdmin.js"></script>-->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <!-- <script src="../assets/dist/js/bootstrap.bundle.min.js"></script> -->
   
     <script src="/sidebar/sidebars.js"></script>
     <script
-		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<script>
-		function sample4_execDaumPostcode() {
-			new daum.Postcode(
-					{
-						oncomplete : function(data) {
-							// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+      src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+   <script>
 
-							// 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
-							// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-							var roadAddr = data.roadAddress; // 도로명 주소 변수
-							var extraRoadAddr = ''; // 참고 항목 변수
+   function sample4_execDaumPostcode() {
+       new daum.Postcode({
+           oncomplete: function(data) {
+               // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
-							// 법정동명이 있을 경우 추가한다. (법정리는 제외)
-							// 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-							if (data.bname !== ''
-									&& /[동|로|가]$/g.test(data.bname)) {
-								extraRoadAddr += data.bname;
-							}
-							// 건물명이 있고, 공동주택일 경우 추가한다.
-							if (data.buildingName !== ''
-									&& data.apartment === 'Y') {
-								extraRoadAddr += (extraRoadAddr !== '' ? ', '
-										+ data.buildingName : data.buildingName);
-							}
-					
-							// 우편번호와 주소 정보를 해당 필드에 넣는다.
-							document.getElementById('sample4_postcode').value = data.zonecode;
-							document.getElementById("sample4_roadAddress").value = roadAddr;
-				
+               // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+               // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+               var roadAddr = data.roadAddress; // 도로명 주소 변수
 
-							var guideTextBox = document.getElementById("guide");
-							// 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
-							if (data.autoRoadAddress) {
-								var expRoadAddr = data.autoRoadAddress
-										+ extraRoadAddr;
-								guideTextBox.innerHTML = '(예상 도로명 주소 : '
-										+ expRoadAddr + ')';
-								guideTextBox.style.display = 'block';
-
-							} else {
-								guideTextBox.innerHTML = '';
-								guideTextBox.style.display = 'none';
-							}
-						}
-					}).open();
-		}
-	</script>
+               // 우편번호와 주소 정보를 해당 필드에 넣는다.
+               document.getElementById('sample4_postcode').value = data.zonecode;
+               document.getElementById("sample4_roadAddress").value = roadAddr;
+               
+               if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                }
+           }
+       }).open();
+   }
+   </script>
    
-   </body>
-   </html>
+  </body>
+</html>

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.google.gson.Gson;
 
 import semi.Project.muktopia.board.model.service.BoardService;
+import semi.Project.muktopia.member.model.vo.Member;
 
 @WebServlet("/member/board/delete")
 public class BoardDeleteServlet extends HttpServlet{
@@ -20,10 +21,12 @@ public class BoardDeleteServlet extends HttpServlet{
 protected void doPost(HttpServletRequest req, HttpServletResponse resp){
 	int boardNo = Integer.parseInt(req.getParameter("boardNo"));
 	HttpSession session = req.getSession();
+	Member loginMember = (Member) session.getAttribute("loginMember");
+	
 	BoardService service = new BoardService();
 	int result = 0;
 	try {
-		result = service.deleteBoard(boardNo);
+		result = service.deleteBoard(boardNo,loginMember.getMemberNo());
 		
 		
 		if(result > 0) {//성공
