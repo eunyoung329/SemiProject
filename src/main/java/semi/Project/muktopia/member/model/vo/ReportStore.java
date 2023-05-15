@@ -21,7 +21,6 @@ public class ReportStore {
     private String rest_img;
     private  String report_Content;
     private String report_date;
-     private Member loginMember;
      private int report_index;
 
     

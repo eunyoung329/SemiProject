@@ -176,6 +176,7 @@ function renderList(itemList) {
 
   itemList.forEach((item) => {
     const tr = `
+    
       <tr class="member-view-table-body" >
         <td style="border-bottom:1px solid lightgrey;">${item.memberNo}</td>
         <td style="border-bottom:1px solid lightgrey;">${item.memberEmail}</td>
@@ -207,8 +208,30 @@ $('.register-button').click(function() {
   const report_index = $(this).attr('id');
   console.log(report_index);
   //jsp로이동
-  location.href = 'adminRegisterRest';
+  //location.href = 'adminRegisterRest';
+  $.ajax({
+    url:"adminRegisterRest",
+    type:"post",
+    dataType:"JSON",
+    data:{"report_index":report_index},
 
+    success:function(result){
+      console.log(result.rest_name);
+      const reportStore = result;
+      if (reportStore != null) { // 성공
+            // requestScope에 할당
+            
+            
+            // location 이동
+            location.href = "adminRegisterRest";
+        } else { // 실패
+            location.href = "/admin/reportAdmin";
+        }
+    },
+    error:function(error){
+      console.log("실패")
+    }
+  });
 
 });
 
@@ -220,12 +243,13 @@ $('.register-button').click(function() {
   $('.fa-right-from-bracket').click(function() {
     
     var report_index = $(this).attr('id');
+    alert(report_index);
     
     // Ajax 요청을 보냅니다.
     $.ajax({
       url: 'deleteReport', // 삭제를 처리할 서버의 URL
       type: 'POST',
-      data: {report_index: report_index}, // 서버로 보낼 데이터
+      data: {"report_index": report_index}, // 서버로 보낼 데이터
       success: function(result) {
         console.log(result);
         // 삭제에 성공하면 해당 제보 데이터가 삭제된 것을 화면에서 반영합니다.

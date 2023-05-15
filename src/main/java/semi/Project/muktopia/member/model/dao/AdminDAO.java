@@ -305,27 +305,33 @@ public class AdminDAO {
 
 
 
-	 public int adminRegisterRest(Connection conn, String rest_category, String rest_name, String rest_img,
-	         String rest_x, String rest_y, String rest_tel,String rest_time, String rest_sns, String rest_Addr, String rest_contents) throws Exception{
-	      int result=0;
+	 public ReportStore adminRegisterRest(Connection conn, int report_index) throws Exception{
+	      ReportStore result= new ReportStore();
 	        try {
 	            String sql=prop.getProperty("adminRegisterRest");
 	            pstmt=conn.prepareStatement(sql);
 	            
-	            pstmt.setString(1, rest_category);
-	            pstmt.setString(2, rest_name);
-	            pstmt.setString(3, rest_img);
-	            pstmt.setString(4, rest_x);
-	            pstmt.setString(5, rest_y);
-	            pstmt.setString(6, rest_tel);
-	            pstmt.setString(7, rest_time);
-	            pstmt.setString(8, rest_sns);
-	            pstmt.setString(9, rest_Addr);
-	            pstmt.setString(10, rest_contents);
+	            pstmt.setInt(1, report_index);
 	            
-	            
-	           
-	            result = pstmt.executeUpdate();
+	            rs = pstmt.executeQuery();
+	            if(rs.next()) {
+
+	            	result.setMemberNo(rs.getInt(1));
+	            	result.setMemberEmail(rs.getString(2));
+	            	result.setRest_category(rs.getString(3));
+	            	result.setRest_name(rs.getString(4));
+	            	result.setRest_Addr(rs.getString(5));
+	            	result.setRest_img(rs.getString(6));
+	            	
+	            	result.setReport_Content(rs.getString(7));
+	            	result.setReport_date(rs.getString(8));
+	            	result.setReport_index(rs.getInt(9));
+	            	
+	            	
+	            	
+	       
+	            	
+	            }
 	        }finally {
 	            close(pstmt);
 	        }

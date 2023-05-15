@@ -135,14 +135,12 @@ public class AdminService {
 
 
 
-	public int adminRegisterRest( String rest_category, String rest_name, String rest_img, String rest_x,
-	         String rest_y, String rest_tel,String rest_time, String rest_sns, String rest_Addr, String rest_contents)throws Exception {
+	public ReportStore adminRegisterRest( int report_index)throws Exception {
 
 	       Connection conn=getConnection();
-	          int result=dao.adminRegisterRest(conn,rest_category,rest_name,rest_img,rest_x,rest_y,rest_tel,rest_time,rest_sns, rest_Addr,rest_contents);
-	          if(result>0) commit(conn);
-	          else rollback(conn);
-	          close(conn);
+	          ReportStore result=dao.adminRegisterRest(conn,report_index);
+	          
+	          
 	          return result;
 	   }
 
