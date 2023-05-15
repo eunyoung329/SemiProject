@@ -25,6 +25,7 @@ public class EncryptWrapper extends HttpServletRequestWrapper {
 		case "currentPw":
 		case "newPw" :
 		case "loginPw" :
+		case "adminPw" :
 			value = getSha512(super.getParameter(name));
 			break;
 		default : value = super.getParameter(name);

@@ -46,7 +46,8 @@ let tagSum;
 let tagNum=0;
 const valueList = {
     titleValue :false,
-    textValue : false
+    textValue : false,
+    textLengthValue : false
 }
 
 
@@ -96,15 +97,25 @@ function boardinvalidate(){
         valueList.titleValue = true;
     }else{
         valueList.titleValue = false;
+        alert("제목을 입력해주세요");
     }
     if(reqEx2.test(inputArea.value)){
         valueList.textValue = true;
     }else{
         valueList.textValue = false;
+        alert("내용을 입력해주세요");
+    }
+    if(inputArea.value.length<100){
+        valueList.textLengthValue = true;
+        
+    }else{
+        
+        alert("본문의 내용은 1000글자 이하여야만 합니다");
+        valueList.textLengthValue = false;
     }
     
     
-    if(Object.values(valueList).reduce((acc, val) => acc + val, 0) === 2){
+    if(Object.values(valueList).reduce((acc, val) => acc + val, 0) === 3){
         
         
         

@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BoardWrite</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
     <link rel = "stylesheet" href = "${contextPath}/resources/css/boardWrite.css">
     <script src="https://kit.fontawesome.com/d89904c156.js" crossorigin="anonymous"></script>    
@@ -59,6 +60,21 @@
                     <div class="board_content">
                         <textarea id="inputArea" name ="inputArea"></textarea>
                     </div>
+                    <div class = "writeCount">/</div>
+                    <script>
+                        const writeCount = document.getElementsByClassName('writeCount');
+                        $('#inputArea').on('keyup', function(e) {
+                        let content = $(this).val();
+                        console.log(content);
+                        $('.writeCount').text(content.length + "/ 1000"); // 실시간 글자수 카운팅
+
+                      if (content.length > 1000) {
+                        alert("최대 1000자까지 입력 가능합니다.");
+                        $(this).val(content.substring(0, 1000));
+                        $('.writeCount').text("1000 / 최대 1000자");
+                      }
+                    });
+                    </script>
                 </section>
                 <!--뒤로가기 및, 작성완료를 알리는 버튼 바닥에 달라붙어 있어야함-->
                 <section class = "board_Container-4">
@@ -67,14 +83,21 @@
                             <button type="button" id="clear">초기화</button>
                             <button type="submit">보내기</button>
                         </div>
+                        <script>
+                            $('#clear').on('click',function(e){
+                                $('#inputArea').val("");
+                                $('.writeCount').text("0" + "/ 1000");
+                            });
+                        </script>
                     </div>
                 </section>
             </section>
         </form>
     <main>
-        <jsp:include page ="/WEB-INF/views/common/footer.jsp"/>
+    <jsp:include page ="/WEB-INF/views/common/footer.jsp"/>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="${contextPath}/resources/js/main.js"></script>
     <script src="${contextPath}/resources/js/boardWrite.js"></script>
+    
 </body>
 </html>

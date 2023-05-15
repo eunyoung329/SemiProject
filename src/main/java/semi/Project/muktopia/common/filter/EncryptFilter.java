@@ -24,6 +24,7 @@ import semi.Project.muktopia.common.wrapper.EncryptWrapper;
 													"/member/myPage/secession",
 													"/member/myPage/changePwFirst",
 													"/member/myPage/secessionPw",
+													"/admin/adminLogin"
 													})
 public class EncryptFilter extends HttpFilter implements Filter{
 	public EncryptFilter() {

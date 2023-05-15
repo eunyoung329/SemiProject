@@ -73,11 +73,11 @@ public class BoardService {
 		return map;
 	}
 
-	public int deleteBoard(int boardNo) throws Exception{
+	public int deleteBoard(int boardNo, int memberNo) throws Exception{
 		int result = 0;
 		Connection conn = getConnection();
 		try {
-			result = new BoardDAO().deleteBoard(conn, boardNo);
+			result = new BoardDAO().deleteBoard(conn, boardNo,memberNo);
 			if(result>0) {
 				commit(conn);
 			}else {

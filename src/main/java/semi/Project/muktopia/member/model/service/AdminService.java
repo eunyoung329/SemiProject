@@ -10,8 +10,8 @@ import java.util.List;
 
 import semi.Project.muktopia.board.model.vo.Board;
 import semi.Project.muktopia.member.model.dao.AdminDAO;
-import semi.Project.muktopia.member.model.vo.Admin;
 import semi.Project.muktopia.member.model.vo.Member;
+import semi.Project.muktopia.member.model.vo.ReportStore;
 import semi.Project.muktopia.member.model.vo.Restaurant;
 
 
@@ -23,17 +23,18 @@ public class AdminService {
 	Connection conn = getConnection();
 
 	public Member adminlogin(Member mem) throws Exception{
-	     Connection conn = getConnection();
-			
-			// DAO 수행
-			Member loginMember = dao.adminlogin(conn, mem);
-			
-			// Connection 반환
-			close(conn);
-			
-			// 결과 반환
-			return loginMember;
-	}
+        Connection conn = getConnection();
+         
+         // DAO 수행
+         Member loginMember = dao.adminlogin(conn, mem);
+         
+         // Connection 반환
+         close(conn);
+         
+         // 결과 반환
+         return loginMember;
+   }
+
 
 	public List<Board> showList() throws Exception {
 		Connection conn = getConnection();
@@ -98,59 +99,63 @@ public class AdminService {
 	
 
 	
-	public Admin selectOne(String memberEmail)throws Exception {
-		
-       Connection conn = getConnection();
-		
-		Admin admin = dao.selectOne(conn, memberEmail);
-		
-		close(conn);
-		
-		return admin; 
-		
-		
-		
-		
-		
-	}
+	public ReportStore selectOne(String memberEmail)throws Exception {
+	      
+        Connection conn = getConnection();
+      
+      ReportStore report = dao.selectOne(conn, memberEmail);
+      
+      close(conn);
+      
+      return report; 
+      
+      
+      
+      
+      
+   }
 
-	public List<Admin> AdminReportAll() throws Exception{
-		//connection 생성
-				Connection conn=getConnection();
-				
-				//DAO 메서드 호출 후 결과반환받기
-				List<Admin> stdList=dao.AdminReportAll(conn);
-				
-				
-				//트랜잭션 처리(DML인경우에만)
-				
-				//Connection반환
-				close(conn);
-				
-				//결과반환
-				return stdList;
-	}
+
+	public List<ReportStore> AdminReportAll() throws Exception{
+	      //connection 생성
+	            Connection conn=getConnection();
+	            
+	            //DAO 메서드 호출 후 결과반환받기
+	            List<ReportStore> stdList=dao.AdminReportAll(conn);
+	            
+	            
+	            //트랜잭션 처리(DML인경우에만)
+	            
+	            //Connection반환
+	            close(conn);
+	            
+	            //결과반환
+	            return stdList;
+	   }
+
 
 
 	public int adminRegisterRest( String rest_category, String rest_name, String rest_img, String rest_x,
-			String rest_y, String rest_tel,String rest_time, String rest_sns, String rest_Addr, String rest_contents)throws Exception {
+	         String rest_y, String rest_tel,String rest_time, String rest_sns, String rest_Addr, String rest_contents)throws Exception {
 
-		 Connection conn=getConnection();
-         int result=dao.adminRegisterRest(conn,rest_category,rest_name,rest_img,rest_x,rest_y,rest_tel,rest_time,rest_sns, rest_Addr,rest_contents);
-         if(result>0) commit(conn);
-         else rollback(conn);
-         close(conn);
-         return result;
-	}
+	       Connection conn=getConnection();
+	          int result=dao.adminRegisterRest(conn,rest_category,rest_name,rest_img,rest_x,rest_y,rest_tel,rest_time,rest_sns, rest_Addr,rest_contents);
+	          if(result>0) commit(conn);
+	          else rollback(conn);
+	          close(conn);
+	          return result;
+	   }
 
 
-	public int DeleteReport(String memberNo)throws Exception {
-		Connection conn=getConnection();
-		int result=dao.deleteReport(conn,memberNo);
-		 if(result>0) commit(conn);
-        else rollback(conn);
-		close(conn);
-		return result;
-	}
+
+	public int DeleteReport(int report_index)throws Exception {
+	      Connection conn=getConnection();
+	      int result=dao.deleteReport(conn,report_index);
+	       if(result>0) commit(conn);
+	         else rollback(conn);
+	      close(conn);
+	      return result;
+	   }
+
 
 }
