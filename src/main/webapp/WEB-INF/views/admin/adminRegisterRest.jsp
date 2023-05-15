@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ page import="semi.Project.muktopia.member.model.vo.ReportStore" %>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head><script src="../assets/js/color-modes.js"></script>
@@ -24,14 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-    
-    
-    
-    
-    
-    
-    
-    <style>
+<style>
       
     </style>
 
@@ -40,6 +33,8 @@
     <link href="sidebars.css" rel="stylesheet">
   </head>
   <body>
+    <!-- <%-- session에 message 속성이 존재하는 경우 alert창으로 해당 내용을 출력 --%>-->
+
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
       <symbol id="check2" viewBox="0 0 16 16">
         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
@@ -158,7 +153,7 @@
       <div class="main4">
   
         <section class="enroll-Content">
-          <form action="adminRegisterRest" name="RegisterAdmin-form" method="post"
+          <form action="restaurantInsert" name="RegisterAdmin-form" method="post"
           enctype="multipart/form-data" onsubmit="return AdminValidateForm()">
 
             <table style="width:800px">
@@ -170,7 +165,7 @@
                   <th>카테고리선택</th>
                   <td>
                     <select class="form-select" aria-label="Default select example"
-                    name="rest_category" id="rest_category" value="${rest_category}" style="width:400px">
+                    name="rest_category" id="rest_category" value="" style="width:400px">
                     <option value="" selected>카테고리선택</option>
                     <option value="한식">한식</option>
                     <option value="양식">양식</option>
@@ -184,12 +179,12 @@
                         
                         <th>레스토랑이름</th>
                         <td><input type="text" name="rest_name" id="rest_name"
-                          autocomplete="off" value="${requestScope.rest_name}" style="width:400px"></td>
+                          autocomplete="off" style="width:400px"></td>
                       </tr>
                       <tr>
                         <th>이미지</th>
                         <td><div>
-                          <input type="file" name="rest_img" id="rest_img" value="${rest_img}" style="width:400px">
+                          <input type="file" name="rest_img" id="rest_img" style="width:400px">
                         </div></td>
                       </tr>
                       <tr>
@@ -224,21 +219,21 @@
                         <input type="text" name="rest_Addr" id="sample4_postcode"
                           placeholder="우편번호를 입력해주세요" autocomplete="off"> <input
                           type="button" id="postBtn" onclick="sample4_execDaumPostcode()"
-                          value="우편번호" value="${rest_Addr[0]}" style="width:210px">
+                          value="우편번호" value="." style="width:210px">
                       </div>
                       <div class="storeAddrDiv">
                         <input type="text" name="rest_Addr" id="sample4_roadAddress"
-                          placeholder="도로명주소를 입력해주세요" autocomplete="off" value="${rest_Addr[1]}" style="width:400px">
+                          placeholder="도로명주소를 입력해주세요" autocomplete="off" value="." style="width:400px">
                       </div>
                       <div class="storeAddrDiv">
                         <input type="text" name="rest_Addr" id="sample4_detailAddress"
-                          placeholder="상세주소를 입력해주세요" autocomplete="off" value="${rest_Addr[2]}" style="width:400px">
+                          placeholder="상세주소를 입력해주세요" autocomplete="off" value="." style="width:400px">
                       </div></td>
                     </tr>
                     <tr>
                       <th>레스토랑정보</th>
                       <td> <textarea  id="rest_contents"
-                        name="rest_contents" style="height: 100px;width:400px;"></textarea></td>
+                        name="rest_contents" style="height: 100px;width:400px;" value =""></textarea></td>
                     </tr>
           
                     <tr>
@@ -285,6 +280,48 @@
        }).open();
    }
    </script>
-   
+   <c:if test="${!empty sessionScope.reportStore}">
+    <%
+        ReportStore reportStore = (ReportStore)session.getAttribute("reportStore");
+        
+    %> 
+    <script>
+      let reportStoreName = "<%=reportStore.getRest_name()%>";
+      
+      let reportStoreCategory ="<%=reportStore.getRest_category()%>";
+      let reportStoreImg = "<%=reportStore.getRest_img()%>"
+      let reportStoreContent = "<%=reportStore.getReport_Content()%>"
+      let reportStoreAddr = "<%=reportStore.getRest_Addr()%>".split(",");
+      console.log(reportStoreCategory);
+      
+      switch(reportStoreCategory){
+      case '카페':
+        $("#rest_category").val("카페").prop("selected", true);
+        break;
+      case '한식':
+      $("#rest_category").val("한식").prop("selected", true);
+        break;
+      case '양식':
+      $("#rest_category").val("양식").prop("selected", true);
+        break;
+      case '베이커리':
+      $("#rest_category").val("베이커리").prop("selected", true);
+        break;
+      case '기타':
+      $("#rest_category").val("기타").prop("selected", true);
+        break;
+      }
+      document.getElementById("rest_name").value = reportStoreName;
+      //document.getElementById("rest_img").value = reportStoreImg;
+      document.getElementById("rest_contents").innerText = reportStoreContent;
+      document.getElementById("sample4_postcode").value = reportStoreAddr[0];
+      document.getElementById("sample4_roadAddress").value = reportStoreAddr[1];
+      document.getElementById("sample4_detailAddress").value = reportStoreAddr[2];
+      alert("있내ㅑ");
+    </script>
+    <%
+    session.removeAttribute("reportStore");
+    %>
+</c:if>
   </body>
 </html>

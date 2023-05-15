@@ -97,6 +97,17 @@ public class RestaurantService {
 		return result0;
 	}
 
+	public int adminRegisterRest(String rest_category, String rest_name, String rest_img, String rest_x, String rest_y,
+			String rest_tel, String rest_time, String rest_sns, String rest_Addr, String rest_contents) throws Exception{
+		int result = 0;
+		Connection conn = getConnection();
+		RestaurantDAO dao = new RestaurantDAO();
+		result = dao.adminRegisterRest(conn,rest_category,rest_name,rest_img,rest_x,rest_y,rest_tel,rest_time,rest_sns,rest_Addr,rest_contents);
+		if(result>0)commit(conn);
+		else rollback(conn);
+		return result;
+	}
+
 	
 	
 
