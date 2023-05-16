@@ -87,11 +87,16 @@ function profileValidate() {
 
 
 
+
 // 정보 변경하기 -------------------------------------------------------------------------------
 // 닉네임 중복 체크
 const nickInput = document.getElementById("nickName");
 const nickMsg = document.getElementById("infoChange_nickMsg");
-let nickChk = false; 
+let infoCheck = {
+  nick : false,
+  tel : false,
+  birth : false
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   nickInput.addEventListener("input", function () {
@@ -108,8 +113,8 @@ document.addEventListener("DOMContentLoaded", function () {
             nickMsg.classList.add("confirm");
             nickMsg.classList.remove("error");
 
-            nickChk = true;
-            console.log("nickChk 가능:" , nickChk);
+            infoCheck.nick = true;
+            console.log("nickChk 가능:" , infoCheck.nick);
             
             
 
@@ -182,20 +187,16 @@ birthInput.addEventListener("input", function(event){
 
 
 
+
 // 회원가입 검사
 function infoValidate(event){
 
   console.log("form 전송? ")
 
-  let infoCheck = {
-    nick : false,
-    tel : false,
-    birth : false
-  }
 
-  if(nickChk == false){
+  if(infoCheck.nick == false){
     alert("부적합한 닉네임입니다. 다시 확인해주세요.")
-    console.log("nickChk valdi:" , nickChk);
+    console.log("nickChk valdi:" , infoCheck.nick);
 
   } else{
     infoCheck.nick = true;
@@ -229,3 +230,9 @@ function infoValidate(event){
 
   }
 }
+
+
+
+
+
+
