@@ -40,7 +40,7 @@ document.getElementById("searchBtn").addEventListener("click", function() {
         // 이전에 존재하던 내용 삭제
         
         table.innerHTML = `
-        <tr class="member-view-table-tr" style="border-top:2px solid #8aa088;border-bottom:2px solid #8aa088;">
+        <tr class="member-view-table-tr">
         <th>회원번호</th>
         <th>이메일</th>
         <th>카테고리</th>
@@ -188,9 +188,9 @@ function renderList(itemList) {
         <td style="border-bottom:1px solid lightgrey;">${item.rest_Addr}</td>
         <td style="border-bottom:1px solid lightgrey;">${item.report_Content}</td>
         <td style="border-bottom:1px solid lightgrey;">${item.report_date}</td>
-        <td><button class="fa-solid fa-right-from-bracket" id="${item.report_index}" style="color: #005200;border:none;"></button></td>
-        <td><button  class="register-button" id="${item.report_index}" >등록</button></td>
-     
+        <td><i class="fa-solid fa-right-from-bracket" id="${item.report_index}" style="color: #005200;border:none;"></i></td>
+        <td><i class="register-button fa-solid fa-folder-plus fa-lg" id="${item.report_index}" style="color: #005200;"></i></td>
+   
         </tr>
 
       </tr>

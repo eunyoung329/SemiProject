@@ -88,17 +88,12 @@
  <!-- 하얀색 -->
  <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;">
   <a href="${contextPath}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-    <img src="/sidebar/img/logo_trans.png" alt="" width="50" height="50" class="rounded-circle me-2">
+    <img src="${contextPath}/resources/img/logo.png" alt="" width="50" height="50" class="rounded-circle me-2">
     <span class="logo-text">&nbsp;LET'S VEGAN</span>
   </a>
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
-    <li class="nav-item">
-      <a href="${contextPath}" class="nav-link link-body-emphasis " aria-current="page">
-        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-        메인홈으로
-      </a>
-    </li>
+ 
     <li class="nav-item">
       <a href="${contextPath}/admin/restAdmin" class="nav-link link-body-emphasis">
         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
@@ -127,7 +122,7 @@
   <hr>
   <div class="dropdown">
     <div class="d-flex align-items-center link-body-emphasis text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
-      <img src="/sidebar/img/logo_trans.png" alt="" width="32" height="32" class="rounded-circle me-2">
+      <img src="${contextPath}/resources/img/logo.png" alt="" width="32" height="32" class="rounded-circle me-2">
       <strong style="color: rgb(0, 82, 0);">admin  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
       <a href="${contextPath}/admin/adminLogOut">
         <button class="button-59" role="button">logout</button>
@@ -145,7 +140,7 @@
 
  <!-- 사이드바 끝 -->
  <!--메인화면-->
- <div id="admin-container" style="border: 2px solid red">
+ <div id="admin-container" ">
   <div id="admin-title" >
     <svg class="bi pe-none me-2" width="22" height="22"><use xlink:href="#speedometer2"/></svg>
     <span class="text-title">제보 관리</span>
@@ -160,7 +155,7 @@
     <div class="main2">
       <div class="search_area">
       <input type="text" id="memberEmail" name="memberEmail" placeholder="멤버이메일을 입력해주세요">
-      <button id="searchBtn">search</button>
+      <button id="searchBtn" class="button-6">search</button>
       </div>
     </div>
     
@@ -168,6 +163,7 @@
   
   
       <!-- selectAll구역-->
+      <div id="tableWrapper">
       <div id="boardDiv">
         <table id="member-view-table" style="width:100%;">
           <!-- <tr class="member-view-table-tr" style="border-top:2px solid #8aa088;border-bottom:2px solid #8aa088;">
@@ -184,6 +180,7 @@
           
         </table>
       </div>
+       </div>
   
       </div><!--main3끝내기-->
   
@@ -245,3 +242,4 @@
    </c:if>
    </body>
    </html>
+   

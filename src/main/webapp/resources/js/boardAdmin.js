@@ -42,6 +42,8 @@ function selectAllBoard(showItems) {
         const td2 = document.createElement("td");
         const img = document.createElement("img");
         img.src = "../"+item.boardImage;
+        img.style.width = "200px"; // Set the width of the image
+      img.style.height = "auto"; // Maintain the aspect ratio
         td2.appendChild(img);
         const td3 = document.createElement("td");
         td3.innerText = item.title;
@@ -82,4 +84,3 @@ function selectAllBoard(showItems) {
         tableBody_board.append(tr);
     }
 }
-

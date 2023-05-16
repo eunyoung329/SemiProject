@@ -74,18 +74,12 @@
 
  <!-- 하얀색 -->
  <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;">
-  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+  <a href="${contextPath}/admin/restAdmin" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
     <img src="${contextPath}/resources/img/logo.png" alt="" width="50" height="50" class="rounded-circle me-2">
     <span class="logo-text">&nbsp;LET'S VEGAN</span>
   </a>
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
-    <li class="nav-item">
-      <a href="#" class="nav-link link-body-emphasis " aria-current="page">
-        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-        메인홈으로
-      </a>
-    </li>
     <li class="nav-item">
       <a href="${contextPath}/admin/restAdmin" class="nav-link link-body-emphasis">
         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
@@ -116,7 +110,7 @@
     <div class="d-flex align-items-center link-body-emphasis text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
       <img src="${contextPath}/resources/img/logo.png" alt="" width="32" height="32" class="rounded-circle me-2">
       <strong style="color: rgb(0, 82, 0); font-size: 16px;">admin  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
-      <a href="#"">
+      <a href="${contextPath}/admin/adminLogOut">
         <button class="button-59" role="button">logout</button>
       </a>
 
@@ -143,35 +137,34 @@
 
     <div class="admin-search-section" >
      
-        <table id="memberForm">
+      
+         <table id ="restForm">
           <tr>
-            <td class="member-label">ㆍ 카테고리별 분류</td>
+            <td class="rest-label">ㆍ 카테고리별 분류</td>
             <td>
-              <input type="radio" name="status" id="all-member" checked>&nbsp;전체가게&nbsp;&nbsp;
+              <input type="radio" name="status" id="all-member" checked>&nbsp;모든 카테고리&nbsp;&nbsp;
               <input type="radio" name="status" id="k-food">&nbsp;한식&nbsp;&nbsp;
               <input type="radio" name="status" id="w-food">&nbsp;양식&nbsp;&nbsp;
               <input type="radio" name="status" id="cafe">&nbsp;카페&nbsp;&nbsp;
               <input type="radio" name="status" id="bakery">&nbsp;베이커리&nbsp;&nbsp;
               <input type="radio" name="status" id="etc">&nbsp;기타
             </td>
-          </tr>
-        </table>
+            <td></td>
 
-        <table>
+
+          </tr>
           <tr>
-            <td class="member-label">ㆍ가게 이름 조회</td>
+            <td class="rest-label">ㆍ 가게 이름 조회</td>
             <td>
               <input type="text" name="inputrestName">           
               <button class="button-6"  id="searchBtn">검색하기</button>
             </td>
-            <td>
-             
-            </td>
+			<td></td>
           </tr>
         </table>
-        
   
     </div>
+    
     <div id="tableWrapper">
     
     <!-- 회원 출력 페이지 -->
@@ -181,40 +174,28 @@
           <br>
         </div> -->
     
-        <table>
+          <table id="member-view-table">
           <thead>
-            <tr class="member-view-table">
-              <td>가게id</td>
-              <td>이미지</td>
-              <td>이름</td>
-              <td>주소</td>
-              <td>카테고리</td>
-              <td>글 내용</td>
-              <td>TEL</td>
-              <td>TIME</td>
-              <td>sns</td>
-              <td>삭제</td>
+            <tr class="member-view-table-tr">
+              <th>가게id</th>
+              <th>이미지</th>
+              <th>이름</th>
+              <th>주소</th>
+              <th>카테고리</th>
+              <th>글 내용</th>
+              <th>TEL</th>
+              <th>TIME</th>
+              <th>sns</th>
+              <th>삭제</th>
             </tr>
           </thead>
-          <tbody id="member-view-table-tr">
+          <tbody id="rest-tbody">
 
           </tbody>    
         </table>
       </div>
   </div>
 </div>
-<%-- session에 message 속성이 존재하는 경우 alert창으로 해당 내용을 출력 --%>
-   <c:if test="${ !empty sessionScope.message }">
-       <script>
-           alert("${message}");
-           // EL 작성 시 scope를 지정하지 않으면
-           // page -> request -> session -> application 순서로 검색하여
-           // 일치하는 속성이 있으면 출력
-       </script>
-       
-       <%-- message 1회 출력 후 session에서 제거 --%>
-       <c:remove var="message" scope="session"/>
-   </c:if>
 </main>
 
 
