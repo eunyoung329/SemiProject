@@ -82,18 +82,12 @@
 
  <!-- 하얀색 -->
  <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;">
-  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-    <img src="/sidebar/img/logo_trans.png" alt="" width="50" height="50" class="rounded-circle me-2">
+  <a href="${contextPath}/admin/restAdmin" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+    <img src="${contextPath}/resources/img/logo.png" alt="" width="50" height="50" class="rounded-circle me-2">
     <span class="logo-text">&nbsp;LET'S VEGAN</span>
   </a>
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
-    <li class="nav-item">
-      <a href="#" class="nav-link link-body-emphasis " aria-current="page">
-        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-        메인홈으로
-      </a>
-    </li>
     <li class="nav-item">
       <a href="#" class="nav-link link-body-emphasis">
         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
@@ -122,7 +116,7 @@
   <hr>
   <div class="dropdown">
     <div class="d-flex align-items-center link-body-emphasis text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
-      <img src="/sidebar/img/logo_trans.png" alt="" width="32" height="32" class="rounded-circle me-2">
+      <img src="${contextPath}/resources/img/logo.png" alt="" width="32" height="32" class="rounded-circle me-2">
       <strong style="color: rgb(0, 82, 0);">admin  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
       <a href="${contextPath}/admin/adminLogOut">
         <button class="button-59" role="button">logout</button>
@@ -317,7 +311,7 @@
       document.getElementById("sample4_postcode").value = reportStoreAddr[0];
       document.getElementById("sample4_roadAddress").value = reportStoreAddr[1];
       document.getElementById("sample4_detailAddress").value = reportStoreAddr[2];
-      alert("있내ㅑ");
+      //alert("있내ㅑ");
     </script>
     <%
     session.removeAttribute("reportStore");

@@ -16,6 +16,7 @@
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="${contextPath}/resources/css/mainAdmin.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/boardAdmin.css">
     <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sidebars/"> 
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -74,18 +75,12 @@
 
  <!-- 하얀색 -->
  <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;">
-  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+  <a href="${contextPath}/admin/restAdmin" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
     <img src="${contextPath}/resources/img/logo.png" alt="" width="50" height="50" class="rounded-circle me-2">
     <span class="logo-text">&nbsp;LET'S VEGAN</span>
   </a>
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
-    <li class="nav-item">
-      <a href="#" class="nav-link link-body-emphasis " aria-current="page">
-        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-        메인홈으로
-      </a>
-    </li>
     <li class="nav-item">
       <a href="${contextPath}/admin/restAdmin" class="nav-link link-body-emphasis">
         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
@@ -133,16 +128,18 @@
  <!-- 사이드바 끝 -->
 
  <!--메인화면-->
-  <div id="admin-container" style="border: 2px solid red; text-align: center;">
+  <div id="admin-container" >
     <div id="admin-title" >
       <svg class="bi pe-none me-2" width="25" height="25"><use xlink:href="#speedometer2"/></svg>
       <span class="text-title">게시판 관리</span>
       <hr style="margin: top 7px;">
     </div>
     <!-- 이 안에 페이지 만들기! -->
-    <table border="0" style="width: 80%; margin: 0 auto;">
+     <div id="tableWrapper">
+    <div class="admin-search-section" >
+    <table id="member-view-table">
       <thead>
-          <tr style="background-color: #d4f386b6; font-size: 18px;">
+          <tr class="member-view-table-tr">
               <th>번호</th>
               <th>이미지</th>
               <th>제목</th>
@@ -153,13 +150,15 @@
               <th>삭제</th>
           </tr>
       </thead>
-      <tbody id="tableBody_board" style="background-color: #d8eea257; font-size: 13px;">
+      <tbody id="tableBody_board" class="member-view-table-body">
       
       </tbody>
   </table>
 
 
   </div>
+   </div>
+    </div>
 </main>
 
 

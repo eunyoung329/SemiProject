@@ -10,47 +10,44 @@
     background-color: white;
     border: 1px solid white;
     font-size: 16px;
-
 }
-
-
-
-.rest-label{
+.member-label{
     color: rgb(0, 82, 0);
     font-size: 18px;
     font-weight: bold;
   }
 
-#restForm {
+#memberForm {
     width: 100%;
     border-collapse: collapse;
   }
   
-  #restForm td {
+  #memberForm td {
     padding: 10px;
     border: 1px solid white;
   }
   
-  #restForm tr:first-child td {
+  #memberForm tr:first-child td {
     width:30%;
-
   }
   
-  #restForm tr:nth-child(2) td {
+  #memberForm tr:nth-child(2) td {
     width: 30%;
-
   }
   
-  #restForm tr:last-child td {
+  #memberForm tr:last-child td {
     width: 40%;
- 
   }
 
-  #restForm input {
+  #memberForm input {
     border: none;
     border-bottom: 1px solid  rgba(0, 82, 0, 0.432);
   }
 
+  #memberForm select{
+    border: none;
+    /* border-bottom: 1px solid  rgba(0, 82, 0, 0.432); */
+  }
 
   /* ===============출력화면================ */
   .member-view-section{
@@ -85,31 +82,19 @@
     background-color: rgba(0, 82, 0, 0.041) ;
     font-size: 18px;
     font-weight: bold;
+    border: none;
     border-top: 1px solid  rgba(0, 82, 0, 0.521);
     border-bottom: 1px solid   rgba(0, 82, 0, 0.521);
     /* padding: 5px;
     margin-top: 10px; */
 }
 
-
-
 .member-view-table-body{
     
     color: rgb(36, 34, 34);
     font-size: 15px;
     padding: 20px;
-    
-    
 }
-
-
-.member-view-table-body td{
-    width: 100px;
-
-    
-}
-
-
 
 
 
@@ -168,52 +153,14 @@
     margin-bottom: 3px;
   }
 
-  .marker-image {
-    height: 100px;
-    text-align: center;
-    }
-
-
-  .marker-image img{
-    height: 100%;
-}
-
-#tableWrapper {
-  max-height: 700px; 
+  #tableWrapper {
+  max-height: 900px; 
   overflow-y: auto;
-}
-
-#member-view-table{
-    font-size: 16px;
-    width: 100%;
-    border-collapse: collapse;
-    border: none;
-
-    text-align: center;
-    background-color:white;
-  }
-
-
-.member-view-table-tr{
-    color: rgb(0, 82, 0);
-    background-color: rgba(0, 82, 0, 0.041) ;
-    font-size: 18px;
-    font-weight: bold;
-    border: none;
-    border-top: 1px solid  rgba(0, 82, 0, 0.521);
-    border-bottom: 1px solid   rgba(0, 82, 0, 0.521);
-    /* padding: 5px;
-    margin-top: 10px; */
-}
-
-.member-view-table-body{
-    
-    color: rgb(36, 34, 34);
-    font-size: 15px;
-    padding: 20px;
 }
 
 #member-view-table th {
   white-space: nowrap;
    padding: 0 20px;
 }
+
+  
