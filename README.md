@@ -58,15 +58,15 @@
     
 <br><br>
 <b>1.관리자 로그인</b><br>
-<img width="500" src="https://github.com/eunyoung329/SemiProject/assets/125863767/9052a94d-e7a2-46fa-8c27-b0f5ef3bc6b5"><br>
-<img width="500" src="https://github.com/eunyoung329/SemiProject/assets/125863767/7258f469-ebbf-489d-9321-83ac875897b4">
+<img width="500" src="https://github.com/eunyoung329/SemiProject/assets/125863767/84fc252f-b11e-405e-b558-671f72c34097"><br>
+<img width="500" src="https://github.com/eunyoung329/SemiProject/assets/125863767/17f5d3e8-5dc6-4d2d-ad29-9fbdc22b3842">
 <br>
 &nbsp;&nbsp;-Bcrypt 비밀번호 암호화를 통한 로그인 구현<br>
 &nbsp;&nbsp;-쿠키로 아이디 저장하기 구현하여 로그인 성공 시 쿠키 저장(365일)
 
 <br><br>
 <h3>2.제보하기</h3>
-<img width="500" src="https://github.com/eunyoung329/SemiProject/assets/125863767/1fb9af97-068e-48a0-b471-b0b045d89eae"><br>
+<img width="500" src="https://github.com/eunyoung329/SemiProject/assets/125863767/a5220e77-39d5-4682-a51b-055d3edb0fb1"><br>
 <br>
 &nbsp;&nbsp; - 사이드바의 가게제보,메인페이지의 제보하기버튼을 통해 사용자는 레스토랑을 제보할 수 있다. <br>
 &nbsp;&nbsp; - 이미지,주소,제보내용등 자세한 정보를 제공하며 해당내용은 검수를 거쳐 운영자에 의해 정식등록된다.<br>
@@ -75,7 +75,7 @@
 
 <br><br>
 <h3>관리자페이지_제보/등록</h3>
-<img width="500"src="https://github.com/eunyoung329/SemiProject/assets/125863767/62e8336b-5405-429b-a3fd-3bda5c9a98e5"><br>
+<img width="500"src="https://github.com/eunyoung329/SemiProject/assets/125863767/65160601-1949-41ed-b396-0ce1e7f87cb0"><br>
 <br>
 &nbsp;&nbsp;- AJAX를 사용하여 사이드메뉴의 제보관리를 클릭하면 메인화면에 제보된 전체내용이 표시된다.
 &nbsp;&nbsp;- AJAX를 사용하여 회원이메일을 검색하면 회원정보와 회원이 제보한 내용이 표시된다.
